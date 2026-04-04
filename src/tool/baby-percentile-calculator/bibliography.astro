@@ -1,0 +1,7 @@
+---
+import { Bibliography as BibliographyUI } from '@jjlmoya/utils-shared';
+import type { BibliographyEntry } from '../../types';
+interface Props { links?: BibliographyEntry[]; title: string; }
+const { links = [], title } = Astro.props;
+---
+<BibliographyUI links={links} title={title} />

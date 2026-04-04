@@ -1,0 +1,419 @@
+.fertile-days-estimator {
+  --fde-bg: #fff;
+  --fde-bg-step: #fff;
+  --fde-bg-sidebar: #fdf2f8;
+  --fde-bg-dark: #18181b;
+  --fde-text: #111827;
+  --fde-text-muted: #64748b;
+  --fde-text-pink: #9d174d;
+  --fde-border: #e5e7eb;
+  --fde-border-pink: #fbcfe8;
+  --fde-shadow: rgba(219, 39, 119, 0.08);
+  --fde-primary: #db2777;
+  --fde-primary-dark: #be123c;
+  --fde-primary-soft: #fdf2f8;
+  --fde-primary-on: #fff;
+  --fde-period-bg: #ffe4e6;
+  --fde-period-text: #be123c;
+  --fde-fertile-bg: #fdf2f8;
+  --fde-fertile-text: #db2777;
+  --fde-calendar-day: #374151;
+  --fde-calendar-day-bg: #fff;
+  --fde-legend-bg: #f9fafb;
+  --fde-legend-text: #4b5563;
+  --fde-range-accent: #db2777;
+
+  width: 100%;
+  color: var(--fde-text);
+}
+
+.theme-dark .fertile-days-estimator {
+  --fde-bg: #18181b;
+  --fde-bg-step: #18181b;
+  --fde-bg-sidebar: #111113;
+  --fde-bg-dark: #18181b;
+  --fde-text: #fff;
+  --fde-text-muted: #9ca3af;
+  --fde-text-pink: #f472b6;
+  --fde-border: #27272a;
+  --fde-border-pink: #27272a;
+  --fde-shadow: rgba(0, 0, 0, 0.5);
+  --fde-primary: #f472b6;
+  --fde-primary-dark: #ec4899;
+  --fde-primary-soft: #18181b;
+  --fde-primary-on: #fff;
+  --fde-period-bg: #ffe4e6;
+  --fde-period-text: #be123c;
+  --fde-fertile-bg: #27272a;
+  --fde-fertile-text: #f472b6;
+  --fde-calendar-day: #e5e7eb;
+  --fde-calendar-day-bg: #1e1e21;
+  --fde-legend-bg: #111113;
+  --fde-legend-text: #9ca3af;
+  --fde-range-accent: #f472b6;
+}
+
+.fertile-days-estimator-step-indicator {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.fertile-days-estimator-step-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--fde-text-muted);
+  opacity: 0.5;
+  transition: opacity 0.2s;
+}
+
+.fertile-days-estimator-step-item.active {
+  color: var(--fde-primary);
+  opacity: 1;
+}
+
+.fertile-days-estimator-step-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 50%;
+  background: var(--fde-primary-soft);
+  color: var(--fde-primary);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  border: 2px solid var(--fde-border-pink);
+}
+
+.fertile-days-estimator-step-item.active .fertile-days-estimator-step-number {
+  background: var(--fde-primary);
+  color: var(--fde-primary-on);
+  border-color: var(--fde-primary);
+}
+
+.fertile-days-estimator-step-first {
+  background: var(--fde-bg-step);
+  border: 1px solid var(--fde-border);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.fertile-days-estimator-step-first.hidden {
+  display: none;
+}
+
+.fertile-days-estimator-step-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--fde-text);
+  margin: 0;
+}
+
+.fertile-days-estimator-step-subtitle {
+  font-size: 0.9375rem;
+  color: var(--fde-text-muted);
+  margin: 0;
+}
+
+.fertile-days-estimator-pulse-hint {
+  font-size: 0.8125rem;
+  color: var(--fde-primary);
+  margin: 0;
+  font-style: italic;
+}
+
+.fertile-days-estimator-layout {
+  display: none;
+  grid-template-columns: 18rem 1fr;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.fertile-days-estimator-layout.active {
+  display: grid;
+}
+
+@media (max-width: 720px) {
+  .fertile-days-estimator-layout.active {
+    grid-template-columns: 1fr;
+  }
+}
+
+.fertile-days-estimator-sidebar {
+  background: var(--fde-bg-sidebar);
+  border: 1px solid var(--fde-border-pink);
+  border-radius: 1rem;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.fertile-days-estimator-sidebar-header strong {
+  display: block;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--fde-text-pink);
+  margin-bottom: 0.25rem;
+}
+
+.fertile-days-estimator-sidebar-header p {
+  font-size: 0.8125rem;
+  color: var(--fde-text-muted);
+  margin: 0;
+}
+
+.fertile-days-estimator-input-card {
+  background: var(--fde-bg);
+  border: 1px solid var(--fde-border);
+  border-radius: 0.75rem;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.fertile-days-estimator-range-label {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--fde-text-muted);
+}
+
+.fertile-days-estimator-range-control {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.fertile-days-estimator-range-input {
+  flex: 1;
+  accent-color: var(--fde-range-accent);
+  cursor: pointer;
+}
+
+.fertile-days-estimator-range-value {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--fde-primary);
+  white-space: nowrap;
+}
+
+.fertile-days-estimator-results {
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+}
+
+.fertile-days-estimator-stat {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: var(--fde-bg);
+  border: 1px solid var(--fde-border);
+  border-radius: 0.625rem;
+  padding: 0.75rem;
+}
+
+.fertile-days-estimator-stat-dot {
+  width: 0.875rem;
+  height: 0.875rem;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.fertile-days-estimator-stat-dot-ovulation {
+  background: var(--fde-primary);
+}
+
+.fertile-days-estimator-stat-dot-fertile {
+  background: var(--fde-fertile-text);
+  opacity: 0.6;
+}
+
+.fertile-days-estimator-stat-dot-period {
+  background: var(--fde-period-text);
+}
+
+.fertile-days-estimator-stat-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+}
+
+.fertile-days-estimator-stat-label {
+  font-size: 0.75rem;
+  color: var(--fde-text-muted);
+  font-weight: 500;
+}
+
+.fertile-days-estimator-stat-value {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--fde-text);
+}
+
+.fertile-days-estimator-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.fertile-days-estimator-calendar {
+  background: var(--fde-bg);
+  border: 1px solid var(--fde-border);
+  border-radius: 1rem;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.fertile-days-estimator-calendar-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.fertile-days-estimator-month-label {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: var(--fde-text);
+  text-transform: capitalize;
+}
+
+.fertile-days-estimator-nav-buttons {
+  display: flex;
+  gap: 0.375rem;
+}
+
+.fertile-days-estimator-nav-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background: var(--fde-primary-soft);
+  color: var(--fde-primary);
+  border: none;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.fertile-days-estimator-nav-btn:hover {
+  background: var(--fde-border-pink);
+}
+
+.fertile-days-estimator-calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.25rem;
+}
+
+.fertile-days-estimator-day-header {
+  text-align: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--fde-text-muted);
+  padding: 0.25rem 0;
+}
+
+.fertile-days-estimator-day {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--fde-calendar-day);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: background 0.1s, color 0.1s;
+}
+
+.fertile-days-estimator-day:hover {
+  background: var(--fde-primary-soft);
+  color: var(--fde-primary);
+}
+
+.fertile-days-estimator-day-empty {
+  pointer-events: none;
+}
+
+.fertile-days-estimator-day-today {
+  border: 2px solid var(--fde-primary);
+  color: var(--fde-primary);
+}
+
+.fertile-days-estimator-day-selected {
+  background: var(--fde-period-bg);
+  color: var(--fde-period-text);
+  font-weight: 700;
+}
+
+.fertile-days-estimator-day-fertile {
+  background: var(--fde-fertile-bg);
+  color: var(--fde-fertile-text);
+}
+
+.fertile-days-estimator-day-ovulation {
+  background: var(--fde-primary);
+  color: var(--fde-primary-on);
+  font-weight: 700;
+}
+
+.fertile-days-estimator-day-period {
+  background: var(--fde-period-bg);
+  color: var(--fde-period-text);
+}
+
+.fertile-days-estimator-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  background: var(--fde-legend-bg);
+  border-radius: 0.75rem;
+  padding: 0.875rem 1rem;
+}
+
+.fertile-days-estimator-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  font-size: 0.75rem;
+  color: var(--fde-legend-text);
+}
+
+.fertile-days-estimator-legend-dot {
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.fertile-days-estimator-legend-dot-selected {
+  background: var(--fde-period-bg);
+  border: 2px solid var(--fde-period-text);
+}
+
+.fertile-days-estimator-legend-dot-period {
+  background: var(--fde-period-bg);
+}
+
+.fertile-days-estimator-legend-dot-fertile {
+  background: var(--fde-fertile-bg);
+  border: 2px solid var(--fde-fertile-text);
+}
+
+.fertile-days-estimator-legend-dot-ovulation {
+  background: var(--fde-primary);
+}

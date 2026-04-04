@@ -1,0 +1,54 @@
+import type { BabiesToolEntry, ToolDefinition, ToolLocaleContent } from '../../types';
+import BabyPercentileCalculatorComponent from './component.astro';
+import BabyPercentileCalculatorSEO from './seo.astro';
+import BabyPercentileCalculatorBibliography from './bibliography.astro';
+
+export interface BabyPercentileCalculatorUI {
+  [key: string]: string;
+  labelMeasurements: string;
+  labelSex: string;
+  sexBoy: string;
+  sexGirl: string;
+  unitMonths: string;
+  unitYearsMonths: string;
+  labelWeight: string;
+  labelHeight: string;
+  btnAddHistory: string;
+  btnClearHistory: string;
+  labelDashboard: string;
+  labelWeight2: string;
+  labelHeight2: string;
+  labelBMI: string;
+  labelCalculating: string;
+  disclaimer: string;
+  labelLowRange: string;
+  labelLowNormal: string;
+  labelNormal: string;
+  labelHighNormal: string;
+  labelHighRange: string;
+  alertOutOfRange: string;
+  labelMonths: string;
+  faqTitle: string;
+  bibliographyTitle: string;
+}
+
+export type BabyPercentileCalculatorLocaleContent = ToolLocaleContent<BabyPercentileCalculatorUI>;
+
+export const babyPercentileCalculator: BabiesToolEntry<BabyPercentileCalculatorUI> = {
+  id: 'baby-percentile-calculator',
+  icons: { bg: 'mdi:chart-bell-curve', fg: 'mdi:chart-bell-curve-cumulative' },
+  i18n: {
+    es: () => import('./i18n/es').then((m) => m.content),
+    en: () => import('./i18n/en').then((m) => m.content),
+    fr: () => import('./i18n/fr').then((m) => m.content),
+  },
+};
+
+export { BabyPercentileCalculatorComponent, BabyPercentileCalculatorSEO, BabyPercentileCalculatorBibliography };
+
+export const BABY_PERCENTILE_CALCULATOR_TOOL: ToolDefinition = {
+  entry: babyPercentileCalculator,
+  Component: BabyPercentileCalculatorComponent,
+  SEOComponent: BabyPercentileCalculatorSEO,
+  BibliographyComponent: BabyPercentileCalculatorBibliography,
+};

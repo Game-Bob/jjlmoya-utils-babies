@@ -1,0 +1,432 @@
+---
+import './style.css';
+import type { PregnancyCalculatorUI } from './index';
+interface Props { ui: PregnancyCalculatorUI; }
+const { ui } = Astro.props;
+---
+<div id="pregnancy-calculator-root" class="pregnancy-calculator" data-ui={JSON.stringify(ui)}>
+
+  <div class="pregnancy-calculator-header">
+    <div class="pregnancy-calculator-method-group">
+      <button class="pregnancy-calculator-method-btn" data-method="fur">{ui.btnFUR}</button>
+      <button class="pregnancy-calculator-method-btn" data-method="conception">{ui.btnConception}</button>
+    </div>
+    <label class="pregnancy-calculator-partner-wrap">
+      <span class="pregnancy-calculator-partner-label">{ui.labelPartnerMode}</span>
+      <div class="pregnancy-calculator-toggle-track">
+        <div class="pregnancy-calculator-toggle-thumb"></div>
+      </div>
+    </label>
+  </div>
+
+  <div class="pregnancy-calculator-main">
+
+    <div class="pregnancy-calculator-left">
+      <div class="pregnancy-calculator-dp-wrap">
+        <span class="pregnancy-calculator-dp-label" id="pc-dp-label">{ui.labelFUR}</span>
+        <div class="pregnancy-calculator-dp-selects">
+          <select id="pc-dp-day" class="pregnancy-calculator-dp-select" aria-label="Día">
+            <option value="">Día</option>
+          </select>
+          <span class="pregnancy-calculator-dp-sep">/</span>
+          <select id="pc-dp-month" class="pregnancy-calculator-dp-select" aria-label="Mes">
+            <option value="">Mes</option>
+          </select>
+          <span class="pregnancy-calculator-dp-sep">/</span>
+          <select id="pc-dp-year" class="pregnancy-calculator-dp-select" aria-label="Año">
+            <option value="">Año</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="pregnancy-calculator-cs-wrap" id="pc-cs-wrap">
+        <div class="pregnancy-calculator-cs-header">
+          <span class="pregnancy-calculator-cs-label">{ui.labelCycleLength}</span>
+          <span class="pregnancy-calculator-cs-value-wrap">
+            <span id="pc-cs-value">28</span>
+            <span class="pregnancy-calculator-cs-unit">{ui.unitDays}</span>
+          </span>
+        </div>
+        <input
+          type="range"
+          id="pc-cs-slider"
+          min="21"
+          max="45"
+          value="28"
+          class="pregnancy-calculator-cs-slider"
+          aria-label="Duración del ciclo menstrual en días"
+        />
+        <div class="pregnancy-calculator-cs-extremes">
+          <span>21 {ui.unitDays}</span>
+          <span>45 {ui.unitDays}</span>
+        </div>
+      </div>
+
+      <div class="pregnancy-calculator-sd-wrap">
+        <div class="pregnancy-calculator-stats-row">
+          <div class="pregnancy-calculator-stat-chip">
+            <span class="pregnancy-calculator-stat-key">{ui.labelWeeks}</span>
+            <span class="pregnancy-calculator-stat-value pregnancy-calculator-accent" id="pc-sd-weeks">—</span>
+          </div>
+          <div class="pregnancy-calculator-stat-chip">
+            <span class="pregnancy-calculator-stat-key">{ui.labelTrimester}</span>
+            <span class="pregnancy-calculator-stat-value" id="pc-sd-tri">—</span>
+          </div>
+        </div>
+        <div class="pregnancy-calculator-edd-box">
+          <div class="pregnancy-calculator-edd-label">{ui.labelEDD}</div>
+          <div class="pregnancy-calculator-edd-date" id="pc-sd-edd">{ui.eddPlaceholder}</div>
+          <div class="pregnancy-calculator-edd-note">{ui.eddNote}</div>
+        </div>
+        <button class="pregnancy-calculator-btn-cal" id="pc-sd-btn-cal" disabled>{ui.btnCalendar}</button>
+      </div>
+    </div>
+
+    <div class="pregnancy-calculator-center">
+      <div class="pregnancy-calculator-mp-empty" id="pc-mp-empty">
+        <div class="pregnancy-calculator-mp-empty-dot"></div>
+        <div class="pregnancy-calculator-mp-empty-title">{ui.labelStartHere}</div>
+        <p class="pregnancy-calculator-mp-empty-body">{ui.labelStartBody}</p>
+      </div>
+
+      <div class="pregnancy-calculator-mp-results" id="pc-mp-results" style="display:none">
+        <div class="pregnancy-calculator-mp-top-row">
+          <span class="pregnancy-calculator-mp-badge" id="pc-mp-badge">Semana —</span>
+          <div class="pregnancy-calculator-analogy-tabs">
+            <button class="pregnancy-calculator-at-btn" data-cat="fruits">{ui.labelFruits}</button>
+            <button class="pregnancy-calculator-at-btn" data-cat="geek">{ui.labelGeek}</button>
+            <button class="pregnancy-calculator-at-btn" data-cat="sweets">{ui.labelSweets}</button>
+          </div>
+        </div>
+        <div class="pregnancy-calculator-size-card">
+          <span class="pregnancy-calculator-size-name" id="pc-mp-analogy">—</span>
+          <span class="pregnancy-calculator-size-measure" id="pc-mp-size">—</span>
+        </div>
+        <div class="pregnancy-calculator-info-stack">
+          <div class="pregnancy-calculator-info-block">
+            <div class="pregnancy-calculator-info-key">{ui.labelBioLabel}</div>
+            <p class="pregnancy-calculator-info-text" id="pc-mp-bio"></p>
+          </div>
+          <div class="pregnancy-calculator-info-block">
+            <div class="pregnancy-calculator-info-key" id="pc-mp-mom-key">{ui.labelMomKey}</div>
+            <p class="pregnancy-calculator-info-text" id="pc-mp-mom"></p>
+          </div>
+        </div>
+        <div class="pregnancy-calculator-wonder-line" id="pc-mp-wonder"></div>
+        <div class="pregnancy-calculator-semaphore">
+          <div class="pregnancy-calculator-sema pregnancy-calculator-sema-safe">
+            <div class="pregnancy-calculator-sema-title">{ui.labelNormalMolestias}</div>
+            <ul class="pregnancy-calculator-sema-list" id="pc-mp-safe"></ul>
+          </div>
+          <div class="pregnancy-calculator-sema pregnancy-calculator-sema-alert">
+            <div class="pregnancy-calculator-sema-title">{ui.labelAlert}</div>
+            <ul class="pregnancy-calculator-sema-list" id="pc-mp-alert"></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pregnancy-calculator-right">
+      <div class="pregnancy-calculator-tl-header">{ui.labelTimeline}</div>
+      <div class="pregnancy-calculator-tl-scroll" id="pc-tl-scroll"></div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  import { getState, setState, subscribe } from './store';
+  import { getMilestone, timelineLabels } from './milestones';
+  import type { PCState } from './store';
+  import type { CalcResult } from './calculator';
+
+  const root = document.getElementById('pregnancy-calculator-root') as HTMLElement;
+  const ui = JSON.parse(root.dataset.ui as string) as Record<string, string>;
+
+  const dpLabel = root.querySelector('#pc-dp-label') as HTMLElement;
+  const dpDay = root.querySelector('#pc-dp-day') as HTMLSelectElement;
+  const dpMonth = root.querySelector('#pc-dp-month') as HTMLSelectElement;
+  const dpYear = root.querySelector('#pc-dp-year') as HTMLSelectElement;
+  const csWrap = root.querySelector('#pc-cs-wrap') as HTMLElement;
+  const csSlider = root.querySelector('#pc-cs-slider') as HTMLInputElement;
+  const csValue = root.querySelector('#pc-cs-value') as HTMLElement;
+  const sdWeeks = root.querySelector('#pc-sd-weeks') as HTMLElement;
+  const sdTri = root.querySelector('#pc-sd-tri') as HTMLElement;
+  const sdEdd = root.querySelector('#pc-sd-edd') as HTMLElement;
+  const sdBtnCal = root.querySelector('#pc-sd-btn-cal') as HTMLButtonElement;
+  const mpEmpty = root.querySelector('#pc-mp-empty') as HTMLElement;
+  const mpResults = root.querySelector('#pc-mp-results') as HTMLElement;
+  const mpBadge = root.querySelector('#pc-mp-badge') as HTMLElement;
+  const mpAnalogy = root.querySelector('#pc-mp-analogy') as HTMLElement;
+  const mpSize = root.querySelector('#pc-mp-size') as HTMLElement;
+  const mpBio = root.querySelector('#pc-mp-bio') as HTMLElement;
+  const mpMomKey = root.querySelector('#pc-mp-mom-key') as HTMLElement;
+  const mpMom = root.querySelector('#pc-mp-mom') as HTMLElement;
+  const mpWonder = root.querySelector('#pc-mp-wonder') as HTMLElement;
+  const mpSafe = root.querySelector('#pc-mp-safe') as HTMLElement;
+  const mpAlert = root.querySelector('#pc-mp-alert') as HTMLElement;
+  const tlScroll = root.querySelector('#pc-tl-scroll') as HTMLElement;
+
+  const MONTHS_ES = ['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'];
+  const fmtEdd = new Intl.DateTimeFormat('es-ES', { day: 'numeric', month: 'long', year: 'numeric' });
+
+  function buildDateDropdowns(): void {
+    for (let d = 1; d <= 31; d++) {
+      const o = document.createElement('option');
+      o.value = String(d);
+      o.textContent = String(d).padStart(2, '0');
+      dpDay.appendChild(o);
+    }
+    MONTHS_ES.forEach((m, i) => {
+      const o = document.createElement('option');
+      o.value = String(i + 1);
+      o.textContent = m;
+      dpMonth.appendChild(o);
+    });
+    const now = new Date();
+    for (let y = now.getFullYear(); y >= now.getFullYear() - 1; y--) {
+      const o = document.createElement('option');
+      o.value = String(y);
+      o.textContent = String(y);
+      dpYear.appendChild(o);
+    }
+  }
+
+  function buildTimeline(): void {
+    const frag = document.createDocumentFragment();
+    for (let w = 4; w <= 40; w++) {
+      const row = document.createElement('div');
+      row.className = 'pregnancy-calculator-tl-row pregnancy-calculator-tl-row-future';
+      row.dataset.week = String(w);
+      const lineCol = document.createElement('div');
+      lineCol.className = 'pregnancy-calculator-tl-line-col';
+      const dot = document.createElement('div');
+      dot.className = 'pregnancy-calculator-tl-dot';
+      const line = document.createElement('div');
+      line.className = 'pregnancy-calculator-tl-line';
+      lineCol.appendChild(dot);
+      lineCol.appendChild(line);
+      const info = document.createElement('div');
+      info.className = 'pregnancy-calculator-tl-info';
+      const num = document.createElement('span');
+      num.className = 'pregnancy-calculator-tl-num';
+      num.textContent = String(w);
+      const label = document.createElement('span');
+      label.className = 'pregnancy-calculator-tl-label';
+      label.textContent = timelineLabels[w] ?? '';
+      info.appendChild(num);
+      info.appendChild(label);
+      row.appendChild(lineCol);
+      row.appendChild(info);
+      frag.appendChild(row);
+    }
+    tlScroll.appendChild(frag);
+  }
+
+  function getDateString(d: string, m: string, y: string): string {
+    if (!d || !m || !y) return '';
+    const mm = m.padStart(2, '0');
+    const dd = d.padStart(2, '0');
+    return `${y}-${mm}-${dd}`;
+  }
+
+  function initFromState(): void {
+    const s = getState();
+    csSlider.value = String(s.cycle);
+    csValue.textContent = String(s.cycle);
+    updateMethodUI(s.method);
+    updatePartnerUI(s.partner);
+    updateAnalogyTabs(s.analogyCat);
+    csWrap.style.display = s.method === 'fur' ? '' : 'none';
+    if (s.date) {
+      const parts = s.date.split('-');
+      if (parts.length === 3) {
+        dpYear.value = parts[0];
+        dpMonth.value = String(parseInt(parts[1], 10));
+        dpDay.value = String(parseInt(parts[2], 10));
+      }
+    }
+  }
+
+  function updateMethodUI(method: string): void {
+    root.querySelectorAll('.pregnancy-calculator-method-btn').forEach((btn) => {
+      const el = btn as HTMLElement;
+      el.classList.toggle('pregnancy-calculator-method-btn-active', el.dataset.method === method);
+    });
+    dpLabel.textContent = method === 'fur' ? ui.labelFUR : ui.labelConception;
+    csWrap.style.display = method === 'fur' ? '' : 'none';
+  }
+
+  function updatePartnerUI(partner: boolean): void {
+    const track = root.querySelector('.pregnancy-calculator-toggle-track') as HTMLElement;
+    track.classList.toggle('pregnancy-calculator-toggle-track-on', partner);
+    mpMomKey.textContent = partner ? ui.labelPartnerKey : ui.labelMomKey;
+  }
+
+  function updateAnalogyTabs(cat: string): void {
+    root.querySelectorAll('.pregnancy-calculator-at-btn').forEach((btn) => {
+      const el = btn as HTMLElement;
+      el.classList.toggle('pregnancy-calculator-at-btn-active', el.dataset.cat === cat);
+    });
+  }
+
+  function applyTrimester(tri: 1 | 2 | 3): void {
+    root.classList.remove(
+      'pregnancy-calculator-t1',
+      'pregnancy-calculator-t2',
+      'pregnancy-calculator-t3'
+    );
+    root.classList.add(`pregnancy-calculator-t${tri}`);
+  }
+
+  function renderStats(result: CalcResult): void {
+    if (!result.valid) {
+      sdWeeks.textContent = '—';
+      sdTri.textContent = '—';
+      sdEdd.textContent = ui.eddPlaceholder;
+      sdBtnCal.disabled = true;
+      return;
+    }
+    sdWeeks.textContent = `${result.weeks}+${result.days}`;
+    sdTri.textContent = String(result.trimester);
+    sdEdd.textContent = fmtEdd.format(result.edd);
+    sdBtnCal.disabled = false;
+    applyTrimester(result.trimester);
+  }
+
+  function buildList(ul: HTMLElement, items: string[]): void {
+    ul.innerHTML = '';
+    items.forEach((item) => {
+      const li = document.createElement('li');
+      li.textContent = item;
+      ul.appendChild(li);
+    });
+  }
+
+  function renderMilestone(weeks: number, cat: string, partner: boolean): void {
+    const ms = getMilestone(weeks);
+    mpBadge.textContent = `Semana ${weeks}`;
+    mpAnalogy.textContent = ms.analogies[cat as 'fruits' | 'geek' | 'sweets'] ?? ms.analogies.fruits;
+    mpSize.textContent = ms.size;
+    mpBio.textContent = ms.biolook;
+    mpMom.textContent = partner ? ms.partner : ms.mom;
+    mpWonder.textContent = ms.wonder;
+    buildList(mpSafe, ms.symptoms);
+    buildList(mpAlert, ms.alerts);
+  }
+
+  function renderTimeline(weeks: number): void {
+    tlScroll.querySelectorAll('.pregnancy-calculator-tl-row').forEach((row) => {
+      const el = row as HTMLElement;
+      const w = parseInt(el.dataset.week ?? '0', 10);
+      el.classList.remove(
+        'pregnancy-calculator-tl-row-past',
+        'pregnancy-calculator-tl-row-current',
+        'pregnancy-calculator-tl-row-future'
+      );
+      if (w < weeks) {
+        el.classList.add('pregnancy-calculator-tl-row-past');
+      } else if (w === weeks) {
+        el.classList.add('pregnancy-calculator-tl-row-current');
+      } else {
+        el.classList.add('pregnancy-calculator-tl-row-future');
+      }
+    });
+    const currentRow = tlScroll.querySelector('.pregnancy-calculator-tl-row-current') as HTMLElement | null;
+    if (currentRow) {
+      currentRow.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+    }
+  }
+
+  function onStateChange(s: Readonly<PCState>): void {
+    updateMethodUI(s.method);
+    updatePartnerUI(s.partner);
+    updateAnalogyTabs(s.analogyCat);
+    if (!s.result || !s.result.valid) {
+      mpEmpty.style.display = '';
+      mpResults.style.display = 'none';
+      if (s.result) renderStats(s.result);
+      return;
+    }
+    renderStats(s.result);
+    renderMilestone(s.result.weeks, s.analogyCat, s.partner);
+    renderTimeline(s.result.weeks);
+    mpEmpty.style.display = 'none';
+    mpResults.style.display = '';
+    mpResults.classList.add('pregnancy-calculator-mp-enter');
+  }
+
+  function onDateChange(): void {
+    const dateStr = getDateString(dpDay.value, dpMonth.value, dpYear.value);
+    if (dateStr) setState({ date: dateStr });
+  }
+
+  function downloadICS(edd: Date): void {
+    const pad = (n: number) => String(n).padStart(2, '0');
+    const y = edd.getFullYear();
+    const m = pad(edd.getMonth() + 1);
+    const d = pad(edd.getDate());
+    const stamp = `${y}${m}${d}T000000Z`;
+    const lines = [
+      'BEGIN:VCALENDAR',
+      'VERSION:2.0',
+      'BEGIN:VEVENT',
+      `DTSTART;VALUE=DATE:${y}${m}${d}`,
+      `DTEND;VALUE=DATE:${y}${m}${d}`,
+      `DTSTAMP:${stamp}`,
+      'SUMMARY:Fecha Probable de Parto',
+      'DESCRIPTION:Fecha estimada de parto calculada por jjlmoya',
+      'END:VEVENT',
+      'END:VCALENDAR',
+    ];
+    const blob = new Blob([lines.join('\r\n')], { type: 'text/calendar' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'fecha-parto.ics';
+    a.click();
+    URL.revokeObjectURL(url);
+  }
+
+  buildDateDropdowns();
+  buildTimeline();
+  initFromState();
+
+  const initialState = getState();
+  if (initialState.result) onStateChange(initialState);
+
+  dpDay.addEventListener('change', onDateChange);
+  dpMonth.addEventListener('change', onDateChange);
+  dpYear.addEventListener('change', onDateChange);
+
+  csSlider.addEventListener('input', () => {
+    const v = Number(csSlider.value);
+    csValue.textContent = String(v);
+    setState({ cycle: v });
+  });
+
+  root.querySelectorAll('.pregnancy-calculator-method-btn').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const method = (btn as HTMLElement).dataset.method as 'fur' | 'conception';
+      setState({ method });
+    });
+  });
+
+  root.querySelector('.pregnancy-calculator-partner-wrap')?.addEventListener('click', () => {
+    setState({ partner: !getState().partner });
+  });
+
+  root.querySelectorAll('.pregnancy-calculator-at-btn').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const cat = (btn as HTMLElement).dataset.cat as 'fruits' | 'geek' | 'sweets';
+      setState({ analogyCat: cat });
+    });
+  });
+
+  sdBtnCal.addEventListener('click', () => {
+    const s = getState();
+    if (s.result?.valid) downloadICS(s.result.edd);
+  });
+
+  subscribe(onStateChange);
+</script>

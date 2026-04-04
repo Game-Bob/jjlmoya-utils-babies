@@ -35,8 +35,15 @@
     "astro": "^6.1.2",
     "astro-icon": "^1.1.0"
   },
+  "peerDependencies": {
+    "chart.js": ">=4.0.0"
+  },
+  "peerDependenciesMeta": {
+    "chart.js": { "optional": true }
+  },
   "devDependencies": {
     "@astrojs/check": "^0.9.8",
+    "chart.js": "^4.4.0",
     "eslint": "^9.39.4",
     "eslint-plugin-astro": "^1.6.0",
     "eslint-plugin-no-comments": "^1.1.10",

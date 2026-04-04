@@ -1,0 +1,289 @@
+---
+import './style.css';
+import type { BabySizeConverterUI } from './index';
+import brandsData from './data.json';
+
+interface Props { ui: BabySizeConverterUI; }
+const { ui } = Astro.props;
+
+const brands = brandsData.brands;
+---
+<div
+  id="baby-size-converter-root"
+  class="baby-size-converter"
+  data-ui={JSON.stringify(ui)}
+  data-brands={JSON.stringify(brands)}
+>
+  <div class="baby-size-converter-main">
+    <div class="baby-size-converter-left">
+      <div class="baby-size-converter-section-marker">{ui.labelInput}</div>
+
+      <div class="baby-size-converter-unit-nav">
+        <button class="baby-size-converter-unit-tab active" data-unit="metric">{ui.unitMetric}</button>
+        <button class="baby-size-converter-unit-tab" data-unit="imperial">{ui.unitImperial}</button>
+      </div>
+
+      <div class="baby-size-converter-num-ctrl">
+        <div class="baby-size-converter-num-label" id="bsc-height-label">{ui.labelHeight} ({ui.labelCm})</div>
+        <div class="baby-size-converter-stepper-box">
+          <button class="baby-size-converter-btn-step" id="bsc-height-dec" aria-label="Reducir altura">−</button>
+          <div class="baby-size-converter-val-view">
+            <span class="baby-size-converter-val-big" id="bsc-height-val">68</span>
+            <span class="baby-size-converter-val-sub" id="bsc-height-unit">{ui.labelCm}</span>
+          </div>
+          <button class="baby-size-converter-btn-step" id="bsc-height-inc" aria-label="Aumentar altura">+</button>
+        </div>
+        <input class="baby-size-converter-slider-line" type="range" id="bsc-height-slider" min="45" max="100" value="68" />
+      </div>
+
+      <div class="baby-size-converter-num-ctrl">
+        <div class="baby-size-converter-num-label" id="bsc-weight-label">{ui.labelWeight} ({ui.labelKg})</div>
+        <div class="baby-size-converter-stepper-box">
+          <button class="baby-size-converter-btn-step" id="bsc-weight-dec" aria-label="Reducir peso">−</button>
+          <div class="baby-size-converter-val-view">
+            <span class="baby-size-converter-val-big" id="bsc-weight-val">8.0</span>
+            <span class="baby-size-converter-val-sub" id="bsc-weight-unit">{ui.labelKg}</span>
+          </div>
+          <button class="baby-size-converter-btn-step" id="bsc-weight-inc" aria-label="Aumentar peso">+</button>
+        </div>
+        <input class="baby-size-converter-slider-line" type="range" id="bsc-weight-slider" min="2" max="20" step="0.1" value="8" />
+      </div>
+
+      <div class="baby-size-converter-num-ctrl">
+        <div class="baby-size-converter-num-label">{ui.labelPresets}</div>
+        <div class="baby-size-converter-age-rack">
+          <button class="baby-size-converter-age-tile" data-height="56" data-weight="4.5">0-1m</button>
+          <button class="baby-size-converter-age-tile" data-height="62" data-weight="6">1-3m</button>
+          <button class="baby-size-converter-age-tile" data-height="68" data-weight="8">3-6m</button>
+          <button class="baby-size-converter-age-tile" data-height="74" data-weight="9">6-9m</button>
+          <button class="baby-size-converter-age-tile" data-height="80" data-weight="10">9-12m</button>
+          <button class="baby-size-converter-age-tile" data-height="86" data-weight="11.5">12-18m</button>
+          <button class="baby-size-converter-age-tile" data-height="92" data-weight="13">18-24m</button>
+        </div>
+      </div>
+
+      <div class="baby-size-converter-num-ctrl">
+        <div class="baby-size-converter-num-label">{ui.labelBrandFit}</div>
+        <select class="baby-size-converter-select-box" id="bsc-brand-select">
+          {brands.map((b) => (
+            <option value={b.id}>{b.name}</option>
+          ))}
+        </select>
+      </div>
+    </div>
+
+    <div class="baby-size-converter-right">
+      <div class="baby-size-converter-section-marker">{ui.labelResults}</div>
+
+      <div class="baby-size-converter-res-header">
+        <div class="baby-size-converter-res-size-main" id="bsc-size-label">68</div>
+        <div class="baby-size-converter-res-brand-hint" id="bsc-brand-hint">Zara</div>
+        <span class="baby-size-converter-fit-label" id="bsc-fit-label">{ui.fitRegular}</span>
+        <button class="baby-size-converter-share-btn" id="bsc-share-btn" aria-label={ui.shareAriaLabel}>
+          &#8679;
+        </button>
+      </div>
+
+      <div class="baby-size-converter-clothes-meta">
+        <div class="baby-size-converter-meta-title">{ui.labelGarmentMeasures}</div>
+        <div class="baby-size-converter-meta-vals">
+          <div class="baby-size-converter-meta-cell">
+            <span class="baby-size-converter-num-label">{ui.labelChest}</span>
+            <span class="baby-size-converter-val-big" id="bsc-chest-val">44 cm</span>
+          </div>
+          <div class="baby-size-converter-meta-cell">
+            <span class="baby-size-converter-num-label">{ui.labelWaist}</span>
+            <span class="baby-size-converter-val-big" id="bsc-waist-val">43 cm</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="baby-size-converter-equivalents-grid-box">
+        <div class="baby-size-converter-eq-head-row">
+          <span class="baby-size-converter-eq-col-name">{ui.labelBrandFit}</span>
+          <span>{ui.labelSuggested}</span>
+        </div>
+        <div id="bsc-eq-list"></div>
+      </div>
+
+      <div class="baby-size-converter-pro-tip-footer">
+        <span class="baby-size-converter-footer-icon">&#9432;</span>
+        <span class="baby-size-converter-footer-text">{ui.tipText}</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script is:inline>
+  (function () {
+    const root = document.getElementById('baby-size-converter-root');
+    if (!root) return;
+    const ui = JSON.parse(root.dataset.ui);
+    const brands = JSON.parse(root.dataset.brands);
+
+    let heightCm = 68;
+    let weightKg = 8.0;
+    let unitMode = 'metric';
+    let activeBrandId = brands[0].id;
+
+    const heightSlider = root.querySelector('#bsc-height-slider');
+    const weightSlider = root.querySelector('#bsc-weight-slider');
+    const heightValEl = root.querySelector('#bsc-height-val');
+    const weightValEl = root.querySelector('#bsc-weight-val');
+    const heightLabelEl = root.querySelector('#bsc-height-label');
+    const weightLabelEl = root.querySelector('#bsc-weight-label');
+    const heightUnitEl = root.querySelector('#bsc-height-unit');
+    const weightUnitEl = root.querySelector('#bsc-weight-unit');
+    const brandSelect = root.querySelector('#bsc-brand-select');
+    const sizeLabelEl = root.querySelector('#bsc-size-label');
+    const brandHintEl = root.querySelector('#bsc-brand-hint');
+    const fitLabelEl = root.querySelector('#bsc-fit-label');
+    const chestValEl = root.querySelector('#bsc-chest-val');
+    const waistValEl = root.querySelector('#bsc-waist-val');
+    const eqList = root.querySelector('#bsc-eq-list');
+    const shareBtn = root.querySelector('#bsc-share-btn');
+
+    function findBestSize(brand, height, weight) {
+      let best = brand.sizes[0];
+      let diff = Infinity;
+      brand.sizes.forEach(function (s) {
+        const d = Math.abs(s.height - height) + Math.abs(s.weight - weight) * 8;
+        if (d < diff) {
+          diff = d;
+          best = s;
+        }
+      });
+      return best;
+    }
+
+    function getFitLabel(fit) {
+      if (fit === 'large') return ui.fitLarge;
+      if (fit === 'small') return ui.fitSmall;
+      return ui.fitRegular;
+    }
+
+    function getFitClass(fit) {
+      if (fit === 'large') return 'baby-size-converter-fit-large';
+      if (fit === 'small') return 'baby-size-converter-fit-small';
+      return '';
+    }
+
+    function displayHeight() {
+      if (unitMode === 'imperial') return (heightCm / 2.54).toFixed(1);
+      return heightCm.toString();
+    }
+
+    function displayWeight() {
+      if (unitMode === 'imperial') return (weightKg * 2.20462).toFixed(1);
+      return weightKg.toFixed(1);
+    }
+
+    function updateDisplay() {
+      const activeBrand = brands.find(function (b) { return b.id === activeBrandId; }) || brands[0];
+      const best = findBestSize(activeBrand, heightCm, weightKg);
+      const measureUnit = unitMode === 'imperial' ? ui.labelIn : ui.labelCm;
+      const weightUnit = unitMode === 'imperial' ? ui.labelLb : ui.labelKg;
+
+      heightValEl.textContent = displayHeight();
+      weightValEl.textContent = displayWeight();
+      heightUnitEl.textContent = measureUnit;
+      weightUnitEl.textContent = weightUnit;
+      heightLabelEl.textContent = ui.labelHeight + ' (' + measureUnit + ')';
+      weightLabelEl.textContent = ui.labelWeight + ' (' + weightUnit + ')';
+
+      heightSlider.value = heightCm;
+      weightSlider.value = weightKg;
+
+      sizeLabelEl.textContent = best.label;
+      brandHintEl.textContent = activeBrand.name;
+      fitLabelEl.textContent = getFitLabel(activeBrand.fit);
+      fitLabelEl.className = 'baby-size-converter-fit-label ' + getFitClass(activeBrand.fit);
+
+      const chestDisplay = unitMode === 'imperial'
+        ? (best.chest / 2.54).toFixed(1) + ' ' + ui.labelIn
+        : best.chest + ' ' + ui.labelCm;
+      const waistDisplay = unitMode === 'imperial'
+        ? (best.waist / 2.54).toFixed(1) + ' ' + ui.labelIn
+        : best.waist + ' ' + ui.labelCm;
+      chestValEl.textContent = chestDisplay;
+      waistValEl.textContent = waistDisplay;
+
+      const rows = brands.map(function (b) {
+        const s = findBestSize(b, heightCm, weightKg);
+        const isActive = b.id === activeBrandId;
+        return '<div class="baby-size-converter-eq-data-row' + (isActive ? ' baby-size-converter-eq-active' : '') + '">'
+          + '<span class="baby-size-converter-eq-brand-v">' + b.name + '</span>'
+          + '<span class="baby-size-converter-eq-size-v">' + s.label + '</span>'
+          + '</div>';
+      }).join('');
+      eqList.innerHTML = rows;
+    }
+
+    root.querySelectorAll('.baby-size-converter-unit-tab').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        unitMode = btn.dataset.unit;
+        root.querySelectorAll('.baby-size-converter-unit-tab').forEach(function (b) { b.classList.remove('active'); });
+        btn.classList.add('active');
+        updateDisplay();
+      });
+    });
+
+    root.querySelectorAll('.baby-size-converter-age-tile').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        heightCm = Number(btn.dataset.height);
+        weightKg = Number(btn.dataset.weight);
+        updateDisplay();
+      });
+    });
+
+    root.querySelector('#bsc-height-dec').addEventListener('click', function () {
+      if (heightCm > 45) { heightCm -= 1; updateDisplay(); }
+    });
+    root.querySelector('#bsc-height-inc').addEventListener('click', function () {
+      if (heightCm < 100) { heightCm += 1; updateDisplay(); }
+    });
+    heightSlider.addEventListener('input', function () {
+      heightCm = Number(heightSlider.value);
+      updateDisplay();
+    });
+
+    root.querySelector('#bsc-weight-dec').addEventListener('click', function () {
+      if (weightKg > 2) { weightKg = Math.round((weightKg - 0.1) * 10) / 10; updateDisplay(); }
+    });
+    root.querySelector('#bsc-weight-inc').addEventListener('click', function () {
+      if (weightKg < 20) { weightKg = Math.round((weightKg + 0.1) * 10) / 10; updateDisplay(); }
+    });
+    weightSlider.addEventListener('input', function () {
+      weightKg = Number(weightSlider.value);
+      updateDisplay();
+    });
+
+    brandSelect.addEventListener('change', function () {
+      activeBrandId = brandSelect.value;
+      updateDisplay();
+    });
+
+    shareBtn.addEventListener('click', function () {
+      const params = new URLSearchParams();
+      params.set('h', heightCm.toString());
+      params.set('w', weightKg.toString());
+      params.set('b', activeBrandId);
+      const url = window.location.pathname + '?' + params.toString();
+      if (navigator.share) {
+        navigator.share({ url: url });
+      } else {
+        navigator.clipboard.writeText(window.location.origin + url);
+      }
+    });
+
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('h')) heightCm = Number(urlParams.get('h'));
+    if (urlParams.get('w')) weightKg = Number(urlParams.get('w'));
+    if (urlParams.get('b')) {
+      activeBrandId = urlParams.get('b');
+      brandSelect.value = activeBrandId;
+    }
+
+    updateDisplay();
+  })();
+</script>

@@ -173,11 +173,19 @@ export default [
         },
     },
     {
-        files: ["**/*seo.astro"],
+        files: ["**/*seo.astro", "**/*seo.astro/*.ts"],
         rules: {
             "max-lines-per-function": "off",
             "complexity": "off",
             "@typescript-eslint/no-explicit-any": "off",
+        },
+    },
+    {
+        files: ["**/tool/*/component.astro", "**/tool/*/component.astro/*.ts"],
+        rules: {
+            "max-lines": "off",
+            "max-lines-per-function": "off",
+            "complexity": "off",
         },
     },
     {
@@ -187,14 +195,6 @@ export default [
             "max-params": "off",
             "max-lines": "off",
             "max-lines-per-function": "off",
-        },
-    },
-    {
-        files: ["**/tool/**/component.astro"],
-        rules: {
-            "max-lines": "off",
-            "max-lines-per-function": "off",
-            "complexity": "off",
         },
     },
 ];
