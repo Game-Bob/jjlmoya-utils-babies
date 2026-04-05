@@ -232,6 +232,7 @@ export const content: FertileDaysEstimatorLocaleContent = {
       ],
     },
   ],
+  faqTitle: "Questions fréquentes",
   faq,
   bibliographyTitle: "Références",
   bibliography: [

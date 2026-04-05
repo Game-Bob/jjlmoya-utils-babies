@@ -177,6 +177,7 @@ export const content: BabySizeConverterLocaleContent = {
       'El cuello de sobre y el tiro amplio son los detalles clave de comodidad.',
     ]},
   ],
+  faqTitle: "Preguntas frecuentes",
   faq,
   bibliographyTitle: "Referencias",
   bibliography: [

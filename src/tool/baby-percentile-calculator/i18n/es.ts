@@ -222,6 +222,7 @@ export const content: BabyPercentileCalculatorLocaleContent = {
       ],
     },
   ],
+  faqTitle: "Preguntas frecuentes",
   faq,
   bibliographyTitle: "Referencias",
   bibliography: [

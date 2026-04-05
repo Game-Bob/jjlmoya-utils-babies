@@ -136,6 +136,7 @@ export const content: BabyFeedingCalculatorLocaleContent = {
       'Orina clara o amarillo muy pálido',
     ]},
   ],
+  faqTitle: "Preguntas frecuentes",
   faq,
   bibliographyTitle: "Referencias",
   bibliography: [

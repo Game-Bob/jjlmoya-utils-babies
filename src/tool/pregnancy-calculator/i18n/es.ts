@@ -289,6 +289,7 @@ export const content: PregnancyCalculatorLocaleContent = {
       ],
     },
   ],
+  faqTitle: "Preguntas frecuentes",
   faq,
   bibliographyTitle: "Referencias",
   bibliography: [

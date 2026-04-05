@@ -148,6 +148,7 @@ export const content: VaccinationCalendarLocaleContent = {
       'Consulta siempre a tu pediatra si tienes dudas sobre el calendario de tu comunidad.',
     ]},
   ],
+  faqTitle: "Preguntas frecuentes",
   faq,
   bibliographyTitle: "Referencias",
   bibliography: [

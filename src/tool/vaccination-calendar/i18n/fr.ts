@@ -144,6 +144,7 @@ export const content: VaccinationCalendarLocaleContent = {
       "Consultez toujours votre pédiatre si vous avez des questions sur le calendrier de votre région.",
     ]},
   ],
+  faqTitle: "Questions fréquentes",
   faq,
   bibliographyTitle: "Références",
   bibliography: [

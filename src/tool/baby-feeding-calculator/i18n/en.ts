@@ -136,6 +136,7 @@ export const content: BabyFeedingCalculatorLocaleContent = {
       'Urine is clear or very pale yellow',
     ]},
   ],
+  faqTitle: "Frequently asked questions",
   faq,
   bibliographyTitle: "References",
   bibliography: [

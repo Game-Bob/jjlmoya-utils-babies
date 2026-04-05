@@ -177,6 +177,7 @@ export const content: BabySizeConverterLocaleContent = {
       'Envelope necklines and a generous rise are the key comfort details.',
     ]},
   ],
+  faqTitle: "Frequently asked questions",
   faq,
   bibliographyTitle: "References",
   bibliography: [

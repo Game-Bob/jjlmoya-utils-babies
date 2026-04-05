@@ -136,6 +136,7 @@ export const content: BabyFeedingCalculatorLocaleContent = {
       "Urine claire ou jaune très pâle",
     ]},
   ],
+  faqTitle: "Questions fréquentes",
   faq,
   bibliographyTitle: "Références",
   bibliography: [

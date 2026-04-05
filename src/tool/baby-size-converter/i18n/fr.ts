@@ -177,6 +177,7 @@ export const content: BabySizeConverterLocaleContent = {
       "Le col enveloppe et un entrejambe généreux sont les détails de confort essentiels.",
     ]},
   ],
+  faqTitle: "Questions fréquentes",
   faq,
   bibliographyTitle: "Références",
   bibliography: [
