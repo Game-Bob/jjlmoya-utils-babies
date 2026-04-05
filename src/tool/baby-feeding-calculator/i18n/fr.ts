@@ -4,6 +4,82 @@ import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dt
 const slug = 'calculateur-biberons-bebe';
 const title = 'Calculateur de biberons pour bébé';
 const description = "Calculez la quantité de lait dont votre bébé a besoin selon son poids et son âge. Tétées recommandées, millilitres par tétée et signaux de faim et de satiété.";
+
+const faq = [
+  {
+    question: "De quelle quantité de lait un nouveau-né a-t-il besoin ?",
+    answer: "Le premier jour de vie, l'estomac du nouveau-né a la taille d'une cerise et ne nécessite que 5 à 7 ml par tétée. À partir du cinquième jour, la capacité passe à 45–60 ml et les besoins augmentent progressivement.",
+  },
+  {
+    question: 'À quelle fréquence un bébé doit-il manger ?',
+    answer: 'Les nouveau-nés ont besoin de 8 à 12 tétées par jour. À 3 mois, cela se réduit généralement à 7–8 tétées, et à 6 mois à environ 5 tétées par jour.',
+  },
+  {
+    question: 'Comment savoir si mon bébé mange suffisamment ?',
+    answer: "Les indicateurs les plus fiables sont : une prise de poids adéquate, au moins 5 à 6 couches mouillées par jour et des signaux de satiété après les tétées.",
+  },
+  {
+    question: "Les quantités sont-elles identiques pour l'allaitement et le lait maternisé ?",
+    answer: "Avec l'allaitement, il est recommandé de nourrir à la demande sans mesurer les volumes. Avec le lait maternisé, la référence habituelle est de 150 ml par kg de poids corporel par jour.",
+  },
+];
+
+const howTo = [
+  {
+    name: "Sélectionnez l'âge du bébé",
+    text: "Choisissez l'unité (jours, semaines ou mois) et ajustez la valeur avec le curseur ou les boutons.",
+  },
+  {
+    name: 'Entrez le poids du bébé',
+    text: 'Utilisez le curseur de poids ou les boutons pour ajuster le poids actuel du bébé en kilogrammes.',
+  },
+  {
+    name: "Sélectionnez le type d'alimentation",
+    text: 'Choisissez entre sein, mixte ou lait maternisé pour obtenir le guide le plus adapté.',
+  },
+  {
+    name: 'Consultez le plan recommandé',
+    text: 'La calculatrice affiche le nombre de tétées, les millilitres par tétée et le total journalier estimé.',
+  },
+];
+
+const faqSchema: WithContext<FAQPage> = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faq.map((item) => ({
+    '@type': 'Question',
+    name: item.question,
+    acceptedAnswer: { '@type': 'Answer', text: item.answer },
+  })),
+};
+
+const howToSchema: WithContext<HowTo> = {
+  '@context': 'https://schema.org',
+  '@type': 'HowTo',
+  name: title,
+  description,
+  step: howTo.map((step) => ({
+    '@type': 'HowToStep',
+    name: step.name,
+    text: step.text,
+  })),
+};
+
+const appSchema: WithContext<SoftwareApplication> = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: title,
+  description,
+  applicationCategory: 'UtilitiesApplication',
+  operatingSystem: 'Web',
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'EUR' },
+  inLanguage: 'fr',
+};
+
+export const content: BabyFeedingCalculatorLocaleContent = {
+  slug,
+  title,
+  description,
   ui: {
     labelConfig: 'Paramètres actuels',
     labelPlan: 'Plan recommandé',
@@ -60,24 +136,7 @@ const description = "Calculez la quantité de lait dont votre bébé a besoin se
       "Urine claire ou jaune très pâle",
     ]},
   ],
-  faq: [
-    {
-      question: "De quelle quantité de lait un nouveau-né a-t-il besoin ?",
-      answer: "Le premier jour de vie, l'estomac du nouveau-né a la taille d'une cerise et ne nécessite que 5 à 7 ml par tétée. À partir du cinquième jour, la capacité passe à 45–60 ml et les besoins augmentent progressivement.",
-    },
-    {
-      question: 'À quelle fréquence un bébé doit-il manger ?',
-      answer: 'Les nouveau-nés ont besoin de 8 à 12 tétées par jour. À 3 mois, cela se réduit généralement à 7–8 tétées, et à 6 mois à environ 5 tétées par jour.',
-    },
-    {
-      question: 'Comment savoir si mon bébé mange suffisamment ?',
-      answer: "Les indicateurs les plus fiables sont : une prise de poids adéquate, au moins 5 à 6 couches mouillées par jour et des signaux de satiété après les tétées.",
-    },
-    {
-      question: "Les quantités sont-elles identiques pour l'allaitement et le lait maternisé ?",
-      answer: "Avec l'allaitement, il est recommandé de nourrir à la demande sans mesurer les volumes. Avec le lait maternisé, la référence habituelle est de 150 ml par kg de poids corporel par jour.",
-    },
-  ],
+  faq,
   bibliography: [
     {
       name: "OMS - Alimentation du nourrisson et du jeune enfant",
@@ -96,23 +155,6 @@ const description = "Calculez la quantité de lait dont votre bébé a besoin se
       url: 'https://www.sfpediatrie.com',
     },
   ],
-  howTo: [
-    {
-      name: "Sélectionnez l'âge du bébé",
-      text: "Choisissez l'unité (jours, semaines ou mois) et ajustez la valeur avec le curseur ou les boutons.",
-    },
-    {
-      name: 'Entrez le poids du bébé',
-      text: 'Utilisez le curseur de poids ou les boutons pour ajuster le poids actuel du bébé en kilogrammes.',
-    },
-    {
-      name: "Sélectionnez le type d'alimentation",
-      text: 'Choisissez entre sein, mixte ou lait maternisé pour obtenir le guide le plus adapté.',
-    },
-    {
-      name: 'Consultez le plan recommandé',
-      text: 'La calculatrice affiche le nombre de tétées, les millilitres par tétée et le total journalier estimé.',
-    },
-  ],
-  schemas: [],
+  howTo,
+  schemas: [faqSchema as any, howToSchema as any, appSchema],
 };

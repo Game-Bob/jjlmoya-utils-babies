@@ -1,9 +1,81 @@
 import type { BabySizeConverterLocaleContent } from '../index';
+import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
+
+const slug = 'convertisseur-tailles-bebe';
+const title = 'Convertisseur de tailles bébé';
+const description = "Convertissez les tailles de vêtements bébé entre Zara, H&M, Primark, Carter's, Kiabi, Mango et Mayoral. Entrez la taille et le poids de votre bébé pour obtenir la pointure exacte de chaque marque.";
+const faq = [
+  {
+    question: "Comment savoir quelle taille de vêtement correspond à mon bébé ?",
+    answer: "Le plus fiable est d'utiliser la taille du bébé comme référence principale. Les tailles européennes (50, 56, 62...) correspondent directement à la taille en centimètres. Entrez la taille et le poids dans le convertisseur pour obtenir la taille recommandée par chaque marque.",
+  },
+  {
+    question: 'Pourquoi les tailles varient-elles autant selon les marques ?',
+    answer: "Chaque marque a son propre patron de coupe. H&M et Primark ont tendance à tailler grand, tandis que Carter's et Mayoral ont des coupes plus ajustées. Utilisez toujours les mesures du bébé, pas seulement son âge.",
+  },
+  {
+    question: 'Que faire si le bébé est entre deux tailles ?',
+    answer: "Choisissez toujours la taille supérieure. Les bébés grandissent très vite et une taille plus grande garantit une meilleure durabilité et un meilleur confort.",
+  },
+  {
+    question: "Les tailles en pouces fonctionnent-elles de la même façon ?",
+    answer: "Les marques américaines comme Carter's utilisent les pouces et le poids comme référence principale. Le convertisseur affiche automatiquement les équivalences en système impérial lorsque vous l'activez.",
+  },
+];
+const howTo = [
+  {
+    name: 'Entrez la taille du bébé',
+    text: 'Utilisez le curseur ou les boutons pour ajuster la taille actuelle du bébé en centimètres ou en pouces.',
+  },
+  {
+    name: 'Entrez le poids du bébé',
+    text: 'Ajustez le poids en kg ou en livres pour affiner les résultats, car certaines marques utilisent le poids comme référence complémentaire.',
+  },
+  {
+    name: 'Sélectionnez une marque',
+    text: 'Choisissez la marque de vêtements pour voir la taille suggérée et les mesures estimées du vêtement.',
+  },
+  {
+    name: 'Consultez les équivalences',
+    text: 'Le panneau de droite affiche les tailles équivalentes de toutes les marques disponibles en un coup d\'oeil.',
+  },
+];
+
+const faqSchema: WithContext<FAQPage> = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faq.map((item) => ({
+    '@type': 'Question',
+    name: item.question,
+    acceptedAnswer: { '@type': 'Answer', text: item.answer },
+  })),
+};
+const howToSchema: WithContext<HowTo> = {
+  '@context': 'https://schema.org',
+  '@type': 'HowTo',
+  name: title,
+  description,
+  step: howTo.map((step) => ({
+    '@type': 'HowToStep',
+    name: step.name,
+    text: step.text,
+  })),
+};
+const appSchema: WithContext<SoftwareApplication> = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: title,
+  description,
+  applicationCategory: 'UtilitiesApplication',
+  operatingSystem: 'Web',
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'EUR' },
+  inLanguage: 'fr',
+};
 
 export const content: BabySizeConverterLocaleContent = {
-  slug: 'convertisseur-tailles-bebe',
-  title: 'Convertisseur de tailles bébé',
-  description: "Convertissez les tailles de vêtements bébé entre Zara, H&M, Primark, Carter's, Kiabi, Mango et Mayoral. Entrez la taille et le poids de votre bébé pour obtenir la pointure exacte de chaque marque.",
+  slug,
+  title,
+  description,
   ui: {
     labelInput: 'Mesures du bébé',
     labelResults: 'Équivalences estimées',
@@ -105,24 +177,7 @@ export const content: BabySizeConverterLocaleContent = {
       "Le col enveloppe et un entrejambe généreux sont les détails de confort essentiels.",
     ]},
   ],
-  faq: [
-    {
-      question: "Comment savoir quelle taille de vêtement correspond à mon bébé ?",
-      answer: "Le plus fiable est d'utiliser la taille du bébé comme référence principale. Les tailles européennes (50, 56, 62...) correspondent directement à la taille en centimètres. Entrez la taille et le poids dans le convertisseur pour obtenir la taille recommandée par chaque marque.",
-    },
-    {
-      question: 'Pourquoi les tailles varient-elles autant selon les marques ?',
-      answer: "Chaque marque a son propre patron de coupe. H&M et Primark ont tendance à tailler grand, tandis que Carter's et Mayoral ont des coupes plus ajustées. Utilisez toujours les mesures du bébé, pas seulement son âge.",
-    },
-    {
-      question: 'Que faire si le bébé est entre deux tailles ?',
-      answer: "Choisissez toujours la taille supérieure. Les bébés grandissent très vite et une taille plus grande garantit une meilleure durabilité et un meilleur confort.",
-    },
-    {
-      question: "Les tailles en pouces fonctionnent-elles de la même façon ?",
-      answer: "Les marques américaines comme Carter's utilisent les pouces et le poids comme référence principale. Le convertisseur affiche automatiquement les équivalences en système impérial lorsque vous l'activez.",
-    },
-  ],
+  faq,
   bibliography: [
     {
       name: 'Zara - Guide des tailles enfant',
@@ -141,23 +196,6 @@ export const content: BabySizeConverterLocaleContent = {
       url: 'https://www.kiabi.com/guide-des-tailles',
     },
   ],
-  howTo: [
-    {
-      name: 'Entrez la taille du bébé',
-      text: 'Utilisez le curseur ou les boutons pour ajuster la taille actuelle du bébé en centimètres ou en pouces.',
-    },
-    {
-      name: 'Entrez le poids du bébé',
-      text: 'Ajustez le poids en kg ou en livres pour affiner les résultats, car certaines marques utilisent le poids comme référence complémentaire.',
-    },
-    {
-      name: 'Sélectionnez une marque',
-      text: 'Choisissez la marque de vêtements pour voir la taille suggérée et les mesures estimées du vêtement.',
-    },
-    {
-      name: 'Consultez les équivalences',
-      text: 'Le panneau de droite affiche les tailles équivalentes de toutes les marques disponibles en un coup d\'oeil.',
-    },
-  ],
-  schemas: [],
+  howTo,
+  schemas: [faqSchema as any, howToSchema as any, appSchema],
 };

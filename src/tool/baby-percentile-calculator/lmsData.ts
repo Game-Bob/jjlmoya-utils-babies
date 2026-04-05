@@ -60,15 +60,15 @@ export const girls: GenderData = {
 
 export function interpolateLMS(month: number, data: TableSet): LMSData {
   const keys = Object.keys(data).map(Number).sort((a, b) => a - b);
-  if (month <= keys[0]) return data[keys[0]];
-  if (month >= keys[keys.length - 1]) return data[keys[keys.length - 1]];
+  if (month <= keys[0]!) return data[keys[0]!]!;
+  if (month >= keys[keys.length - 1]!) return data[keys[keys.length - 1]!]!;
   for (let i = 0; i < keys.length - 1; i++) {
-    const t1 = keys[i];
-    const t2 = keys[i + 1];
+    const t1 = keys[i]!;
+    const t2 = keys[i + 1]!;
     if (month >= t1 && month <= t2) {
       const p = (month - t1) / (t2 - t1);
-      const l1 = data[t1];
-      const l2 = data[t2];
+      const l1 = data[t1]!;
+      const l2 = data[t2]!;
       return {
         L: l1.L + p * (l2.L - l1.L),
         M: l1.M + p * (l2.M - l1.M),
@@ -76,5 +76,5 @@ export function interpolateLMS(month: number, data: TableSet): LMSData {
       };
     }
   }
-  return data[keys[0]];
+  return data[keys[0]!]!;
 }

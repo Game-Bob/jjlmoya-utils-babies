@@ -1,9 +1,81 @@
 import type { FertileDaysEstimatorLocaleContent } from '../index';
+import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
+
+const slug = 'fertile-days-calculator';
+const title = 'Fertile Days Calculator';
+const description = 'Calculate your fertile window and ovulation date based on your menstrual cycle.';
+const faq = [
+  {
+    question: 'How is the fertile window calculated?',
+    answer: 'The fertile window is calculated from the first day of your last period. Ovulation occurs approximately 14 days before the start of the next cycle. Fertile days include the 5 days before ovulation and the day of ovulation itself.',
+  },
+  {
+    question: 'How accurate is this calculator?',
+    answer: 'The calculator is an estimate based on the standard 28-day cycle model (or whichever you specify). It is a guide and may not reflect individual variations. For greater accuracy, combine it with basal body temperature tracking or ovulation tests.',
+  },
+  {
+    question: 'What if my cycle is irregular?',
+    answer: 'If your cycles vary greatly from month to month, the calculation may be less accurate. In that case, basal body temperature tracking or LH tests are more reliable methods for identifying ovulation.',
+  },
+  {
+    question: 'How long does the egg survive after ovulation?',
+    answer: 'The egg has a lifespan of 12 to 24 hours. However, sperm can survive up to 5 days in the female reproductive tract, which is why the actual fertile window spans several days before ovulation.',
+  },
+];
+const howTo = [
+  {
+    name: 'Select the first day of your last period',
+    text: 'Click on the calendar day that corresponds to the start of your last menstruation.',
+  },
+  {
+    name: 'Adjust your cycle length',
+    text: 'Move the slider to indicate how many days your menstrual cycle usually lasts.',
+  },
+  {
+    name: 'Check the results',
+    text: 'The calculator automatically shows the estimated ovulation date, fertile window and the start of the next period.',
+  },
+  {
+    name: 'Navigate the calendar',
+    text: 'Use the navigation arrows to see the marked days in previous or future months.',
+  },
+];
+
+const faqSchema: WithContext<FAQPage> = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faq.map((item) => ({
+    '@type': 'Question',
+    name: item.question,
+    acceptedAnswer: { '@type': 'Answer', text: item.answer },
+  })),
+};
+const howToSchema: WithContext<HowTo> = {
+  '@context': 'https://schema.org',
+  '@type': 'HowTo',
+  name: title,
+  description,
+  step: howTo.map((step) => ({
+    '@type': 'HowToStep',
+    name: step.name,
+    text: step.text,
+  })),
+};
+const appSchema: WithContext<SoftwareApplication> = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: title,
+  description,
+  applicationCategory: 'UtilitiesApplication',
+  operatingSystem: 'Web',
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'EUR' },
+  inLanguage: 'en',
+};
 
 export const content: FertileDaysEstimatorLocaleContent = {
-  slug: 'fertile-days-calculator',
-  title: 'Fertile Days Calculator',
-  description: 'Calculate your fertile window and ovulation date based on your menstrual cycle.',
+  slug,
+  title,
+  description,
   ui: {
     step1Title: 'When did your last period start?',
     step1Desc: 'Select the first day of your last menstrual period on the calendar.',
@@ -160,24 +232,7 @@ export const content: FertileDaysEstimatorLocaleContent = {
       ],
     },
   ],
-  faq: [
-    {
-      question: 'How is the fertile window calculated?',
-      answer: 'The fertile window is calculated from the first day of your last period. Ovulation occurs approximately 14 days before the start of the next cycle. Fertile days include the 5 days before ovulation and the day of ovulation itself.',
-    },
-    {
-      question: 'How accurate is this calculator?',
-      answer: 'The calculator is an estimate based on the standard 28-day cycle model (or whichever you specify). It is a guide and may not reflect individual variations. For greater accuracy, combine it with basal body temperature tracking or ovulation tests.',
-    },
-    {
-      question: 'What if my cycle is irregular?',
-      answer: 'If your cycles vary greatly from month to month, the calculation may be less accurate. In that case, basal body temperature tracking or LH tests are more reliable methods for identifying ovulation.',
-    },
-    {
-      question: 'How long does the egg survive after ovulation?',
-      answer: 'The egg has a lifespan of 12 to 24 hours. However, sperm can survive up to 5 days in the female reproductive tract, which is why the actual fertile window spans several days before ovulation.',
-    },
-  ],
+  faq,
   bibliography: [
     {
       name: 'WHO - Family Planning',
@@ -196,23 +251,6 @@ export const content: FertileDaysEstimatorLocaleContent = {
       url: 'https://www.nice.org.uk/guidance/cg156',
     },
   ],
-  howTo: [
-    {
-      name: 'Select the first day of your last period',
-      text: 'Click on the calendar day that corresponds to the start of your last menstruation.',
-    },
-    {
-      name: 'Adjust your cycle length',
-      text: 'Move the slider to indicate how many days your menstrual cycle usually lasts.',
-    },
-    {
-      name: 'Check the results',
-      text: 'The calculator automatically shows the estimated ovulation date, fertile window and the start of the next period.',
-    },
-    {
-      name: 'Navigate the calendar',
-      text: 'Use the navigation arrows to see the marked days in previous or future months.',
-    },
-  ],
-  schemas: [],
+  howTo,
+  schemas: [faqSchema as any, howToSchema as any, appSchema],
 };

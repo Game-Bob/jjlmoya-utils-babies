@@ -1,9 +1,81 @@
 import type { BabySizeConverterLocaleContent } from '../index';
+import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
+
+const slug = 'baby-size-converter';
+const title = 'Baby Size Converter';
+const description = "Convert baby clothing sizes between Zara, H&M, Primark, Carter's, Kiabi, Mango, and Mayoral. Enter your baby's height and weight to get the exact size for each brand.";
+const faq = [
+  {
+    question: "How do I know what clothing size my baby needs?",
+    answer: "The most reliable approach is to use your baby's height as the main reference. European sizes (50, 56, 62...) correspond directly to height in centimeters. Enter the baby's height and weight in the converter to get the recommended size for each brand.",
+  },
+  {
+    question: 'Why do sizes vary so much between brands?',
+    answer: "Each brand has its own cut pattern. H&M and Primark tend to run large, while Carter's and Mayoral run slim. Always use the baby's measurements, not just their age.",
+  },
+  {
+    question: 'What should I do if the baby is between two sizes?',
+    answer: 'Always choose the larger size. Babies grow very quickly and a larger size ensures better durability and comfort.',
+  },
+  {
+    question: 'Do inch-based sizes work the same way?',
+    answer: "American brands like Carter's use inches and weight as their primary reference. The converter automatically shows equivalents in the imperial system when you activate it.",
+  },
+];
+const howTo = [
+  {
+    name: "Enter the baby's height",
+    text: "Use the slider or buttons to adjust the baby's current height in centimeters or inches.",
+  },
+  {
+    name: "Enter the baby's weight",
+    text: 'Adjust the weight in kg or pounds to refine results, as some brands use weight as a complementary reference.',
+  },
+  {
+    name: 'Select a brand',
+    text: 'Choose the clothing brand to see the suggested size and estimated garment measurements.',
+  },
+  {
+    name: 'Review equivalents',
+    text: 'The right panel shows equivalent sizes for all available brands at a glance.',
+  },
+];
+
+const faqSchema: WithContext<FAQPage> = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faq.map((item) => ({
+    '@type': 'Question',
+    name: item.question,
+    acceptedAnswer: { '@type': 'Answer', text: item.answer },
+  })),
+};
+const howToSchema: WithContext<HowTo> = {
+  '@context': 'https://schema.org',
+  '@type': 'HowTo',
+  name: title,
+  description,
+  step: howTo.map((step) => ({
+    '@type': 'HowToStep',
+    name: step.name,
+    text: step.text,
+  })),
+};
+const appSchema: WithContext<SoftwareApplication> = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: title,
+  description,
+  applicationCategory: 'UtilitiesApplication',
+  operatingSystem: 'Web',
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'EUR' },
+  inLanguage: 'en',
+};
 
 export const content: BabySizeConverterLocaleContent = {
-  slug: 'baby-size-converter',
-  title: 'Baby Size Converter',
-  description: "Convert baby clothing sizes between Zara, H&M, Primark, Carter's, Kiabi, Mango, and Mayoral. Enter your baby's height and weight to get the exact size for each brand.",
+  slug,
+  title,
+  description,
   ui: {
     labelInput: 'Baby measurements',
     labelResults: 'Estimated equivalents',
@@ -105,24 +177,7 @@ export const content: BabySizeConverterLocaleContent = {
       'Envelope necklines and a generous rise are the key comfort details.',
     ]},
   ],
-  faq: [
-    {
-      question: "How do I know what clothing size my baby needs?",
-      answer: "The most reliable approach is to use your baby's height as the main reference. European sizes (50, 56, 62...) correspond directly to height in centimeters. Enter the baby's height and weight in the converter to get the recommended size for each brand.",
-    },
-    {
-      question: 'Why do sizes vary so much between brands?',
-      answer: "Each brand has its own cut pattern. H&M and Primark tend to run large, while Carter's and Mayoral run slim. Always use the baby's measurements, not just their age.",
-    },
-    {
-      question: 'What should I do if the baby is between two sizes?',
-      answer: 'Always choose the larger size. Babies grow very quickly and a larger size ensures better durability and comfort.',
-    },
-    {
-      question: 'Do inch-based sizes work the same way?',
-      answer: "American brands like Carter's use inches and weight as their primary reference. The converter automatically shows equivalents in the imperial system when you activate it.",
-    },
-  ],
+  faq,
   bibliography: [
     {
       name: 'Zara - Children\'s size guide',
@@ -141,23 +196,6 @@ export const content: BabySizeConverterLocaleContent = {
       url: 'https://www.carters.com/size-chart',
     },
   ],
-  howTo: [
-    {
-      name: "Enter the baby's height",
-      text: "Use the slider or buttons to adjust the baby's current height in centimeters or inches.",
-    },
-    {
-      name: "Enter the baby's weight",
-      text: 'Adjust the weight in kg or pounds to refine results, as some brands use weight as a complementary reference.',
-    },
-    {
-      name: 'Select a brand',
-      text: 'Choose the clothing brand to see the suggested size and estimated garment measurements.',
-    },
-    {
-      name: 'Review equivalents',
-      text: 'The right panel shows equivalent sizes for all available brands at a glance.',
-    },
-  ],
-  schemas: [],
+  howTo,
+  schemas: [faqSchema as any, howToSchema as any, appSchema],
 };

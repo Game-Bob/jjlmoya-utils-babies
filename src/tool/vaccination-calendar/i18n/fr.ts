@@ -1,9 +1,81 @@
 import type { VaccinationCalendarLocaleContent } from '../index';
+import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
+
+const slug = 'calendrier-vaccination-bebe-espagne';
+const title = 'Calendrier de Vaccination en Espagne';
+const description = 'Calculez les dates exactes de vaccination de votre bébé selon le calendrier AEP 2026.';
+const faq = [
+  {
+    question: "Qu'est-ce que le calendrier de vaccination AEP 2026 ?",
+    answer: "C'est le calendrier de vaccinations recommandé par l'Association Espagnole de Pédiatrie pour 2026. Il comprend tous les vaccins systématiques et optionnels pour les bébés et les enfants de la naissance à 14 ans.",
+  },
+  {
+    question: "La vaccination de mon bébé est-elle obligatoire ?",
+    answer: "En Espagne, la vaccination n'est pas légalement obligatoire, mais elle est fortement recommandée. Les vaccins du calendrier systématique sont gratuits et administrés dans les centres de santé publics.",
+  },
+  {
+    question: "Que se passe-t-il si nous manquons une dose ?",
+    answer: "Si une dose est retardée, il n'est pas nécessaire de recommencer depuis le début. Votre pédiatre vous indiquera comment reprendre le calendrier là où il a été interrompu. L'essentiel est de compléter le schéma le plus tôt possible.",
+  },
+  {
+    question: "Peut-on administrer plusieurs vaccins le même jour ?",
+    answer: "Oui, il est courant et sans danger d'administrer plusieurs vaccins lors de la même visite. Les vaccins combinés comme l'hexavalent protègent déjà contre six maladies en une seule injection.",
+  },
+];
+const howTo = [
+  {
+    name: "Saisissez la date de naissance",
+    text: "Entrez le jour, le mois et l'année de naissance de votre bébé dans les champs correspondants.",
+  },
+  {
+    name: "Consultez le prochain rendez-vous",
+    text: "La calculatrice vous indique automatiquement quand est la prochaine vaccination et quels vaccins sont prévus.",
+  },
+  {
+    name: "Consultez le calendrier complet",
+    text: "Développez les sections des rendez-vous passés et futurs pour voir l'intégralité du calendrier de vaccination.",
+  },
+  {
+    name: "Exportez les rappels",
+    text: "Appuyez sur le bouton pour télécharger un fichier .ics avec tous les rendez-vous futurs et les ajouter au calendrier de votre téléphone.",
+  },
+];
+
+const faqSchema: WithContext<FAQPage> = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faq.map((item) => ({
+    '@type': 'Question',
+    name: item.question,
+    acceptedAnswer: { '@type': 'Answer', text: item.answer },
+  })),
+};
+const howToSchema: WithContext<HowTo> = {
+  '@context': 'https://schema.org',
+  '@type': 'HowTo',
+  name: title,
+  description,
+  step: howTo.map((step) => ({
+    '@type': 'HowToStep',
+    name: step.name,
+    text: step.text,
+  })),
+};
+const appSchema: WithContext<SoftwareApplication> = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: title,
+  description,
+  applicationCategory: 'UtilitiesApplication',
+  operatingSystem: 'Web',
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'EUR' },
+  inLanguage: 'fr',
+};
 
 export const content: VaccinationCalendarLocaleContent = {
-  slug: 'calendrier-vaccination-bebe-espagne',
-  title: "Calendrier de Vaccination en Espagne",
-  description: "Calculez les dates exactes de vaccination de votre bébé selon le calendrier AEP 2026.",
+  slug,
+  title,
+  description,
   ui: {
     labelBirthDate: "Date de naissance du bébé",
     placeholderDD: "JJ",
@@ -72,24 +144,7 @@ export const content: VaccinationCalendarLocaleContent = {
       "Consultez toujours votre pédiatre si vous avez des questions sur le calendrier de votre région.",
     ]},
   ],
-  faq: [
-    {
-      question: "Qu'est-ce que le calendrier de vaccination AEP 2026 ?",
-      answer: "C'est le calendrier de vaccinations recommandé par l'Association Espagnole de Pédiatrie pour 2026. Il comprend tous les vaccins systématiques et optionnels pour les bébés et les enfants de la naissance à 14 ans.",
-    },
-    {
-      question: "La vaccination de mon bébé est-elle obligatoire ?",
-      answer: "En Espagne, la vaccination n'est pas légalement obligatoire, mais elle est fortement recommandée. Les vaccins du calendrier systématique sont gratuits et administrés dans les centres de santé publics.",
-    },
-    {
-      question: "Que se passe-t-il si nous manquons une dose ?",
-      answer: "Si une dose est retardée, il n'est pas nécessaire de recommencer depuis le début. Votre pédiatre vous indiquera comment reprendre le calendrier là où il a été interrompu. L'essentiel est de compléter le schéma le plus tôt possible.",
-    },
-    {
-      question: "Peut-on administrer plusieurs vaccins le même jour ?",
-      answer: "Oui, il est courant et sans danger d'administrer plusieurs vaccins lors de la même visite. Les vaccins combinés comme l'hexavalent protègent déjà contre six maladies en une seule injection.",
-    },
-  ],
+  faq,
   bibliography: [
     {
       name: "Association Espagnole de Pédiatrie - Calendrier de Vaccination 2026",
@@ -108,23 +163,6 @@ export const content: VaccinationCalendarLocaleContent = {
       url: "https://www.cdc.gov/vaccines/schedules/hcp/imz/child-adolescent.html",
     },
   ],
-  howTo: [
-    {
-      name: "Saisissez la date de naissance",
-      text: "Entrez le jour, le mois et l'année de naissance de votre bébé dans les champs correspondants.",
-    },
-    {
-      name: "Consultez le prochain rendez-vous",
-      text: "La calculatrice vous indique automatiquement quand est la prochaine vaccination et quels vaccins sont prévus.",
-    },
-    {
-      name: "Consultez le calendrier complet",
-      text: "Développez les sections des rendez-vous passés et futurs pour voir l'intégralité du calendrier de vaccination.",
-    },
-    {
-      name: "Exportez les rappels",
-      text: "Appuyez sur le bouton pour télécharger un fichier .ics avec tous les rendez-vous futurs et les ajouter au calendrier de votre téléphone.",
-    },
-  ],
-  schemas: [],
+  howTo,
+  schemas: [faqSchema as any, howToSchema as any, appSchema],
 };

@@ -1,9 +1,89 @@
 import type { PregnancyCalculatorLocaleContent } from '../index';
+import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
+
+const slug = 'calculadora-semanas-embarazo';
+const title = 'Calculadora de Semanas de Embarazo';
+const description = 'Calcula exactamente en qué semana de embarazo estás, el trimestre y tu fecha probable de parto.';
+const faq = [
+  {
+    question: '¿Cómo se calcula la semana de embarazo?',
+    answer: 'Se cuenta desde el primer día de tu última regla. A esa fecha se suman 280 días para obtener la fecha probable de parto. Si tu ciclo es diferente a 28 días, el cálculo se ajusta automáticamente.',
+  },
+  {
+    question: '¿Qué diferencia hay entre usar la FUR y la fecha de concepción?',
+    answer: 'La FUR es el método estándar usado por los médicos. La fecha de concepción es más exacta si la conoces, ya que evita la estimación de los 14 días de ovulación. Ambos métodos dan resultados muy similares en ciclos regulares.',
+  },
+  {
+    question: '¿Por qué la fecha de parto de mi médico es diferente?',
+    answer: 'Tu médico puede haber corregido la fecha a partir de la ecografía del primer trimestre, que es el método más preciso. Ciclos irregulares también pueden justificar diferencias.',
+  },
+  {
+    question: '¿Cuándo empieza el segundo trimestre?',
+    answer: 'El segundo trimestre empieza en la semana 13 y termina al final de la semana 26. Es el periodo en el que la mayoría de las madres se sienten con más energía y donde la barriga se hace visible.',
+  },
+  {
+    question: '¿Qué es la FPP y qué exactitud tiene?',
+    answer: 'La Fecha Probable de Parto (FPP) es una estimación estadística. Solo el 3–5% de los bebés nace exactamente ese día. La mayoría nacen entre la semana 38 y la 42.',
+  },
+];
+const howTo = [
+  {
+    name: 'Selecciona el método de cálculo',
+    text: 'Elige si quieres calcular desde la fecha de tu última regla o desde la fecha de concepción.',
+  },
+  {
+    name: 'Introduce la fecha',
+    text: 'Selecciona el día, mes y año usando los menús desplegables.',
+  },
+  {
+    name: 'Ajusta la duración del ciclo',
+    text: 'Si tu ciclo no es de 28 días, mueve el control deslizante para obtener una estimación más precisa.',
+  },
+  {
+    name: 'Consulta la semana y el trimestre',
+    text: 'El resultado muestra la semana exacta, el trimestre y la fecha probable de parto.',
+  },
+  {
+    name: 'Explora los hitos semanales',
+    text: 'Descubre el tamaño del bebé, los cambios biológicos y consejos personalizados para cada semana.',
+  },
+];
+
+const faqSchema: WithContext<FAQPage> = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faq.map((item) => ({
+    '@type': 'Question',
+    name: item.question,
+    acceptedAnswer: { '@type': 'Answer', text: item.answer },
+  })),
+};
+const howToSchema: WithContext<HowTo> = {
+  '@context': 'https://schema.org',
+  '@type': 'HowTo',
+  name: title,
+  description,
+  step: howTo.map((step) => ({
+    '@type': 'HowToStep',
+    name: step.name,
+    text: step.text,
+  })),
+};
+const appSchema: WithContext<SoftwareApplication> = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: title,
+  description,
+  applicationCategory: 'UtilitiesApplication',
+  operatingSystem: 'Web',
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'EUR' },
+  inLanguage: 'es',
+};
 
 export const content: PregnancyCalculatorLocaleContent = {
-  slug: 'calculadora-semanas-embarazo',
-  title: 'Calculadora de Semanas de Embarazo',
-  description: 'Calcula exactamente en qué semana de embarazo estás, el trimestre y tu fecha probable de parto.',
+  slug,
+  title,
+  description,
   ui: {
     btnFUR: 'Última Regla',
     btnConception: 'Fecha de Concepción',
@@ -209,28 +289,7 @@ export const content: PregnancyCalculatorLocaleContent = {
       ],
     },
   ],
-  faq: [
-    {
-      question: '¿Cómo se calcula la semana de embarazo?',
-      answer: 'Se cuenta desde el primer día de tu última regla. A esa fecha se suman 280 días para obtener la fecha probable de parto. Si tu ciclo es diferente a 28 días, el cálculo se ajusta automáticamente.',
-    },
-    {
-      question: '¿Qué diferencia hay entre usar la FUR y la fecha de concepción?',
-      answer: 'La FUR es el método estándar usado por los médicos. La fecha de concepción es más exacta si la conoces, ya que evita la estimación de los 14 días de ovulación. Ambos métodos dan resultados muy similares en ciclos regulares.',
-    },
-    {
-      question: '¿Por qué la fecha de parto de mi médico es diferente?',
-      answer: 'Tu médico puede haber corregido la fecha a partir de la ecografía del primer trimestre, que es el método más preciso. Ciclos irregulares también pueden justificar diferencias.',
-    },
-    {
-      question: '¿Cuándo empieza el segundo trimestre?',
-      answer: 'El segundo trimestre empieza en la semana 13 y termina al final de la semana 26. Es el periodo en el que la mayoría de las madres se sienten con más energía y donde la barriga se hace visible.',
-    },
-    {
-      question: '¿Qué es la FPP y qué exactitud tiene?',
-      answer: 'La Fecha Probable de Parto (FPP) es una estimación estadística. Solo el 3–5% de los bebés nace exactamente ese día. La mayoría nacen entre la semana 38 y la 42.',
-    },
-  ],
+  faq,
   bibliography: [
     {
       name: 'OMS – Cuidados en el embarazo',
@@ -253,27 +312,6 @@ export const content: PregnancyCalculatorLocaleContent = {
       url: 'https://www.uptodate.com/contents/prenatal-care-initial-assessment',
     },
   ],
-  howTo: [
-    {
-      name: 'Selecciona el método de cálculo',
-      text: 'Elige si quieres calcular desde la fecha de tu última regla o desde la fecha de concepción.',
-    },
-    {
-      name: 'Introduce la fecha',
-      text: 'Selecciona el día, mes y año usando los menús desplegables.',
-    },
-    {
-      name: 'Ajusta la duración del ciclo',
-      text: 'Si tu ciclo no es de 28 días, mueve el control deslizante para obtener una estimación más precisa.',
-    },
-    {
-      name: 'Consulta la semana y el trimestre',
-      text: 'El resultado muestra la semana exacta, el trimestre y la fecha probable de parto.',
-    },
-    {
-      name: 'Explora los hitos semanales',
-      text: 'Descubre el tamaño del bebé, los cambios biológicos y consejos personalizados para cada semana.',
-    },
-  ],
-  schemas: [],
+  howTo,
+  schemas: [faqSchema as any, howToSchema as any, appSchema],
 };

@@ -121,7 +121,7 @@ const { ui } = Astro.props;
     return new Intl.DateTimeFormat('es-ES', { day: '2-digit', month: 'long', year: 'numeric' }).format(date);
   }
 
-  function buildTimelineRow(group: DoseGroup, birthDate: Date, today: Date, isPast: boolean): HTMLElement {
+  function buildTimelineRow(group: DoseGroup, birthDate: Date, _today: Date, isPast: boolean): HTMLElement {
     const target = new Date(birthDate);
     target.setMonth(target.getMonth() + group.months);
     const row = document.createElement('div');
@@ -141,7 +141,7 @@ const { ui } = Astro.props;
     statusEl.className = isPast
       ? 'vaccination-calendar-timeline-status vaccination-calendar-check'
       : 'vaccination-calendar-timeline-status vaccination-calendar-clock';
-    statusEl.textContent = isPast ? ui.labelStatusOk : ui.labelStatusPending;
+    statusEl.textContent = (isPast ? ui['labelStatusOk'] : ui['labelStatusPending']) ?? null;
     row.appendChild(ageEl);
     row.appendChild(vacEl);
     row.appendChild(statusEl);
@@ -194,7 +194,7 @@ const { ui } = Astro.props;
     const isToday = target.getTime() === today.getTime();
     if (isToday) {
       root.classList.add('vaccination-calendar-is-today');
-      nextDateEl.textContent = ui.btnToday;
+      nextDateEl.textContent = ui['btnToday'] ?? null;
     } else {
       root.classList.remove('vaccination-calendar-is-today');
       nextDateEl.textContent = `${getAgeLabel(next.months)} — ${formatDate(target)}`;
@@ -237,7 +237,7 @@ const { ui } = Astro.props;
     if (!date) {
       currentBirthDate = null;
       const hasValue = ddInput.value || mmInput.value || yyyyInput.value;
-      errorEl.textContent = hasValue ? ui.invalidMsg : '';
+      errorEl.textContent = hasValue ? (ui['invalidMsg'] ?? '') : '';
       clearDisplay();
       return;
     }
@@ -245,7 +245,7 @@ const { ui } = Astro.props;
     today.setHours(0, 0, 0, 0);
     if (date > today) {
       currentBirthDate = null;
-      errorEl.textContent = ui.futureMsg;
+      errorEl.textContent = ui['futureMsg'] ?? null;
       clearDisplay();
       return;
     }
@@ -279,7 +279,7 @@ const { ui } = Astro.props;
 
   btnShare.addEventListener('click', () => {
     if (!currentBirthDate || !navigator.share) return;
-    navigator.share({ title: 'Calendario de Vacunación', text: ui.labelSource, url: window.location.href });
+    navigator.share({ title: 'Calendario de Vacunación', ...(ui['labelSource'] !== undefined ? { text: ui['labelSource'] } : {}), url: window.location.href });
   });
 
   clearDisplay();

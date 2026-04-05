@@ -133,7 +133,6 @@ const { ui } = Astro.props;
   const root = document.getElementById('fertile-days-estimator-root') as HTMLElement;
   const ui = JSON.parse(root.dataset.ui as string) as Record<string, string>;
 
-  let currentStep = 1;
   let selectedDate: Date | null = null;
   let cycleLength = 28;
   let result: CycleCalcResult | null = null;
@@ -220,7 +219,6 @@ const { ui } = Astro.props;
   }
 
   function goToStep2(): void {
-    currentStep = 2;
     stepFirstEl.classList.add('hidden');
     layoutEl.classList.add('active');
     step1Indicator.classList.remove('active');

@@ -1,9 +1,81 @@
 import type { FertileDaysEstimatorLocaleContent } from '../index';
+import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
+
+const slug = 'calculatrice-jours-fertiles';
+const title = 'Calculatrice de Jours Fertiles';
+const description = "Calculez votre fenêtre fertile et la date d'ovulation en fonction de votre cycle menstruel.";
+const faq = [
+  {
+    question: "Comment la fenêtre fertile est-elle calculée ?",
+    answer: "La fenêtre fertile est calculée à partir du premier jour de vos dernières règles. L'ovulation survient environ 14 jours avant le début du cycle suivant. Les jours fertiles incluent les 5 jours précédant l'ovulation et le jour de l'ovulation lui-même.",
+  },
+  {
+    question: "Quelle est la précision de cette calculatrice ?",
+    answer: "La calculatrice est une estimation basée sur le modèle standard de cycle de 28 jours (ou celui que vous indiquez). Elle est indicative et peut ne pas refléter les variations individuelles. Pour plus de précision, combinez-la avec le suivi de la température basale ou les tests d'ovulation.",
+  },
+  {
+    question: "Que faire si mon cycle est irrégulier ?",
+    answer: "Si vos cycles varient beaucoup d'un mois à l'autre, le calcul peut être moins précis. Dans ce cas, le suivi de la température basale ou les tests de LH sont des méthodes plus fiables pour identifier l'ovulation.",
+  },
+  {
+    question: "Combien de temps l'ovule survit-il après l'ovulation ?",
+    answer: "L'ovule a une durée de vie de 12 à 24 heures. Cependant, les spermatozoïdes peuvent survivre jusqu'à 5 jours dans le tractus reproducteur féminin, ce qui explique que la fenêtre fertile réelle s'étend sur plusieurs jours avant l'ovulation.",
+  },
+];
+const howTo = [
+  {
+    name: "Sélectionnez le premier jour de vos dernières règles",
+    text: "Cliquez sur le jour du calendrier correspondant au début de votre dernière menstruation.",
+  },
+  {
+    name: "Ajustez la durée de votre cycle",
+    text: "Déplacez le curseur pour indiquer combien de jours dure habituellement votre cycle menstruel.",
+  },
+  {
+    name: "Consultez les résultats",
+    text: "La calculatrice affiche automatiquement la date d'ovulation estimée, la fenêtre fertile et le début des prochaines règles.",
+  },
+  {
+    name: "Naviguez dans le calendrier",
+    text: "Utilisez les flèches de navigation pour voir les jours marqués dans les mois précédents ou suivants.",
+  },
+];
+
+const faqSchema: WithContext<FAQPage> = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faq.map((item) => ({
+    '@type': 'Question',
+    name: item.question,
+    acceptedAnswer: { '@type': 'Answer', text: item.answer },
+  })),
+};
+const howToSchema: WithContext<HowTo> = {
+  '@context': 'https://schema.org',
+  '@type': 'HowTo',
+  name: title,
+  description,
+  step: howTo.map((step) => ({
+    '@type': 'HowToStep',
+    name: step.name,
+    text: step.text,
+  })),
+};
+const appSchema: WithContext<SoftwareApplication> = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: title,
+  description,
+  applicationCategory: 'UtilitiesApplication',
+  operatingSystem: 'Web',
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'EUR' },
+  inLanguage: 'fr',
+};
 
 export const content: FertileDaysEstimatorLocaleContent = {
-  slug: "calculatrice-jours-fertiles",
-  title: "Calculatrice de Jours Fertiles",
-  description: "Calculez votre fenêtre fertile et la date d'ovulation en fonction de votre cycle menstruel.",
+  slug,
+  title,
+  description,
   ui: {
     step1Title: "Quand a commencé vos dernières règles ?",
     step1Desc: "Sélectionnez le premier jour de vos dernières règles sur le calendrier.",
@@ -160,24 +232,7 @@ export const content: FertileDaysEstimatorLocaleContent = {
       ],
     },
   ],
-  faq: [
-    {
-      question: "Comment la fenêtre fertile est-elle calculée ?",
-      answer: "La fenêtre fertile est calculée à partir du premier jour de vos dernières règles. L'ovulation survient environ 14 jours avant le début du cycle suivant. Les jours fertiles incluent les 5 jours précédant l'ovulation et le jour de l'ovulation lui-même.",
-    },
-    {
-      question: "Quelle est la précision de cette calculatrice ?",
-      answer: "La calculatrice est une estimation basée sur le modèle standard de cycle de 28 jours (ou celui que vous indiquez). Elle est indicative et peut ne pas refléter les variations individuelles. Pour plus de précision, combinez-la avec le suivi de la température basale ou les tests d'ovulation.",
-    },
-    {
-      question: "Que faire si mon cycle est irrégulier ?",
-      answer: "Si vos cycles varient beaucoup d'un mois à l'autre, le calcul peut être moins précis. Dans ce cas, le suivi de la température basale ou les tests de LH sont des méthodes plus fiables pour identifier l'ovulation.",
-    },
-    {
-      question: "Combien de temps l'ovule survit-il après l'ovulation ?",
-      answer: "L'ovule a une durée de vie de 12 à 24 heures. Cependant, les spermatozoïdes peuvent survivre jusqu'à 5 jours dans le tractus reproducteur féminin, ce qui explique que la fenêtre fertile réelle s'étend sur plusieurs jours avant l'ovulation.",
-    },
-  ],
+  faq,
   bibliography: [
     {
       name: "OMS - Planification familiale",
@@ -196,23 +251,6 @@ export const content: FertileDaysEstimatorLocaleContent = {
       url: "https://www.nice.org.uk/guidance/cg156",
     },
   ],
-  howTo: [
-    {
-      name: "Sélectionnez le premier jour de vos dernières règles",
-      text: "Cliquez sur le jour du calendrier correspondant au début de votre dernière menstruation.",
-    },
-    {
-      name: "Ajustez la durée de votre cycle",
-      text: "Déplacez le curseur pour indiquer combien de jours dure habituellement votre cycle menstruel.",
-    },
-    {
-      name: "Consultez les résultats",
-      text: "La calculatrice affiche automatiquement la date d'ovulation estimée, la fenêtre fertile et le début des prochaines règles.",
-    },
-    {
-      name: "Naviguez dans le calendrier",
-      text: "Utilisez les flèches de navigation pour voir les jours marqués dans les mois précédents ou suivants.",
-    },
-  ],
-  schemas: [],
+  howTo,
+  schemas: [faqSchema as any, howToSchema as any, appSchema],
 };

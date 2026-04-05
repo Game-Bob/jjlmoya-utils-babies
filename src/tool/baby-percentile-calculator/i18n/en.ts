@@ -1,9 +1,87 @@
 import type { BabyPercentileCalculatorLocaleContent } from '../index';
+import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
+
+const slug = 'baby-weight-height-percentile';
+const title = 'WHO Percentile Calculator for Babies';
+const description = 'Calculate your baby\'s weight, height and BMI percentile using WHO growth charts (0-5 years).';
+const faq = [
+  {
+    question: 'What does the 50th percentile mean?',
+    answer: 'The 50th percentile means the baby is exactly at the median: half of babies the same age and sex weigh or measure more, and half weigh or measure less. It does not mean it is the ideal value, just the central value of the distribution.',
+  },
+  {
+    question: 'Is a low percentile a sign of a problem?',
+    answer: 'Not necessarily. A low percentile (for example P10) can be perfectly normal if it remains stable over time. The growth trend is what matters, not an isolated value. Always consult your pediatrician.',
+  },
+  {
+    question: 'Which growth charts does this calculator use?',
+    answer: 'This calculator uses the WHO Child Growth Standards for children aged 0 to 5 years, based on the Multicentre Growth Reference Study (MGRS).',
+  },
+  {
+    question: 'What is BMI in babies?',
+    answer: 'Body Mass Index (BMI) in babies is the ratio of weight to height squared. Baby BMI percentiles differ from adult ones and must be interpreted using age- and sex-specific charts.',
+  },
+  {
+    question: 'How often should I measure my baby?',
+    answer: 'In the first months, the pediatrician usually monitors growth at each visit. At home you can record weight and height monthly to observe the growth trend.',
+  },
+];
+const howTo = [
+  {
+    name: 'Select the baby\'s sex',
+    text: 'Choose boy or girl to apply the corresponding WHO charts.',
+  },
+  {
+    name: 'Enter the age',
+    text: 'Use the slider or arrows to set the age in months (0-60 months).',
+  },
+  {
+    name: 'Enter weight and height',
+    text: 'Type the weight in kilograms and height in centimetres.',
+  },
+  {
+    name: 'Check the percentiles',
+    text: 'Weight, height and BMI percentiles are calculated automatically using WHO charts.',
+  },
+];
+
+const faqSchema: WithContext<FAQPage> = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faq.map((item) => ({
+    '@type': 'Question',
+    name: item.question,
+    acceptedAnswer: { '@type': 'Answer', text: item.answer },
+  })),
+};
+
+const howToSchema: WithContext<HowTo> = {
+  '@context': 'https://schema.org',
+  '@type': 'HowTo',
+  name: title,
+  description,
+  step: howTo.map((step) => ({
+    '@type': 'HowToStep',
+    name: step.name,
+    text: step.text,
+  })),
+};
+
+const appSchema: WithContext<SoftwareApplication> = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: title,
+  description,
+  applicationCategory: 'UtilitiesApplication',
+  operatingSystem: 'Web',
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'EUR' },
+  inLanguage: 'en',
+};
 
 export const content: BabyPercentileCalculatorLocaleContent = {
-  slug: 'baby-weight-height-percentile',
-  title: 'WHO Percentile Calculator for Babies',
-  description: 'Calculate your baby\'s weight, height and BMI percentile using WHO growth charts (0-5 years).',
+  slug,
+  title,
+  description,
   ui: {
     labelMeasurements: 'Measurement Data',
     labelSex: 'Baby\'s sex',
@@ -144,28 +222,7 @@ export const content: BabyPercentileCalculatorLocaleContent = {
       ],
     },
   ],
-  faq: [
-    {
-      question: 'What does the 50th percentile mean?',
-      answer: 'The 50th percentile means the baby is exactly at the median: half of babies the same age and sex weigh or measure more, and half weigh or measure less. It does not mean it is the ideal value, just the central value of the distribution.',
-    },
-    {
-      question: 'Is a low percentile a sign of a problem?',
-      answer: 'Not necessarily. A low percentile (for example P10) can be perfectly normal if it remains stable over time. The growth trend is what matters, not an isolated value. Always consult your pediatrician.',
-    },
-    {
-      question: 'Which growth charts does this calculator use?',
-      answer: 'This calculator uses the WHO Child Growth Standards for children aged 0 to 5 years, based on the Multicentre Growth Reference Study (MGRS).',
-    },
-    {
-      question: 'What is BMI in babies?',
-      answer: 'Body Mass Index (BMI) in babies is the ratio of weight to height squared. Baby BMI percentiles differ from adult ones and must be interpreted using age- and sex-specific charts.',
-    },
-    {
-      question: 'How often should I measure my baby?',
-      answer: 'In the first months, the pediatrician usually monitors growth at each visit. At home you can record weight and height monthly to observe the growth trend.',
-    },
-  ],
+  faq,
   bibliography: [
     {
       name: 'WHO Child Growth Standards: Methods and development',
@@ -180,23 +237,6 @@ export const content: BabyPercentileCalculatorLocaleContent = {
       url: 'https://doi.org/10.1093/jn/137.1.144S',
     },
   ],
-  howTo: [
-    {
-      name: 'Select the baby\'s sex',
-      text: 'Choose boy or girl to apply the corresponding WHO charts.',
-    },
-    {
-      name: 'Enter the age',
-      text: 'Use the slider or arrows to set the age in months (0-60 months).',
-    },
-    {
-      name: 'Enter weight and height',
-      text: 'Type the weight in kilograms and height in centimetres.',
-    },
-    {
-      name: 'Check the percentiles',
-      text: 'Weight, height and BMI percentiles are calculated automatically using WHO charts.',
-    },
-  ],
-  schemas: [],
+  howTo,
+  schemas: [faqSchema as any, howToSchema as any, appSchema],
 };

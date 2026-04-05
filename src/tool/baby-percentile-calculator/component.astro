@@ -198,9 +198,9 @@ const { ui } = Astro.props;
       resWeight.textContent = '—';
       resHeight.textContent = '—';
       resBmi.textContent = '—';
-      resWeightDesc.textContent = ui['labelCalculating'];
-      resHeightDesc.textContent = ui['labelCalculating'];
-      resBmiDesc.textContent = ui['labelCalculating'];
+      resWeightDesc.textContent = ui['labelCalculating'] ?? null;
+      resHeightDesc.textContent = ui['labelCalculating'] ?? null;
+      resBmiDesc.textContent = ui['labelCalculating'] ?? null;
       alertEl.removeAttribute('data-visible');
       return;
     }
@@ -311,7 +311,7 @@ const { ui } = Astro.props;
 
     const monthLabel = getEl('bpc-age-val').nextElementSibling as HTMLElement;
     if (monthLabel) {
-      monthLabel.textContent = unit === 'yearsMonths' ? ui['labelMonths'] : ui['labelMonths'];
+      monthLabel.textContent = (unit === 'yearsMonths' ? ui['labelMonths'] : ui['labelMonths']) ?? null;
     }
 
     syncAgeDisplay();

@@ -241,9 +241,9 @@ const { ui } = Astro.props;
     if (s.date) {
       const parts = s.date.split('-');
       if (parts.length === 3) {
-        dpYear.value = parts[0];
-        dpMonth.value = String(parseInt(parts[1], 10));
-        dpDay.value = String(parseInt(parts[2], 10));
+        dpYear.value = parts[0] ?? '';
+        dpMonth.value = String(parseInt(parts[1] ?? '0', 10));
+        dpDay.value = String(parseInt(parts[2] ?? '0', 10));
       }
     }
   }
@@ -253,14 +253,14 @@ const { ui } = Astro.props;
       const el = btn as HTMLElement;
       el.classList.toggle('pregnancy-calculator-method-btn-active', el.dataset.method === method);
     });
-    dpLabel.textContent = method === 'fur' ? ui.labelFUR : ui.labelConception;
+    dpLabel.textContent = (method === 'fur' ? ui['labelFUR'] : ui['labelConception']) ?? null;
     csWrap.style.display = method === 'fur' ? '' : 'none';
   }
 
   function updatePartnerUI(partner: boolean): void {
     const track = root.querySelector('.pregnancy-calculator-toggle-track') as HTMLElement;
     track.classList.toggle('pregnancy-calculator-toggle-track-on', partner);
-    mpMomKey.textContent = partner ? ui.labelPartnerKey : ui.labelMomKey;
+    mpMomKey.textContent = (partner ? ui['labelPartnerKey'] : ui['labelMomKey']) ?? null;
   }
 
   function updateAnalogyTabs(cat: string): void {
@@ -283,7 +283,7 @@ const { ui } = Astro.props;
     if (!result.valid) {
       sdWeeks.textContent = '—';
       sdTri.textContent = '—';
-      sdEdd.textContent = ui.eddPlaceholder;
+      sdEdd.textContent = ui['eddPlaceholder'] ?? null;
       sdBtnCal.disabled = true;
       return;
     }

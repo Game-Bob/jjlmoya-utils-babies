@@ -1,9 +1,87 @@
 import type { BabyPercentileCalculatorLocaleContent } from '../index';
+import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
+
+const slug = 'percentil-peso-talla-bebe';
+const title = 'Calculadora de Percentiles OMS para Bebés';
+const description = 'Calcula el percentil de peso, talla e IMC de tu bebé según las tablas OMS (0-5 años).';
+const faq = [
+  {
+    question: '¿Qué significa el percentil 50?',
+    answer: 'El percentil 50 indica que el bebé se encuentra exactamente en la mediana, es decir, la mitad de los bebés de su misma edad y sexo pesan o miden más, y la otra mitad menos. No significa que sea el valor ideal, sino el valor central de la distribución.',
+  },
+  {
+    question: '¿Un percentil bajo es señal de problema?',
+    answer: 'No necesariamente. Un percentil bajo (por ejemplo, P10) puede ser perfectamente normal si se mantiene estable a lo largo del tiempo. Lo importante es la tendencia de crecimiento, no un valor aislado. Siempre consulta a tu pediatra.',
+  },
+  {
+    question: '¿Qué tablas de crecimiento utiliza esta calculadora?',
+    answer: 'Esta calculadora utiliza los estándares de crecimiento de la Organización Mundial de la Salud (OMS) para niños de 0 a 5 años, basados en el Multicentre Growth Reference Study (MGRS).',
+  },
+  {
+    question: '¿Qué es el IMC en bebés?',
+    answer: 'El Índice de Masa Corporal (IMC) en bebés es la relación entre el peso y la talla al cuadrado. Los percentiles de IMC para bebés difieren de los de adultos y deben interpretarse con las tablas específicas para cada edad y sexo.',
+  },
+  {
+    question: '¿Con qué frecuencia debo medir a mi bebé?',
+    answer: 'En los primeros meses, el pediatra suele controlar el crecimiento en cada visita. En casa puedes registrar el peso y la talla mensualmente para observar la tendencia de crecimiento.',
+  },
+];
+const howTo = [
+  {
+    name: 'Selecciona el sexo del bebé',
+    text: 'Elige entre niño o niña para aplicar las tablas OMS correspondientes.',
+  },
+  {
+    name: 'Introduce la edad',
+    text: 'Usa el deslizador o las flechas para indicar la edad en meses (0-60 meses).',
+  },
+  {
+    name: 'Introduce peso y talla',
+    text: 'Escribe el peso en kilogramos y la talla en centímetros.',
+  },
+  {
+    name: 'Consulta los percentiles',
+    text: 'Los percentiles de peso, talla e IMC se calculan automáticamente según las tablas OMS.',
+  },
+];
+
+const faqSchema: WithContext<FAQPage> = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faq.map((item) => ({
+    '@type': 'Question',
+    name: item.question,
+    acceptedAnswer: { '@type': 'Answer', text: item.answer },
+  })),
+};
+
+const howToSchema: WithContext<HowTo> = {
+  '@context': 'https://schema.org',
+  '@type': 'HowTo',
+  name: title,
+  description,
+  step: howTo.map((step) => ({
+    '@type': 'HowToStep',
+    name: step.name,
+    text: step.text,
+  })),
+};
+
+const appSchema: WithContext<SoftwareApplication> = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: title,
+  description,
+  applicationCategory: 'UtilitiesApplication',
+  operatingSystem: 'Web',
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'EUR' },
+  inLanguage: 'es',
+};
 
 export const content: BabyPercentileCalculatorLocaleContent = {
-  slug: 'percentil-peso-talla-bebe',
-  title: 'Calculadora de Percentiles OMS para Bebés',
-  description: 'Calcula el percentil de peso, talla e IMC de tu bebé según las tablas OMS (0-5 años).',
+  slug,
+  title,
+  description,
   ui: {
     labelMeasurements: 'Datos de la Medición',
     labelSex: 'Sexo del bebé',
@@ -144,28 +222,7 @@ export const content: BabyPercentileCalculatorLocaleContent = {
       ],
     },
   ],
-  faq: [
-    {
-      question: '¿Qué significa el percentil 50?',
-      answer: 'El percentil 50 indica que el bebé se encuentra exactamente en la mediana, es decir, la mitad de los bebés de su misma edad y sexo pesan o miden más, y la otra mitad menos. No significa que sea el valor ideal, sino el valor central de la distribución.',
-    },
-    {
-      question: '¿Un percentil bajo es señal de problema?',
-      answer: 'No necesariamente. Un percentil bajo (por ejemplo, P10) puede ser perfectamente normal si se mantiene estable a lo largo del tiempo. Lo importante es la tendencia de crecimiento, no un valor aislado. Siempre consulta a tu pediatra.',
-    },
-    {
-      question: '¿Qué tablas de crecimiento utiliza esta calculadora?',
-      answer: 'Esta calculadora utiliza los estándares de crecimiento de la Organización Mundial de la Salud (OMS) para niños de 0 a 5 años, basados en el Multicentre Growth Reference Study (MGRS).',
-    },
-    {
-      question: '¿Qué es el IMC en bebés?',
-      answer: 'El Índice de Masa Corporal (IMC) en bebés es la relación entre el peso y la talla al cuadrado. Los percentiles de IMC para bebés difieren de los de adultos y deben interpretarse con las tablas específicas para cada edad y sexo.',
-    },
-    {
-      question: '¿Con qué frecuencia debo medir a mi bebé?',
-      answer: 'En los primeros meses, el pediatra suele controlar el crecimiento en cada visita. En casa puedes registrar el peso y la talla mensualmente para observar la tendencia de crecimiento.',
-    },
-  ],
+  faq,
   bibliography: [
     {
       name: 'WHO Child Growth Standards: Methods and development',
@@ -180,23 +237,6 @@ export const content: BabyPercentileCalculatorLocaleContent = {
       url: 'https://doi.org/10.1093/jn/137.1.144S',
     },
   ],
-  howTo: [
-    {
-      name: 'Selecciona el sexo del bebé',
-      text: 'Elige entre niño o niña para aplicar las tablas OMS correspondientes.',
-    },
-    {
-      name: 'Introduce la edad',
-      text: 'Usa el deslizador o las flechas para indicar la edad en meses (0-60 meses).',
-    },
-    {
-      name: 'Introduce peso y talla',
-      text: 'Escribe el peso en kilogramos y la talla en centímetros.',
-    },
-    {
-      name: 'Consulta los percentiles',
-      text: 'Los percentiles de peso, talla e IMC se calculan automáticamente según las tablas OMS.',
-    },
-  ],
-  schemas: [],
+  howTo,
+  schemas: [faqSchema as any, howToSchema as any, appSchema],
 };

@@ -1,9 +1,85 @@
 import type { VaccinationCalendarLocaleContent } from '../index';
+import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
+
+const slug = 'calendario-vacunacion-espana-bebes';
+const title = 'Calendario de Vacunación en España';
+const description = 'Calcula las fechas exactas de vacunación de tu bebé según el calendario AEP 2026.';
+const faq = [
+  {
+    question: '¿Qué es el calendario de vacunación AEP 2026?',
+    answer: 'Es el calendario de vacunaciones recomendado por la Asociación Española de Pediatría para el año 2026. Incluye todas las vacunas sistemáticas y opcionales para bebés y niños desde el nacimiento hasta los 14 años.',
+  },
+  {
+    question: '¿Es obligatorio vacunar a mi bebé según el calendario?',
+    answer: 'En España la vacunación no es legalmente obligatoria, pero sí muy recomendada. Las vacunas del calendario sistemático son gratuitas y se administran en los centros de salud públicos.',
+  },
+  {
+    question: '¿Qué pasa si nos saltamos una dosis?',
+    answer: 'Si se retrasa una dosis no es necesario empezar de cero. Tu pediatra te indicará cómo retomar el calendario desde donde se dejó. Lo importante es completar la pauta lo antes posible.',
+  },
+  {
+    question: '¿Puedo administrar varias vacunas el mismo día?',
+    answer: 'Sí, es habitual y seguro administrar varias vacunas en la misma visita. Las vacunas combinadas como la hexavalente ya protegen contra seis enfermedades en una sola inyección.',
+  },
+  {
+    question: '¿Son seguras las vacunas para los bebés prematuros?',
+    answer: 'Los bebés prematuros deben vacunarse según su edad cronológica (desde el nacimiento), no la edad corregida, salvo indicación específica del neonatólogo. Tienen prioridad por ser más vulnerables.',
+  },
+];
+const howTo = [
+  {
+    name: 'Introduce la fecha de nacimiento',
+    text: 'Escribe el día, mes y año de nacimiento de tu bebé en los campos correspondientes.',
+  },
+  {
+    name: 'Consulta la próxima cita',
+    text: 'La calculadora te muestra automáticamente cuándo es la próxima vacunación y qué vacunas corresponden.',
+  },
+  {
+    name: 'Revisa el calendario completo',
+    text: 'Despliega las secciones de citas pasadas y futuras para ver todo el calendario de vacunación.',
+  },
+  {
+    name: 'Exporta los recordatorios',
+    text: 'Pulsa el botón para descargar un archivo .ics con todas las citas futuras y añadirlas a tu calendario del móvil.',
+  },
+];
+
+const faqSchema: WithContext<FAQPage> = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faq.map((item) => ({
+    '@type': 'Question',
+    name: item.question,
+    acceptedAnswer: { '@type': 'Answer', text: item.answer },
+  })),
+};
+const howToSchema: WithContext<HowTo> = {
+  '@context': 'https://schema.org',
+  '@type': 'HowTo',
+  name: title,
+  description,
+  step: howTo.map((step) => ({
+    '@type': 'HowToStep',
+    name: step.name,
+    text: step.text,
+  })),
+};
+const appSchema: WithContext<SoftwareApplication> = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: title,
+  description,
+  applicationCategory: 'UtilitiesApplication',
+  operatingSystem: 'Web',
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'EUR' },
+  inLanguage: 'es',
+};
 
 export const content: VaccinationCalendarLocaleContent = {
-  slug: 'calendario-vacunacion-espana-bebes',
-  title: 'Calendario de Vacunación en España',
-  description: 'Calcula las fechas exactas de vacunación de tu bebé según el calendario AEP 2026.',
+  slug,
+  title,
+  description,
   ui: {
     labelBirthDate: 'Fecha de nacimiento del bebé',
     placeholderDD: 'DD',
@@ -72,28 +148,7 @@ export const content: VaccinationCalendarLocaleContent = {
       'Consulta siempre a tu pediatra si tienes dudas sobre el calendario de tu comunidad.',
     ]},
   ],
-  faq: [
-    {
-      question: '¿Qué es el calendario de vacunación AEP 2026?',
-      answer: 'Es el calendario de vacunaciones recomendado por la Asociación Española de Pediatría para el año 2026. Incluye todas las vacunas sistemáticas y opcionales para bebés y niños desde el nacimiento hasta los 14 años.',
-    },
-    {
-      question: '¿Es obligatorio vacunar a mi bebé según el calendario?',
-      answer: 'En España la vacunación no es legalmente obligatoria, pero sí muy recomendada. Las vacunas del calendario sistemático son gratuitas y se administran en los centros de salud públicos.',
-    },
-    {
-      question: '¿Qué pasa si nos saltamos una dosis?',
-      answer: 'Si se retrasa una dosis no es necesario empezar de cero. Tu pediatra te indicará cómo retomar el calendario desde donde se dejó. Lo importante es completar la pauta lo antes posible.',
-    },
-    {
-      question: '¿Puedo administrar varias vacunas el mismo día?',
-      answer: 'Sí, es habitual y seguro administrar varias vacunas en la misma visita. Las vacunas combinadas como la hexavalente ya protegen contra seis enfermedades en una sola inyección.',
-    },
-    {
-      question: '¿Son seguras las vacunas para los bebés prematuros?',
-      answer: 'Los bebés prematuros deben vacunarse según su edad cronológica (desde el nacimiento), no la edad corregida, salvo indicación específica del neonatólogo. Tienen prioridad por ser más vulnerables.',
-    },
-  ],
+  faq,
   bibliography: [
     {
       name: 'Asociación Española de Pediatría - Calendario de Vacunaciones 2026',
@@ -112,23 +167,6 @@ export const content: VaccinationCalendarLocaleContent = {
       url: 'https://www.cdc.gov/vaccines/schedules/hcp/imz/child-adolescent.html',
     },
   ],
-  howTo: [
-    {
-      name: 'Introduce la fecha de nacimiento',
-      text: 'Escribe el día, mes y año de nacimiento de tu bebé en los campos correspondientes.',
-    },
-    {
-      name: 'Consulta la próxima cita',
-      text: 'La calculadora te muestra automáticamente cuándo es la próxima vacunación y qué vacunas corresponden.',
-    },
-    {
-      name: 'Revisa el calendario completo',
-      text: 'Despliega las secciones de citas pasadas y futuras para ver todo el calendario de vacunación.',
-    },
-    {
-      name: 'Exporta los recordatorios',
-      text: 'Pulsa el botón para descargar un archivo .ics con todas las citas futuras y añadirlas a tu calendario del móvil.',
-    },
-  ],
-  schemas: [],
+  howTo,
+  schemas: [faqSchema as any, howToSchema as any, appSchema],
 };

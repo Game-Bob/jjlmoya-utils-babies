@@ -1,9 +1,89 @@
 import type { PregnancyCalculatorLocaleContent } from '../index';
+import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
+
+const slug = 'pregnancy-weeks-calculator';
+const title = 'Pregnancy Weeks Calculator';
+const description = 'Calculate exactly which week of pregnancy you are in, your trimester, and your estimated due date.';
+const faq = [
+  {
+    question: 'How is the pregnancy week calculated?',
+    answer: 'It is counted from the first day of your last period. 280 days are added to that date to get the estimated due date. If your cycle differs from 28 days, the calculation adjusts automatically.',
+  },
+  {
+    question: 'What is the difference between LMP and conception date?',
+    answer: 'LMP (Last Menstrual Period) is the standard method used by doctors. The conception date is more accurate if you know it, as it avoids the 14-day ovulation estimate. Both methods give very similar results for regular cycles.',
+  },
+  {
+    question: 'Why is my doctor\'s due date different from this calculator?',
+    answer: 'Your doctor may have corrected the date based on a first-trimester ultrasound, which is the most accurate method. Irregular cycles can also justify differences.',
+  },
+  {
+    question: 'When does the second trimester start?',
+    answer: 'The second trimester starts at week 13 and ends at the end of week 26. Most mothers feel more energetic during this period and the baby bump becomes visible.',
+  },
+  {
+    question: 'What is the EDD and how accurate is it?',
+    answer: 'The Estimated Due Date (EDD) is a statistical estimate. Only 3–5% of babies are born exactly on that day. Most babies are born between weeks 38 and 42.',
+  },
+];
+const howTo = [
+  {
+    name: 'Select the calculation method',
+    text: 'Choose whether to calculate from your last menstrual period or from your conception date.',
+  },
+  {
+    name: 'Enter the date',
+    text: 'Select the day, month and year using the dropdown menus.',
+  },
+  {
+    name: 'Adjust cycle length',
+    text: 'If your cycle is not 28 days, move the slider to get a more accurate estimate.',
+  },
+  {
+    name: 'Check the week and trimester',
+    text: 'The result shows the exact week, trimester and estimated due date.',
+  },
+  {
+    name: 'Explore weekly milestones',
+    text: 'Discover the baby\'s size, biological changes and personalised tips for each week.',
+  },
+];
+
+const faqSchema: WithContext<FAQPage> = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faq.map((item) => ({
+    '@type': 'Question',
+    name: item.question,
+    acceptedAnswer: { '@type': 'Answer', text: item.answer },
+  })),
+};
+const howToSchema: WithContext<HowTo> = {
+  '@context': 'https://schema.org',
+  '@type': 'HowTo',
+  name: title,
+  description,
+  step: howTo.map((step) => ({
+    '@type': 'HowToStep',
+    name: step.name,
+    text: step.text,
+  })),
+};
+const appSchema: WithContext<SoftwareApplication> = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: title,
+  description,
+  applicationCategory: 'UtilitiesApplication',
+  operatingSystem: 'Web',
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'EUR' },
+  inLanguage: 'en',
+};
 
 export const content: PregnancyCalculatorLocaleContent = {
-  slug: 'pregnancy-weeks-calculator',
-  title: 'Pregnancy Weeks Calculator',
-  description: 'Calculate exactly which week of pregnancy you are in, your trimester, and your estimated due date.',
+  slug,
+  title,
+  description,
   ui: {
     btnFUR: 'Last Period',
     btnConception: 'Conception Date',
@@ -209,28 +289,7 @@ export const content: PregnancyCalculatorLocaleContent = {
       ],
     },
   ],
-  faq: [
-    {
-      question: 'How is the pregnancy week calculated?',
-      answer: 'It is counted from the first day of your last period. 280 days are added to that date to get the estimated due date. If your cycle differs from 28 days, the calculation adjusts automatically.',
-    },
-    {
-      question: 'What is the difference between LMP and conception date?',
-      answer: 'LMP (Last Menstrual Period) is the standard method used by doctors. The conception date is more accurate if you know it, as it avoids the 14-day ovulation estimate. Both methods give very similar results for regular cycles.',
-    },
-    {
-      question: 'Why is my doctor\'s due date different from this calculator?',
-      answer: 'Your doctor may have corrected the date based on a first-trimester ultrasound, which is the most accurate method. Irregular cycles can also justify differences.',
-    },
-    {
-      question: 'When does the second trimester start?',
-      answer: 'The second trimester starts at week 13 and ends at the end of week 26. Most mothers feel more energetic during this period and the baby bump becomes visible.',
-    },
-    {
-      question: 'What is the EDD and how accurate is it?',
-      answer: 'The Estimated Due Date (EDD) is a statistical estimate. Only 3–5% of babies are born exactly on that day. Most babies are born between weeks 38 and 42.',
-    },
-  ],
+  faq,
   bibliography: [
     {
       name: 'WHO – Antenatal care',
@@ -249,27 +308,6 @@ export const content: PregnancyCalculatorLocaleContent = {
       url: 'https://journals.lww.com/greenjournal/fulltext/2017/05000/methods_for_estimating_the_due_date.43.aspx',
     },
   ],
-  howTo: [
-    {
-      name: 'Select the calculation method',
-      text: 'Choose whether to calculate from your last menstrual period or from your conception date.',
-    },
-    {
-      name: 'Enter the date',
-      text: 'Select the day, month and year using the dropdown menus.',
-    },
-    {
-      name: 'Adjust cycle length',
-      text: 'If your cycle is not 28 days, move the slider to get a more accurate estimate.',
-    },
-    {
-      name: 'Check the week and trimester',
-      text: 'The result shows the exact week, trimester and estimated due date.',
-    },
-    {
-      name: 'Explore weekly milestones',
-      text: 'Discover the baby\'s size, biological changes and personalised tips for each week.',
-    },
-  ],
-  schemas: [],
+  howTo,
+  schemas: [faqSchema as any, howToSchema as any, appSchema],
 };

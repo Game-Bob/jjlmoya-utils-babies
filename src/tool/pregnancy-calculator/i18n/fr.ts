@@ -1,9 +1,89 @@
 import type { PregnancyCalculatorLocaleContent } from '../index';
+import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
+
+const slug = 'calculatrice-semaines-grossesse';
+const title = 'Calculatrice de Semaines de Grossesse';
+const description = 'Calculez exactement à quelle semaine de grossesse vous êtes, votre trimestre et votre date prévue d\'accouchement.';
+const faq = [
+  {
+    question: 'Comment calcule-t-on la semaine de grossesse ?',
+    answer: 'On compte à partir du premier jour des dernières règles. On ajoute 280 jours à cette date pour obtenir la date prévue d\'accouchement. Si votre cycle est différent de 28 jours, le calcul s\'ajuste automatiquement.',
+  },
+  {
+    question: 'Quelle est la différence entre la DDR et la date de conception ?',
+    answer: 'La DDR (Date des Dernières Règles) est la méthode standard utilisée par les médecins. La date de conception est plus précise si vous la connaissez, car elle évite l\'estimation des 14 jours d\'ovulation.',
+  },
+  {
+    question: 'Pourquoi la date de mon médecin est-elle différente ?',
+    answer: 'Votre médecin a peut-être corrigé la date à partir de l\'échographie du premier trimestre, qui est la méthode la plus précise. Des cycles irréguliers peuvent aussi justifier des différences.',
+  },
+  {
+    question: 'Quand commence le deuxième trimestre ?',
+    answer: 'Le deuxième trimestre commence à la semaine 13 et se termine à la fin de la semaine 26. La plupart des mères se sentent plus énergiques pendant cette période.',
+  },
+  {
+    question: 'Quelle est la précision de la date prévue d\'accouchement ?',
+    answer: 'La DPA est une estimation statistique. Seulement 3 à 5 % des bébés naissent exactement ce jour-là. La plupart des bébés naissent entre les semaines 38 et 42.',
+  },
+];
+const howTo = [
+  {
+    name: 'Sélectionnez la méthode de calcul',
+    text: 'Choisissez si vous voulez calculer à partir de vos dernières règles ou de la date de conception.',
+  },
+  {
+    name: 'Entrez la date',
+    text: 'Sélectionnez le jour, le mois et l\'année à l\'aide des menus déroulants.',
+  },
+  {
+    name: 'Ajustez la durée du cycle',
+    text: 'Si votre cycle n\'est pas de 28 jours, déplacez le curseur pour une estimation plus précise.',
+  },
+  {
+    name: 'Consultez la semaine et le trimestre',
+    text: 'Le résultat affiche la semaine exacte, le trimestre et la date prévue d\'accouchement.',
+  },
+  {
+    name: 'Explorez les jalons hebdomadaires',
+    text: 'Découvrez la taille du bébé, les changements biologiques et des conseils personnalisés pour chaque semaine.',
+  },
+];
+
+const faqSchema: WithContext<FAQPage> = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faq.map((item) => ({
+    '@type': 'Question',
+    name: item.question,
+    acceptedAnswer: { '@type': 'Answer', text: item.answer },
+  })),
+};
+const howToSchema: WithContext<HowTo> = {
+  '@context': 'https://schema.org',
+  '@type': 'HowTo',
+  name: title,
+  description,
+  step: howTo.map((step) => ({
+    '@type': 'HowToStep',
+    name: step.name,
+    text: step.text,
+  })),
+};
+const appSchema: WithContext<SoftwareApplication> = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: title,
+  description,
+  applicationCategory: 'UtilitiesApplication',
+  operatingSystem: 'Web',
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'EUR' },
+  inLanguage: 'fr',
+};
 
 export const content: PregnancyCalculatorLocaleContent = {
-  slug: 'calculatrice-semaines-grossesse',
-  title: 'Calculatrice de Semaines de Grossesse',
-  description: 'Calculez exactement à quelle semaine de grossesse vous êtes, votre trimestre et votre date prévue d\'accouchement.',
+  slug,
+  title,
+  description,
   ui: {
     btnFUR: 'Dernières règles',
     btnConception: 'Date de conception',
@@ -209,28 +289,7 @@ export const content: PregnancyCalculatorLocaleContent = {
       ],
     },
   ],
-  faq: [
-    {
-      question: 'Comment calcule-t-on la semaine de grossesse ?',
-      answer: 'On compte à partir du premier jour des dernières règles. On ajoute 280 jours à cette date pour obtenir la date prévue d\'accouchement. Si votre cycle est différent de 28 jours, le calcul s\'ajuste automatiquement.',
-    },
-    {
-      question: 'Quelle est la différence entre la DDR et la date de conception ?',
-      answer: 'La DDR (Date des Dernières Règles) est la méthode standard utilisée par les médecins. La date de conception est plus précise si vous la connaissez, car elle évite l\'estimation des 14 jours d\'ovulation.',
-    },
-    {
-      question: 'Pourquoi la date de mon médecin est-elle différente ?',
-      answer: 'Votre médecin a peut-être corrigé la date à partir de l\'échographie du premier trimestre, qui est la méthode la plus précise. Des cycles irréguliers peuvent aussi justifier des différences.',
-    },
-    {
-      question: 'Quand commence le deuxième trimestre ?',
-      answer: 'Le deuxième trimestre commence à la semaine 13 et se termine à la fin de la semaine 26. La plupart des mères se sentent plus énergiques pendant cette période.',
-    },
-    {
-      question: 'Quelle est la précision de la date prévue d\'accouchement ?',
-      answer: 'La DPA est une estimation statistique. Seulement 3 à 5 % des bébés naissent exactement ce jour-là. La plupart des bébés naissent entre les semaines 38 et 42.',
-    },
-  ],
+  faq,
   bibliography: [
     {
       name: 'OMS – Soins prénatals',
@@ -249,27 +308,6 @@ export const content: PregnancyCalculatorLocaleContent = {
       url: 'https://www.uptodate.com/contents/prenatal-care-initial-assessment',
     },
   ],
-  howTo: [
-    {
-      name: 'Sélectionnez la méthode de calcul',
-      text: 'Choisissez si vous voulez calculer à partir de vos dernières règles ou de la date de conception.',
-    },
-    {
-      name: 'Entrez la date',
-      text: 'Sélectionnez le jour, le mois et l\'année à l\'aide des menus déroulants.',
-    },
-    {
-      name: 'Ajustez la durée du cycle',
-      text: 'Si votre cycle n\'est pas de 28 jours, déplacez le curseur pour une estimation plus précise.',
-    },
-    {
-      name: 'Consultez la semaine et le trimestre',
-      text: 'Le résultat affiche la semaine exacte, le trimestre et la date prévue d\'accouchement.',
-    },
-    {
-      name: 'Explorez les jalons hebdomadaires',
-      text: 'Découvrez la taille du bébé, les changements biologiques et des conseils personnalisés pour chaque semaine.',
-    },
-  ],
-  schemas: [],
+  howTo,
+  schemas: [faqSchema as any, howToSchema as any, appSchema],
 };

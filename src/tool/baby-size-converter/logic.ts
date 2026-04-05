@@ -15,7 +15,7 @@ export interface Brand {
 }
 
 export function findBestSize(brand: Brand, height: number, weight: number): BrandSize {
-  let best = brand.sizes[0];
+  let best = brand.sizes[0]!;
   let diff = Infinity;
   brand.sizes.forEach((s) => {
     const d = Math.abs(s.height - height) + Math.abs(s.weight - weight) * 8;

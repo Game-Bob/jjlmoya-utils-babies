@@ -1,9 +1,87 @@
 import type { BabyPercentileCalculatorLocaleContent } from '../index';
+import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
+
+const slug = 'percentile-poids-taille-bebe';
+const title = 'Calculateur de Percentiles OMS pour Bébés';
+const description = 'Calculez le percentile de poids, taille et IMC de votre bébé selon les courbes OMS (0-5 ans).';
+const faq = [
+  {
+    question: 'Que signifie le 50e percentile ?',
+    answer: 'Le 50e percentile indique que le bébé se trouve exactement à la médiane : la moitié des bébés du même âge et sexe pèse ou mesure plus, et l\'autre moitié moins. Cela ne signifie pas que c\'est la valeur idéale, mais simplement la valeur centrale de la distribution.',
+  },
+  {
+    question: 'Un percentile bas est-il signe de problème ?',
+    answer: 'Pas nécessairement. Un percentile bas (par exemple P10) peut être tout à fait normal s\'il reste stable dans le temps. C\'est la tendance de croissance qui importe, et non une valeur isolée. Consultez toujours votre pédiatre.',
+  },
+  {
+    question: 'Quelles courbes de croissance cette calculatrice utilise-t-elle ?',
+    answer: 'Cette calculatrice utilise les normes de croissance de l\'Organisation Mondiale de la Santé (OMS) pour les enfants de 0 à 5 ans, basées sur l\'étude MGRS (Multicentre Growth Reference Study).',
+  },
+  {
+    question: 'Qu\'est-ce que l\'IMC chez les bébés ?',
+    answer: 'L\'Indice de Masse Corporelle (IMC) chez les bébés est le rapport entre le poids et le carré de la taille. Les percentiles d\'IMC pour bébés diffèrent de ceux des adultes et doivent être interprétés à l\'aide de courbes spécifiques par âge et sexe.',
+  },
+  {
+    question: 'À quelle fréquence dois-je mesurer mon bébé ?',
+    answer: 'Dans les premiers mois, le pédiatre surveille généralement la croissance à chaque visite. À la maison, vous pouvez enregistrer le poids et la taille mensuellement pour observer la tendance de croissance.',
+  },
+];
+const howTo = [
+  {
+    name: "Sélectionnez le sexe du bébé",
+    text: "Choisissez garçon ou fille pour appliquer les courbes OMS correspondantes.",
+  },
+  {
+    name: "Saisissez l'âge",
+    text: "Utilisez le curseur ou les flèches pour indiquer l'âge en mois (0-60 mois).",
+  },
+  {
+    name: "Saisissez poids et taille",
+    text: "Entrez le poids en kilogrammes et la taille en centimètres.",
+  },
+  {
+    name: "Consultez les percentiles",
+    text: "Les percentiles de poids, taille et IMC sont calculés automatiquement selon les courbes OMS.",
+  },
+];
+
+const faqSchema: WithContext<FAQPage> = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faq.map((item) => ({
+    '@type': 'Question',
+    name: item.question,
+    acceptedAnswer: { '@type': 'Answer', text: item.answer },
+  })),
+};
+
+const howToSchema: WithContext<HowTo> = {
+  '@context': 'https://schema.org',
+  '@type': 'HowTo',
+  name: title,
+  description,
+  step: howTo.map((step) => ({
+    '@type': 'HowToStep',
+    name: step.name,
+    text: step.text,
+  })),
+};
+
+const appSchema: WithContext<SoftwareApplication> = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: title,
+  description,
+  applicationCategory: 'UtilitiesApplication',
+  operatingSystem: 'Web',
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'EUR' },
+  inLanguage: 'fr',
+};
 
 export const content: BabyPercentileCalculatorLocaleContent = {
-  slug: 'percentile-poids-taille-bebe',
-  title: 'Calculateur de Percentiles OMS pour Bébés',
-  description: 'Calculez le percentile de poids, taille et IMC de votre bébé selon les courbes OMS (0-5 ans).',
+  slug,
+  title,
+  description,
   ui: {
     labelMeasurements: 'Données de Mesure',
     labelSex: 'Sexe du bébé',
@@ -144,28 +222,7 @@ export const content: BabyPercentileCalculatorLocaleContent = {
       ],
     },
   ],
-  faq: [
-    {
-      question: 'Que signifie le 50e percentile ?',
-      answer: 'Le 50e percentile indique que le bébé se trouve exactement à la médiane : la moitié des bébés du même âge et sexe pèse ou mesure plus, et l\'autre moitié moins. Cela ne signifie pas que c\'est la valeur idéale, mais simplement la valeur centrale de la distribution.',
-    },
-    {
-      question: 'Un percentile bas est-il signe de problème ?',
-      answer: 'Pas nécessairement. Un percentile bas (par exemple P10) peut être tout à fait normal s\'il reste stable dans le temps. C\'est la tendance de croissance qui importe, et non une valeur isolée. Consultez toujours votre pédiatre.',
-    },
-    {
-      question: 'Quelles courbes de croissance cette calculatrice utilise-t-elle ?',
-      answer: 'Cette calculatrice utilise les normes de croissance de l\'Organisation Mondiale de la Santé (OMS) pour les enfants de 0 à 5 ans, basées sur l\'étude MGRS (Multicentre Growth Reference Study).',
-    },
-    {
-      question: 'Qu\'est-ce que l\'IMC chez les bébés ?',
-      answer: 'L\'Indice de Masse Corporelle (IMC) chez les bébés est le rapport entre le poids et le carré de la taille. Les percentiles d\'IMC pour bébés diffèrent de ceux des adultes et doivent être interprétés à l\'aide de courbes spécifiques par âge et sexe.',
-    },
-    {
-      question: 'À quelle fréquence dois-je mesurer mon bébé ?',
-      answer: 'Dans les premiers mois, le pédiatre surveille généralement la croissance à chaque visite. À la maison, vous pouvez enregistrer le poids et la taille mensuellement pour observer la tendance de croissance.',
-    },
-  ],
+  faq,
   bibliography: [
     {
       name: "WHO Child Growth Standards: Methods and development",
@@ -180,23 +237,6 @@ export const content: BabyPercentileCalculatorLocaleContent = {
       url: "https://doi.org/10.1093/jn/137.1.144S",
     },
   ],
-  howTo: [
-    {
-      name: "Sélectionnez le sexe du bébé",
-      text: "Choisissez garçon ou fille pour appliquer les courbes OMS correspondantes.",
-    },
-    {
-      name: "Saisissez l'âge",
-      text: "Utilisez le curseur ou les flèches pour indiquer l'âge en mois (0-60 mois).",
-    },
-    {
-      name: "Saisissez poids et taille",
-      text: "Entrez le poids en kilogrammes et la taille en centimètres.",
-    },
-    {
-      name: "Consultez les percentiles",
-      text: "Les percentiles de poids, taille et IMC sont calculés automatiquement selon les courbes OMS.",
-    },
-  ],
-  schemas: [],
+  howTo,
+  schemas: [faqSchema as any, howToSchema as any, appSchema],
 };

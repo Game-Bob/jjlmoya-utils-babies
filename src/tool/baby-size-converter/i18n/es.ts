@@ -1,9 +1,81 @@
 import type { BabySizeConverterLocaleContent } from '../index';
+import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
+
+const slug = 'conversor-tallas-bebe';
+const title = 'Conversor de Tallas de Bebé';
+const description = 'Convierte tallas de ropa de bebé entre Zara, H&M, Primark, Carter\'s, Kiabi, Mango y Mayoral. Introduce la altura y el peso para obtener la talla exacta de cada marca.';
+const faq = [
+  {
+    question: '¿Cómo sé qué talla de ropa le corresponde a mi bebé?',
+    answer: 'Lo más fiable es usar la altura del bebé como referencia principal. Las tallas europeas (50, 56, 62...) corresponden directamente a la altura en centímetros. Introduce la altura y el peso del bebé en el conversor para obtener la talla recomendada por cada marca.',
+  },
+  {
+    question: '¿Por qué las tallas varían tanto entre marcas?',
+    answer: 'Cada marca tiene su propio patrón de corte. H&M y Primark tienden a tallar más grande, mientras que Carter\'s y Mayoral tienen cortes más ajustados. Usa siempre las medidas del bebé, no solo la edad.',
+  },
+  {
+    question: '¿Qué medida debo tomar si está entre dos tallas?',
+    answer: 'Elige siempre la talla superior. Los bebés crecen muy rápidamente y una talla más grande garantiza mayor durabilidad y comodidad.',
+  },
+  {
+    question: '¿Las tallas en pulgadas funcionan igual?',
+    answer: 'Las marcas americanas como Carter\'s usan pulgadas y el peso como referencia. El conversor automáticamente te muestra las equivalencias en el sistema imperial si lo activas.',
+  },
+];
+const howTo = [
+  {
+    name: 'Introduce la altura del bebé',
+    text: 'Usa el slider o los botones para ajustar la altura actual del bebé en centímetros o pulgadas.',
+  },
+  {
+    name: 'Introduce el peso del bebé',
+    text: 'Ajusta el peso en kg o libras para afinar los resultados, ya que algunas marcas usan el peso como referencia complementaria.',
+  },
+  {
+    name: 'Selecciona una marca',
+    text: 'Elige la marca de ropa para ver la talla sugerida y las medidas estimadas de la prenda.',
+  },
+  {
+    name: 'Consulta las equivalencias',
+    text: 'En el panel derecho verás las tallas equivalentes de todas las marcas disponibles de un vistazo.',
+  },
+];
+
+const faqSchema: WithContext<FAQPage> = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faq.map((item) => ({
+    '@type': 'Question',
+    name: item.question,
+    acceptedAnswer: { '@type': 'Answer', text: item.answer },
+  })),
+};
+const howToSchema: WithContext<HowTo> = {
+  '@context': 'https://schema.org',
+  '@type': 'HowTo',
+  name: title,
+  description,
+  step: howTo.map((step) => ({
+    '@type': 'HowToStep',
+    name: step.name,
+    text: step.text,
+  })),
+};
+const appSchema: WithContext<SoftwareApplication> = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: title,
+  description,
+  applicationCategory: 'UtilitiesApplication',
+  operatingSystem: 'Web',
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'EUR' },
+  inLanguage: 'es',
+};
 
 export const content: BabySizeConverterLocaleContent = {
-  slug: 'conversor-tallas-bebe',
-  title: 'Conversor de Tallas de Bebé',
-  description: 'Convierte tallas de ropa de bebé entre Zara, H&M, Primark, Carter\'s, Kiabi, Mango y Mayoral. Introduce la altura y el peso para obtener la talla exacta de cada marca.',
+  slug,
+  title,
+  description,
   ui: {
     labelInput: 'Medidas del bebé',
     labelResults: 'Equivalencias estimadas',
@@ -105,24 +177,7 @@ export const content: BabySizeConverterLocaleContent = {
       'El cuello de sobre y el tiro amplio son los detalles clave de comodidad.',
     ]},
   ],
-  faq: [
-    {
-      question: '¿Cómo sé qué talla de ropa le corresponde a mi bebé?',
-      answer: 'Lo más fiable es usar la altura del bebé como referencia principal. Las tallas europeas (50, 56, 62...) corresponden directamente a la altura en centímetros. Introduce la altura y el peso del bebé en el conversor para obtener la talla recomendada por cada marca.',
-    },
-    {
-      question: '¿Por qué las tallas varían tanto entre marcas?',
-      answer: 'Cada marca tiene su propio patrón de corte. H&M y Primark tienden a tallar más grande, mientras que Carter\'s y Mayoral tienen cortes más ajustados. Usa siempre las medidas del bebé, no solo la edad.',
-    },
-    {
-      question: '¿Qué medida debo tomar si está entre dos tallas?',
-      answer: 'Elige siempre la talla superior. Los bebés crecen muy rápidamente y una talla más grande garantiza mayor durabilidad y comodidad.',
-    },
-    {
-      question: '¿Las tallas en pulgadas funcionan igual?',
-      answer: 'Las marcas americanas como Carter\'s usan pulgadas y el peso como referencia. El conversor automáticamente te muestra las equivalencias en el sistema imperial si lo activas.',
-    },
-  ],
+  faq,
   bibliography: [
     {
       name: 'Zara - Guía de tallas infantiles',
@@ -141,23 +196,6 @@ export const content: BabySizeConverterLocaleContent = {
       url: 'https://www.mayoral.com/es-es/guia-tallas',
     },
   ],
-  howTo: [
-    {
-      name: 'Introduce la altura del bebé',
-      text: 'Usa el slider o los botones para ajustar la altura actual del bebé en centímetros o pulgadas.',
-    },
-    {
-      name: 'Introduce el peso del bebé',
-      text: 'Ajusta el peso en kg o libras para afinar los resultados, ya que algunas marcas usan el peso como referencia complementaria.',
-    },
-    {
-      name: 'Selecciona una marca',
-      text: 'Elige la marca de ropa para ver la talla sugerida y las medidas estimadas de la prenda.',
-    },
-    {
-      name: 'Consulta las equivalencias',
-      text: 'En el panel derecho verás las tallas equivalentes de todas las marcas disponibles de un vistazo.',
-    },
-  ],
-  schemas: [],
+  howTo,
+  schemas: [faqSchema as any, howToSchema as any, appSchema],
 };

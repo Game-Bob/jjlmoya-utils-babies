@@ -1,9 +1,81 @@
 import type { VaccinationCalendarLocaleContent } from '../index';
+import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
+
+const slug = 'baby-vaccination-calendar-spain';
+const title = 'Baby Vaccination Calendar in Spain';
+const description = 'Calculate the exact vaccination dates for your baby according to the AEP 2026 schedule.';
+const faq = [
+  {
+    question: 'What is the AEP 2026 vaccination schedule?',
+    answer: 'It is the vaccination schedule recommended by the Spanish Association of Pediatrics for 2026. It includes all systematic and optional vaccines for babies and children from birth to 14 years of age.',
+  },
+  {
+    question: 'Is it mandatory to vaccinate my baby according to the schedule?',
+    answer: 'In Spain, vaccination is not legally mandatory, but it is strongly recommended. Vaccines on the systematic schedule are free and administered at public health centres.',
+  },
+  {
+    question: 'What happens if we miss a dose?',
+    answer: 'If a dose is delayed, you do not need to start over. Your paediatrician will advise you on how to resume the schedule from where it was left off. The important thing is to complete the course as soon as possible.',
+  },
+  {
+    question: 'Can several vaccines be given on the same day?',
+    answer: 'Yes, it is common and safe to administer several vaccines at the same visit. Combined vaccines such as the hexavalent already protect against six diseases in a single injection.',
+  },
+];
+const howTo = [
+  {
+    name: 'Enter the date of birth',
+    text: 'Type the day, month and year of your baby\'s birth in the corresponding fields.',
+  },
+  {
+    name: 'Check the next appointment',
+    text: 'The calculator automatically shows you when the next vaccination is and which vaccines are due.',
+  },
+  {
+    name: 'Review the full calendar',
+    text: 'Expand the past and future appointment sections to see the complete vaccination calendar.',
+  },
+  {
+    name: 'Export reminders',
+    text: 'Press the button to download an .ics file with all future appointments and add them to your phone calendar.',
+  },
+];
+
+const faqSchema: WithContext<FAQPage> = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faq.map((item) => ({
+    '@type': 'Question',
+    name: item.question,
+    acceptedAnswer: { '@type': 'Answer', text: item.answer },
+  })),
+};
+const howToSchema: WithContext<HowTo> = {
+  '@context': 'https://schema.org',
+  '@type': 'HowTo',
+  name: title,
+  description,
+  step: howTo.map((step) => ({
+    '@type': 'HowToStep',
+    name: step.name,
+    text: step.text,
+  })),
+};
+const appSchema: WithContext<SoftwareApplication> = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: title,
+  description,
+  applicationCategory: 'UtilitiesApplication',
+  operatingSystem: 'Web',
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'EUR' },
+  inLanguage: 'en',
+};
 
 export const content: VaccinationCalendarLocaleContent = {
-  slug: 'baby-vaccination-calendar-spain',
-  title: 'Baby Vaccination Calendar in Spain',
-  description: 'Calculate the exact vaccination dates for your baby according to the AEP 2026 schedule.',
+  slug,
+  title,
+  description,
   ui: {
     labelBirthDate: "Baby's date of birth",
     placeholderDD: 'DD',
@@ -72,24 +144,7 @@ export const content: VaccinationCalendarLocaleContent = {
       'Always consult your paediatrician if you have questions about your region\'s schedule.',
     ]},
   ],
-  faq: [
-    {
-      question: 'What is the AEP 2026 vaccination schedule?',
-      answer: 'It is the vaccination schedule recommended by the Spanish Association of Pediatrics for 2026. It includes all systematic and optional vaccines for babies and children from birth to 14 years of age.',
-    },
-    {
-      question: 'Is it mandatory to vaccinate my baby according to the schedule?',
-      answer: 'In Spain, vaccination is not legally mandatory, but it is strongly recommended. Vaccines on the systematic schedule are free and administered at public health centres.',
-    },
-    {
-      question: 'What happens if we miss a dose?',
-      answer: 'If a dose is delayed, you do not need to start over. Your paediatrician will advise you on how to resume the schedule from where it was left off. The important thing is to complete the course as soon as possible.',
-    },
-    {
-      question: 'Can several vaccines be given on the same day?',
-      answer: 'Yes, it is common and safe to administer several vaccines at the same visit. Combined vaccines such as the hexavalent already protect against six diseases in a single injection.',
-    },
-  ],
+  faq,
   bibliography: [
     {
       name: 'Spanish Association of Pediatrics - Vaccination Schedule 2026',
@@ -108,23 +163,6 @@ export const content: VaccinationCalendarLocaleContent = {
       url: 'https://www.cdc.gov/vaccines/schedules/hcp/imz/child-adolescent.html',
     },
   ],
-  howTo: [
-    {
-      name: 'Enter the date of birth',
-      text: 'Type the day, month and year of your baby\'s birth in the corresponding fields.',
-    },
-    {
-      name: 'Check the next appointment',
-      text: 'The calculator automatically shows you when the next vaccination is and which vaccines are due.',
-    },
-    {
-      name: 'Review the full calendar',
-      text: 'Expand the past and future appointment sections to see the complete vaccination calendar.',
-    },
-    {
-      name: 'Export reminders',
-      text: 'Press the button to download an .ics file with all future appointments and add them to your phone calendar.',
-    },
-  ],
-  schemas: [],
+  howTo,
+  schemas: [faqSchema as any, howToSchema as any, appSchema],
 };

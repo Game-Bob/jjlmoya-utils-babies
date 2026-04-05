@@ -147,7 +147,7 @@ export const timelineLabels: Record<number, string> = {
 export function getMilestone(week: number): Milestone {
   const keys = Object.keys(milestones).map(Number).sort((a, b) => b - a);
   for (const k of keys) {
-    if (week >= k) return milestones[k];
+    if (week >= k) return milestones[k]!;
   }
-  return milestones[4];
+  return milestones[4]!;
 }

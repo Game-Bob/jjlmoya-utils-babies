@@ -1,9 +1,85 @@
 import type { FertileDaysEstimatorLocaleContent } from '../index';
+import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
+
+const slug = 'calculadora-dias-fertiles';
+const title = 'Calculadora de Días Fértiles';
+const description = 'Calcula tu ventana fértil y fecha de ovulación según tu ciclo menstrual.';
+const faq = [
+  {
+    question: '¿Cómo se calcula la ventana fértil?',
+    answer: 'La ventana fértil se calcula a partir del primer día de tu último periodo. La ovulación ocurre aproximadamente 14 días antes del inicio del siguiente ciclo. Los días fértiles incluyen los 5 días previos a la ovulación y el propio día de la ovulación.',
+  },
+  {
+    question: '¿Qué precisión tiene esta calculadora?',
+    answer: 'La calculadora es una estimación basada en el modelo estándar de ciclo de 28 días (o el que tú indiques). Es orientativa y puede no reflejar variaciones individuales. Para mayor precisión, combínala con el seguimiento de temperatura basal o test de ovulación.',
+  },
+  {
+    question: '¿Qué pasa si mi ciclo es irregular?',
+    answer: 'Si tus ciclos varían mucho de un mes a otro, el cálculo puede ser menos preciso. En ese caso, el seguimiento de la temperatura basal o los test de LH son métodos más fiables para identificar la ovulación.',
+  },
+  {
+    question: '¿Cuánto tiempo sobrevive el óvulo tras la ovulación?',
+    answer: 'El óvulo tiene una vida útil de 12 a 24 horas. Sin embargo, los espermatozoides pueden sobrevivir hasta 5 días en el tracto reproductivo femenino, de ahí que la ventana fértil real abarque varios días antes de la ovulación.',
+  },
+  {
+    question: '¿Se puede usar esta calculadora para evitar el embarazo?',
+    answer: 'No se recomienda usar esta calculadora como método anticonceptivo. Los métodos basados en el calendario tienen una tasa de fallo significativa. Consulta con tu médico o ginecólogo para métodos anticonceptivos seguros y adecuados para ti.',
+  },
+];
+const howTo = [
+  {
+    name: 'Selecciona el primer día de tu último periodo',
+    text: 'Haz clic en el día del calendario que corresponda al inicio de tu última menstruación.',
+  },
+  {
+    name: 'Ajusta la duración de tu ciclo',
+    text: 'Mueve el control deslizante para indicar cuántos días dura habitualmente tu ciclo menstrual.',
+  },
+  {
+    name: 'Consulta los resultados',
+    text: 'La calculadora muestra automáticamente la fecha de ovulación estimada, la ventana fértil y el inicio del siguiente periodo.',
+  },
+  {
+    name: 'Navega por el calendario',
+    text: 'Usa las flechas de navegación para ver los días marcados en meses anteriores o posteriores.',
+  },
+];
+
+const faqSchema: WithContext<FAQPage> = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faq.map((item) => ({
+    '@type': 'Question',
+    name: item.question,
+    acceptedAnswer: { '@type': 'Answer', text: item.answer },
+  })),
+};
+const howToSchema: WithContext<HowTo> = {
+  '@context': 'https://schema.org',
+  '@type': 'HowTo',
+  name: title,
+  description,
+  step: howTo.map((step) => ({
+    '@type': 'HowToStep',
+    name: step.name,
+    text: step.text,
+  })),
+};
+const appSchema: WithContext<SoftwareApplication> = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: title,
+  description,
+  applicationCategory: 'UtilitiesApplication',
+  operatingSystem: 'Web',
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'EUR' },
+  inLanguage: 'es',
+};
 
 export const content: FertileDaysEstimatorLocaleContent = {
-  slug: 'calculadora-dias-fertiles',
-  title: 'Calculadora de Días Fértiles',
-  description: 'Calcula tu ventana fértil y fecha de ovulación según tu ciclo menstrual.',
+  slug,
+  title,
+  description,
   ui: {
     step1Title: '¿Cuándo empezó tu última regla?',
     step1Desc: 'Selecciona el primer día de tu último periodo menstrual en el calendario.',
@@ -160,28 +236,7 @@ export const content: FertileDaysEstimatorLocaleContent = {
       ],
     },
   ],
-  faq: [
-    {
-      question: '¿Cómo se calcula la ventana fértil?',
-      answer: 'La ventana fértil se calcula a partir del primer día de tu último periodo. La ovulación ocurre aproximadamente 14 días antes del inicio del siguiente ciclo. Los días fértiles incluyen los 5 días previos a la ovulación y el propio día de la ovulación.',
-    },
-    {
-      question: '¿Qué precisión tiene esta calculadora?',
-      answer: 'La calculadora es una estimación basada en el modelo estándar de ciclo de 28 días (o el que tú indiques). Es orientativa y puede no reflejar variaciones individuales. Para mayor precisión, combínala con el seguimiento de temperatura basal o test de ovulación.',
-    },
-    {
-      question: '¿Qué pasa si mi ciclo es irregular?',
-      answer: 'Si tus ciclos varían mucho de un mes a otro, el cálculo puede ser menos preciso. En ese caso, el seguimiento de la temperatura basal o los test de LH son métodos más fiables para identificar la ovulación.',
-    },
-    {
-      question: '¿Cuánto tiempo sobrevive el óvulo tras la ovulación?',
-      answer: 'El óvulo tiene una vida útil de 12 a 24 horas. Sin embargo, los espermatozoides pueden sobrevivir hasta 5 días en el tracto reproductivo femenino, de ahí que la ventana fértil real abarque varios días antes de la ovulación.',
-    },
-    {
-      question: '¿Se puede usar esta calculadora para evitar el embarazo?',
-      answer: 'No se recomienda usar esta calculadora como método anticonceptivo. Los métodos basados en el calendario tienen una tasa de fallo significativa. Consulta con tu médico o ginecólogo para métodos anticonceptivos seguros y adecuados para ti.',
-    },
-  ],
+  faq,
   bibliography: [
     {
       name: 'OMS - Planificación familiar',
@@ -200,23 +255,6 @@ export const content: FertileDaysEstimatorLocaleContent = {
       url: 'https://www.nejm.org/doi/10.1056/NEJM199512073332301',
     },
   ],
-  howTo: [
-    {
-      name: 'Selecciona el primer día de tu último periodo',
-      text: 'Haz clic en el día del calendario que corresponda al inicio de tu última menstruación.',
-    },
-    {
-      name: 'Ajusta la duración de tu ciclo',
-      text: 'Mueve el control deslizante para indicar cuántos días dura habitualmente tu ciclo menstrual.',
-    },
-    {
-      name: 'Consulta los resultados',
-      text: 'La calculadora muestra automáticamente la fecha de ovulación estimada, la ventana fértil y el inicio del siguiente periodo.',
-    },
-    {
-      name: 'Navega por el calendario',
-      text: 'Usa las flechas de navegación para ver los días marcados en meses anteriores o posteriores.',
-    },
-  ],
-  schemas: [],
+  howTo,
+  schemas: [faqSchema as any, howToSchema as any, appSchema],
 };

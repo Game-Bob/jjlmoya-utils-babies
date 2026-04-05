@@ -136,12 +136,13 @@ const { ui } = Astro.props;
   };
 
   function getUnitLabel(unit: AgeUnit): string {
-    if (unit === 'days') return ui.unitDays;
-    if (unit === 'weeks') return ui.unitWeeks;
-    return ui.unitMonths;
+    if (unit === 'days') return ui['unitDays'] ?? '';
+    if (unit === 'weeks') return ui['unitWeeks'] ?? '';
+    return ui['unitMonths'] ?? '';
   }
 
   function updateDisplay(): void {
+    root.dataset['feedType'] = feedType;
     const ageInDays = toAgeInDays(ageValue, ageUnit);
     const result = calculateFeeding(ageInDays, weight);
 

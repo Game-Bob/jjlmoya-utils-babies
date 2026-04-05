@@ -4,6 +4,82 @@ import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dt
 const slug = 'baby-feeding-calculator';
 const title = 'Baby Feeding Calculator';
 const description = 'Calculate how much milk your baby needs based on weight and age. Recommended feeds, milliliters per feed, and hunger and fullness cues.';
+
+const faq = [
+  {
+    question: 'How much milk does a newborn need?',
+    answer: 'On day one, a newborn\'s stomach is the size of a cherry and needs only 5–7 ml per feed. By day five, capacity grows to 45–60 ml and needs increase progressively.',
+  },
+  {
+    question: 'How often should a baby eat?',
+    answer: 'Newborns need 8–12 feeds per day. By 3 months this typically spaces out to 7–8 feeds, and by 6 months around 5 feeds daily.',
+  },
+  {
+    question: 'How do I know if my baby is eating enough?',
+    answer: 'The most reliable indicators are: adequate weight gain, at least 5–6 wet diapers per day, and the baby showing fullness cues after feeds.',
+  },
+  {
+    question: 'Are breastfeeding and formula amounts the same?',
+    answer: 'With breastfeeding, on-demand feeding without measuring volumes is recommended. With formula, the common reference is 150 ml per kg of body weight per day, distributed across the number of feeds appropriate for the baby\'s age.',
+  },
+];
+
+const howTo = [
+  {
+    name: 'Select the baby\'s age',
+    text: 'Choose the unit (days, weeks, or months) and adjust the value with the slider or buttons.',
+  },
+  {
+    name: 'Enter the baby\'s weight',
+    text: 'Use the weight slider or buttons to adjust the baby\'s current weight in kilograms.',
+  },
+  {
+    name: 'Select the feed type',
+    text: 'Choose between breast, mixed, or formula to get the most tailored guide.',
+  },
+  {
+    name: 'Review the recommended plan',
+    text: 'The calculator shows number of feeds, milliliters per feed, and estimated daily total.',
+  },
+];
+
+const faqSchema: WithContext<FAQPage> = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faq.map((item) => ({
+    '@type': 'Question',
+    name: item.question,
+    acceptedAnswer: { '@type': 'Answer', text: item.answer },
+  })),
+};
+
+const howToSchema: WithContext<HowTo> = {
+  '@context': 'https://schema.org',
+  '@type': 'HowTo',
+  name: title,
+  description,
+  step: howTo.map((step) => ({
+    '@type': 'HowToStep',
+    name: step.name,
+    text: step.text,
+  })),
+};
+
+const appSchema: WithContext<SoftwareApplication> = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: title,
+  description,
+  applicationCategory: 'UtilitiesApplication',
+  operatingSystem: 'Web',
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'EUR' },
+  inLanguage: 'en',
+};
+
+export const content: BabyFeedingCalculatorLocaleContent = {
+  slug,
+  title,
+  description,
   ui: {
     labelConfig: 'Current settings',
     labelPlan: 'Recommended plan',
@@ -60,24 +136,7 @@ const description = 'Calculate how much milk your baby needs based on weight and
       'Urine is clear or very pale yellow',
     ]},
   ],
-  faq: [
-    {
-      question: 'How much milk does a newborn need?',
-      answer: 'On day one, a newborn\'s stomach is the size of a cherry and needs only 5–7 ml per feed. By day five, capacity grows to 45–60 ml and needs increase progressively.',
-    },
-    {
-      question: 'How often should a baby eat?',
-      answer: 'Newborns need 8–12 feeds per day. By 3 months this typically spaces out to 7–8 feeds, and by 6 months around 5 feeds daily.',
-    },
-    {
-      question: 'How do I know if my baby is eating enough?',
-      answer: 'The most reliable indicators are: adequate weight gain, at least 5–6 wet diapers per day, and the baby showing fullness cues after feeds.',
-    },
-    {
-      question: 'Are breastfeeding and formula amounts the same?',
-      answer: 'With breastfeeding, on-demand feeding without measuring volumes is recommended. With formula, the common reference is 150 ml per kg of body weight per day, distributed across the number of feeds appropriate for the baby\'s age.',
-    },
-  ],
+  faq,
   bibliography: [
     {
       name: 'WHO - Infant and young child feeding',
@@ -96,23 +155,6 @@ const description = 'Calculate how much milk your baby needs based on weight and
       url: 'https://www.unicef.org/nutrition/index_24824.html',
     },
   ],
-  howTo: [
-    {
-      name: 'Select the baby\'s age',
-      text: 'Choose the unit (days, weeks, or months) and adjust the value with the slider or buttons.',
-    },
-    {
-      name: 'Enter the baby\'s weight',
-      text: 'Use the weight slider or buttons to adjust the baby\'s current weight in kilograms.',
-    },
-    {
-      name: 'Select the feed type',
-      text: 'Choose between breast, mixed, or formula to get the most tailored guide.',
-    },
-    {
-      name: 'Review the recommended plan',
-      text: 'The calculator shows number of feeds, milliliters per feed, and estimated daily total.',
-    },
-  ],
-  schemas: [],
+  howTo,
+  schemas: [faqSchema as any, howToSchema as any, appSchema],
 };
