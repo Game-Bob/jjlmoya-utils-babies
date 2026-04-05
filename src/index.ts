@@ -1,4 +1,11 @@
 export { babiesCategory } from './category';
+
+export * from './tool/baby-feeding-calculator';
+export * from './tool/baby-size-converter';
+export * from './tool/baby-percentile-calculator';
+export * from './tool/fertile-days-estimator';
+export * from './tool/pregnancy-calculator';
+export * from './tool/vaccination-calendar';
 export { default as babiesCategorySEO } from './category/seo.astro';
 
 export type {
