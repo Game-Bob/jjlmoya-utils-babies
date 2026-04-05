@@ -1,265 +1,267 @@
 ---
 import './style.css';
+import { Icon } from 'astro-icon/components';
 import type { FertileDaysEstimatorUI } from './index';
 interface Props { ui: FertileDaysEstimatorUI; }
 const { ui } = Astro.props;
 ---
-<div id="fertile-days-estimator-root" class="fertile-days-estimator" data-ui={JSON.stringify(ui)}>
-  <div class="fertile-days-estimator-step-indicator">
-    <div class="fertile-days-estimator-step-item active" id="fde-step-1-indicator">
-      <span class="fertile-days-estimator-step-number">1</span>
+<div id="fertile-days-estimator-root" class="fde-container" data-ui={JSON.stringify(ui)}>
+  <div class="fde-step-indicator">
+    <div class="fde-step-item fde-step-active" id="fde-indicator-1">
+      <div class="fde-step-number">1</div>
       <span>{ui.step1Indicator}</span>
     </div>
-    <div class="fertile-days-estimator-step-item" id="fde-step-2-indicator">
-      <span class="fertile-days-estimator-step-number">2</span>
+    <div class="fde-step-item" id="fde-indicator-2">
+      <div class="fde-step-number">2</div>
       <span>{ui.step2Indicator}</span>
     </div>
   </div>
 
-  <div class="fertile-days-estimator-step-first" id="fde-step-first">
-    <h2 class="fertile-days-estimator-step-title">{ui.step1Title}</h2>
-    <p class="fertile-days-estimator-step-subtitle">{ui.step1Desc}</p>
-    <p class="fertile-days-estimator-pulse-hint">{ui.pulseHint}</p>
-    <div class="fertile-days-estimator-calendar" id="fde-calendar-initial">
-      <div class="fertile-days-estimator-calendar-nav">
-        <span id="fde-month-label-initial" class="fertile-days-estimator-month-label"></span>
-        <div class="fertile-days-estimator-nav-buttons">
-          <button class="fertile-days-estimator-nav-btn" id="fde-prev-initial" aria-label="Mes anterior">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-              <path d="M15 18l-6-6 6-6" />
-            </svg>
+  <div class="fde-step-first" id="fde-step-1">
+    <div class="fde-step-header">
+      <h2>{ui.step1Title}</h2>
+      <p>{ui.step1Desc}</p>
+    </div>
+
+    <div class="fde-calendar-card">
+      <div class="fde-cal-nav">
+        <h3 id="fde-initial-month-year">Mes Año</h3>
+        <div class="fde-nav-buttons">
+          <button class="fde-nav-btn" id="fde-initial-prev-month" aria-label="Mes anterior">
+            <Icon name="mdi:chevron-left" />
           </button>
-          <button class="fertile-days-estimator-nav-btn" id="fde-next-initial" aria-label="Mes siguiente">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-              <path d="M9 18l6-6-6-6" />
-            </svg>
+          <button class="fde-nav-btn" id="fde-initial-next-month" aria-label="Mes siguiente">
+            <Icon name="mdi:chevron-right" />
           </button>
         </div>
       </div>
-      <div class="fertile-days-estimator-calendar-grid" id="fde-grid-initial"></div>
+      <div class="fde-grid" id="fde-initial-calendar-grid"></div>
     </div>
+
+    <div class="fde-pulse-hint">{ui.pulseHint}</div>
   </div>
 
-  <div class="fertile-days-estimator-layout" id="fde-layout">
-    <aside class="fertile-days-estimator-sidebar">
-      <div class="fertile-days-estimator-sidebar-header">
-        <strong>{ui.sidebarTitle}</strong>
+  <div class="fde-layout" id="fde-step-2">
+    <aside class="fde-sidebar">
+      <div class="fde-sidebar-header">
+        <h2>{ui.sidebarTitle}</h2>
         <p>{ui.sidebarDesc}</p>
       </div>
-      <div class="fertile-days-estimator-input-card">
-        <label class="fertile-days-estimator-range-label" for="fde-cycle-length">{ui.labelCycleLength}</label>
-        <div class="fertile-days-estimator-range-control">
-          <input
-            type="range"
-            id="fde-cycle-length"
-            min="21"
-            max="35"
-            value="28"
-            class="fertile-days-estimator-range-input"
-          />
-          <span class="fertile-days-estimator-range-value" id="fde-cycle-value">28 <span>{ui.unitDays}</span></span>
+
+      <div class="fde-input-card">
+        <label>
+          <Icon name="mdi:calendar-edit" />
+          {ui.labelCycleLength}
+        </label>
+        <div class="fde-range-control">
+          <div class="fde-range-value" id="fde-cycle-value">28 <span>{ui.unitDays}</span></div>
+          <input type="range" id="fde-cycle-length" min="20" max="45" value="28" />
         </div>
       </div>
-      <div class="fertile-days-estimator-results" id="fde-results">
-        <div class="fertile-days-estimator-stat" id="fde-stat-ovulation">
-          <div class="fertile-days-estimator-stat-dot fertile-days-estimator-stat-dot-ovulation"></div>
-          <div class="fertile-days-estimator-stat-info">
-            <span class="fertile-days-estimator-stat-label">{ui.labelOvulation}</span>
-            <span class="fertile-days-estimator-stat-value" id="fde-val-ovulation">—</span>
+
+      <div class="fde-results">
+        <div class="fde-stat fde-stat-ovulation">
+          <Icon name="mdi:calendar-check" />
+          <div class="fde-stat-info">
+            <span class="fde-stat-label">{ui.labelOvulation}</span>
+            <span class="fde-stat-value" id="fde-val-ovulation">-</span>
           </div>
         </div>
-        <div class="fertile-days-estimator-stat" id="fde-stat-fertile">
-          <div class="fertile-days-estimator-stat-dot fertile-days-estimator-stat-dot-fertile"></div>
-          <div class="fertile-days-estimator-stat-info">
-            <span class="fertile-days-estimator-stat-label">{ui.labelFertileWindow}</span>
-            <span class="fertile-days-estimator-stat-value" id="fde-val-fertile">—</span>
+        <div class="fde-stat fde-stat-fertile">
+          <Icon name="mdi:heart-pulse" />
+          <div class="fde-stat-info">
+            <span class="fde-stat-label">{ui.labelFertileWindow}</span>
+            <span class="fde-stat-value" id="fde-val-fertile">-</span>
           </div>
         </div>
-        <div class="fertile-days-estimator-stat" id="fde-stat-period">
-          <div class="fertile-days-estimator-stat-dot fertile-days-estimator-stat-dot-period"></div>
-          <div class="fertile-days-estimator-stat-info">
-            <span class="fertile-days-estimator-stat-label">{ui.labelNextPeriod}</span>
-            <span class="fertile-days-estimator-stat-value" id="fde-val-period">—</span>
+        <div class="fde-stat fde-stat-period">
+          <Icon name="mdi:water" />
+          <div class="fde-stat-info">
+            <span class="fde-stat-label">{ui.labelNextPeriod}</span>
+            <span class="fde-stat-value" id="fde-val-period">-</span>
           </div>
         </div>
       </div>
     </aside>
 
-    <div class="fertile-days-estimator-content">
-      <div class="fertile-days-estimator-calendar" id="fde-calendar-main">
-        <div class="fertile-days-estimator-calendar-nav">
-          <span id="fde-month-label-main" class="fertile-days-estimator-month-label"></span>
-          <div class="fertile-days-estimator-nav-buttons">
-            <button class="fertile-days-estimator-nav-btn" id="fde-prev-main" aria-label="Mes anterior">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <path d="M15 18l-6-6 6-6" />
-              </svg>
+    <main class="fde-main">
+      <div class="fde-calendar-wrapper" id="fde-calendar-area">
+        <div class="fde-cal-nav">
+          <h3 id="fde-calendar-month-year">Mes Año</h3>
+          <div class="fde-nav-buttons">
+            <button class="fde-nav-btn" id="fde-prev-month" aria-label="Mes anterior">
+              <Icon name="mdi:chevron-left" />
             </button>
-            <button class="fertile-days-estimator-nav-btn" id="fde-next-main" aria-label="Mes siguiente">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <path d="M9 18l6-6-6-6" />
-              </svg>
+            <button class="fde-nav-btn" id="fde-next-month" aria-label="Mes siguiente">
+              <Icon name="mdi:chevron-right" />
             </button>
           </div>
         </div>
-        <div class="fertile-days-estimator-calendar-grid" id="fde-grid-main"></div>
+        <div class="fde-grid" id="fde-calendar-grid"></div>
+        <div class="fde-legend">
+          <div class="fde-legend-item">
+            <div class="fde-legend-dot fde-dot-selected"></div>
+            <span>{ui.legendSelection}</span>
+          </div>
+          <div class="fde-legend-item">
+            <div class="fde-legend-dot fde-dot-period"></div>
+            <span>{ui.legendPeriod}</span>
+          </div>
+          <div class="fde-legend-item">
+            <div class="fde-legend-dot fde-dot-fertile"></div>
+            <span>{ui.legendFertile}</span>
+          </div>
+          <div class="fde-legend-item">
+            <div class="fde-legend-dot fde-dot-ovulation"></div>
+            <span>{ui.legendOvulation}</span>
+          </div>
+        </div>
       </div>
-      <div class="fertile-days-estimator-legend">
-        <div class="fertile-days-estimator-legend-item">
-          <span class="fertile-days-estimator-legend-dot fertile-days-estimator-legend-dot-selected"></span>
-          <span>{ui.legendSelection}</span>
-        </div>
-        <div class="fertile-days-estimator-legend-item">
-          <span class="fertile-days-estimator-legend-dot fertile-days-estimator-legend-dot-period"></span>
-          <span>{ui.legendPeriod}</span>
-        </div>
-        <div class="fertile-days-estimator-legend-item">
-          <span class="fertile-days-estimator-legend-dot fertile-days-estimator-legend-dot-fertile"></span>
-          <span>{ui.legendFertile}</span>
-        </div>
-        <div class="fertile-days-estimator-legend-item">
-          <span class="fertile-days-estimator-legend-dot fertile-days-estimator-legend-dot-ovulation"></span>
-          <span>{ui.legendOvulation}</span>
-        </div>
-      </div>
-    </div>
+    </main>
   </div>
 </div>
 
 <script>
-  import { calculateCycle, getDaysInMonth, getMonthStartOffset, getDayType } from './logic';
-  import type { CycleCalcResult } from './logic';
+  import { calculateCycle } from './logic';
 
   const root = document.getElementById('fertile-days-estimator-root') as HTMLElement;
   const ui = JSON.parse(root.dataset.ui as string) as Record<string, string>;
 
   let selectedDate: Date | null = null;
-  let cycleLength = 28;
-  let result: CycleCalcResult | null = null;
+  const viewDate = new Date();
+  viewDate.setDate(1);
 
-  const now = new Date();
-  let viewDate = new Date(now.getFullYear(), now.getMonth(), 1);
+  const step1El = document.getElementById('fde-step-1') as HTMLElement;
+  const step2El = document.getElementById('fde-step-2') as HTMLElement;
+  const indicator1 = document.getElementById('fde-indicator-1') as HTMLElement;
+  const indicator2 = document.getElementById('fde-indicator-2') as HTMLElement;
+  const cycleLengthInput = document.getElementById('fde-cycle-length') as HTMLInputElement;
+  const cycleValueDisplay = document.getElementById('fde-cycle-value') as HTMLElement;
+  const ovulationDateEl = document.getElementById('fde-val-ovulation') as HTMLElement;
+  const fertileRangeEl = document.getElementById('fde-val-fertile') as HTMLElement;
+  const nextPeriodEl = document.getElementById('fde-val-period') as HTMLElement;
+  const calendarGrid = document.getElementById('fde-calendar-grid') as HTMLElement;
+  const calendarMonthYear = document.getElementById('fde-calendar-month-year') as HTMLElement;
+  const initialCalendarGrid = document.getElementById('fde-initial-calendar-grid') as HTMLElement;
+  const initialMonthYear = document.getElementById('fde-initial-month-year') as HTMLElement;
+  const prevMonthBtn = document.getElementById('fde-prev-month') as HTMLButtonElement;
+  const nextMonthBtn = document.getElementById('fde-next-month') as HTMLButtonElement;
+  const initialPrevBtn = document.getElementById('fde-initial-prev-month') as HTMLButtonElement;
+  const initialNextBtn = document.getElementById('fde-initial-next-month') as HTMLButtonElement;
 
-  const stepFirstEl = root.querySelector('#fde-step-first') as HTMLElement;
-  const layoutEl = root.querySelector('#fde-layout') as HTMLElement;
-  const step1Indicator = root.querySelector('#fde-step-1-indicator') as HTMLElement;
-  const step2Indicator = root.querySelector('#fde-step-2-indicator') as HTMLElement;
-  const cycleLengthInput = root.querySelector('#fde-cycle-length') as HTMLInputElement;
-  const cycleValueEl = root.querySelector('#fde-cycle-value') as HTMLElement;
-  const gridInitial = root.querySelector('#fde-grid-initial') as HTMLElement;
-  const gridMain = root.querySelector('#fde-grid-main') as HTMLElement;
-  const monthLabelInitial = root.querySelector('#fde-month-label-initial') as HTMLElement;
-  const monthLabelMain = root.querySelector('#fde-month-label-main') as HTMLElement;
-  const valOvulation = root.querySelector('#fde-val-ovulation') as HTMLElement;
-  const valFertile = root.querySelector('#fde-val-fertile') as HTMLElement;
-  const valPeriod = root.querySelector('#fde-val-period') as HTMLElement;
+  const DAY_NAMES = ['Lun', 'Mar', 'Mié', 'Juv', 'Vie', 'Sáb', 'Dom'];
 
-  const DAY_HEADERS = ['L', 'M', 'X', 'J', 'V', 'S', 'D'];
+  function updateCalculations(): void {
+    if (!selectedDate) return;
+    const cycleLength = parseInt(cycleLengthInput.value);
+    if (cycleValueDisplay) cycleValueDisplay.innerHTML = `${cycleLength} <span>${ui['unitDays'] ?? ''}</span>`;
 
-  const fmt = new Intl.DateTimeFormat('es-ES', { day: 'numeric', month: 'short' });
-  const fmtMonth = new Intl.DateTimeFormat('es-ES', { month: 'long', year: 'numeric' });
+    const result = calculateCycle(selectedDate, cycleLength);
 
-  function getToday(): Date {
-    const t = new Date();
-    t.setHours(0, 0, 0, 0);
-    return t;
+    const dtf = new Intl.DateTimeFormat('es-ES', { day: 'numeric', month: 'long' });
+    if (ovulationDateEl) ovulationDateEl.textContent = dtf.format(result.ovulationDate);
+    if (fertileRangeEl) fertileRangeEl.textContent = `${dtf.format(result.fertileStart)} – ${dtf.format(result.ovulationDate)}`;
+    if (nextPeriodEl) nextPeriodEl.textContent = dtf.format(result.nextPeriod);
+
+    renderCalendars();
   }
 
-  function buildGrid(container: HTMLElement, isInitial: boolean): void {
-    container.innerHTML = '';
+  function renderCalendars(): void {
+    renderGrid(initialCalendarGrid, initialMonthYear, true);
+    renderGrid(calendarGrid, calendarMonthYear, false);
+  }
+
+  function renderGrid(grid: HTMLElement | null, monthYearEl: HTMLElement | null, isInitial: boolean): void {
+    if (!grid || !monthYearEl) return;
+    grid.innerHTML = '';
+
     const year = viewDate.getFullYear();
     const month = viewDate.getMonth();
-    const daysInMonth = getDaysInMonth(year, month);
-    const offset = getMonthStartOffset(year, month);
-    const today = getToday();
-    const frag = document.createDocumentFragment();
-    DAY_HEADERS.forEach((h) => {
-      const el = document.createElement('div');
-      el.className = 'fertile-days-estimator-day-header';
-      el.textContent = h;
-      frag.appendChild(el);
+
+    monthYearEl.textContent = new Intl.DateTimeFormat('es-ES', { month: 'long', year: 'numeric' }).format(viewDate);
+
+    const daysInMonth = new Date(year, month + 1, 0).getDate();
+    const firstDay = new Date(year, month, 1).getDay();
+    const startOffset = firstDay === 0 ? 6 : firstDay - 1;
+
+    DAY_NAMES.forEach((day) => {
+      const header = document.createElement('div');
+      header.className = 'fde-day-header';
+      header.textContent = day;
+      grid.appendChild(header);
     });
-    for (let i = 0; i < offset; i++) {
+
+    for (let i = 0; i < startOffset; i++) {
       const el = document.createElement('div');
-      el.className = 'fertile-days-estimator-day fertile-days-estimator-day-empty';
-      frag.appendChild(el);
+      el.className = 'fde-day fde-day-empty';
+      grid.appendChild(el);
     }
+
+    const cycleLength = parseInt(cycleLengthInput ? cycleLengthInput.value : '28');
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
     for (let d = 1; d <= daysInMonth; d++) {
-      const dayDate = new Date(year, month, d);
-      dayDate.setHours(0, 0, 0, 0);
-      const dayType = getDayType(dayDate, selectedDate, result, today);
-      const el = document.createElement('button');
-      el.className = 'fertile-days-estimator-day';
-      if (dayType) el.classList.add(`fertile-days-estimator-day--${dayType}`);
-      el.textContent = String(d);
-      el.addEventListener('click', () => onDayClick(dayDate, isInitial));
-      frag.appendChild(el);
+      const currentDay = new Date(year, month, d);
+      currentDay.setHours(0, 0, 0, 0);
+
+      const dayEl = document.createElement('div');
+      dayEl.className = 'fde-day';
+      dayEl.textContent = String(d);
+
+      if (currentDay.getTime() === today.getTime()) dayEl.classList.add('fde-day-today');
+
+      if (selectedDate && currentDay.getTime() === selectedDate.getTime()) {
+        dayEl.classList.add('fde-day-selected');
+      }
+
+      if (selectedDate) {
+        const result = calculateCycle(selectedDate, cycleLength);
+        const nextPeriodEnd = new Date(result.nextPeriod);
+        nextPeriodEnd.setDate(result.nextPeriod.getDate() + 4);
+
+        if (currentDay.getTime() === result.ovulationDate.getTime()) {
+          dayEl.classList.add('fde-day-ovulation');
+        } else if (currentDay >= result.fertileStart && currentDay < result.ovulationDate) {
+          dayEl.classList.add('fde-day-fertile');
+        } else if (currentDay >= result.nextPeriod && currentDay <= nextPeriodEnd) {
+          dayEl.classList.add('fde-day-period');
+        }
+      }
+
+      dayEl.addEventListener('click', () => {
+        selectedDate = new Date(currentDay);
+        if (isInitial) goToStep2();
+        else updateCalculations();
+      });
+
+      grid.appendChild(dayEl);
     }
-    container.appendChild(frag);
-  }
-
-  function updateMonthLabel(): void {
-    const label = fmtMonth.format(viewDate);
-    monthLabelInitial.textContent = label;
-    monthLabelMain.textContent = label;
-  }
-
-  function updateResults(): void {
-    if (!selectedDate || !result) return;
-    valOvulation.textContent = fmt.format(result.ovulationDate);
-    valFertile.textContent = `${fmt.format(result.fertileStart)} – ${fmt.format(result.ovulationDate)}`;
-    valPeriod.textContent = fmt.format(result.nextPeriod);
-  }
-
-  function renderAll(): void {
-    updateMonthLabel();
-    buildGrid(gridInitial, true);
-    buildGrid(gridMain, false);
-    updateResults();
   }
 
   function goToStep2(): void {
-    stepFirstEl.classList.add('hidden');
-    layoutEl.classList.add('active');
-    step1Indicator.classList.remove('active');
-    step2Indicator.classList.add('active');
+    if (step1El) step1El.classList.add('fde-hidden');
+    if (step2El) step2El.classList.add('fde-active');
+    if (indicator1) indicator1.classList.remove('fde-step-active');
+    if (indicator2) indicator2.classList.add('fde-step-active');
+    updateCalculations();
   }
 
-  function onDayClick(day: Date, isInitial: boolean): void {
-    selectedDate = day;
-    result = calculateCycle(day, cycleLength);
-    if (isInitial) goToStep2();
-    renderAll();
-  }
+  cycleLengthInput?.addEventListener('input', updateCalculations);
 
-  cycleLengthInput.addEventListener('input', () => {
-    cycleLength = Number(cycleLengthInput.value);
-    cycleValueEl.textContent = `${cycleLength} `;
-    const span = document.createElement('span');
-    span.textContent = ui['unitDays'] ?? '';
-    cycleValueEl.appendChild(span);
-    if (selectedDate) {
-      result = calculateCycle(selectedDate, cycleLength);
-      renderAll();
-    }
-  });
+  [prevMonthBtn, initialPrevBtn].forEach(btn =>
+    btn?.addEventListener('click', () => {
+      viewDate.setMonth(viewDate.getMonth() - 1);
+      renderCalendars();
+    })
+  );
 
-  root.querySelector('#fde-prev-initial')?.addEventListener('click', () => {
-    viewDate = new Date(viewDate.getFullYear(), viewDate.getMonth() - 1, 1);
-    renderAll();
-  });
-  root.querySelector('#fde-next-initial')?.addEventListener('click', () => {
-    viewDate = new Date(viewDate.getFullYear(), viewDate.getMonth() + 1, 1);
-    renderAll();
-  });
-  root.querySelector('#fde-prev-main')?.addEventListener('click', () => {
-    viewDate = new Date(viewDate.getFullYear(), viewDate.getMonth() - 1, 1);
-    renderAll();
-  });
-  root.querySelector('#fde-next-main')?.addEventListener('click', () => {
-    viewDate = new Date(viewDate.getFullYear(), viewDate.getMonth() + 1, 1);
-    renderAll();
-  });
+  [nextMonthBtn, initialNextBtn].forEach(btn =>
+    btn?.addEventListener('click', () => {
+      viewDate.setMonth(viewDate.getMonth() + 1);
+      renderCalendars();
+    })
+  );
 
-  renderAll();
+  renderCalendars();
 </script>

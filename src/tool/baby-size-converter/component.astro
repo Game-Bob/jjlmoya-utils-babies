@@ -10,106 +10,120 @@ const brands = brandsData.brands;
 ---
 <div
   id="baby-size-converter-root"
-  class="baby-size-converter"
+  class="bsc-card"
   data-ui={JSON.stringify(ui)}
   data-brands={JSON.stringify(brands)}
 >
-  <div class="baby-size-converter-main">
-    <div class="baby-size-converter-left">
-      <div class="baby-size-converter-section-marker">{ui.labelInput}</div>
+  <div class="bsc-main">
+    <div class="bsc-left">
+      <span class="bsc-section-marker">{ui.labelInput}</span>
 
-      <div class="baby-size-converter-unit-nav">
-        <button class="baby-size-converter-unit-tab active" data-unit="metric">{ui.unitMetric}</button>
-        <button class="baby-size-converter-unit-tab" data-unit="imperial">{ui.unitImperial}</button>
+      <div class="bsc-brand-picker">
+        <div class="bsc-select-box">
+          <select id="bsc-origin-brand" aria-label={ui.labelBrandFit}>
+            {brands.map((brand) => <option value={brand.id}>{brand.name}</option>)}
+          </select>
+        </div>
+        <div class="bsc-unit-nav">
+          <button class="bsc-unit-tab bsc-unit-active" data-unit="metric">{ui.unitMetric}</button>
+          <button class="bsc-unit-tab" data-unit="imperial">{ui.unitImperial}</button>
+        </div>
       </div>
 
-      <div class="baby-size-converter-num-ctrl">
-        <div class="baby-size-converter-num-label" id="bsc-height-label">{ui.labelHeight} ({ui.labelCm})</div>
-        <div class="baby-size-converter-stepper-box">
-          <button class="baby-size-converter-btn-step" id="bsc-height-dec" aria-label="Reducir altura">−</button>
-          <div class="baby-size-converter-val-view">
-            <span class="baby-size-converter-val-big" id="bsc-height-val">68</span>
-            <span class="baby-size-converter-val-sub" id="bsc-height-unit">{ui.labelCm}</span>
+      <div class="bsc-num-ctrl">
+        <label class="bsc-num-label">{ui.labelHeight}</label>
+        <div class="bsc-stepper-box">
+          <button class="bsc-btn-step" data-action="dec" data-target="bsc-height-slider" aria-label="Menos altura">-</button>
+          <div class="bsc-val-view">
+            <span class="bsc-val-big" id="bsc-height-val">68</span>
+            <span class="bsc-val-sub" id="bsc-height-unit">cm</span>
           </div>
-          <button class="baby-size-converter-btn-step" id="bsc-height-inc" aria-label="Aumentar altura">+</button>
+          <button class="bsc-btn-step" data-action="inc" data-target="bsc-height-slider" aria-label="Más altura">+</button>
         </div>
-        <input class="baby-size-converter-slider-line" type="range" id="bsc-height-slider" min="45" max="100" value="68" />
+        <input type="range" id="bsc-height-slider" min="45" max="100" step="1" value="68" class="bsc-slider" />
       </div>
 
-      <div class="baby-size-converter-num-ctrl">
-        <div class="baby-size-converter-num-label" id="bsc-weight-label">{ui.labelWeight} ({ui.labelKg})</div>
-        <div class="baby-size-converter-stepper-box">
-          <button class="baby-size-converter-btn-step" id="bsc-weight-dec" aria-label="Reducir peso">−</button>
-          <div class="baby-size-converter-val-view">
-            <span class="baby-size-converter-val-big" id="bsc-weight-val">8.0</span>
-            <span class="baby-size-converter-val-sub" id="bsc-weight-unit">{ui.labelKg}</span>
+      <div class="bsc-num-ctrl">
+        <label class="bsc-num-label">{ui.labelWeight}</label>
+        <div class="bsc-stepper-box">
+          <button class="bsc-btn-step" data-action="dec" data-target="bsc-weight-slider" aria-label="Menos peso">-</button>
+          <div class="bsc-val-view">
+            <span class="bsc-val-big" id="bsc-weight-val">8.0</span>
+            <span class="bsc-val-sub" id="bsc-weight-unit">kg</span>
           </div>
-          <button class="baby-size-converter-btn-step" id="bsc-weight-inc" aria-label="Aumentar peso">+</button>
+          <button class="bsc-btn-step" data-action="inc" data-target="bsc-weight-slider" aria-label="Más peso">+</button>
         </div>
-        <input class="baby-size-converter-slider-line" type="range" id="bsc-weight-slider" min="2" max="20" step="0.1" value="8" />
+        <input type="range" id="bsc-weight-slider" min="3" max="18" step="0.5" value="8" class="bsc-slider" />
       </div>
 
-      <div class="baby-size-converter-num-ctrl">
-        <div class="baby-size-converter-num-label">{ui.labelPresets}</div>
-        <div class="baby-size-converter-age-rack">
-          <button class="baby-size-converter-age-tile" data-height="56" data-weight="4.5">0-1m</button>
-          <button class="baby-size-converter-age-tile" data-height="62" data-weight="6">1-3m</button>
-          <button class="baby-size-converter-age-tile" data-height="68" data-weight="8">3-6m</button>
-          <button class="baby-size-converter-age-tile" data-height="74" data-weight="9">6-9m</button>
-          <button class="baby-size-converter-age-tile" data-height="80" data-weight="10">9-12m</button>
-          <button class="baby-size-converter-age-tile" data-height="86" data-weight="11.5">12-18m</button>
-          <button class="baby-size-converter-age-tile" data-height="92" data-weight="13">18-24m</button>
+      <div class="bsc-num-ctrl">
+        <label class="bsc-num-label">{ui.labelPresets}</label>
+        <div class="bsc-age-rack">
+          <button class="bsc-age-tile" data-age="0.5">NB</button>
+          <button class="bsc-age-tile" data-age="3">3m</button>
+          <button class="bsc-age-tile bsc-age-active" data-age="6">6m</button>
+          <button class="bsc-age-tile" data-age="9">9m</button>
+          <button class="bsc-age-tile" data-age="12">12m</button>
+          <button class="bsc-age-tile" data-age="18">18m</button>
+          <button class="bsc-age-tile" data-age="24">24m</button>
         </div>
-      </div>
-
-      <div class="baby-size-converter-num-ctrl">
-        <div class="baby-size-converter-num-label">{ui.labelBrandFit}</div>
-        <select class="baby-size-converter-select-box" id="bsc-brand-select">
-          {brands.map((b) => (
-            <option value={b.id}>{b.name}</option>
-          ))}
-        </select>
       </div>
     </div>
 
-    <div class="baby-size-converter-right">
-      <div class="baby-size-converter-section-marker">{ui.labelResults}</div>
+    <div class="bsc-right">
+      <button id="bsc-share-btn" class="bsc-share-btn" aria-label={ui.shareAriaLabel}>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M18 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"></path>
+          <path d="M6 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"></path>
+          <path d="M18 22a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"></path>
+          <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+          <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+        </svg>
+      </button>
 
-      <div class="baby-size-converter-res-header">
-        <div class="baby-size-converter-res-size-main" id="bsc-size-label">68</div>
-        <div class="baby-size-converter-res-brand-hint" id="bsc-brand-hint">Zara</div>
-        <span class="baby-size-converter-fit-label" id="bsc-fit-label">{ui.fitRegular}</span>
-        <button class="baby-size-converter-share-btn" id="bsc-share-btn" aria-label={ui.shareAriaLabel}>
-          &#8679;
-        </button>
+      <span class="bsc-section-marker">{ui.labelResults}</span>
+
+      <div class="bsc-res-header">
+        <span class="bsc-res-brand-hint" id="bsc-display-brand">Zara</span>
+        <span class="bsc-res-size-main" id="bsc-display-size">3-6 m</span>
+        <span class="bsc-fit-label bsc-fit-regular" id="bsc-status-badge">{ui.fitRegular}</span>
       </div>
 
-      <div class="baby-size-converter-clothes-meta">
-        <div class="baby-size-converter-meta-title">{ui.labelGarmentMeasures}</div>
-        <div class="baby-size-converter-meta-vals">
-          <div class="baby-size-converter-meta-cell">
-            <span class="baby-size-converter-num-label">{ui.labelChest}</span>
-            <span class="baby-size-converter-val-big" id="bsc-chest-val">44 cm</span>
+      <div class="bsc-equivalents-box">
+        <div class="bsc-eq-head-row">
+          <span class="bsc-eq-col-name">{ui.labelBrandFit}</span>
+          <span class="bsc-eq-col-name">{ui.labelSuggested}</span>
+        </div>
+        <div class="bsc-eq-data-list" id="bsc-equivalents-grid"></div>
+      </div>
+
+      <div class="bsc-clothes-meta">
+        <span class="bsc-meta-title">{ui.labelGarmentMeasures}</span>
+        <div class="bsc-meta-vals">
+          <div class="bsc-meta-cell">
+            <label>{ui.labelChest}</label>
+            <span id="bsc-chest-val">44 cm</span>
           </div>
-          <div class="baby-size-converter-meta-cell">
-            <span class="baby-size-converter-num-label">{ui.labelWaist}</span>
-            <span class="baby-size-converter-val-big" id="bsc-waist-val">43 cm</span>
+          <div class="bsc-meta-cell">
+            <label>{ui.labelWaist}</label>
+            <span id="bsc-waist-val">43 cm</span>
           </div>
         </div>
       </div>
+    </div>
+  </div>
 
-      <div class="baby-size-converter-equivalents-grid-box">
-        <div class="baby-size-converter-eq-head-row">
-          <span class="baby-size-converter-eq-col-name">{ui.labelBrandFit}</span>
-          <span>{ui.labelSuggested}</span>
-        </div>
-        <div id="bsc-eq-list"></div>
-      </div>
-
-      <div class="baby-size-converter-pro-tip-footer">
-        <span class="baby-size-converter-footer-icon">&#9432;</span>
-        <span class="baby-size-converter-footer-text">{ui.tipText}</span>
-      </div>
+  <div class="bsc-pro-tip-footer">
+    <div class="bsc-footer-icon">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="10"></circle>
+        <path d="M12 16v-4"></path>
+        <path d="M12 8h.01"></path>
+      </svg>
+    </div>
+    <div class="bsc-footer-text">
+      <h5>{ui.tipTitle}</h5>
+      <p set:html={ui.tipText}></p>
     </div>
   </div>
 </div>
@@ -121,169 +135,164 @@ const brands = brandsData.brands;
     const ui = JSON.parse(root.dataset.ui);
     const brands = JSON.parse(root.dataset.brands);
 
-    let heightCm = 68;
-    let weightKg = 8.0;
-    let unitMode = 'metric';
-    let activeBrandId = brands[0].id;
+    let uMode = 'metric';
+    let bCid = brands[0] ? brands[0].id : '';
+    let hVal = 68;
+    let wVal = 8;
 
-    const heightSlider = root.querySelector('#bsc-height-slider');
-    const weightSlider = root.querySelector('#bsc-weight-slider');
-    const heightValEl = root.querySelector('#bsc-height-val');
-    const weightValEl = root.querySelector('#bsc-weight-val');
-    const heightLabelEl = root.querySelector('#bsc-height-label');
-    const weightLabelEl = root.querySelector('#bsc-weight-label');
-    const heightUnitEl = root.querySelector('#bsc-height-unit');
-    const weightUnitEl = root.querySelector('#bsc-weight-unit');
-    const brandSelect = root.querySelector('#bsc-brand-select');
-    const sizeLabelEl = root.querySelector('#bsc-size-label');
-    const brandHintEl = root.querySelector('#bsc-brand-hint');
-    const fitLabelEl = root.querySelector('#bsc-fit-label');
-    const chestValEl = root.querySelector('#bsc-chest-val');
-    const waistValEl = root.querySelector('#bsc-waist-val');
-    const eqList = root.querySelector('#bsc-eq-list');
-    const shareBtn = root.querySelector('#bsc-share-btn');
+    const hIn = document.getElementById('bsc-height-slider');
+    const wIn = document.getElementById('bsc-weight-slider');
+    const hOut = document.getElementById('bsc-height-val');
+    const wOut = document.getElementById('bsc-weight-val');
+    const hUnit = document.getElementById('bsc-height-unit');
+    const wUnit = document.getElementById('bsc-weight-unit');
+    const bSel = document.getElementById('bsc-origin-brand');
+    const eqList = document.getElementById('bsc-equivalents-grid');
+    const uTabs = root.querySelectorAll('.bsc-unit-tab');
+    const aPick = root.querySelectorAll('.bsc-age-tile');
+    const bSteps = root.querySelectorAll('.bsc-btn-step');
 
-    function findBestSize(brand, height, weight) {
+    function findS(brand, h, w) {
       let best = brand.sizes[0];
       let diff = Infinity;
       brand.sizes.forEach(function (s) {
-        const d = Math.abs(s.height - height) + Math.abs(s.weight - weight) * 8;
-        if (d < diff) {
-          diff = d;
-          best = s;
-        }
+        const d = Math.abs(s.height - h) + Math.abs(s.weight - w) * 8;
+        if (d < diff) { diff = d; best = s; }
       });
       return best;
     }
 
-    function getFitLabel(fit) {
-      if (fit === 'large') return ui.fitLarge;
-      if (fit === 'small') return ui.fitSmall;
-      return ui.fitRegular;
+    function switchU() {
+      uTabs.forEach(function (b) { b.classList.toggle('bsc-unit-active', b.dataset.unit === uMode); });
+      if (hUnit) hUnit.textContent = uMode === 'metric' ? 'cm' : 'in';
+      if (wUnit) wUnit.textContent = uMode === 'metric' ? 'kg' : 'lb';
+      drawNums();
     }
 
-    function getFitClass(fit) {
-      if (fit === 'large') return 'baby-size-converter-fit-large';
-      if (fit === 'small') return 'baby-size-converter-fit-small';
-      return '';
+    function drawNums() {
+      if (hOut) hOut.textContent = uMode === 'metric' ? hVal.toString() : (hVal / 2.54).toFixed(1);
+      if (wOut) wOut.textContent = uMode === 'metric' ? wVal.toFixed(1) : (wVal * 2.20462).toFixed(1);
     }
 
-    function displayHeight() {
-      if (unitMode === 'imperial') return (heightCm / 2.54).toFixed(1);
-      return heightCm.toString();
-    }
+    function run() {
+      const activeBrand = brands.find(function (x) { return x.id === bCid; });
+      if (!activeBrand) return;
+      const size = findS(activeBrand, hVal, wVal);
 
-    function displayWeight() {
-      if (unitMode === 'imperial') return (weightKg * 2.20462).toFixed(1);
-      return weightKg.toFixed(1);
-    }
+      const dBrand = document.getElementById('bsc-display-brand');
+      const dSize = document.getElementById('bsc-display-size');
+      const badge = document.getElementById('bsc-status-badge');
 
-    function updateDisplay() {
-      const activeBrand = brands.find(function (b) { return b.id === activeBrandId; }) || brands[0];
-      const best = findBestSize(activeBrand, heightCm, weightKg);
-      const measureUnit = unitMode === 'imperial' ? ui.labelIn : ui.labelCm;
-      const weightUnit = unitMode === 'imperial' ? ui.labelLb : ui.labelKg;
-
-      heightValEl.textContent = displayHeight();
-      weightValEl.textContent = displayWeight();
-      heightUnitEl.textContent = measureUnit;
-      weightUnitEl.textContent = weightUnit;
-      heightLabelEl.textContent = ui.labelHeight + ' (' + measureUnit + ')';
-      weightLabelEl.textContent = ui.labelWeight + ' (' + weightUnit + ')';
-
-      heightSlider.value = heightCm;
-      weightSlider.value = weightKg;
-
-      sizeLabelEl.textContent = best.label;
-      brandHintEl.textContent = activeBrand.name;
-      fitLabelEl.textContent = getFitLabel(activeBrand.fit);
-      fitLabelEl.className = 'baby-size-converter-fit-label ' + getFitClass(activeBrand.fit);
-
-      const chestDisplay = unitMode === 'imperial'
-        ? (best.chest / 2.54).toFixed(1) + ' ' + ui.labelIn
-        : best.chest + ' ' + ui.labelCm;
-      const waistDisplay = unitMode === 'imperial'
-        ? (best.waist / 2.54).toFixed(1) + ' ' + ui.labelIn
-        : best.waist + ' ' + ui.labelCm;
-      chestValEl.textContent = chestDisplay;
-      waistValEl.textContent = waistDisplay;
-
-      const rows = brands.map(function (b) {
-        const s = findBestSize(b, heightCm, weightKg);
-        const isActive = b.id === activeBrandId;
-        return '<div class="baby-size-converter-eq-data-row' + (isActive ? ' baby-size-converter-eq-active' : '') + '">'
-          + '<span class="baby-size-converter-eq-brand-v">' + b.name + '</span>'
-          + '<span class="baby-size-converter-eq-size-v">' + s.label + '</span>'
-          + '</div>';
-      }).join('');
-      eqList.innerHTML = rows;
-    }
-
-    root.querySelectorAll('.baby-size-converter-unit-tab').forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        unitMode = btn.dataset.unit;
-        root.querySelectorAll('.baby-size-converter-unit-tab').forEach(function (b) { b.classList.remove('active'); });
-        btn.classList.add('active');
-        updateDisplay();
-      });
-    });
-
-    root.querySelectorAll('.baby-size-converter-age-tile').forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        heightCm = Number(btn.dataset.height);
-        weightKg = Number(btn.dataset.weight);
-        updateDisplay();
-      });
-    });
-
-    root.querySelector('#bsc-height-dec').addEventListener('click', function () {
-      if (heightCm > 45) { heightCm -= 1; updateDisplay(); }
-    });
-    root.querySelector('#bsc-height-inc').addEventListener('click', function () {
-      if (heightCm < 100) { heightCm += 1; updateDisplay(); }
-    });
-    heightSlider.addEventListener('input', function () {
-      heightCm = Number(heightSlider.value);
-      updateDisplay();
-    });
-
-    root.querySelector('#bsc-weight-dec').addEventListener('click', function () {
-      if (weightKg > 2) { weightKg = Math.round((weightKg - 0.1) * 10) / 10; updateDisplay(); }
-    });
-    root.querySelector('#bsc-weight-inc').addEventListener('click', function () {
-      if (weightKg < 20) { weightKg = Math.round((weightKg + 0.1) * 10) / 10; updateDisplay(); }
-    });
-    weightSlider.addEventListener('input', function () {
-      weightKg = Number(weightSlider.value);
-      updateDisplay();
-    });
-
-    brandSelect.addEventListener('change', function () {
-      activeBrandId = brandSelect.value;
-      updateDisplay();
-    });
-
-    shareBtn.addEventListener('click', function () {
-      const params = new URLSearchParams();
-      params.set('h', heightCm.toString());
-      params.set('w', weightKg.toString());
-      params.set('b', activeBrandId);
-      const url = window.location.pathname + '?' + params.toString();
-      if (navigator.share) {
-        navigator.share({ url: url });
-      } else {
-        navigator.clipboard.writeText(window.location.origin + url);
+      if (dBrand) dBrand.textContent = activeBrand.name;
+      if (dSize) dSize.textContent = size.label;
+      if (badge) {
+        if (activeBrand.fit === 'large') { badge.className = 'bsc-fit-label bsc-fit-large'; badge.textContent = ui.fitLarge; }
+        else if (activeBrand.fit === 'small') { badge.className = 'bsc-fit-label bsc-fit-small'; badge.textContent = ui.fitSmall; }
+        else { badge.className = 'bsc-fit-label bsc-fit-regular'; badge.textContent = ui.fitRegular; }
       }
+
+      const refBrand = brands[0];
+      const refSize = findS(refBrand, hVal, wVal);
+      aPick.forEach(function (btn) {
+        btn.classList.toggle('bsc-age-active', parseFloat(btn.dataset.age) === refSize.age);
+      });
+
+      const ch = document.getElementById('bsc-chest-val');
+      const wa = document.getElementById('bsc-waist-val');
+      if (ch && wa) {
+        if (uMode === 'metric') {
+          ch.textContent = size.chest + ' cm';
+          wa.textContent = size.waist + ' cm';
+        } else {
+          ch.textContent = (size.chest / 2.54).toFixed(1) + ' in';
+          wa.textContent = (size.waist / 2.54).toFixed(1) + ' in';
+        }
+      }
+
+      if (eqList) {
+        eqList.innerHTML = '';
+        brands.filter(function (x) { return x.id !== bCid; }).forEach(function (x) {
+          const s = findS(x, hVal, wVal);
+          const row = document.createElement('div');
+          row.className = 'bsc-eq-data-row';
+          let fitL = ui.fitRegular;
+          if (x.fit === 'large') fitL = ui.fitLarge;
+          if (x.fit === 'small') fitL = ui.fitSmall;
+          row.innerHTML = '<div class="bsc-eq-brand-v"><span class="bsc-eq-brand-name">' + x.name + '</span><span class="bsc-eq-fit-v bsc-eq-fit-' + x.fit + '">' + fitL + '</span></div><span class="bsc-eq-size-v">' + s.label + '</span>';
+          eqList.appendChild(row);
+        });
+      }
+    }
+
+    uTabs.forEach(function (b) {
+      b.addEventListener('click', function () {
+        uMode = b.dataset.unit;
+        switchU();
+        run();
+      });
     });
+
+    bSteps.forEach(function (b) {
+      b.addEventListener('click', function () {
+        const i = document.getElementById(b.dataset.target);
+        if (!i) return;
+        const v = parseFloat(i.value);
+        const s = parseFloat(i.step || '1');
+        i.value = (b.dataset.action === 'inc' ? v + s : v - s).toString();
+        if (b.dataset.target === 'bsc-height-slider') hVal = parseFloat(i.value);
+        else wVal = parseFloat(i.value);
+        drawNums();
+        run();
+      });
+    });
+
+    aPick.forEach(function (b) {
+      b.addEventListener('click', function () {
+        const age = parseFloat(b.dataset.age || '6');
+        const reference = brands[0];
+        const match = reference.sizes.find(function (s) { return s.age >= age; }) || reference.sizes[reference.sizes.length - 1];
+        if (match) {
+          hVal = match.height;
+          wVal = match.weight;
+          if (hIn) hIn.value = hVal.toString();
+          if (wIn) wIn.value = wVal.toString();
+          drawNums();
+          run();
+        }
+      });
+    });
+
+    if (hIn) hIn.addEventListener('input', function () { hVal = parseFloat(hIn.value); drawNums(); run(); });
+    if (wIn) wIn.addEventListener('input', function () { wVal = parseFloat(wIn.value); drawNums(); run(); });
+    if (bSel) bSel.addEventListener('change', function () { bCid = bSel.value; run(); });
+
+    const shareBtn = document.getElementById('bsc-share-btn');
+    if (shareBtn) {
+      shareBtn.addEventListener('click', function () {
+        const activeBrand = brands.find(function (x) { return x.id === bCid; });
+        const size = findS(activeBrand, hVal, wVal);
+        const shareData = {
+          title: 'Conversor de tallas de bebé',
+          text: 'Mi bebé mide ' + hVal + 'cm (' + wVal + 'kg). En ' + activeBrand.name + ' usa la talla ' + size.label + '.',
+          url: window.location.href,
+        };
+        if (navigator.share) {
+          navigator.share(shareData);
+        } else {
+          navigator.clipboard.writeText(shareData.text + ' ' + shareData.url).then(function () {
+            shareBtn.style.color = '#10b981';
+            setTimeout(function () { shareBtn.style.color = ''; }, 2000);
+          });
+        }
+      });
+    }
 
     const urlParams = new URLSearchParams(window.location.search);
-    if (urlParams.get('h')) heightCm = Number(urlParams.get('h'));
-    if (urlParams.get('w')) weightKg = Number(urlParams.get('w'));
-    if (urlParams.get('b')) {
-      activeBrandId = urlParams.get('b');
-      brandSelect.value = activeBrandId;
-    }
+    if (urlParams.get('h')) { hVal = Number(urlParams.get('h')); if (hIn) hIn.value = hVal.toString(); }
+    if (urlParams.get('w')) { wVal = Number(urlParams.get('w')); if (wIn) wIn.value = wVal.toString(); }
+    if (urlParams.get('b') && bSel) { bCid = urlParams.get('b'); bSel.value = bCid; }
 
-    updateDisplay();
+    switchU();
+    run();
   })();
 </script>

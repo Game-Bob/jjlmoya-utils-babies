@@ -4,207 +4,238 @@ import type { BabyFeedingCalculatorUI } from './index';
 interface Props { ui: BabyFeedingCalculatorUI; }
 const { ui } = Astro.props;
 ---
-<div id="baby-feeding-calculator-root" class="baby-feeding-calculator" data-ui={JSON.stringify(ui)}>
-  <div class="baby-feeding-calculator-card">
-    <div class="baby-feeding-calculator-card-main">
-      <div class="baby-feeding-calculator-card-left">
-        <div class="baby-feeding-calculator-section-marker">{ui.labelConfig}</div>
+<div id="bfc-root" class="bfc-card" data-ui={JSON.stringify(ui)}>
+  <div class="bfc-main">
+    <div class="bfc-left">
+      <span class="bfc-section-marker">{ui.labelConfig}</span>
 
-        <div class="baby-feeding-calculator-input-group">
-          <div class="baby-feeding-calculator-input-label">Edad del bebé</div>
-          <div class="baby-feeding-calculator-unit-nav">
-            <button class="baby-feeding-calculator-unit-tab active" data-unit="days">{ui.unitDays}</button>
-            <button class="baby-feeding-calculator-unit-tab" data-unit="weeks">{ui.unitWeeks}</button>
-            <button class="baby-feeding-calculator-unit-tab" data-unit="months">{ui.unitMonths}</button>
-          </div>
-          <div class="baby-feeding-calculator-stepper-box">
-            <button class="baby-feeding-calculator-btn-step" id="bfc-age-dec" aria-label="Reducir edad">−</button>
-            <div class="baby-feeding-calculator-val-view">
-              <span class="baby-feeding-calculator-val-big" id="bfc-age-val">7</span>
-              <span class="baby-feeding-calculator-val-sub" id="bfc-age-unit">{ui.unitDays}</span>
-            </div>
-            <button class="baby-feeding-calculator-btn-step" id="bfc-age-inc" aria-label="Aumentar edad">+</button>
-          </div>
-          <input class="baby-feeding-calculator-slider-line" type="range" id="bfc-age-slider" min="0" max="30" value="7" />
+      <div class="bfc-input-group">
+        <div class="bfc-unit-nav">
+          <button class="bfc-unit-tab bfc-unit-active" data-unit="days">{ui.unitDays}</button>
+          <button class="bfc-unit-tab" data-unit="weeks">{ui.unitWeeks}</button>
+          <button class="bfc-unit-tab" data-unit="months">{ui.unitMonths}</button>
         </div>
-
-        <div class="baby-feeding-calculator-input-group">
-          <div class="baby-feeding-calculator-input-label">{ui.labelWeight}</div>
-          <div class="baby-feeding-calculator-stepper-box">
-            <button class="baby-feeding-calculator-btn-step" id="bfc-weight-dec" aria-label="Reducir peso">−</button>
-            <div class="baby-feeding-calculator-val-view">
-              <span class="baby-feeding-calculator-val-big" id="bfc-weight-val">3.5</span>
-              <span class="baby-feeding-calculator-val-sub">kg</span>
-            </div>
-            <button class="baby-feeding-calculator-btn-step" id="bfc-weight-inc" aria-label="Aumentar peso">+</button>
+        <div class="bfc-stepper-box">
+          <button class="bfc-btn-step" data-action="dec" data-target="bfc-age-slider" aria-label="Reducir edad">-</button>
+          <div class="bfc-val-view">
+            <span class="bfc-val-big" id="bfc-age-val">7</span>
+            <span class="bfc-val-sub" id="bfc-age-unit">{ui.unitDays}</span>
           </div>
-          <input class="baby-feeding-calculator-slider-line" type="range" id="bfc-weight-slider" min="1" max="15" step="0.1" value="3.5" />
+          <button class="bfc-btn-step" data-action="inc" data-target="bfc-age-slider" aria-label="Aumentar edad">+</button>
         </div>
-
-        <div class="baby-feeding-calculator-input-group">
-          <div class="baby-feeding-calculator-input-label">{ui.labelFeedType}</div>
-          <div class="baby-feeding-calculator-type-rack">
-            <button class="baby-feeding-calculator-type-tile active" data-type="breast">{ui.feedBreast}</button>
-            <button class="baby-feeding-calculator-type-tile" data-type="mixed">{ui.feedMixed}</button>
-            <button class="baby-feeding-calculator-type-tile" data-type="formula">{ui.feedFormula}</button>
-          </div>
-        </div>
-
-        <div class="baby-feeding-calculator-gauge-area">
-          <div class="baby-feeding-calculator-gauge-viz">
-            <div class="baby-feeding-calculator-stomach-bubble" id="bfc-stomach-bubble">
-              <span class="baby-feeding-calculator-visual-hint" id="bfc-stomach-hint">Huevo</span>
-            </div>
-          </div>
+        <div class="bfc-slider-wrap">
+          <input type="range" id="bfc-age-slider" min="1" max="30" step="1" value="7" class="bfc-slider" />
         </div>
       </div>
 
-      <div class="baby-feeding-calculator-card-right">
-        <div class="baby-feeding-calculator-section-marker">{ui.labelPlan}</div>
-
-        <div class="baby-feeding-calculator-res-card-box baby-feeding-calculator-res-free-demand">
-          <div class="baby-feeding-calculator-res-label">{ui.labelFreeDemand}</div>
-          <div class="baby-feeding-calculator-res-main-val" id="bfc-res-demand">Libre demanda</div>
+      <div class="bfc-input-group">
+        <label class="bfc-input-label">{ui.labelWeight}</label>
+        <div class="bfc-stepper-box">
+          <button class="bfc-btn-step" data-action="dec" data-target="bfc-weight-slider" aria-label="Reducir peso">-</button>
+          <div class="bfc-val-view">
+            <span class="bfc-val-big" id="bfc-weight-val">3.5</span>
+            <span class="bfc-val-sub">kg</span>
+          </div>
+          <button class="bfc-btn-step" data-action="inc" data-target="bfc-weight-slider" aria-label="Aumentar peso">+</button>
         </div>
-
-        <div class="baby-feeding-calculator-stats-grid">
-          <div class="baby-feeding-calculator-stat-item">
-            <div class="baby-feeding-calculator-stat-value" id="bfc-stat-feeds">8</div>
-            <div class="baby-feeding-calculator-stat-label">{ui.labelFeedsCount}</div>
-          </div>
-          <div class="baby-feeding-calculator-stat-item">
-            <div class="baby-feeding-calculator-stat-value" id="bfc-stat-per-feed">30–60 ml</div>
-            <div class="baby-feeding-calculator-stat-label">{ui.labelMlPerFeed}</div>
-          </div>
-          <div class="baby-feeding-calculator-stat-item">
-            <div class="baby-feeding-calculator-stat-value" id="bfc-stat-daily">360–480 ml</div>
-            <div class="baby-feeding-calculator-stat-label">{ui.labelDailyTotal}</div>
-          </div>
+        <div class="bfc-slider-wrap">
+          <input type="range" id="bfc-weight-slider" min="2.5" max="12" step="0.1" value="3.5" class="bfc-slider" />
         </div>
+      </div>
 
-        <div class="baby-feeding-calculator-behavior-sec">
-          <div class="baby-feeding-calculator-input-label">{ui.labelHunger}</div>
-          <div class="baby-feeding-calculator-pills-container" id="bfc-hunger-pills">
-            <span class="baby-feeding-calculator-pill baby-feeding-calculator-pill-hambre">Busca el pecho</span>
-            <span class="baby-feeding-calculator-pill baby-feeding-calculator-pill-hambre">Llanto</span>
-            <span class="baby-feeding-calculator-pill baby-feeding-calculator-pill-hambre">Chupa los puños</span>
-            <span class="baby-feeding-calculator-pill baby-feeding-calculator-pill-hambre">Movimientos de succión</span>
-          </div>
+      <div class="bfc-input-group">
+        <label class="bfc-input-label">{ui.labelFeedType}</label>
+        <div class="bfc-type-rack">
+          <button class="bfc-type-tile" data-type="breast">{ui.feedBreast}</button>
+          <button class="bfc-type-tile" data-type="mixed">{ui.feedMixed}</button>
+          <button class="bfc-type-tile bfc-type-active" data-type="formula">{ui.feedFormula}</button>
         </div>
+      </div>
 
-        <div class="baby-feeding-calculator-behavior-sec">
-          <div class="baby-feeding-calculator-input-label">{ui.labelFullness}</div>
-          <div class="baby-feeding-calculator-pills-container" id="bfc-fullness-pills">
-            <span class="baby-feeding-calculator-pill baby-feeding-calculator-pill-saciedad">Suelta el pecho</span>
-            <span class="baby-feeding-calculator-pill baby-feeding-calculator-pill-saciedad">Se queda dormido</span>
-            <span class="baby-feeding-calculator-pill baby-feeding-calculator-pill-saciedad">Manos relajadas</span>
-            <span class="baby-feeding-calculator-pill baby-feeding-calculator-pill-saciedad">Cara relajada</span>
-          </div>
+      <div class="bfc-gauge-area">
+        <div class="bfc-gauge-viz">
+          <div class="bfc-stomach-bubble" id="bfc-stomach-bubble"></div>
+          <p class="bfc-visual-hint" id="bfc-stomach-text"></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="bfc-right">
+      <span class="bfc-section-marker">{ui.labelPlan}</span>
+
+      <div class="bfc-res-card-box">
+        <div id="bfc-output-breast" class="bfc-hidden">
+          <span class="bfc-res-main-val">{ui.labelFreeDemand}</span>
+          <span class="bfc-res-label">{ui.labelFreeDemand}</span>
+        </div>
+        <div id="bfc-output-formula">
+          <span class="bfc-res-main-val" id="bfc-ml-per-feed">90-120</span>
+          <span class="bfc-res-label">{ui.labelMlPerFeed}</span>
+        </div>
+      </div>
+
+      <div class="bfc-stats-grid">
+        <div class="bfc-stat-item">
+          <span class="bfc-stat-label">{ui.labelFeedsCount}</span>
+          <span class="bfc-stat-value" id="bfc-feeds-count">8 tomas</span>
+        </div>
+        <div class="bfc-stat-item">
+          <span class="bfc-stat-label">{ui.labelDailyTotal}</span>
+          <span class="bfc-stat-value" id="bfc-daily-total">650-780 ml</span>
+        </div>
+      </div>
+
+      <div class="bfc-behavior-sec">
+        <span class="bfc-input-label">{ui.labelHunger}</span>
+        <div class="bfc-pills-container">
+          <span class="bfc-pill bfc-pill-hunger">Busca con la cabeza</span>
+          <span class="bfc-pill bfc-pill-hunger">Puños a la boca</span>
+          <span class="bfc-pill bfc-pill-hunger">Ruidos de succión</span>
+          <span class="bfc-pill bfc-pill-hunger">Chasquidos</span>
+        </div>
+      </div>
+
+      <div class="bfc-behavior-sec">
+        <span class="bfc-input-label">{ui.labelFullness}</span>
+        <div class="bfc-pills-container">
+          <span class="bfc-pill bfc-pill-fullness">Relaja manos</span>
+          <span class="bfc-pill bfc-pill-fullness">Suelta tetina</span>
+          <span class="bfc-pill bfc-pill-fullness">Sueño profundo</span>
+          <span class="bfc-pill bfc-pill-fullness">Cuerpo blando</span>
         </div>
       </div>
     </div>
   </div>
 </div>
 
-<script>
-  import { toAgeInDays, calculateFeeding } from './logic';
-  import type { AgeUnit, FeedType } from './logic';
+<script is:inline>
+  (function () {
+    const root = document.getElementById('bfc-root');
+    if (!root) return;
+    const ui = JSON.parse(root.dataset.ui);
 
-  const root = document.getElementById('baby-feeding-calculator-root') as HTMLElement;
-  const ui = JSON.parse(root.dataset.ui as string) as Record<string, string>;
+    const config = { age: 7, ageUnit: 'days', weight: 3.5, feedType: 'formula' };
 
-  let ageValue = 7;
-  let ageUnit: AgeUnit = 'days';
-  let weight = 3.5;
-  let feedType: FeedType = 'breast';
+    const ageSlider = document.getElementById('bfc-age-slider');
+    const ageVal = document.getElementById('bfc-age-val');
+    const ageUnitEl = document.getElementById('bfc-age-unit');
+    const weightSlider = document.getElementById('bfc-weight-slider');
+    const weightVal = document.getElementById('bfc-weight-val');
+    const stomachBubble = document.getElementById('bfc-stomach-bubble');
+    const stomachText = document.getElementById('bfc-stomach-text');
+    const outputBreast = document.getElementById('bfc-output-breast');
+    const outputFormula = document.getElementById('bfc-output-formula');
+    const mlPerFeed = document.getElementById('bfc-ml-per-feed');
+    const feedsCount = document.getElementById('bfc-feeds-count');
+    const dailyTotal = document.getElementById('bfc-daily-total');
 
-  const ageSlider = root.querySelector('#bfc-age-slider') as HTMLInputElement;
-  const ageValEl = root.querySelector('#bfc-age-val') as HTMLElement;
-  const ageUnitEl = root.querySelector('#bfc-age-unit') as HTMLElement;
-  const weightSlider = root.querySelector('#bfc-weight-slider') as HTMLInputElement;
-  const weightValEl = root.querySelector('#bfc-weight-val') as HTMLElement;
-  const stomachBubble = root.querySelector('#bfc-stomach-bubble') as HTMLElement;
-  const stomachHint = root.querySelector('#bfc-stomach-hint') as HTMLElement;
-  const statFeeds = root.querySelector('#bfc-stat-feeds') as HTMLElement;
-  const statPerFeed = root.querySelector('#bfc-stat-per-feed') as HTMLElement;
-  const statDaily = root.querySelector('#bfc-stat-daily') as HTMLElement;
+    const AGE_LIMITS = { days: { min: 1, max: 30 }, weeks: { min: 1, max: 52 }, months: { min: 1, max: 24 } };
 
-  const AGE_LIMITS: Record<AgeUnit, { min: number; max: number }> = {
-    days: { min: 0, max: 30 },
-    weeks: { min: 0, max: 52 },
-    months: { min: 0, max: 24 },
-  };
+    function getUnitLabel(unit) {
+      if (unit === 'days') return ui.unitDays || 'días';
+      if (unit === 'weeks') return ui.unitWeeks || 'semanas';
+      return ui.unitMonths || 'meses';
+    }
 
-  function getUnitLabel(unit: AgeUnit): string {
-    if (unit === 'days') return ui['unitDays'] ?? '';
-    if (unit === 'weeks') return ui['unitWeeks'] ?? '';
-    return ui['unitMonths'] ?? '';
-  }
+    function update() {
+      const { age, ageUnit, weight, feedType } = config;
+      let ageInDays = age;
+      if (ageUnit === 'weeks') ageInDays = age * 7;
+      if (ageUnit === 'months') ageInDays = age * 30.44;
 
-  function updateDisplay(): void {
-    root.dataset['feedType'] = feedType;
-    const ageInDays = toAgeInDays(ageValue, ageUnit);
-    const result = calculateFeeding(ageInDays, weight);
+      let scale = 0.4;
+      let hint = '';
+      if (ageInDays <= 1) { scale = 0.25; hint = 'Estómago como una <strong>cereza</strong>'; }
+      else if (ageInDays <= 4) { scale = 0.5; hint = 'Estómago como una <strong>nuez</strong>'; }
+      else if (ageInDays <= 30) { scale = 0.8; hint = 'Estómago como un <strong>huevo</strong>'; }
+      else { scale = 1.0; hint = 'Máxima capacidad gástrica distendida'; }
 
-    stomachBubble.style.transform = `scale(${result.scale})`;
-    stomachHint.textContent = result.hint;
+      if (stomachBubble) stomachBubble.style.transform = 'scale(' + scale + ')';
+      if (stomachText) stomachText.innerHTML = hint;
 
-    statFeeds.textContent = String(result.numFeeds);
-    statPerFeed.textContent = `${result.perFeedMin}–${result.perFeedMax} ml`;
-    statDaily.textContent = `${result.totalMin}–${result.totalMax} ml`;
+      let numFeeds = 8;
+      if (ageInDays < 30) numFeeds = 8;
+      else if (ageInDays < 90) numFeeds = 7;
+      else if (ageInDays < 180) numFeeds = 5;
+      else numFeeds = 4;
 
-    const limits = AGE_LIMITS[ageUnit];
-    ageSlider.min = String(limits.min);
-    ageSlider.max = String(limits.max);
-    ageSlider.value = String(ageValue);
-    ageValEl.textContent = String(ageValue);
-    ageUnitEl.textContent = getUnitLabel(ageUnit);
-    weightValEl.textContent = weight.toFixed(1);
-    weightSlider.value = String(weight);
-  }
+      let baseRatio = 150;
+      if (ageInDays > 180) baseRatio = 100;
+      if (ageInDays > 300) baseRatio = 80;
 
-  root.querySelectorAll('.baby-feeding-calculator-unit-tab').forEach((btn) => {
-    btn.addEventListener('click', () => {
-      ageUnit = (btn as HTMLElement).dataset.unit as AgeUnit;
-      ageValue = AGE_LIMITS[ageUnit].min;
-      root.querySelectorAll('.baby-feeding-calculator-unit-tab').forEach((b) => b.classList.remove('active'));
-      btn.classList.add('active');
-      updateDisplay();
+      let totalMin = weight * baseRatio;
+      let totalMax = weight * (baseRatio + 20);
+      if (ageInDays >= 180) { totalMin = Math.min(totalMin, 800); totalMax = Math.min(totalMax, 950); }
+
+      if (ageInDays < 10) {
+        const factor = Math.max(0.15, ageInDays / 10);
+        totalMin *= factor; totalMax *= factor;
+        if (ageInDays < 2) { totalMin = weight * 15; totalMax = weight * 25; }
+      }
+
+      let perMin = Math.round((totalMin / numFeeds) / 5) * 5;
+      let perMax = Math.round((totalMax / numFeeds) / 5) * 5;
+      if (ageInDays <= 1) { perMin = 5; perMax = 10; totalMin = perMin * numFeeds; totalMax = perMax * numFeeds; }
+      perMin = Math.min(perMin, 240); perMax = Math.min(perMax, 270);
+
+      if (feedType === 'breast') {
+        if (outputBreast) outputBreast.classList.remove('bfc-hidden');
+        if (outputFormula) outputFormula.classList.add('bfc-hidden');
+        if (feedsCount) feedsCount.textContent = ageInDays > 180 ? '3-5 tomas' : '8-12 tomas';
+        if (dailyTotal) dailyTotal.textContent = 'Sin restricción';
+      } else {
+        if (outputBreast) outputBreast.classList.add('bfc-hidden');
+        if (outputFormula) outputFormula.classList.remove('bfc-hidden');
+        if (mlPerFeed) mlPerFeed.textContent = perMin + '-' + perMax + ' ml';
+        if (feedsCount) feedsCount.textContent = numFeeds + ' tomas';
+        if (dailyTotal) dailyTotal.textContent = Math.round(totalMin) + '-' + Math.round(totalMax) + ' ml';
+      }
+
+      if (ageVal) ageVal.textContent = String(age);
+      if (ageUnitEl) ageUnitEl.textContent = getUnitLabel(ageUnit);
+      if (weightVal) weightVal.textContent = weight.toFixed(1);
+    }
+
+    root.querySelectorAll('.bfc-unit-tab').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        config.ageUnit = btn.dataset.unit;
+        const lim = AGE_LIMITS[config.ageUnit];
+        config.age = lim.min;
+        if (ageSlider) { ageSlider.min = String(lim.min); ageSlider.max = String(lim.max); ageSlider.value = String(lim.min); }
+        root.querySelectorAll('.bfc-unit-tab').forEach(function (b) { b.classList.remove('bfc-unit-active'); });
+        btn.classList.add('bfc-unit-active');
+        update();
+      });
     });
-  });
 
-  root.querySelectorAll('.baby-feeding-calculator-type-tile').forEach((btn) => {
-    btn.addEventListener('click', () => {
-      feedType = (btn as HTMLElement).dataset.type as FeedType;
-      root.querySelectorAll('.baby-feeding-calculator-type-tile').forEach((b) => b.classList.remove('active'));
-      btn.classList.add('active');
-      updateDisplay();
+    root.querySelectorAll('.bfc-type-tile').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        config.feedType = btn.dataset.type;
+        root.querySelectorAll('.bfc-type-tile').forEach(function (b) { b.classList.remove('bfc-type-active'); });
+        btn.classList.add('bfc-type-active');
+        update();
+      });
     });
-  });
 
-  root.querySelector('#bfc-age-dec')?.addEventListener('click', () => {
-    const limits = AGE_LIMITS[ageUnit];
-    if (ageValue > limits.min) { ageValue -= 1; updateDisplay(); }
-  });
-  root.querySelector('#bfc-age-inc')?.addEventListener('click', () => {
-    const limits = AGE_LIMITS[ageUnit];
-    if (ageValue < limits.max) { ageValue += 1; updateDisplay(); }
-  });
-  ageSlider.addEventListener('input', () => {
-    ageValue = Number(ageSlider.value);
-    updateDisplay();
-  });
+    root.querySelectorAll('.bfc-btn-step').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        const slider = document.getElementById(btn.dataset.target);
+        if (!slider) return;
+        const val = parseFloat(slider.value);
+        const step = parseFloat(slider.step || '1');
+        const newVal = btn.dataset.action === 'inc' ? val + step : val - step;
+        const min = parseFloat(slider.min); const max = parseFloat(slider.max);
+        if (newVal < min || newVal > max) return;
+        slider.value = newVal.toFixed(slider.step && slider.step.includes('.') ? 1 : 0);
+        if (btn.dataset.target === 'bfc-age-slider') config.age = parseInt(slider.value);
+        else config.weight = parseFloat(slider.value);
+        update();
+      });
+    });
 
-  root.querySelector('#bfc-weight-dec')?.addEventListener('click', () => {
-    if (weight > 1) { weight = Math.round((weight - 0.1) * 10) / 10; updateDisplay(); }
-  });
-  root.querySelector('#bfc-weight-inc')?.addEventListener('click', () => {
-    if (weight < 15) { weight = Math.round((weight + 0.1) * 10) / 10; updateDisplay(); }
-  });
-  weightSlider.addEventListener('input', () => {
-    weight = Number(weightSlider.value);
-    updateDisplay();
-  });
+    if (ageSlider) ageSlider.addEventListener('input', function () { config.age = parseInt(ageSlider.value); update(); });
+    if (weightSlider) weightSlider.addEventListener('input', function () { config.weight = parseFloat(weightSlider.value); update(); });
 
-  updateDisplay();
+    update();
+  })();
 </script>

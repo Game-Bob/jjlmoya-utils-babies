@@ -4,100 +4,82 @@ import type { VaccinationCalendarUI } from './index';
 interface Props { ui: VaccinationCalendarUI; }
 const { ui } = Astro.props;
 ---
-<div id="vaccination-calendar-root" class="vaccination-calendar" data-ui={JSON.stringify(ui)}>
-  <div class="vaccination-calendar-header">
-    <div class="vaccination-calendar-field">
-      <label class="vaccination-calendar-field-label" for="vc-dd" id="vc-birth-label">{ui.labelBirthDate}</label>
-      <div class="vaccination-calendar-triple-input">
-        <input
-          class="vaccination-calendar-segment"
-          id="vc-dd"
-          type="text"
-          inputmode="numeric"
-          maxlength="2"
-          placeholder={ui.placeholderDD}
-          aria-label="Día"
-        />
-        <span class="vaccination-calendar-sep">/</span>
-        <input
-          class="vaccination-calendar-segment"
-          id="vc-mm"
-          type="text"
-          inputmode="numeric"
-          maxlength="2"
-          placeholder={ui.placeholderMM}
-          aria-label="Mes"
-        />
-        <span class="vaccination-calendar-sep">/</span>
-        <input
-          class="vaccination-calendar-segment vaccination-calendar-segment-year"
-          id="vc-yyyy"
-          type="text"
-          inputmode="numeric"
-          maxlength="4"
-          placeholder={ui.placeholderAAAA}
-          aria-label="Año"
-        />
+<div class="vc-card" id="vc-root" data-ui={JSON.stringify(ui)}>
+  <header class="vc-header">
+    <div class="vc-inputs">
+      <div class="vc-field">
+        <label>{ui.labelBirthDate}</label>
+        <div class="vc-triple-input" id="vc-triple">
+          <input type="text" id="vc-dd" class="vc-segment" placeholder={ui.placeholderDD} inputmode="numeric" maxlength="2" aria-label="Día" />
+          <span class="vc-sep">/</span>
+          <input type="text" id="vc-mm" class="vc-segment" placeholder={ui.placeholderMM} inputmode="numeric" maxlength="2" aria-label="Mes" />
+          <span class="vc-sep">/</span>
+          <input type="text" id="vc-yyyy" class="vc-segment vc-segment-year" placeholder={ui.placeholderAAAA} inputmode="numeric" maxlength="4" aria-label="Año" />
+        </div>
+        <div class="vc-age-badge" id="vc-age-badge"></div>
       </div>
-      <div class="vaccination-calendar-error" id="vc-error" role="alert" aria-live="polite"></div>
     </div>
-    <div class="vaccination-calendar-age-badge" id="vc-age-badge" aria-live="polite"></div>
+  </header>
+
+  <div id="vc-empty" class="vc-empty-state">
+    {ui.emptyMsg}
   </div>
 
-  <div class="vaccination-calendar-empty" id="vc-empty">
-    <p>{ui.emptyMsg}</p>
-  </div>
+  <section class="vc-main-context" id="vc-context">
+    <h3 class="vc-next-title">{ui.labelNextAppointment}</h3>
+    <div class="vc-next-date" id="vc-next-date"></div>
+    <div class="vc-vac-list" id="vc-next-vaccines"></div>
+    <button id="vc-btn-reminder" class="vc-btn-primary">{ui.btnAddReminder}</button>
+  </section>
 
-  <div class="vaccination-calendar-context" id="vc-context">
-    <div class="vaccination-calendar-next-title" id="vc-next-label">{ui.labelNextAppointment}</div>
-    <div class="vaccination-calendar-next-date" id="vc-next-date"></div>
-    <ul class="vaccination-calendar-vac-list" id="vc-next-vaccines"></ul>
-    <div class="vaccination-calendar-actions">
-      <button class="vaccination-calendar-btn-primary" id="vc-btn-reminder">{ui.btnAddReminder}</button>
-      <button class="vaccination-calendar-btn-primary vaccination-calendar-btn-share" id="vc-btn-share">{ui.labelShare}</button>
+  <div class="vc-sections" id="vc-sections">
+    <div class="vc-accordion-item" id="vc-accordion-past">
+      <button class="vc-accordion-trigger">
+        <span>{ui.labelPassed}</span>
+        <span class="vc-timeline-status vc-check">OK</span>
+      </button>
+      <div class="vc-accordion-content">
+        <div class="vc-timeline-compact" id="vc-timeline-past"></div>
+      </div>
     </div>
-    <div class="vaccination-calendar-footer">
-      <span>{ui.labelSource}</span>
+    <div class="vc-accordion-item" id="vc-accordion-future">
+      <button class="vc-accordion-trigger">
+        <span>{ui.labelFuture}</span>
+        <span class="vc-timeline-status vc-clock">...</span>
+      </button>
+      <div class="vc-accordion-content">
+        <div class="vc-timeline-compact" id="vc-timeline-future"></div>
+      </div>
     </div>
   </div>
 
-  <div class="vaccination-calendar-sections" id="vc-sections">
-    <details class="vaccination-calendar-accordion-item" id="vc-accordion-past">
-      <summary class="vaccination-calendar-accordion-trigger">{ui.labelPassed}</summary>
-      <div class="vaccination-calendar-accordion-content">
-        <div class="vaccination-calendar-timeline" id="vc-timeline-past"></div>
-      </div>
-    </details>
-    <details class="vaccination-calendar-accordion-item" id="vc-accordion-future" open>
-      <summary class="vaccination-calendar-accordion-trigger">{ui.labelFuture}</summary>
-      <div class="vaccination-calendar-accordion-content">
-        <div class="vaccination-calendar-timeline" id="vc-timeline-future"></div>
-      </div>
-    </details>
-  </div>
+  <footer class="vc-footer">
+    {ui.labelSource} •
+    <a href="javascript:void(0)" id="vc-share-link" class="vc-share-link">{ui.labelShare}</a>
+  </footer>
 </div>
 
 <script>
   import { buildDoseGroups, getAgeLabel, calculateAge, buildIcsContent } from './logic';
   import type { DoseGroup } from './logic';
 
-  const root = document.getElementById('vaccination-calendar-root') as HTMLElement;
+  const root = document.getElementById('vc-root') as HTMLElement;
   const ui = JSON.parse(root.dataset.ui as string) as Record<string, string>;
 
-  const ddInput = root.querySelector('#vc-dd') as HTMLInputElement;
-  const mmInput = root.querySelector('#vc-mm') as HTMLInputElement;
-  const yyyyInput = root.querySelector('#vc-yyyy') as HTMLInputElement;
-  const errorEl = root.querySelector('#vc-error') as HTMLElement;
-  const ageBadge = root.querySelector('#vc-age-badge') as HTMLElement;
-  const emptyEl = root.querySelector('#vc-empty') as HTMLElement;
-  const contextEl = root.querySelector('#vc-context') as HTMLElement;
-  const sectionsEl = root.querySelector('#vc-sections') as HTMLElement;
-  const nextDateEl = root.querySelector('#vc-next-date') as HTMLElement;
-  const nextVaccinesEl = root.querySelector('#vc-next-vaccines') as HTMLElement;
-  const timelinePast = root.querySelector('#vc-timeline-past') as HTMLElement;
-  const timelineFuture = root.querySelector('#vc-timeline-future') as HTMLElement;
-  const btnReminder = root.querySelector('#vc-btn-reminder') as HTMLButtonElement;
-  const btnShare = root.querySelector('#vc-btn-share') as HTMLButtonElement;
+  const ddInput = document.getElementById('vc-dd') as HTMLInputElement;
+  const mmInput = document.getElementById('vc-mm') as HTMLInputElement;
+  const yyyyInput = document.getElementById('vc-yyyy') as HTMLInputElement;
+  const tripleEl = document.getElementById('vc-triple') as HTMLElement;
+  const ageBadge = document.getElementById('vc-age-badge') as HTMLElement;
+  const emptyEl = document.getElementById('vc-empty') as HTMLElement;
+  const contextEl = document.getElementById('vc-context') as HTMLElement;
+  const sectionsEl = document.getElementById('vc-sections') as HTMLElement;
+  const nextDateEl = document.getElementById('vc-next-date') as HTMLElement;
+  const nextVaccinesEl = document.getElementById('vc-next-vaccines') as HTMLElement;
+  const timelinePast = document.getElementById('vc-timeline-past') as HTMLElement;
+  const timelineFuture = document.getElementById('vc-timeline-future') as HTMLElement;
+  const btnReminder = document.getElementById('vc-btn-reminder') as HTMLButtonElement;
+  const shareLink = document.getElementById('vc-share-link') as HTMLAnchorElement;
 
   const doseGroups = buildDoseGroups();
   let currentBirthDate: Date | null = null;
@@ -121,27 +103,27 @@ const { ui } = Astro.props;
     return new Intl.DateTimeFormat('es-ES', { day: '2-digit', month: 'long', year: 'numeric' }).format(date);
   }
 
-  function buildTimelineRow(group: DoseGroup, birthDate: Date, _today: Date, isPast: boolean): HTMLElement {
-    const target = new Date(birthDate);
-    target.setMonth(target.getMonth() + group.months);
+  function buildTimelineRow(group: DoseGroup, _birthDate: Date, isPast: boolean): HTMLElement {
     const row = document.createElement('div');
-    row.className = 'vaccination-calendar-timeline-row';
-    const ageEl = document.createElement('div');
-    ageEl.className = 'vaccination-calendar-timeline-age';
+    row.className = 'vc-timeline-row';
+
+    const ageEl = document.createElement('span');
+    ageEl.className = 'vc-timeline-age';
     ageEl.textContent = getAgeLabel(group.months);
+
     const vacEl = document.createElement('div');
-    vacEl.className = 'vaccination-calendar-timeline-vac';
+    vacEl.className = 'vc-timeline-vac';
     group.vaccines.forEach((name) => {
       const pill = document.createElement('span');
-      pill.className = 'vaccination-calendar-vac-pill';
+      pill.className = 'vc-vac-pill';
       pill.textContent = name;
       vacEl.appendChild(pill);
     });
-    const statusEl = document.createElement('div');
-    statusEl.className = isPast
-      ? 'vaccination-calendar-timeline-status vaccination-calendar-check'
-      : 'vaccination-calendar-timeline-status vaccination-calendar-clock';
-    statusEl.textContent = (isPast ? ui['labelStatusOk'] : ui['labelStatusPending']) ?? null;
+
+    const statusEl = document.createElement('span');
+    statusEl.className = isPast ? 'vc-timeline-status vc-check' : 'vc-timeline-status vc-clock';
+    statusEl.textContent = isPast ? (ui['labelStatusOk'] ?? 'OK') : (ui['labelStatusPending'] ?? 'PEND.');
+
     row.appendChild(ageEl);
     row.appendChild(vacEl);
     row.appendChild(statusEl);
@@ -158,12 +140,9 @@ const { ui } = Astro.props;
       target.setMonth(target.getMonth() + group.months);
       target.setHours(0, 0, 0, 0);
       const isPast = target <= today;
-      const row = buildTimelineRow(group, birthDate, today, isPast);
-      if (isPast) {
-        timelinePast.appendChild(row);
-      } else {
-        timelineFuture.appendChild(row);
-      }
+      const row = buildTimelineRow(group, birthDate, isPast);
+      if (isPast) timelinePast.appendChild(row);
+      else timelineFuture.appendChild(row);
     });
   }
 
@@ -183,39 +162,40 @@ const { ui } = Astro.props;
     const today = new Date();
     today.setHours(0, 0, 0, 0);
     const next = findNextGroup(birthDate);
+    nextVaccinesEl.innerHTML = '';
     if (!next) {
       nextDateEl.textContent = 'Calendario completo';
-      nextVaccinesEl.innerHTML = '';
       return;
     }
     const target = new Date(birthDate);
     target.setMonth(target.getMonth() + next.months);
     target.setHours(0, 0, 0, 0);
     const isToday = target.getTime() === today.getTime();
-    if (isToday) {
-      root.classList.add('vaccination-calendar-is-today');
-      nextDateEl.textContent = ui['btnToday'] ?? null;
-    } else {
-      root.classList.remove('vaccination-calendar-is-today');
-      nextDateEl.textContent = `${getAgeLabel(next.months)} — ${formatDate(target)}`;
-    }
-    nextVaccinesEl.innerHTML = '';
-    next.vaccines.forEach((name) => {
-      const li = document.createElement('li');
-      li.className = 'vaccination-calendar-vac-item';
-      const nameEl = document.createElement('span');
-      nameEl.className = 'vaccination-calendar-vac-name';
-      nameEl.textContent = name;
-      li.appendChild(nameEl);
-      nextVaccinesEl.appendChild(li);
+    root.classList.toggle('vc-is-today', isToday);
+    nextDateEl.textContent = isToday
+      ? (ui['btnToday'] ?? '¡Hoy!')
+      : `${getAgeLabel(next.months)} — ${formatDate(target)}`;
+
+    next.vaccines.forEach((name, idx) => {
+      const item = document.createElement('div');
+      item.className = 'vc-vac-item';
+      item.innerHTML = `<div class="vc-vac-icon">${idx + 1}</div><div class="vc-vac-info"><span class="vc-vac-name">${name}</span></div>`;
+      nextVaccinesEl.appendChild(item);
     });
+
+    if (btnReminder) {
+      btnReminder.innerHTML = isToday
+        ? `<span>${ui['btnToday'] ?? '¡Hoy!'}</span>`
+        : `<span>${ui['btnAddReminder'] ?? ''}</span>`;
+    }
   }
 
   function updateDisplay(birthDate: Date): void {
     const today = new Date();
     today.setHours(0, 0, 0, 0);
     ageBadge.textContent = calculateAge(birthDate, today);
-    root.classList.add('vaccination-calendar-active');
+    ageBadge.classList.add('vc-age-visible');
+    root.classList.add('vc-active');
     emptyEl.style.display = 'none';
     contextEl.style.display = '';
     sectionsEl.style.display = '';
@@ -224,12 +204,13 @@ const { ui } = Astro.props;
   }
 
   function clearDisplay(): void {
-    root.classList.remove('vaccination-calendar-active', 'vaccination-calendar-is-today');
+    root.classList.remove('vc-active', 'vc-is-today');
     ageBadge.textContent = '';
+    ageBadge.classList.remove('vc-age-visible');
     emptyEl.style.display = '';
     contextEl.style.display = 'none';
     sectionsEl.style.display = 'none';
-    errorEl.textContent = '';
+    tripleEl.classList.remove('has-error');
   }
 
   function handleInput(): void {
@@ -237,7 +218,7 @@ const { ui } = Astro.props;
     if (!date) {
       currentBirthDate = null;
       const hasValue = ddInput.value || mmInput.value || yyyyInput.value;
-      errorEl.textContent = hasValue ? (ui['invalidMsg'] ?? '') : '';
+      tripleEl.classList.toggle('has-error', !!hasValue);
       clearDisplay();
       return;
     }
@@ -245,17 +226,18 @@ const { ui } = Astro.props;
     today.setHours(0, 0, 0, 0);
     if (date > today) {
       currentBirthDate = null;
-      errorEl.textContent = ui['futureMsg'] ?? null;
+      tripleEl.classList.add('has-error');
       clearDisplay();
       return;
     }
-    errorEl.textContent = '';
+    tripleEl.classList.remove('has-error');
     currentBirthDate = date;
     updateDisplay(date);
   }
 
   function autoAdvance(input: HTMLInputElement, next: HTMLInputElement | null, maxLen: number): void {
     input.addEventListener('input', () => {
+      input.value = input.value.replace(/\D/g, '');
       if (input.value.length >= maxLen && next) next.focus();
       handleInput();
     });
@@ -263,9 +245,9 @@ const { ui } = Astro.props;
 
   autoAdvance(ddInput, mmInput, 2);
   autoAdvance(mmInput, yyyyInput, 2);
-  yyyyInput.addEventListener('input', handleInput);
+  yyyyInput.addEventListener('input', () => { yyyyInput.value = yyyyInput.value.replace(/\D/g, ''); handleInput(); });
 
-  btnReminder.addEventListener('click', () => {
+  btnReminder?.addEventListener('click', () => {
     if (!currentBirthDate) return;
     const ics = buildIcsContent(currentBirthDate, doseGroups);
     const blob = new Blob([ics], { type: 'text/calendar' });
@@ -277,9 +259,23 @@ const { ui } = Astro.props;
     URL.revokeObjectURL(url);
   });
 
-  btnShare.addEventListener('click', () => {
-    if (!currentBirthDate || !navigator.share) return;
-    navigator.share({ title: 'Calendario de Vacunación', ...(ui['labelSource'] !== undefined ? { text: ui['labelSource'] } : {}), url: window.location.href });
+  shareLink?.addEventListener('click', async () => {
+    try {
+      if (navigator.share) {
+        await navigator.share({ title: ui['labelNextAppointment'] ?? '', url: window.location.href });
+      } else {
+        await navigator.clipboard.writeText(window.location.href);
+        const orig = shareLink.textContent ?? '';
+        shareLink.textContent = '¡Enlace copiado!';
+        setTimeout(() => { shareLink.textContent = orig; }, 2000);
+      }
+    } catch {}
+  });
+
+  root.querySelectorAll('.vc-accordion-trigger').forEach((trigger) => {
+    trigger.addEventListener('click', () => {
+      trigger.parentElement?.classList.toggle('vc-open');
+    });
   });
 
   clearDisplay();
