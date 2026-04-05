@@ -28,6 +28,7 @@ export interface BabyPercentileCalculatorUI {
   labelHighRange: string;
   alertOutOfRange: string;
   labelMonths: string;
+  labelYears: string;
   faqTitle: string;
   bibliographyTitle: string;
 }

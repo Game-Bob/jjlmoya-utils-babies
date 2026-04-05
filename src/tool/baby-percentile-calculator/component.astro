@@ -4,138 +4,92 @@ import type { BabyPercentileCalculatorUI } from './index';
 interface Props { ui: BabyPercentileCalculatorUI; }
 const { ui } = Astro.props;
 ---
-<div id="baby-percentile-calculator-root" class="baby-percentile-calculator baby-percentile-calculator-boy" data-ui={JSON.stringify(ui)}>
-  <div class="baby-percentile-calculator-main">
-    <div class="baby-percentile-calculator-left">
-      <span class="baby-percentile-calculator-section-marker">{ui.labelMeasurements}</span>
+<div id="bpc-root" class="bpc-card" data-ui={JSON.stringify(ui)}>
+  <div class="bpc-main">
+    <div class="bpc-left">
+      <span class="bpc-section-marker">{ui.labelMeasurements}</span>
 
-      <div class="baby-percentile-calculator-input-group">
-        <label class="baby-percentile-calculator-input-label">{ui.labelSex}</label>
-        <div class="baby-percentile-calculator-sex-selector">
-          <button
-            id="bpc-btn-boy"
-            class="baby-percentile-calculator-sex-btn"
-            data-sex="boy"
-            data-active="true"
-            type="button"
-          >{ui.sexBoy}</button>
-          <button
-            id="bpc-btn-girl"
-            class="baby-percentile-calculator-sex-btn"
-            data-sex="girl"
-            data-active="false"
-            type="button"
-          >{ui.sexGirl}</button>
+      <div class="bpc-input-group">
+        <label class="bpc-input-label">{ui.labelSex}</label>
+        <div class="bpc-sex-selector">
+          <button id="bpc-btn-boy" class="bpc-sex-btn bpc-active" data-sex="boy" type="button">{ui.sexBoy}</button>
+          <button id="bpc-btn-girl" class="bpc-sex-btn" data-sex="girl" type="button">{ui.sexGirl}</button>
         </div>
       </div>
 
-      <div class="baby-percentile-calculator-input-group">
-        <div class="baby-percentile-calculator-unit-nav">
-          <button
-            id="bpc-unit-months"
-            class="baby-percentile-calculator-unit-tab"
-            data-unit="months"
-            data-active="true"
-            type="button"
-          >{ui.unitMonths}</button>
-          <button
-            id="bpc-unit-years"
-            class="baby-percentile-calculator-unit-tab"
-            data-unit="yearsMonths"
-            data-active="false"
-            type="button"
-          >{ui.unitYearsMonths}</button>
+      <div class="bpc-input-group">
+        <div class="bpc-unit-nav">
+          <button id="bpc-unit-months" class="bpc-unit-tab bpc-active" data-unit="months" type="button">{ui.unitMonths}</button>
+          <button id="bpc-unit-years" class="bpc-unit-tab" data-unit="yearsMonths" type="button">{ui.unitYearsMonths}</button>
         </div>
       </div>
 
-      <div class="baby-percentile-calculator-input-group">
-        <div class="baby-percentile-calculator-stepper-box">
-          <button id="bpc-step-minus-years" class="baby-percentile-calculator-btn-step" type="button" data-hidden="true" style="display:none;">-</button>
-          <div id="bpc-years-view" class="baby-percentile-calculator-val-view" style="display:none;">
-            <span id="bpc-years-val" class="baby-percentile-calculator-val-big">0</span>
-            <span class="baby-percentile-calculator-val-sub">años</span>
+      <div class="bpc-input-group">
+        <div class="bpc-stepper-box">
+          <button id="bpc-step-minus-years" class="bpc-btn-step" type="button" style="display:none">-</button>
+          <div id="bpc-years-view" class="bpc-val-view" style="display:none">
+            <span id="bpc-years-val" class="bpc-val-big">0</span>
+            <span class="bpc-val-sub">{ui.labelYears}</span>
           </div>
-          <button id="bpc-step-plus-years" class="baby-percentile-calculator-btn-step" type="button" data-hidden="true" style="display:none;">+</button>
+          <button id="bpc-step-plus-years" class="bpc-btn-step" type="button" style="display:none">+</button>
 
-          <button id="bpc-step-minus" class="baby-percentile-calculator-btn-step" type="button">-</button>
-          <div class="baby-percentile-calculator-val-view">
-            <span id="bpc-age-val" class="baby-percentile-calculator-val-big">0</span>
-            <span class="baby-percentile-calculator-val-sub">{ui.labelMonths}</span>
+          <button id="bpc-step-minus" class="bpc-btn-step" type="button">-</button>
+          <div class="bpc-val-view">
+            <span id="bpc-age-val" class="bpc-val-big">0</span>
+            <span class="bpc-val-sub">{ui.labelMonths}</span>
           </div>
-          <button id="bpc-step-plus" class="baby-percentile-calculator-btn-step" type="button">+</button>
+          <button id="bpc-step-plus" class="bpc-btn-step" type="button">+</button>
         </div>
-        <input
-          id="bpc-slider"
-          class="baby-percentile-calculator-slider-line"
-          type="range"
-          min="0"
-          max="60"
-          value="0"
-          step="1"
-        />
-      </div>
-
-      <div class="baby-percentile-calculator-grid-2">
-        <div class="baby-percentile-calculator-input-group">
-          <label for="bpc-weight" class="baby-percentile-calculator-input-label">{ui.labelWeight}</label>
-          <input
-            id="bpc-weight"
-            class="baby-percentile-calculator-num-input"
-            type="number"
-            min="1"
-            max="30"
-            step="0.1"
-            placeholder="3.5"
-          />
-        </div>
-        <div class="baby-percentile-calculator-input-group">
-          <label for="bpc-height" class="baby-percentile-calculator-input-label">{ui.labelHeight}</label>
-          <input
-            id="bpc-height"
-            class="baby-percentile-calculator-num-input"
-            type="number"
-            min="30"
-            max="130"
-            step="0.1"
-            placeholder="50"
-          />
+        <div style="padding: 0 11px;">
+          <input id="bpc-slider" class="bpc-slider" type="range" min="0" max="60" value="0" step="1" />
         </div>
       </div>
 
-      <div class="baby-percentile-calculator-history-actions">
-        <button id="bpc-btn-save" class="baby-percentile-calculator-btn-secondary" type="button">{ui.btnAddHistory}</button>
-        <button id="bpc-btn-clear" class="baby-percentile-calculator-btn-clear" type="button">{ui.btnClearHistory}</button>
+      <div class="bpc-grid-2">
+        <div class="bpc-input-group">
+          <label for="bpc-weight" class="bpc-input-label">{ui.labelWeight}</label>
+          <input id="bpc-weight" class="bpc-num-input" type="number" min="1" max="30" step="0.1" placeholder="3.5" />
+        </div>
+        <div class="bpc-input-group">
+          <label for="bpc-height" class="bpc-input-label">{ui.labelHeight}</label>
+          <input id="bpc-height" class="bpc-num-input" type="number" min="30" max="130" step="0.1" placeholder="50" />
+        </div>
+      </div>
+
+      <div class="bpc-history-actions">
+        <button id="bpc-btn-save" class="bpc-btn-secondary" type="button">{ui.btnAddHistory}</button>
+        <button id="bpc-btn-clear" class="bpc-btn-clear" type="button">{ui.btnClearHistory}</button>
       </div>
     </div>
 
-    <div class="baby-percentile-calculator-right">
-      <span class="baby-percentile-calculator-section-marker">{ui.labelDashboard}</span>
+    <div class="bpc-right">
+      <span class="bpc-section-marker">{ui.labelDashboard}</span>
 
-      <div class="baby-percentile-calculator-res-grid">
-        <div class="baby-percentile-calculator-res-item">
-          <span class="baby-percentile-calculator-res-title">{ui.labelWeight2}</span>
-          <span id="bpc-res-weight" class="baby-percentile-calculator-percent-val">—</span>
-          <span id="bpc-res-weight-desc" class="baby-percentile-calculator-res-desc">{ui.labelCalculating}</span>
+      <div class="bpc-res-grid">
+        <div class="bpc-res-item">
+          <span class="bpc-res-title">{ui.labelWeight2}</span>
+          <span id="bpc-res-weight" class="bpc-percent-val">—</span>
+          <span id="bpc-res-weight-desc" class="bpc-res-desc">{ui.labelCalculating}</span>
         </div>
-        <div class="baby-percentile-calculator-res-item">
-          <span class="baby-percentile-calculator-res-title">{ui.labelHeight2}</span>
-          <span id="bpc-res-height" class="baby-percentile-calculator-percent-val">—</span>
-          <span id="bpc-res-height-desc" class="baby-percentile-calculator-res-desc">{ui.labelCalculating}</span>
+        <div class="bpc-res-item">
+          <span class="bpc-res-title">{ui.labelHeight2}</span>
+          <span id="bpc-res-height" class="bpc-percent-val">—</span>
+          <span id="bpc-res-height-desc" class="bpc-res-desc">{ui.labelCalculating}</span>
         </div>
-        <div class="baby-percentile-calculator-res-item">
-          <span class="baby-percentile-calculator-res-title">{ui.labelBMI}</span>
-          <span id="bpc-res-bmi" class="baby-percentile-calculator-percent-val">—</span>
-          <span id="bpc-res-bmi-desc" class="baby-percentile-calculator-res-desc">{ui.labelCalculating}</span>
+        <div class="bpc-res-item">
+          <span class="bpc-res-title">{ui.labelBMI}</span>
+          <span id="bpc-res-bmi" class="bpc-percent-val">—</span>
+          <span id="bpc-res-bmi-desc" class="bpc-res-desc">{ui.labelCalculating}</span>
         </div>
       </div>
 
-      <div id="bpc-alert" class="baby-percentile-calculator-alert">{ui.alertOutOfRange}</div>
+      <div id="bpc-alert" class="bpc-alert-msg bpc-hidden">{ui.alertOutOfRange}</div>
 
-      <div class="baby-percentile-calculator-chart-box">
+      <div class="bpc-chart-box">
         <canvas id="bpc-chart"></canvas>
       </div>
 
-      <p class="baby-percentile-calculator-disclaimer">{ui.disclaimer}</p>
+      <p class="bpc-disclaimer">{ui.disclaimer}</p>
     </div>
   </div>
 </div>
@@ -144,45 +98,18 @@ const { ui } = Astro.props;
   import { calculatePercentile, getDescriptionKey, getDataSet, calcBMI, buildChartDatasets } from './logic';
   import { interpolateLMS } from './lmsData';
 
-  const root = document.getElementById('baby-percentile-calculator-root') as HTMLElement;
+  const root = document.getElementById('bpc-root') as HTMLElement;
   const ui = JSON.parse(root.dataset.ui as string) as Record<string, string>;
 
-  interface HistoryEntry {
-    sex: string;
-    age: number;
-    weight: number;
-    height: number;
-  }
-
-  interface State {
-    sex: string;
-    age: number;
-    ageUnit: string;
-    weight: number;
-    height: number;
-    history: HistoryEntry[];
-  }
+  interface HistoryEntry { sex: string; age: number; weight: number; height: number; }
+  interface State { sex: string; age: number; ageUnit: string; weight: number; height: number; history: HistoryEntry[]; }
 
   const LS_KEY = 'jjlmoya-babies-percentile';
-
-  const state: State = {
-    sex: 'boy',
-    age: 0,
-    ageUnit: 'months',
-    weight: 0,
-    height: 0,
-    history: [],
-  };
-
+  const state: State = { sex: 'boy', age: 0, ageUnit: 'months', weight: 0, height: 0, history: [] };
   let chartInstance: { destroy: () => void; data: { datasets: object[] }; update: () => void } | null = null;
 
-  function getEl(id: string): HTMLElement {
-    return document.getElementById(id) as HTMLElement;
-  }
-
-  function getInput(id: string): HTMLInputElement {
-    return document.getElementById(id) as HTMLInputElement;
-  }
+  function getEl(id: string): HTMLElement { return document.getElementById(id) as HTMLElement; }
+  function getInput(id: string): HTMLInputElement { return document.getElementById(id) as HTMLInputElement; }
 
   function renderPercentiles(): void {
     const dataSet = getDataSet(state.sex);
@@ -198,10 +125,10 @@ const { ui } = Astro.props;
       resWeight.textContent = '—';
       resHeight.textContent = '—';
       resBmi.textContent = '—';
-      resWeightDesc.textContent = ui['labelCalculating'] ?? null;
-      resHeightDesc.textContent = ui['labelCalculating'] ?? null;
-      resBmiDesc.textContent = ui['labelCalculating'] ?? null;
-      alertEl.removeAttribute('data-visible');
+      resWeightDesc.textContent = ui['labelCalculating'] ?? '';
+      resHeightDesc.textContent = ui['labelCalculating'] ?? '';
+      resBmiDesc.textContent = ui['labelCalculating'] ?? '';
+      alertEl.classList.add('bpc-hidden');
       return;
     }
 
@@ -221,12 +148,8 @@ const { ui } = Astro.props;
     resHeightDesc.textContent = ui[getDescriptionKey(pH)] ?? '';
     resBmiDesc.textContent = ui[getDescriptionKey(pBmi)] ?? '';
 
-    const outOfRange = pW < 3 || pW > 97 || pH < 3 || pH > 97;
-    if (outOfRange) {
-      alertEl.setAttribute('data-visible', 'true');
-    } else {
-      alertEl.removeAttribute('data-visible');
-    }
+    if (pW < 3 || pW > 97 || pH < 3 || pH > 97) alertEl.classList.remove('bpc-hidden');
+    else alertEl.classList.add('bpc-hidden');
   }
 
   async function initChart(): Promise<void> {
@@ -240,10 +163,7 @@ const { ui } = Astro.props;
         responsive: true,
         maintainAspectRatio: true,
         plugins: { legend: { display: false } },
-        scales: {
-          x: { type: 'linear', min: 0, max: 60 },
-          y: { type: 'linear' },
-        },
+        scales: { x: { type: 'linear', min: 0, max: 60 }, y: { type: 'linear' } },
       },
     });
   }
@@ -257,8 +177,7 @@ const { ui } = Astro.props;
   function syncAgeDisplay(): void {
     const slider = getInput('bpc-slider');
     slider.value = String(state.age);
-    getEl('bpc-age-val').textContent = String(state.age % 12);
-
+    getEl('bpc-age-val').textContent = String(state.ageUnit === 'yearsMonths' ? state.age % 12 : state.age);
     if (state.ageUnit === 'yearsMonths') {
       getEl('bpc-years-val').textContent = String(Math.floor(state.age / 12));
     }
@@ -273,116 +192,55 @@ const { ui } = Astro.props;
 
   function setSex(sex: string): void {
     state.sex = sex;
-    const btnBoy = getEl('bpc-btn-boy');
-    const btnGirl = getEl('bpc-btn-girl');
-    btnBoy.setAttribute('data-active', sex === 'boy' ? 'true' : 'false');
-    btnGirl.setAttribute('data-active', sex === 'girl' ? 'true' : 'false');
-
-    if (sex === 'boy') {
-      root.classList.add('baby-percentile-calculator-boy');
-    } else {
-      root.classList.remove('baby-percentile-calculator-boy');
-    }
-
+    getEl('bpc-btn-boy').classList.toggle('bpc-active', sex === 'boy');
+    getEl('bpc-btn-girl').classList.toggle('bpc-active', sex === 'girl');
+    root.classList.toggle('bpc-boy', sex === 'boy');
     renderPercentiles();
     updateChart();
   }
 
   function setUnit(unit: string): void {
     state.ageUnit = unit;
-    const tabMonths = getEl('bpc-unit-months');
-    const tabYears = getEl('bpc-unit-years');
-    tabMonths.setAttribute('data-active', unit === 'months' ? 'true' : 'false');
-    tabYears.setAttribute('data-active', unit === 'yearsMonths' ? 'true' : 'false');
-
-    const yearsControls = [
-      getEl('bpc-step-minus-years'),
-      getEl('bpc-step-plus-years'),
-      getEl('bpc-years-view'),
-    ];
-
-    yearsControls.forEach(el => {
-      if (unit === 'yearsMonths') {
-        el.style.display = '';
-      } else {
-        el.style.display = 'none';
-      }
-    });
-
-    const monthLabel = getEl('bpc-age-val').nextElementSibling as HTMLElement;
-    if (monthLabel) {
-      monthLabel.textContent = (unit === 'yearsMonths' ? ui['labelMonths'] : ui['labelMonths']) ?? null;
-    }
-
+    getEl('bpc-unit-months').classList.toggle('bpc-active', unit === 'months');
+    getEl('bpc-unit-years').classList.toggle('bpc-active', unit === 'yearsMonths');
+    const yearsControls = [getEl('bpc-step-minus-years'), getEl('bpc-step-plus-years'), getEl('bpc-years-view')];
+    yearsControls.forEach(el => { el.style.display = unit === 'yearsMonths' ? '' : 'none'; });
     syncAgeDisplay();
   }
 
   function loadHistory(): void {
     try {
       const raw = localStorage.getItem(LS_KEY);
-      if (raw) {
-        const parsed = JSON.parse(raw) as HistoryEntry[];
-        state.history = Array.isArray(parsed) ? parsed : [];
-      }
-    } catch {
-      state.history = [];
-    }
+      if (raw) { const parsed = JSON.parse(raw) as HistoryEntry[]; state.history = Array.isArray(parsed) ? parsed : []; }
+    } catch { state.history = []; }
     renderPercentiles();
   }
 
   function save(): void {
-    const entry: HistoryEntry = {
-      sex: state.sex,
-      age: state.age,
-      weight: state.weight,
-      height: state.height,
-    };
-    state.history.push(entry);
-    try {
-      localStorage.setItem(LS_KEY, JSON.stringify(state.history));
-    } catch { }
+    state.history.push({ sex: state.sex, age: state.age, weight: state.weight, height: state.height });
+    try { localStorage.setItem(LS_KEY, JSON.stringify(state.history)); } catch { }
   }
 
   function clearHistory(): void {
     state.history = [];
-    try {
-      localStorage.removeItem(LS_KEY);
-    } catch { }
+    try { localStorage.removeItem(LS_KEY); } catch { }
   }
 
-  function bindEvents(): void {
-    getEl('bpc-btn-boy').addEventListener('click', () => setSex('boy'));
-    getEl('bpc-btn-girl').addEventListener('click', () => setSex('girl'));
+  getEl('bpc-btn-boy').addEventListener('click', () => setSex('boy'));
+  getEl('bpc-btn-girl').addEventListener('click', () => setSex('girl'));
+  getEl('bpc-unit-months').addEventListener('click', () => setUnit('months'));
+  getEl('bpc-unit-years').addEventListener('click', () => setUnit('yearsMonths'));
+  getEl('bpc-step-minus').addEventListener('click', () => setAge(state.age - 1));
+  getEl('bpc-step-plus').addEventListener('click', () => setAge(state.age + 1));
+  getEl('bpc-step-minus-years').addEventListener('click', () => setAge(state.age - 12));
+  getEl('bpc-step-plus-years').addEventListener('click', () => setAge(state.age + 12));
+  getInput('bpc-slider').addEventListener('input', (e) => setAge(parseInt((e.target as HTMLInputElement).value, 10)));
+  getInput('bpc-weight').addEventListener('input', (e) => { state.weight = parseFloat((e.target as HTMLInputElement).value) || 0; renderPercentiles(); });
+  getInput('bpc-height').addEventListener('input', (e) => { state.height = parseFloat((e.target as HTMLInputElement).value) || 0; renderPercentiles(); });
+  getEl('bpc-btn-save').addEventListener('click', () => save());
+  getEl('bpc-btn-clear').addEventListener('click', () => clearHistory());
 
-    getEl('bpc-unit-months').addEventListener('click', () => setUnit('months'));
-    getEl('bpc-unit-years').addEventListener('click', () => setUnit('yearsMonths'));
-
-    getEl('bpc-step-minus').addEventListener('click', () => setAge(state.age - 1));
-    getEl('bpc-step-plus').addEventListener('click', () => setAge(state.age + 1));
-
-    getEl('bpc-step-minus-years').addEventListener('click', () => setAge(state.age - 12));
-    getEl('bpc-step-plus-years').addEventListener('click', () => setAge(state.age + 12));
-
-    getInput('bpc-slider').addEventListener('input', (e) => {
-      const val = parseInt((e.target as HTMLInputElement).value, 10);
-      setAge(val);
-    });
-
-    getInput('bpc-weight').addEventListener('input', (e) => {
-      state.weight = parseFloat((e.target as HTMLInputElement).value) || 0;
-      renderPercentiles();
-    });
-
-    getInput('bpc-height').addEventListener('input', (e) => {
-      state.height = parseFloat((e.target as HTMLInputElement).value) || 0;
-      renderPercentiles();
-    });
-
-    getEl('bpc-btn-save').addEventListener('click', () => save());
-    getEl('bpc-btn-clear').addEventListener('click', () => clearHistory());
-  }
-
+  setSex('boy');
   loadHistory();
-  bindEvents();
   initChart();
 </script>

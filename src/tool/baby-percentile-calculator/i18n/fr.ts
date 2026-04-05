@@ -106,6 +106,7 @@ export const content: BabyPercentileCalculatorLocaleContent = {
     labelHighRange: 'Plage haute',
     alertOutOfRange: 'Valeur hors des plages P3-P97. Consultez votre pédiatre.',
     labelMonths: 'Mois',
+    labelYears: 'Années',
     faqTitle: 'Questions fréquentes',
     bibliographyTitle: 'Références',
   },

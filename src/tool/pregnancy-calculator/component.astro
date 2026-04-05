@@ -89,6 +89,12 @@ const { ui } = Astro.props;
         <p class="pregnancy-calculator-mp-empty-body">{ui.labelStartBody}</p>
       </div>
 
+      <div class="pregnancy-calculator-mp-egg" id="pc-mp-egg" style="display:none">
+        <div class="pregnancy-calculator-egg-dot" id="pc-egg-dot"></div>
+        <div class="pregnancy-calculator-egg-title" id="pc-egg-title"></div>
+        <p class="pregnancy-calculator-egg-body" id="pc-egg-body"></p>
+      </div>
+
       <div class="pregnancy-calculator-mp-results" id="pc-mp-results" style="display:none">
         <div class="pregnancy-calculator-mp-top-row">
           <span class="pregnancy-calculator-mp-badge" id="pc-mp-badge">Semana —</span>
@@ -127,8 +133,10 @@ const { ui } = Astro.props;
     </div>
 
     <div class="pregnancy-calculator-right">
-      <div class="pregnancy-calculator-tl-header">{ui.labelTimeline}</div>
-      <div class="pregnancy-calculator-tl-scroll" id="pc-tl-scroll"></div>
+      <div class="pregnancy-calculator-tl-inner">
+        <div class="pregnancy-calculator-tl-header">{ui.labelTimeline}</div>
+        <div class="pregnancy-calculator-tl-scroll" id="pc-tl-scroll"></div>
+      </div>
     </div>
 
   </div>
@@ -155,6 +163,10 @@ const { ui } = Astro.props;
   const sdEdd = root.querySelector('#pc-sd-edd') as HTMLElement;
   const sdBtnCal = root.querySelector('#pc-sd-btn-cal') as HTMLButtonElement;
   const mpEmpty = root.querySelector('#pc-mp-empty') as HTMLElement;
+  const mpEgg = root.querySelector('#pc-mp-egg') as HTMLElement;
+  const eggDot = root.querySelector('#pc-egg-dot') as HTMLElement;
+  const eggTitle = root.querySelector('#pc-egg-title') as HTMLElement;
+  const eggBody = root.querySelector('#pc-egg-body') as HTMLElement;
   const mpResults = root.querySelector('#pc-mp-results') as HTMLElement;
   const mpBadge = root.querySelector('#pc-mp-badge') as HTMLElement;
   const mpAnalogy = root.querySelector('#pc-mp-analogy') as HTMLElement;
@@ -210,7 +222,7 @@ const { ui } = Astro.props;
       info.className = 'pregnancy-calculator-tl-info';
       const num = document.createElement('span');
       num.className = 'pregnancy-calculator-tl-num';
-      num.textContent = String(w);
+      num.textContent = `${ui['labelSem'] ?? 'Sem'} ${w}`;
       const label = document.createElement('span');
       label.className = 'pregnancy-calculator-tl-label';
       label.textContent = timelineLabels[w] ?? '';
@@ -279,6 +291,20 @@ const { ui } = Astro.props;
     root.classList.add(`pregnancy-calculator-t${tri}`);
   }
 
+  function showEasterEgg(reason: 'future' | 'too-old'): void {
+    eggDot.dataset.reason = reason;
+    if (reason === 'future') {
+      eggTitle.textContent = ui['eggFutureTitle'] ?? '';
+      eggBody.textContent = ui['eggFutureBody'] ?? '';
+    } else {
+      eggTitle.textContent = ui['eggTooOldTitle'] ?? '';
+      eggBody.textContent = ui['eggTooOldBody'] ?? '';
+    }
+    mpEmpty.style.display = 'none';
+    mpResults.style.display = 'none';
+    mpEgg.style.display = '';
+  }
+
   function renderStats(result: CalcResult): void {
     if (!result.valid) {
       sdWeeks.textContent = '—';
@@ -287,8 +313,11 @@ const { ui } = Astro.props;
       sdBtnCal.disabled = true;
       return;
     }
-    sdWeeks.textContent = `${result.weeks}+${result.days}`;
-    sdTri.textContent = String(result.trimester);
+    const wFmt = (ui['weeksFormat'] ?? '{w}s {d}d')
+      .replace('{w}', String(result.weeks))
+      .replace('{d}', String(result.days));
+    sdWeeks.textContent = wFmt;
+    sdTri.textContent = `${result.trimester}${ui['trimesterSuffix'] ?? ''}`;
     sdEdd.textContent = fmtEdd.format(result.edd);
     sdBtnCal.disabled = false;
     applyTrimester(result.trimester);
@@ -305,7 +334,7 @@ const { ui } = Astro.props;
 
   function renderMilestone(weeks: number, cat: string, partner: boolean): void {
     const ms = getMilestone(weeks);
-    mpBadge.textContent = `Semana ${weeks}`;
+    mpBadge.textContent = `${ui['labelWeekBadge'] ?? 'Semana'} ${weeks}`;
     mpAnalogy.textContent = ms.analogies[cat as 'fruits' | 'geek' | 'sweets'] ?? ms.analogies.fruits;
     mpSize.textContent = ms.size;
     mpBio.textContent = ms.biolook;
@@ -342,16 +371,29 @@ const { ui } = Astro.props;
     updateMethodUI(s.method);
     updatePartnerUI(s.partner);
     updateAnalogyTabs(s.analogyCat);
-    if (!s.result || !s.result.valid) {
+    if (!s.result) {
       mpEmpty.style.display = '';
+      mpEgg.style.display = 'none';
       mpResults.style.display = 'none';
-      if (s.result) renderStats(s.result);
+      return;
+    }
+    if (!s.result.valid && s.result.outOfRange) {
+      renderStats(s.result);
+      showEasterEgg(s.result.outOfRange);
+      return;
+    }
+    if (!s.result.valid) {
+      mpEmpty.style.display = '';
+      mpEgg.style.display = 'none';
+      mpResults.style.display = 'none';
+      renderStats(s.result);
       return;
     }
     renderStats(s.result);
     renderMilestone(s.result.weeks, s.analogyCat, s.partner);
     renderTimeline(s.result.weeks);
     mpEmpty.style.display = 'none';
+    mpEgg.style.display = 'none';
     mpResults.style.display = '';
     mpResults.classList.add('pregnancy-calculator-mp-enter');
   }

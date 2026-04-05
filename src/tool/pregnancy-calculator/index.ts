@@ -29,6 +29,14 @@ export interface PregnancyCalculatorUI {
   labelTimeline: string;
   labelStartHere: string;
   labelStartBody: string;
+  labelSem: string;
+  labelWeekBadge: string;
+  weeksFormat: string;
+  trimesterSuffix: string;
+  eggFutureTitle: string;
+  eggFutureBody: string;
+  eggTooOldTitle: string;
+  eggTooOldBody: string;
   faqTitle: string;
   bibliographyTitle: string;
 }

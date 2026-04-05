@@ -1,7 +1,11 @@
 ---
 import { Bibliography as BibliographyUI } from '@jjlmoya/utils-shared';
-import type { BibliographyEntry } from '../../types';
-interface Props { links?: BibliographyEntry[]; title: string; }
-const { links = [], title } = Astro.props;
+import { babyPercentileCalculator } from './index';
+import type { KnownLocale } from '../../types';
+
+interface Props { locale?: KnownLocale; }
+const { locale = 'es' } = Astro.props;
+const content = await babyPercentileCalculator.i18n[locale]?.();
+if (!content) return null;
 ---
-<BibliographyUI links={links} title={title} />
+<BibliographyUI links={content.bibliography} title={content.bibliographyTitle ?? ''} />
