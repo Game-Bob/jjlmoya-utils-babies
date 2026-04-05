@@ -290,6 +290,7 @@ export const content: PregnancyCalculatorLocaleContent = {
     },
   ],
   faq,
+  bibliographyTitle: "Referencias",
   bibliography: [
     {
       name: 'OMS – Cuidados en el embarazo',

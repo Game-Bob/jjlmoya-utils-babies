@@ -145,6 +145,7 @@ export const content: VaccinationCalendarLocaleContent = {
     ]},
   ],
   faq,
+  bibliographyTitle: "References",
   bibliography: [
     {
       name: 'Spanish Association of Pediatrics - Vaccination Schedule 2026',

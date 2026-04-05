@@ -290,6 +290,7 @@ export const content: PregnancyCalculatorLocaleContent = {
     },
   ],
   faq,
+  bibliographyTitle: "Références",
   bibliography: [
     {
       name: 'OMS – Soins prénatals',

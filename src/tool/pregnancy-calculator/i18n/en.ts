@@ -290,6 +290,7 @@ export const content: PregnancyCalculatorLocaleContent = {
     },
   ],
   faq,
+  bibliographyTitle: "References",
   bibliography: [
     {
       name: 'WHO – Antenatal care',

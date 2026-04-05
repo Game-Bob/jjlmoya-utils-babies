@@ -178,6 +178,7 @@ export const content: BabySizeConverterLocaleContent = {
     ]},
   ],
   faq,
+  bibliographyTitle: "Références",
   bibliography: [
     {
       name: 'Zara - Guide des tailles enfant',

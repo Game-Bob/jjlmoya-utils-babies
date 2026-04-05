@@ -233,6 +233,7 @@ export const content: FertileDaysEstimatorLocaleContent = {
     },
   ],
   faq,
+  bibliographyTitle: "Références",
   bibliography: [
     {
       name: "OMS - Planification familiale",

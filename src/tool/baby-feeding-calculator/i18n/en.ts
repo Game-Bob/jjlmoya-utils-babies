@@ -137,6 +137,7 @@ export const content: BabyFeedingCalculatorLocaleContent = {
     ]},
   ],
   faq,
+  bibliographyTitle: "References",
   bibliography: [
     {
       name: 'WHO - Infant and young child feeding',

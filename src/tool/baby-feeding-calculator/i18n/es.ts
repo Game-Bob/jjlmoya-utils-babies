@@ -137,6 +137,7 @@ export const content: BabyFeedingCalculatorLocaleContent = {
     ]},
   ],
   faq,
+  bibliographyTitle: "Referencias",
   bibliography: [
     {
       name: 'OMS - Alimentación del lactante y del niño pequeño',

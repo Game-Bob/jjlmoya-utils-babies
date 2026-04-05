@@ -149,6 +149,7 @@ export const content: VaccinationCalendarLocaleContent = {
     ]},
   ],
   faq,
+  bibliographyTitle: "Referencias",
   bibliography: [
     {
       name: 'Asociación Española de Pediatría - Calendario de Vacunaciones 2026',

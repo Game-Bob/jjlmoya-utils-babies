@@ -137,6 +137,7 @@ export const content: BabyFeedingCalculatorLocaleContent = {
     ]},
   ],
   faq,
+  bibliographyTitle: "Références",
   bibliography: [
     {
       name: "OMS - Alimentation du nourrisson et du jeune enfant",

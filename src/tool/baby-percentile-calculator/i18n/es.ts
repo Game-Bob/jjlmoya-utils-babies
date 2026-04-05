@@ -223,6 +223,7 @@ export const content: BabyPercentileCalculatorLocaleContent = {
     },
   ],
   faq,
+  bibliographyTitle: "Referencias",
   bibliography: [
     {
       name: 'WHO Child Growth Standards: Methods and development',
