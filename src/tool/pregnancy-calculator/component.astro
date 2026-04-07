@@ -40,25 +40,25 @@ const { ui } = Astro.props;
           <select
             id="pc-dp-day"
             class="pregnancy-calculator-dp-select"
-            aria-label="Día"
+            aria-label={ui.dayLabel}
           >
-            <option value="">Día</option>
+            <option value="">{ui.dayLabel}</option>
           </select>
           <span class="pregnancy-calculator-dp-sep">/</span>
           <select
             id="pc-dp-month"
             class="pregnancy-calculator-dp-select"
-            aria-label="Mes"
+            aria-label={ui.monthLabel}
           >
-            <option value="">Mes</option>
+            <option value="">{ui.monthLabel}</option>
           </select>
           <span class="pregnancy-calculator-dp-sep">/</span>
           <select
             id="pc-dp-year"
             class="pregnancy-calculator-dp-select"
-            aria-label="Año"
+            aria-label={ui.yearLabel}
           >
-            <option value="">Año</option>
+            <option value="">{ui.yearLabel}</option>
           </select>
         </div>
       </div>
@@ -144,7 +144,7 @@ const { ui } = Astro.props;
       >
         <div class="pregnancy-calculator-mp-top-row">
           <span class="pregnancy-calculator-mp-badge" id="pc-mp-badge"
-            >Semana —</span
+            >{ui.labelWeekBadge} —</span
           >
           <div class="pregnancy-calculator-analogy-tabs">
             <button class="pregnancy-calculator-at-btn" data-cat="fruits"
@@ -207,7 +207,7 @@ const { ui } = Astro.props;
 
 <script>
   import { getState, setState, subscribe } from "./store";
-  import { getMilestone, timelineLabels } from "./milestones";
+  import { getMilestone } from "./milestones";
   import type { PCState } from "./store";
   import type { CalcResult } from "./calculator";
 
@@ -244,21 +244,11 @@ const { ui } = Astro.props;
   const mpAlert = root.querySelector("#pc-mp-alert") as HTMLElement;
   const tlScroll = root.querySelector("#pc-tl-scroll") as HTMLElement;
 
-  const MONTHS_ES = [
-    "Ene",
-    "Feb",
-    "Mar",
-    "Abr",
-    "May",
-    "Jun",
-    "Jul",
-    "Ago",
-    "Sep",
-    "Oct",
-    "Nov",
-    "Dic",
-  ];
-  const fmtEdd = new Intl.DateTimeFormat("es-ES", {
+  const MONTHS = JSON.parse(ui.monthsData as string);
+  const timelineLabels = JSON.parse(ui.timelineLabelsData as string);
+  const milestones = JSON.parse(ui.milestonesData as string);
+
+  const fmtEdd = new Intl.DateTimeFormat(document.documentElement.lang || "es", {
     day: "numeric",
     month: "long",
     year: "numeric",
@@ -271,7 +261,7 @@ const { ui } = Astro.props;
       o.textContent = String(d).padStart(2, "0");
       dpDay.appendChild(o);
     }
-    MONTHS_ES.forEach((m, i) => {
+    MONTHS.forEach((m: string, i: number) => {
       const o = document.createElement("option");
       o.value = String(i + 1);
       o.textContent = m;
@@ -426,7 +416,7 @@ const { ui } = Astro.props;
   }
 
   function renderMilestone(weeks: number, cat: string, partner: boolean): void {
-    const ms = getMilestone(weeks);
+    const ms = getMilestone(weeks, milestones);
     mpBadge.textContent = `${ui["labelWeekBadge"] ?? "Semana"} ${weeks}`;
     mpAnalogy.textContent =
       ms.analogies[cat as "fruits" | "geek" | "sweets"] ?? ms.analogies.fruits;
@@ -512,8 +502,8 @@ const { ui } = Astro.props;
       `DTSTART;VALUE=DATE:${y}${m}${d}`,
       `DTEND;VALUE=DATE:${y}${m}${d}`,
       `DTSTAMP:${stamp}`,
-      "SUMMARY:Fecha Probable de Parto",
-      "DESCRIPTION:Fecha estimada de parto calculada por jjlmoya",
+      `SUMMARY:${ui.icsSummary}`,
+      `DESCRIPTION:${ui.icsDescription}`,
       "END:VEVENT",
       "END:VCALENDAR",
     ];
@@ -521,7 +511,7 @@ const { ui } = Astro.props;
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
     a.href = url;
-    a.download = "fecha-parto.ics";
+    a.download = ui.icsFilename as string;
     a.click();
     URL.revokeObjectURL(url);
   }

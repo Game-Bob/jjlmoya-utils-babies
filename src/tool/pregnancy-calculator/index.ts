@@ -3,6 +3,17 @@ import PregnancyCalculatorComponent from './component.astro';
 import PregnancyCalculatorSEO from './seo.astro';
 import PregnancyCalculatorBibliography from './bibliography.astro';
 
+export interface MilestoneI18n {
+  analogies: { fruits: string; geek: string; sweets: string };
+  size: string;
+  biolook: string;
+  mom: string;
+  partner: string;
+  symptoms: string[];
+  alerts: string[];
+  wonder: string;
+}
+
 export interface PregnancyCalculatorUI {
   [key: string]: string;
   btnFUR: string;
@@ -39,9 +50,23 @@ export interface PregnancyCalculatorUI {
   eggTooOldBody: string;
   faqTitle: string;
   bibliographyTitle: string;
+  dayLabel: string;
+  monthLabel: string;
+  yearLabel: string;
+  icsSummary: string;
+  icsDescription: string;
+  icsFilename: string;
+  // JSON stringified data
+  monthsData: string;
+  milestonesData: string;
+  timelineLabelsData: string;
 }
 
 export type PregnancyCalculatorLocaleContent = ToolLocaleContent<PregnancyCalculatorUI>;
+
+
+
+
 
 export const pregnancyCalculator: BabiesToolEntry<PregnancyCalculatorUI> = {
   id: 'pregnancy-calculator',
