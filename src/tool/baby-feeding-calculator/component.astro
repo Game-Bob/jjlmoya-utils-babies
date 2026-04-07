@@ -240,7 +240,7 @@ const { ui } = Astro.props;
 </script>
 
 <style>
-.bfc-card {
+:global(.bfc-card) {
   background: #fff;
   border: 1px solid #e2e8f0;
   border-radius: 28px;
@@ -250,7 +250,7 @@ const { ui } = Astro.props;
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.08);
 }
 
-:global(.theme-dark) .bfc-card {
+:global(.theme-dark .bfc-card) {
   background: #111827;
   border-color: #1f2937;
 }
@@ -266,17 +266,17 @@ const { ui } = Astro.props;
   border-right: 1px solid #e2e8f0;
 }
 
-:global(.theme-dark) .bfc-left {
+:global(.theme-dark .bfc-left) {
   background: #1f2937;
   border-right-color: #374151;
 }
 
-.bfc-right {
+:global(.bfc-right) {
   background: #fff;
   padding: 40px;
 }
 
-:global(.theme-dark) .bfc-right {
+:global(.theme-dark .bfc-right) {
   background: #111827;
 }
 
@@ -290,7 +290,7 @@ const { ui } = Astro.props;
   margin-bottom: 32px;
 }
 
-.bfc-input-label {
+:global(.bfc-input-label) {
   display: block;
   font-size: 0.95rem;
   font-weight: 700;
@@ -298,7 +298,7 @@ const { ui } = Astro.props;
   margin-bottom: 12px;
 }
 
-:global(.theme-dark) .bfc-input-label {
+:global(.theme-dark .bfc-input-label) {
   color: #e2e8f0;
 }
 
@@ -314,11 +314,11 @@ const { ui } = Astro.props;
   margin-bottom: 24px;
 }
 
-:global(.theme-dark) .bfc-unit-nav {
+:global(.theme-dark .bfc-unit-nav) {
   background: #374151;
 }
 
-.bfc-unit-tab {
+:global(.bfc-unit-tab) {
   flex: 1;
   padding: 8px;
   border: none;
@@ -332,17 +332,17 @@ const { ui } = Astro.props;
   margin: 2px;
 }
 
-:global(.theme-dark) .bfc-unit-tab {
+:global(.theme-dark .bfc-unit-tab) {
   background: #1f2937;
 }
 
-.bfc-unit-active {
+:global(.bfc-unit-active) {
   background: #fff;
   color: #0d9488;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
-:global(.theme-dark) .bfc-unit-active {
+:global(.theme-dark .bfc-unit-active) {
   background: #4b5563;
   color: #2dd4bf;
 }
@@ -358,12 +358,12 @@ const { ui } = Astro.props;
   margin-bottom: 8px;
 }
 
-:global(.theme-dark) .bfc-stepper-box {
+:global(.theme-dark .bfc-stepper-box) {
   background: #111827;
   border-color: #4b5563;
 }
 
-.bfc-btn-step {
+:global(.bfc-btn-step) {
   width: 44px;
   height: 44px;
   border-radius: 12px;
@@ -376,12 +376,12 @@ const { ui } = Astro.props;
   transition: all 0.2s ease;
 }
 
-:global(.theme-dark) .bfc-btn-step {
+:global(.theme-dark .bfc-btn-step) {
   background: #374151;
   color: #f9fafb;
 }
 
-.bfc-btn-step:hover {
+:global(.bfc-btn-step:hover) {
   background: #0d9488;
   color: #fff;
 }
@@ -390,18 +390,18 @@ const { ui } = Astro.props;
   text-align: center;
 }
 
-.bfc-val-big {
+:global(.bfc-val-big) {
   display: block;
   font-size: 2rem;
   font-weight: 800;
   color: #0f172a;
 }
 
-:global(.theme-dark) .bfc-val-big {
+:global(.theme-dark .bfc-val-big) {
   color: #fff;
 }
 
-.bfc-val-sub {
+:global(.bfc-val-sub) {
   display: block;
   font-size: 0.85rem;
   color: #64748b;
@@ -423,11 +423,11 @@ const { ui } = Astro.props;
   outline: none;
 }
 
-:global(.theme-dark) .bfc-slider {
+:global(.theme-dark .bfc-slider) {
   background: #374151;
 }
 
-.bfc-slider::-webkit-slider-thumb {
+:global(.bfc-slider::-webkit-slider-thumb) {
   -webkit-appearance: none;
   appearance: none;
   width: 22px;
@@ -445,7 +445,7 @@ const { ui } = Astro.props;
   gap: 12px;
 }
 
-.bfc-type-tile {
+:global(.bfc-type-tile) {
   background: #f1f5f9;
   border: 1px solid #cbd5e1;
   border-radius: 14px;
@@ -458,19 +458,19 @@ const { ui } = Astro.props;
   color: #64748b;
 }
 
-:global(.theme-dark) .bfc-type-tile {
+:global(.theme-dark .bfc-type-tile) {
   background: #1f2937;
   border-color: #4b5563;
 }
 
-.bfc-type-active {
+:global(.bfc-type-active) {
   background: #f0fdfa;
   border-color: #0d9488;
   color: #0f766e;
   box-shadow: 0 2px 8px rgba(13, 148, 136, 0.1);
 }
 
-:global(.theme-dark) .bfc-type-active {
+:global(.theme-dark .bfc-type-active) {
   background: rgba(13, 148, 136, 0.1);
   color: #2dd4bf;
   border-color: #2dd4bf;
@@ -484,7 +484,7 @@ const { ui } = Astro.props;
   border: 1px solid #e2e8f0;
 }
 
-:global(.theme-dark) .bfc-gauge-area {
+:global(.theme-dark .bfc-gauge-area) {
   background: #111827;
   border-color: #374151;
 }
@@ -506,14 +506,14 @@ const { ui } = Astro.props;
   box-shadow: 0 10px 25px rgba(13, 148, 136, 0.2);
 }
 
-.bfc-visual-hint {
+:global(.bfc-visual-hint) {
   font-size: 0.95rem;
   font-weight: 600;
   color: #0f766e;
   margin: 0;
 }
 
-:global(.theme-dark) .bfc-visual-hint {
+:global(.theme-dark .bfc-visual-hint) {
   color: #2dd4bf;
 }
 
@@ -525,11 +525,11 @@ const { ui } = Astro.props;
   margin-bottom: 24px;
 }
 
-:global(.theme-dark) .bfc-res-card-box {
+:global(.theme-dark .bfc-res-card-box) {
   background: rgba(13, 148, 136, 0.05);
 }
 
-.bfc-res-main-val {
+:global(.bfc-res-main-val) {
   display: block;
   font-size: 3.5rem;
   font-weight: 950;
@@ -538,11 +538,11 @@ const { ui } = Astro.props;
   line-height: 1;
 }
 
-:global(.theme-dark) .bfc-res-main-val {
+:global(.theme-dark .bfc-res-main-val) {
   color: #2dd4bf;
 }
 
-.bfc-res-label {
+:global(.bfc-res-label) {
   display: block;
   margin-top: 8px;
   font-size: 1rem;
@@ -562,11 +562,11 @@ const { ui } = Astro.props;
   border-bottom: 2px solid #f1f5f9;
 }
 
-:global(.theme-dark) .bfc-stat-item {
+:global(.theme-dark .bfc-stat-item) {
   border-bottom-color: #374151;
 }
 
-.bfc-stat-label {
+:global(.bfc-stat-label) {
   display: block;
   font-size: 0.7rem;
   font-weight: 800;
@@ -575,13 +575,13 @@ const { ui } = Astro.props;
   margin-bottom: 2px;
 }
 
-.bfc-stat-value {
+:global(.bfc-stat-value) {
   font-size: 1.15rem;
   font-weight: 800;
   color: #334155;
 }
 
-:global(.theme-dark) .bfc-stat-value {
+:global(.theme-dark .bfc-stat-value) {
   color: #e2e8f0;
 }
 
@@ -603,22 +603,22 @@ const { ui } = Astro.props;
   border-radius: 100px;
 }
 
-.bfc-pill-hunger {
+:global(.bfc-pill-hunger) {
   background: #fff7ed;
   color: #c2410c;
 }
 
-:global(.theme-dark) .bfc-pill-hunger {
+:global(.theme-dark .bfc-pill-hunger) {
   background: rgba(194, 65, 12, 0.1);
   color: #fdba74;
 }
 
-.bfc-pill-fullness {
+:global(.bfc-pill-fullness) {
   background: #f0fdf4;
   color: #15803d;
 }
 
-:global(.theme-dark) .bfc-pill-fullness {
+:global(.theme-dark .bfc-pill-fullness) {
   background: rgba(21, 128, 61, 0.1);
   color: #4ade80;
 }

@@ -658,7 +658,7 @@ const { ui } = Astro.props;
     --pc-bg-dark: #0f1923;
     --pc-text: #f1f5f9;
     --pc-text-muted: #94a3b8;
-    --pc-text-dim: #64748b;
+    --pc-text-dim: #cbd5e1;
     --pc-border: rgba(255, 255, 255, 0.04);
     --pc-border-inner: rgba(255, 255, 255, 0.04);
     --pc-shadow: rgba(0, 0, 0, 0.4);
@@ -866,12 +866,21 @@ const { ui } = Astro.props;
     min-width: 0;
   }
 
+  :global(.theme-dark) .pregnancy-calculator-dp-select {
+    background-color: #0f1923;
+    color: #f1f5f9;
+  }
+
   .pregnancy-calculator-dp-sep {
     color: #cbd5e1;
     font-size: 1rem;
     font-weight: 300;
     flex-shrink: 0;
     padding: 0 2px;
+  }
+
+  :global(.theme-dark) .pregnancy-calculator-dp-sep {
+    color: #64748b;
   }
 
   .pregnancy-calculator-cs-wrap {
@@ -1436,7 +1445,15 @@ const { ui } = Astro.props;
     border-radius: 2px;
   }
 
-  .pregnancy-calculator-tl-row {
+  :global(.theme-dark) .pregnancy-calculator-tl-scroll {
+    scrollbar-color: #334155 transparent;
+  }
+
+  :global(.theme-dark) .pregnancy-calculator-tl-scroll::-webkit-scrollbar-thumb {
+    background: #334155;
+  }
+
+  :global(.pregnancy-calculator-tl-row) {
     display: flex;
     align-items: flex-start;
     gap: 0.5rem;
@@ -1445,11 +1462,11 @@ const { ui } = Astro.props;
     transition: background 0.1s;
   }
 
-  .pregnancy-calculator-tl-row-current {
+  :global(.pregnancy-calculator-tl-row-current) {
     background: var(--pc-tri-bg);
   }
 
-  .pregnancy-calculator-tl-line-col {
+  :global(.pregnancy-calculator-tl-line-col) {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -1458,7 +1475,7 @@ const { ui } = Astro.props;
     padding-top: 0.2rem;
   }
 
-  .pregnancy-calculator-tl-dot {
+  :global(.pregnancy-calculator-tl-dot) {
     width: 0.5rem;
     height: 0.5rem;
     border-radius: 50%;
@@ -1467,18 +1484,18 @@ const { ui } = Astro.props;
     transition: background 0.15s;
   }
 
-  .pregnancy-calculator-tl-row-past .pregnancy-calculator-tl-dot {
+  :global(.pregnancy-calculator-tl-row-past .pregnancy-calculator-tl-dot) {
     background: var(--pc-tri-accent);
   }
 
-  .pregnancy-calculator-tl-row-current .pregnancy-calculator-tl-dot {
+  :global(.pregnancy-calculator-tl-row-current .pregnancy-calculator-tl-dot) {
     background: var(--pc-tri-accent);
     box-shadow: 0 0 0 3px var(--pc-tri-glow);
     width: 0.625rem;
     height: 0.625rem;
   }
 
-  .pregnancy-calculator-tl-line {
+  :global(.pregnancy-calculator-tl-line) {
     width: 2px;
     flex: 1;
     min-height: 1.25rem;
@@ -1486,34 +1503,34 @@ const { ui } = Astro.props;
     margin-top: 2px;
   }
 
-  .pregnancy-calculator-tl-row-past .pregnancy-calculator-tl-line {
+  :global(.pregnancy-calculator-tl-row-past .pregnancy-calculator-tl-line) {
     background: var(--pc-tri-primary);
   }
 
-  .pregnancy-calculator-tl-info {
+  :global(.pregnancy-calculator-tl-info) {
     display: flex;
     align-items: baseline;
     gap: 0.375rem;
     min-width: 0;
   }
 
-  .pregnancy-calculator-tl-num {
+  :global(.pregnancy-calculator-tl-num) {
     font-size: 0.75rem;
     font-weight: 700;
     color: var(--pc-text-dim);
     flex-shrink: 0;
   }
 
-  .pregnancy-calculator-tl-row-past .pregnancy-calculator-tl-num {
+  :global(.pregnancy-calculator-tl-row-past .pregnancy-calculator-tl-num) {
     color: var(--pc-tri-accent);
   }
 
-  .pregnancy-calculator-tl-row-current .pregnancy-calculator-tl-num {
+  :global(.pregnancy-calculator-tl-row-current .pregnancy-calculator-tl-num) {
     color: var(--pc-tri-accent);
     font-size: 0.875rem;
   }
 
-  .pregnancy-calculator-tl-label {
+  :global(.pregnancy-calculator-tl-label) {
     font-size: 0.6875rem;
     color: var(--pc-text-dim);
     white-space: nowrap;
@@ -1521,7 +1538,7 @@ const { ui } = Astro.props;
     text-overflow: ellipsis;
   }
 
-  .pregnancy-calculator-tl-row-current .pregnancy-calculator-tl-label {
+  :global(.pregnancy-calculator-tl-row-current .pregnancy-calculator-tl-label) {
     color: var(--pc-tri-text);
     font-weight: 600;
     font-size: 0.75rem;
@@ -1556,20 +1573,20 @@ const { ui } = Astro.props;
       gap: 0.25rem;
     }
 
-    .pregnancy-calculator-tl-row {
+    :global(.pregnancy-calculator-tl-row) {
       flex-direction: column;
       align-items: center;
       padding: 0.5rem 0.375rem;
       min-width: 3rem;
     }
 
-    .pregnancy-calculator-tl-line-col {
+    :global(.pregnancy-calculator-tl-line-col) {
       flex-direction: row;
       width: auto;
       padding-top: 0;
     }
 
-    .pregnancy-calculator-tl-line {
+    :global(.pregnancy-calculator-tl-line) {
       width: 1.25rem;
       height: 2px;
       min-height: 0;
@@ -1577,13 +1594,13 @@ const { ui } = Astro.props;
       margin-left: 2px;
     }
 
-    .pregnancy-calculator-tl-info {
+    :global(.pregnancy-calculator-tl-info) {
       flex-direction: column;
       align-items: center;
       gap: 0.125rem;
     }
 
-    .pregnancy-calculator-tl-label {
+    :global(.pregnancy-calculator-tl-label) {
       display: none;
     }
 

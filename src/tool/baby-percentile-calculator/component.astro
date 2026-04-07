@@ -245,7 +245,7 @@ const { ui } = Astro.props;
 </script>
 
 <style>
-.bpc-card {
+:global(.bpc-card) {
   background: #fff;
   border: 1px solid #e2e8f0;
   border-radius: 32px;
@@ -257,11 +257,11 @@ const { ui } = Astro.props;
   border-top: 8px solid #0ea5e9;
 }
 
-.bpc-card:not(.bpc-boy) {
+:global(.bpc-card:not(.bpc-boy)) {
   border-top-color: #0d9488;
 }
 
-:global(.theme-dark) .bpc-card {
+:global(.theme-dark .bpc-card) {
   background: #0f172a;
   border-color: #1e293b;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
@@ -278,17 +278,17 @@ const { ui } = Astro.props;
   border-right: 1px solid #e2e8f0;
 }
 
-:global(.theme-dark) .bpc-left {
+:global(.theme-dark .bpc-left) {
   background: #1e293b;
   border-right-color: #334155;
 }
 
-.bpc-right {
+:global(.bpc-right) {
   background: #fff;
   padding: 40px;
 }
 
-:global(.theme-dark) .bpc-right {
+:global(.theme-dark .bpc-right) {
   background: #0f172a;
 }
 
@@ -302,15 +302,15 @@ const { ui } = Astro.props;
   margin-bottom: 32px;
 }
 
-:global(.theme-dark) .bpc-section-marker {
+:global(.theme-dark .bpc-section-marker) {
   color: #94a3b8;
 }
 
-.bpc-input-group {
+:global(.bpc-input-group) {
   margin-bottom: 24px;
 }
 
-.bpc-input-label {
+:global(.bpc-input-label) {
   display: block;
   font-size: 0.95rem;
   font-weight: 700;
@@ -318,7 +318,7 @@ const { ui } = Astro.props;
   margin-bottom: 12px;
 }
 
-:global(.theme-dark) .bpc-input-label {
+:global(.theme-dark .bpc-input-label) {
   color: #f8fafc;
 }
 
@@ -330,11 +330,11 @@ const { ui } = Astro.props;
   border-radius: 14px;
 }
 
-:global(.theme-dark) .bpc-sex-selector {
+:global(.theme-dark .bpc-sex-selector) {
   background: #334155;
 }
 
-.bpc-sex-btn {
+:global(.bpc-sex-btn) {
   flex: 1;
   padding: 12px;
   border: none;
@@ -347,35 +347,35 @@ const { ui } = Astro.props;
   transition: all 0.2s ease;
 }
 
-.bpc-sex-btn.bpc-active {
+:global(.bpc-sex-btn.bpc-active) {
   background: #fff;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
-:global(.theme-dark) .bpc-sex-btn.bpc-active {
+:global(.theme-dark .bpc-sex-btn.bpc-active) {
   background: #0f172a;
 }
 
-.bpc-boy .bpc-sex-btn[data-sex="boy"].bpc-active {
+:global(.bpc-boy .bpc-sex-btn[data-sex="boy"].bpc-active) {
   color: #0ea5e9;
 }
 
-.bpc-card:not(.bpc-boy) .bpc-sex-btn[data-sex="girl"].bpc-active {
+:global(.bpc-card:not(.bpc-boy) .bpc-sex-btn[data-sex="girl"].bpc-active) {
   color: #0d9488;
 }
 
-.bpc-unit-nav {
+:global(.bpc-unit-nav) {
   display: flex;
   background: #f1f5f9;
   padding: 6px;
   border-radius: 14px;
 }
 
-:global(.theme-dark) .bpc-unit-nav {
+:global(.theme-dark .bpc-unit-nav) {
   background: #334155;
 }
 
-.bpc-unit-tab {
+:global(.bpc-unit-tab) {
   flex: 1;
   padding: 10px;
   border: none;
@@ -388,17 +388,17 @@ const { ui } = Astro.props;
   transition: all 0.2s ease;
 }
 
-.bpc-unit-tab.bpc-active {
+:global(.bpc-unit-tab.bpc-active) {
   background: #fff;
   color: #0d9488;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
-.bpc-boy .bpc-unit-tab.bpc-active {
+:global(.bpc-boy .bpc-unit-tab.bpc-active) {
   color: #0ea5e9;
 }
 
-:global(.theme-dark) .bpc-unit-tab.bpc-active {
+:global(.theme-dark .bpc-unit-tab.bpc-active) {
   background: #0f172a;
 }
 
@@ -413,12 +413,12 @@ const { ui } = Astro.props;
   margin-bottom: 12px;
 }
 
-:global(.theme-dark) .bpc-stepper-box {
+:global(.theme-dark .bpc-stepper-box) {
   background: #334155;
   border-color: #475569;
 }
 
-.bpc-btn-step {
+:global(.bpc-btn-step) {
   width: 44px;
   height: 44px;
   border-radius: 12px;
@@ -431,17 +431,17 @@ const { ui } = Astro.props;
   transition: all 0.2s ease;
 }
 
-:global(.theme-dark) .bpc-btn-step {
+:global(.theme-dark .bpc-btn-step) {
   background: #0f172a;
   color: #fff;
 }
 
-.bpc-btn-step:hover {
+:global(.bpc-btn-step:hover) {
   background: #0d9488;
   color: #fff;
 }
 
-.bpc-boy .bpc-btn-step:hover {
+:global(.bpc-boy .bpc-btn-step:hover) {
   background: #0ea5e9;
 }
 
@@ -449,18 +449,18 @@ const { ui } = Astro.props;
   text-align: center;
 }
 
-.bpc-val-big {
+:global(.bpc-val-big) {
   display: block;
   font-size: 2.25rem;
   font-weight: 900;
   color: #0f172a;
 }
 
-:global(.theme-dark) .bpc-val-big {
+:global(.theme-dark .bpc-val-big) {
   color: #fff;
 }
 
-.bpc-val-sub {
+:global(.bpc-val-sub) {
   font-size: 0.8rem;
   color: #64748b;
   font-weight: 700;
@@ -477,11 +477,11 @@ const { ui } = Astro.props;
   outline: none;
 }
 
-:global(.theme-dark) .bpc-slider {
+:global(.theme-dark .bpc-slider) {
   background: #475569;
 }
 
-.bpc-slider::-webkit-slider-thumb {
+:global(.bpc-slider::-webkit-slider-thumb) {
   -webkit-appearance: none;
   appearance: none;
   width: 24px;
@@ -493,18 +493,18 @@ const { ui } = Astro.props;
   box-shadow: 0 4px 10px rgba(13, 148, 136, 0.4);
 }
 
-.bpc-boy .bpc-slider::-webkit-slider-thumb {
+:global(.bpc-boy .bpc-slider::-webkit-slider-thumb) {
   background: #0ea5e9;
   box-shadow: 0 4px 10px rgba(14, 165, 233, 0.4);
 }
 
-.bpc-grid-2 {
+:global(.bpc-grid-2) {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 16px;
 }
 
-.bpc-num-input {
+:global(.bpc-num-input) {
   width: 100%;
   padding: 16px;
   border: 2px solid #e2e8f0;
@@ -517,19 +517,19 @@ const { ui } = Astro.props;
   box-sizing: border-box;
 }
 
-:global(.theme-dark) .bpc-num-input {
+:global(.theme-dark .bpc-num-input) {
   background: #334155;
   border-color: #475569;
   color: #fff;
 }
 
-.bpc-num-input:focus {
+:global(.bpc-num-input:focus) {
   border-color: #0d9488;
   outline: none;
   box-shadow: 0 0 0 4px rgba(13, 148, 136, 0.1);
 }
 
-.bpc-boy .bpc-num-input:focus {
+:global(.bpc-boy .bpc-num-input:focus) {
   border-color: #0ea5e9;
 }
 

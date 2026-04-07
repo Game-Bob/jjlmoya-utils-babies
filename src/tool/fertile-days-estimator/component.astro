@@ -336,6 +336,11 @@ const { ui } = Astro.props;
   display: none;
 }
 
+:global(.theme-dark) .fde-step-first {
+  background: radial-gradient(circle at top right, rgba(88, 28, 135, 0.15), transparent),
+    radial-gradient(circle at bottom left, rgba(124, 58, 202, 0.1), transparent);
+}
+
 .fde-step-header h2 {
   font-size: 2.5rem;
   font-weight: 950;
@@ -591,7 +596,7 @@ const { ui } = Astro.props;
   gap: 8px;
 }
 
-.fde-day-header {
+:global(.fde-day-header) {
   text-align: center;
   font-size: 0.8rem;
   font-weight: 800;
@@ -600,7 +605,7 @@ const { ui } = Astro.props;
   padding-bottom: 1rem;
 }
 
-.fde-day {
+:global(.fde-day) {
   aspect-ratio: 1;
   display: flex;
   align-items: center;
@@ -615,44 +620,44 @@ const { ui } = Astro.props;
   border: 1px solid #f3f4f6;
 }
 
-.fde-day:hover:not(.fde-day-empty) {
+:global(.fde-day:hover:not(.fde-day-empty)) {
   border-color: #db2777;
   background: #fdf2f8;
 }
 
-.fde-day-empty {
+:global(.fde-day-empty) {
   background: transparent;
   border: none;
   cursor: default;
 }
 
-.fde-day-selected {
+:global(.fde-day-selected) {
   background: #be123c;
   color: #fff;
   border: none;
   box-shadow: 0 8px 20px rgba(190, 18, 60, 0.3);
 }
 
-.fde-day-period {
+:global(.fde-day-period) {
   background: #ffe4e6;
   color: #be123c;
   border: none;
 }
 
-.fde-day-fertile {
+:global(.fde-day-fertile) {
   background: #fdf2f8;
   color: #db2777;
   border: none;
 }
 
-.fde-day-ovulation {
+:global(.fde-day-ovulation) {
   background: #db2777;
   color: #fff;
   box-shadow: 0 8px 20px rgba(219, 39, 119, 0.3);
   border: none;
 }
 
-.fde-day-today {
+:global(.fde-day-today) {
   border: 2px solid #111827;
 }
 
