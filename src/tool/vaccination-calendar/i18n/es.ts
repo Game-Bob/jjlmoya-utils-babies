@@ -99,7 +99,6 @@ export const content: VaccinationCalendarLocaleContent = {
     labelShare: 'Compartir estas fechas',
     faqTitle: 'Preguntas frecuentes',
     bibliographyTitle: 'Referencias',
-    // Age labels
     labelMonth: 'mes',
     labelMonths: 'meses',
     labelYear: 'año',
@@ -109,7 +108,6 @@ export const content: VaccinationCalendarLocaleContent = {
     labelAnd: 'y',
     labelVaccination: 'Vacunación',
     labelAppointment: 'Cita de vacunación',
-    // Vaccine IDs
     vac_hexavalente: 'Hexavalente',
     vac_neumococo: 'Neumococo (VCN15/20)',
     vac_meningococo_b: 'Meningococo B (Bexsero)',

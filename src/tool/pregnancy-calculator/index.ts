@@ -56,7 +56,6 @@ export interface PregnancyCalculatorUI {
   icsSummary: string;
   icsDescription: string;
   icsFilename: string;
-  // JSON stringified data
   monthsData: string;
   milestonesData: string;
   timelineLabelsData: string;

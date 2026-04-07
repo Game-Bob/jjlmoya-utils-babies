@@ -23,7 +23,6 @@ export interface VaccinationCalendarUI {
   labelShare: string;
   faqTitle: string;
   bibliographyTitle: string;
-  // Age labels
   labelMonth: string;
   labelMonths: string;
   labelYear: string;
@@ -33,7 +32,6 @@ export interface VaccinationCalendarUI {
   labelAnd: string;
   labelVaccination: string;
   labelAppointment: string;
-  // Vaccine IDs
   vac_hexavalente: string;
   vac_neumococo: string;
   vac_meningococo_b: string;
