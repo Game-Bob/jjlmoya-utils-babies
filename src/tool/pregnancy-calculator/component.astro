@@ -1,18 +1,29 @@
 ---
-import './style.css';
-import type { PregnancyCalculatorUI } from './index';
-interface Props { ui: PregnancyCalculatorUI; }
+import type { PregnancyCalculatorUI } from "./index";
+interface Props {
+  ui: PregnancyCalculatorUI;
+}
 const { ui } = Astro.props;
 ---
-<div id="pregnancy-calculator-root" class="pregnancy-calculator" data-ui={JSON.stringify(ui)}>
 
+<div
+  id="pregnancy-calculator-root"
+  class="pregnancy-calculator"
+  data-ui={JSON.stringify(ui)}
+>
   <div class="pregnancy-calculator-header">
     <div class="pregnancy-calculator-method-group">
-      <button class="pregnancy-calculator-method-btn" data-method="fur">{ui.btnFUR}</button>
-      <button class="pregnancy-calculator-method-btn" data-method="conception">{ui.btnConception}</button>
+      <button class="pregnancy-calculator-method-btn" data-method="fur"
+        >{ui.btnFUR}</button
+      >
+      <button class="pregnancy-calculator-method-btn" data-method="conception"
+        >{ui.btnConception}</button
+      >
     </div>
     <label class="pregnancy-calculator-partner-wrap">
-      <span class="pregnancy-calculator-partner-label">{ui.labelPartnerMode}</span>
+      <span class="pregnancy-calculator-partner-label"
+        >{ui.labelPartnerMode}</span
+      >
       <div class="pregnancy-calculator-toggle-track">
         <div class="pregnancy-calculator-toggle-thumb"></div>
       </div>
@@ -20,20 +31,33 @@ const { ui } = Astro.props;
   </div>
 
   <div class="pregnancy-calculator-main">
-
     <div class="pregnancy-calculator-left">
       <div class="pregnancy-calculator-dp-wrap">
-        <span class="pregnancy-calculator-dp-label" id="pc-dp-label">{ui.labelFUR}</span>
+        <span class="pregnancy-calculator-dp-label" id="pc-dp-label"
+          >{ui.labelFUR}</span
+        >
         <div class="pregnancy-calculator-dp-selects">
-          <select id="pc-dp-day" class="pregnancy-calculator-dp-select" aria-label="Día">
+          <select
+            id="pc-dp-day"
+            class="pregnancy-calculator-dp-select"
+            aria-label="Día"
+          >
             <option value="">Día</option>
           </select>
           <span class="pregnancy-calculator-dp-sep">/</span>
-          <select id="pc-dp-month" class="pregnancy-calculator-dp-select" aria-label="Mes">
+          <select
+            id="pc-dp-month"
+            class="pregnancy-calculator-dp-select"
+            aria-label="Mes"
+          >
             <option value="">Mes</option>
           </select>
           <span class="pregnancy-calculator-dp-sep">/</span>
-          <select id="pc-dp-year" class="pregnancy-calculator-dp-select" aria-label="Año">
+          <select
+            id="pc-dp-year"
+            class="pregnancy-calculator-dp-select"
+            aria-label="Año"
+          >
             <option value="">Año</option>
           </select>
         </div>
@@ -41,7 +65,9 @@ const { ui } = Astro.props;
 
       <div class="pregnancy-calculator-cs-wrap" id="pc-cs-wrap">
         <div class="pregnancy-calculator-cs-header">
-          <span class="pregnancy-calculator-cs-label">{ui.labelCycleLength}</span>
+          <span class="pregnancy-calculator-cs-label"
+            >{ui.labelCycleLength}</span
+          >
           <span class="pregnancy-calculator-cs-value-wrap">
             <span id="pc-cs-value">28</span>
             <span class="pregnancy-calculator-cs-unit">{ui.unitDays}</span>
@@ -66,47 +92,79 @@ const { ui } = Astro.props;
         <div class="pregnancy-calculator-stats-row">
           <div class="pregnancy-calculator-stat-chip">
             <span class="pregnancy-calculator-stat-key">{ui.labelWeeks}</span>
-            <span class="pregnancy-calculator-stat-value pregnancy-calculator-accent" id="pc-sd-weeks">—</span>
+            <span
+              class="pregnancy-calculator-stat-value pregnancy-calculator-accent"
+              id="pc-sd-weeks">—</span
+            >
           </div>
           <div class="pregnancy-calculator-stat-chip">
-            <span class="pregnancy-calculator-stat-key">{ui.labelTrimester}</span>
-            <span class="pregnancy-calculator-stat-value" id="pc-sd-tri">—</span>
+            <span class="pregnancy-calculator-stat-key"
+              >{ui.labelTrimester}</span
+            >
+            <span class="pregnancy-calculator-stat-value" id="pc-sd-tri">—</span
+            >
           </div>
         </div>
         <div class="pregnancy-calculator-edd-box">
           <div class="pregnancy-calculator-edd-label">{ui.labelEDD}</div>
-          <div class="pregnancy-calculator-edd-date" id="pc-sd-edd">{ui.eddPlaceholder}</div>
+          <div class="pregnancy-calculator-edd-date" id="pc-sd-edd">
+            {ui.eddPlaceholder}
+          </div>
           <div class="pregnancy-calculator-edd-note">{ui.eddNote}</div>
         </div>
-        <button class="pregnancy-calculator-btn-cal" id="pc-sd-btn-cal" disabled>{ui.btnCalendar}</button>
+        <button class="pregnancy-calculator-btn-cal" id="pc-sd-btn-cal" disabled
+          >{ui.btnCalendar}</button
+        >
       </div>
     </div>
 
     <div class="pregnancy-calculator-center">
       <div class="pregnancy-calculator-mp-empty" id="pc-mp-empty">
         <div class="pregnancy-calculator-mp-empty-dot"></div>
-        <div class="pregnancy-calculator-mp-empty-title">{ui.labelStartHere}</div>
+        <div class="pregnancy-calculator-mp-empty-title">
+          {ui.labelStartHere}
+        </div>
         <p class="pregnancy-calculator-mp-empty-body">{ui.labelStartBody}</p>
       </div>
 
-      <div class="pregnancy-calculator-mp-egg" id="pc-mp-egg" style="display:none">
+      <div
+        class="pregnancy-calculator-mp-egg"
+        id="pc-mp-egg"
+        style="display:none"
+      >
         <div class="pregnancy-calculator-egg-dot" id="pc-egg-dot"></div>
         <div class="pregnancy-calculator-egg-title" id="pc-egg-title"></div>
         <p class="pregnancy-calculator-egg-body" id="pc-egg-body"></p>
       </div>
 
-      <div class="pregnancy-calculator-mp-results" id="pc-mp-results" style="display:none">
+      <div
+        class="pregnancy-calculator-mp-results"
+        id="pc-mp-results"
+        style="display:none"
+      >
         <div class="pregnancy-calculator-mp-top-row">
-          <span class="pregnancy-calculator-mp-badge" id="pc-mp-badge">Semana —</span>
+          <span class="pregnancy-calculator-mp-badge" id="pc-mp-badge"
+            >Semana —</span
+          >
           <div class="pregnancy-calculator-analogy-tabs">
-            <button class="pregnancy-calculator-at-btn" data-cat="fruits">{ui.labelFruits}</button>
-            <button class="pregnancy-calculator-at-btn" data-cat="geek">{ui.labelGeek}</button>
-            <button class="pregnancy-calculator-at-btn" data-cat="sweets">{ui.labelSweets}</button>
+            <button class="pregnancy-calculator-at-btn" data-cat="fruits"
+              >{ui.labelFruits}</button
+            >
+            <button class="pregnancy-calculator-at-btn" data-cat="geek"
+              >{ui.labelGeek}</button
+            >
+            <button class="pregnancy-calculator-at-btn" data-cat="sweets"
+              >{ui.labelSweets}</button
+            >
           </div>
         </div>
         <div class="pregnancy-calculator-size-card">
-          <span class="pregnancy-calculator-size-name" id="pc-mp-analogy">—</span>
-          <span class="pregnancy-calculator-size-measure" id="pc-mp-size">—</span>
+          <span class="pregnancy-calculator-size-name" id="pc-mp-analogy"
+            >—</span
+          >
+          <span class="pregnancy-calculator-size-measure" id="pc-mp-size"
+            >—</span
+          >
         </div>
         <div class="pregnancy-calculator-info-stack">
           <div class="pregnancy-calculator-info-block">
@@ -114,17 +172,23 @@ const { ui } = Astro.props;
             <p class="pregnancy-calculator-info-text" id="pc-mp-bio"></p>
           </div>
           <div class="pregnancy-calculator-info-block">
-            <div class="pregnancy-calculator-info-key" id="pc-mp-mom-key">{ui.labelMomKey}</div>
+            <div class="pregnancy-calculator-info-key" id="pc-mp-mom-key">
+              {ui.labelMomKey}
+            </div>
             <p class="pregnancy-calculator-info-text" id="pc-mp-mom"></p>
           </div>
         </div>
         <div class="pregnancy-calculator-wonder-line" id="pc-mp-wonder"></div>
         <div class="pregnancy-calculator-semaphore">
           <div class="pregnancy-calculator-sema pregnancy-calculator-sema-safe">
-            <div class="pregnancy-calculator-sema-title">{ui.labelNormalMolestias}</div>
+            <div class="pregnancy-calculator-sema-title">
+              {ui.labelNormalMolestias}
+            </div>
             <ul class="pregnancy-calculator-sema-list" id="pc-mp-safe"></ul>
           </div>
-          <div class="pregnancy-calculator-sema pregnancy-calculator-sema-alert">
+          <div
+            class="pregnancy-calculator-sema pregnancy-calculator-sema-alert"
+          >
             <div class="pregnancy-calculator-sema-title">{ui.labelAlert}</div>
             <ul class="pregnancy-calculator-sema-list" id="pc-mp-alert"></ul>
           </div>
@@ -138,66 +202,84 @@ const { ui } = Astro.props;
         <div class="pregnancy-calculator-tl-scroll" id="pc-tl-scroll"></div>
       </div>
     </div>
-
   </div>
 </div>
 
 <script>
-  import { getState, setState, subscribe } from './store';
-  import { getMilestone, timelineLabels } from './milestones';
-  import type { PCState } from './store';
-  import type { CalcResult } from './calculator';
+  import { getState, setState, subscribe } from "./store";
+  import { getMilestone, timelineLabels } from "./milestones";
+  import type { PCState } from "./store";
+  import type { CalcResult } from "./calculator";
 
-  const root = document.getElementById('pregnancy-calculator-root') as HTMLElement;
+  const root = document.getElementById(
+    "pregnancy-calculator-root",
+  ) as HTMLElement;
   const ui = JSON.parse(root.dataset.ui as string) as Record<string, string>;
 
-  const dpLabel = root.querySelector('#pc-dp-label') as HTMLElement;
-  const dpDay = root.querySelector('#pc-dp-day') as HTMLSelectElement;
-  const dpMonth = root.querySelector('#pc-dp-month') as HTMLSelectElement;
-  const dpYear = root.querySelector('#pc-dp-year') as HTMLSelectElement;
-  const csWrap = root.querySelector('#pc-cs-wrap') as HTMLElement;
-  const csSlider = root.querySelector('#pc-cs-slider') as HTMLInputElement;
-  const csValue = root.querySelector('#pc-cs-value') as HTMLElement;
-  const sdWeeks = root.querySelector('#pc-sd-weeks') as HTMLElement;
-  const sdTri = root.querySelector('#pc-sd-tri') as HTMLElement;
-  const sdEdd = root.querySelector('#pc-sd-edd') as HTMLElement;
-  const sdBtnCal = root.querySelector('#pc-sd-btn-cal') as HTMLButtonElement;
-  const mpEmpty = root.querySelector('#pc-mp-empty') as HTMLElement;
-  const mpEgg = root.querySelector('#pc-mp-egg') as HTMLElement;
-  const eggDot = root.querySelector('#pc-egg-dot') as HTMLElement;
-  const eggTitle = root.querySelector('#pc-egg-title') as HTMLElement;
-  const eggBody = root.querySelector('#pc-egg-body') as HTMLElement;
-  const mpResults = root.querySelector('#pc-mp-results') as HTMLElement;
-  const mpBadge = root.querySelector('#pc-mp-badge') as HTMLElement;
-  const mpAnalogy = root.querySelector('#pc-mp-analogy') as HTMLElement;
-  const mpSize = root.querySelector('#pc-mp-size') as HTMLElement;
-  const mpBio = root.querySelector('#pc-mp-bio') as HTMLElement;
-  const mpMomKey = root.querySelector('#pc-mp-mom-key') as HTMLElement;
-  const mpMom = root.querySelector('#pc-mp-mom') as HTMLElement;
-  const mpWonder = root.querySelector('#pc-mp-wonder') as HTMLElement;
-  const mpSafe = root.querySelector('#pc-mp-safe') as HTMLElement;
-  const mpAlert = root.querySelector('#pc-mp-alert') as HTMLElement;
-  const tlScroll = root.querySelector('#pc-tl-scroll') as HTMLElement;
+  const dpLabel = root.querySelector("#pc-dp-label") as HTMLElement;
+  const dpDay = root.querySelector("#pc-dp-day") as HTMLSelectElement;
+  const dpMonth = root.querySelector("#pc-dp-month") as HTMLSelectElement;
+  const dpYear = root.querySelector("#pc-dp-year") as HTMLSelectElement;
+  const csWrap = root.querySelector("#pc-cs-wrap") as HTMLElement;
+  const csSlider = root.querySelector("#pc-cs-slider") as HTMLInputElement;
+  const csValue = root.querySelector("#pc-cs-value") as HTMLElement;
+  const sdWeeks = root.querySelector("#pc-sd-weeks") as HTMLElement;
+  const sdTri = root.querySelector("#pc-sd-tri") as HTMLElement;
+  const sdEdd = root.querySelector("#pc-sd-edd") as HTMLElement;
+  const sdBtnCal = root.querySelector("#pc-sd-btn-cal") as HTMLButtonElement;
+  const mpEmpty = root.querySelector("#pc-mp-empty") as HTMLElement;
+  const mpEgg = root.querySelector("#pc-mp-egg") as HTMLElement;
+  const eggDot = root.querySelector("#pc-egg-dot") as HTMLElement;
+  const eggTitle = root.querySelector("#pc-egg-title") as HTMLElement;
+  const eggBody = root.querySelector("#pc-egg-body") as HTMLElement;
+  const mpResults = root.querySelector("#pc-mp-results") as HTMLElement;
+  const mpBadge = root.querySelector("#pc-mp-badge") as HTMLElement;
+  const mpAnalogy = root.querySelector("#pc-mp-analogy") as HTMLElement;
+  const mpSize = root.querySelector("#pc-mp-size") as HTMLElement;
+  const mpBio = root.querySelector("#pc-mp-bio") as HTMLElement;
+  const mpMomKey = root.querySelector("#pc-mp-mom-key") as HTMLElement;
+  const mpMom = root.querySelector("#pc-mp-mom") as HTMLElement;
+  const mpWonder = root.querySelector("#pc-mp-wonder") as HTMLElement;
+  const mpSafe = root.querySelector("#pc-mp-safe") as HTMLElement;
+  const mpAlert = root.querySelector("#pc-mp-alert") as HTMLElement;
+  const tlScroll = root.querySelector("#pc-tl-scroll") as HTMLElement;
 
-  const MONTHS_ES = ['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'];
-  const fmtEdd = new Intl.DateTimeFormat('es-ES', { day: 'numeric', month: 'long', year: 'numeric' });
+  const MONTHS_ES = [
+    "Ene",
+    "Feb",
+    "Mar",
+    "Abr",
+    "May",
+    "Jun",
+    "Jul",
+    "Ago",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dic",
+  ];
+  const fmtEdd = new Intl.DateTimeFormat("es-ES", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  });
 
   function buildDateDropdowns(): void {
     for (let d = 1; d <= 31; d++) {
-      const o = document.createElement('option');
+      const o = document.createElement("option");
       o.value = String(d);
-      o.textContent = String(d).padStart(2, '0');
+      o.textContent = String(d).padStart(2, "0");
       dpDay.appendChild(o);
     }
     MONTHS_ES.forEach((m, i) => {
-      const o = document.createElement('option');
+      const o = document.createElement("option");
       o.value = String(i + 1);
       o.textContent = m;
       dpMonth.appendChild(o);
     });
     const now = new Date();
     for (let y = now.getFullYear(); y >= now.getFullYear() - 1; y--) {
-      const o = document.createElement('option');
+      const o = document.createElement("option");
       o.value = String(y);
       o.textContent = String(y);
       dpYear.appendChild(o);
@@ -207,25 +289,26 @@ const { ui } = Astro.props;
   function buildTimeline(): void {
     const frag = document.createDocumentFragment();
     for (let w = 4; w <= 40; w++) {
-      const row = document.createElement('div');
-      row.className = 'pregnancy-calculator-tl-row pregnancy-calculator-tl-row-future';
+      const row = document.createElement("div");
+      row.className =
+        "pregnancy-calculator-tl-row pregnancy-calculator-tl-row-future";
       row.dataset.week = String(w);
-      const lineCol = document.createElement('div');
-      lineCol.className = 'pregnancy-calculator-tl-line-col';
-      const dot = document.createElement('div');
-      dot.className = 'pregnancy-calculator-tl-dot';
-      const line = document.createElement('div');
-      line.className = 'pregnancy-calculator-tl-line';
+      const lineCol = document.createElement("div");
+      lineCol.className = "pregnancy-calculator-tl-line-col";
+      const dot = document.createElement("div");
+      dot.className = "pregnancy-calculator-tl-dot";
+      const line = document.createElement("div");
+      line.className = "pregnancy-calculator-tl-line";
       lineCol.appendChild(dot);
       lineCol.appendChild(line);
-      const info = document.createElement('div');
-      info.className = 'pregnancy-calculator-tl-info';
-      const num = document.createElement('span');
-      num.className = 'pregnancy-calculator-tl-num';
-      num.textContent = `${ui['labelSem'] ?? 'Sem'} ${w}`;
-      const label = document.createElement('span');
-      label.className = 'pregnancy-calculator-tl-label';
-      label.textContent = timelineLabels[w] ?? '';
+      const info = document.createElement("div");
+      info.className = "pregnancy-calculator-tl-info";
+      const num = document.createElement("span");
+      num.className = "pregnancy-calculator-tl-num";
+      num.textContent = `${ui["labelSem"] ?? "Sem"} ${w}`;
+      const label = document.createElement("span");
+      label.className = "pregnancy-calculator-tl-label";
+      label.textContent = timelineLabels[w] ?? "";
       info.appendChild(num);
       info.appendChild(label);
       row.appendChild(lineCol);
@@ -236,9 +319,9 @@ const { ui } = Astro.props;
   }
 
   function getDateString(d: string, m: string, y: string): string {
-    if (!d || !m || !y) return '';
-    const mm = m.padStart(2, '0');
-    const dd = d.padStart(2, '0');
+    if (!d || !m || !y) return "";
+    const mm = m.padStart(2, "0");
+    const dd = d.padStart(2, "0");
     return `${y}-${mm}-${dd}`;
   }
 
@@ -249,84 +332,94 @@ const { ui } = Astro.props;
     updateMethodUI(s.method);
     updatePartnerUI(s.partner);
     updateAnalogyTabs(s.analogyCat);
-    csWrap.style.display = s.method === 'fur' ? '' : 'none';
+    csWrap.style.display = s.method === "fur" ? "" : "none";
     if (s.date) {
-      const parts = s.date.split('-');
+      const parts = s.date.split("-");
       if (parts.length === 3) {
-        dpYear.value = parts[0] ?? '';
-        dpMonth.value = String(parseInt(parts[1] ?? '0', 10));
-        dpDay.value = String(parseInt(parts[2] ?? '0', 10));
+        dpYear.value = parts[0] ?? "";
+        dpMonth.value = String(parseInt(parts[1] ?? "0", 10));
+        dpDay.value = String(parseInt(parts[2] ?? "0", 10));
       }
     }
   }
 
   function updateMethodUI(method: string): void {
-    root.querySelectorAll('.pregnancy-calculator-method-btn').forEach((btn) => {
+    root.querySelectorAll(".pregnancy-calculator-method-btn").forEach((btn) => {
       const el = btn as HTMLElement;
-      el.classList.toggle('pregnancy-calculator-method-btn-active', el.dataset.method === method);
+      el.classList.toggle(
+        "pregnancy-calculator-method-btn-active",
+        el.dataset.method === method,
+      );
     });
-    dpLabel.textContent = (method === 'fur' ? ui['labelFUR'] : ui['labelConception']) ?? null;
-    csWrap.style.display = method === 'fur' ? '' : 'none';
+    dpLabel.textContent =
+      (method === "fur" ? ui["labelFUR"] : ui["labelConception"]) ?? null;
+    csWrap.style.display = method === "fur" ? "" : "none";
   }
 
   function updatePartnerUI(partner: boolean): void {
-    const track = root.querySelector('.pregnancy-calculator-toggle-track') as HTMLElement;
-    track.classList.toggle('pregnancy-calculator-toggle-track-on', partner);
-    mpMomKey.textContent = (partner ? ui['labelPartnerKey'] : ui['labelMomKey']) ?? null;
+    const track = root.querySelector(
+      ".pregnancy-calculator-toggle-track",
+    ) as HTMLElement;
+    track.classList.toggle("pregnancy-calculator-toggle-track-on", partner);
+    mpMomKey.textContent =
+      (partner ? ui["labelPartnerKey"] : ui["labelMomKey"]) ?? null;
   }
 
   function updateAnalogyTabs(cat: string): void {
-    root.querySelectorAll('.pregnancy-calculator-at-btn').forEach((btn) => {
+    root.querySelectorAll(".pregnancy-calculator-at-btn").forEach((btn) => {
       const el = btn as HTMLElement;
-      el.classList.toggle('pregnancy-calculator-at-btn-active', el.dataset.cat === cat);
+      el.classList.toggle(
+        "pregnancy-calculator-at-btn-active",
+        el.dataset.cat === cat,
+      );
     });
   }
 
   function applyTrimester(tri: 1 | 2 | 3): void {
     root.classList.remove(
-      'pregnancy-calculator-t1',
-      'pregnancy-calculator-t2',
-      'pregnancy-calculator-t3'
+      "pregnancy-calculator-t1",
+      "pregnancy-calculator-t2",
+      "pregnancy-calculator-t3",
     );
     root.classList.add(`pregnancy-calculator-t${tri}`);
   }
 
-  function showEasterEgg(reason: 'future' | 'too-old'): void {
+  function showEasterEgg(reason: "future" | "too-old"): void {
     eggDot.dataset.reason = reason;
-    if (reason === 'future') {
-      eggTitle.textContent = ui['eggFutureTitle'] ?? '';
-      eggBody.textContent = ui['eggFutureBody'] ?? '';
+    if (reason === "future") {
+      eggTitle.textContent = ui["eggFutureTitle"] ?? "";
+      eggBody.textContent = ui["eggFutureBody"] ?? "";
     } else {
-      eggTitle.textContent = ui['eggTooOldTitle'] ?? '';
-      eggBody.textContent = ui['eggTooOldBody'] ?? '';
+      eggTitle.textContent = ui["eggTooOldTitle"] ?? "";
+      eggBody.textContent = ui["eggTooOldBody"] ?? "";
     }
-    mpEmpty.style.display = 'none';
-    mpResults.style.display = 'none';
-    mpEgg.style.display = '';
+    mpEmpty.style.display = "none";
+    mpResults.style.display = "none";
+    mpEgg.style.display = "";
   }
 
   function renderStats(result: CalcResult): void {
     if (!result.valid) {
-      sdWeeks.textContent = '—';
-      sdTri.textContent = '—';
-      sdEdd.textContent = ui['eddPlaceholder'] ?? null;
+      sdWeeks.textContent = "—";
+      sdTri.textContent = "—";
+      sdEdd.textContent = ui["eddPlaceholder"] ?? null;
       sdBtnCal.disabled = true;
       return;
     }
-    const wFmt = (ui['weeksFormat'] ?? '{w}s {d}d')
-      .replace('{w}', String(result.weeks))
-      .replace('{d}', String(result.days));
+    const wFmt = (ui["weeksFormat"] ?? "{w}s {d}d")
+      .replace("{w}", String(result.weeks))
+      .replace("{d}", String(result.days));
     sdWeeks.textContent = wFmt;
-    sdTri.textContent = `${result.trimester}${ui['trimesterSuffix'] ?? ''}`;
+    sdTri.textContent = `${result.trimester}${ui["trimesterSuffix"] ?? ""}`;
     sdEdd.textContent = fmtEdd.format(result.edd);
     sdBtnCal.disabled = false;
     applyTrimester(result.trimester);
   }
 
   function buildList(ul: HTMLElement, items: string[]): void {
-    ul.innerHTML = '';
+    ul.innerHTML = "";
     items.forEach((item) => {
-      const li = document.createElement('li');
+      const li = document.createElement("li");
       li.textContent = item;
       ul.appendChild(li);
     });
@@ -334,8 +427,9 @@ const { ui } = Astro.props;
 
   function renderMilestone(weeks: number, cat: string, partner: boolean): void {
     const ms = getMilestone(weeks);
-    mpBadge.textContent = `${ui['labelWeekBadge'] ?? 'Semana'} ${weeks}`;
-    mpAnalogy.textContent = ms.analogies[cat as 'fruits' | 'geek' | 'sweets'] ?? ms.analogies.fruits;
+    mpBadge.textContent = `${ui["labelWeekBadge"] ?? "Semana"} ${weeks}`;
+    mpAnalogy.textContent =
+      ms.analogies[cat as "fruits" | "geek" | "sweets"] ?? ms.analogies.fruits;
     mpSize.textContent = ms.size;
     mpBio.textContent = ms.biolook;
     mpMom.textContent = partner ? ms.partner : ms.mom;
@@ -345,25 +439,27 @@ const { ui } = Astro.props;
   }
 
   function renderTimeline(weeks: number): void {
-    tlScroll.querySelectorAll('.pregnancy-calculator-tl-row').forEach((row) => {
+    tlScroll.querySelectorAll(".pregnancy-calculator-tl-row").forEach((row) => {
       const el = row as HTMLElement;
-      const w = parseInt(el.dataset.week ?? '0', 10);
+      const w = parseInt(el.dataset.week ?? "0", 10);
       el.classList.remove(
-        'pregnancy-calculator-tl-row-past',
-        'pregnancy-calculator-tl-row-current',
-        'pregnancy-calculator-tl-row-future'
+        "pregnancy-calculator-tl-row-past",
+        "pregnancy-calculator-tl-row-current",
+        "pregnancy-calculator-tl-row-future",
       );
       if (w < weeks) {
-        el.classList.add('pregnancy-calculator-tl-row-past');
+        el.classList.add("pregnancy-calculator-tl-row-past");
       } else if (w === weeks) {
-        el.classList.add('pregnancy-calculator-tl-row-current');
+        el.classList.add("pregnancy-calculator-tl-row-current");
       } else {
-        el.classList.add('pregnancy-calculator-tl-row-future');
+        el.classList.add("pregnancy-calculator-tl-row-future");
       }
     });
-    const currentRow = tlScroll.querySelector('.pregnancy-calculator-tl-row-current') as HTMLElement | null;
+    const currentRow = tlScroll.querySelector(
+      ".pregnancy-calculator-tl-row-current",
+    ) as HTMLElement | null;
     if (currentRow) {
-      currentRow.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+      currentRow.scrollIntoView({ block: "nearest", behavior: "smooth" });
     }
   }
 
@@ -372,9 +468,9 @@ const { ui } = Astro.props;
     updatePartnerUI(s.partner);
     updateAnalogyTabs(s.analogyCat);
     if (!s.result) {
-      mpEmpty.style.display = '';
-      mpEgg.style.display = 'none';
-      mpResults.style.display = 'none';
+      mpEmpty.style.display = "";
+      mpEgg.style.display = "none";
+      mpResults.style.display = "none";
       return;
     }
     if (!s.result.valid && s.result.outOfRange) {
@@ -383,19 +479,19 @@ const { ui } = Astro.props;
       return;
     }
     if (!s.result.valid) {
-      mpEmpty.style.display = '';
-      mpEgg.style.display = 'none';
-      mpResults.style.display = 'none';
+      mpEmpty.style.display = "";
+      mpEgg.style.display = "none";
+      mpResults.style.display = "none";
       renderStats(s.result);
       return;
     }
     renderStats(s.result);
     renderMilestone(s.result.weeks, s.analogyCat, s.partner);
     renderTimeline(s.result.weeks);
-    mpEmpty.style.display = 'none';
-    mpEgg.style.display = 'none';
-    mpResults.style.display = '';
-    mpResults.classList.add('pregnancy-calculator-mp-enter');
+    mpEmpty.style.display = "none";
+    mpEgg.style.display = "none";
+    mpResults.style.display = "";
+    mpResults.classList.add("pregnancy-calculator-mp-enter");
   }
 
   function onDateChange(): void {
@@ -404,28 +500,28 @@ const { ui } = Astro.props;
   }
 
   function downloadICS(edd: Date): void {
-    const pad = (n: number) => String(n).padStart(2, '0');
+    const pad = (n: number) => String(n).padStart(2, "0");
     const y = edd.getFullYear();
     const m = pad(edd.getMonth() + 1);
     const d = pad(edd.getDate());
     const stamp = `${y}${m}${d}T000000Z`;
     const lines = [
-      'BEGIN:VCALENDAR',
-      'VERSION:2.0',
-      'BEGIN:VEVENT',
+      "BEGIN:VCALENDAR",
+      "VERSION:2.0",
+      "BEGIN:VEVENT",
       `DTSTART;VALUE=DATE:${y}${m}${d}`,
       `DTEND;VALUE=DATE:${y}${m}${d}`,
       `DTSTAMP:${stamp}`,
-      'SUMMARY:Fecha Probable de Parto',
-      'DESCRIPTION:Fecha estimada de parto calculada por jjlmoya',
-      'END:VEVENT',
-      'END:VCALENDAR',
+      "SUMMARY:Fecha Probable de Parto",
+      "DESCRIPTION:Fecha estimada de parto calculada por jjlmoya",
+      "END:VEVENT",
+      "END:VCALENDAR",
     ];
-    const blob = new Blob([lines.join('\r\n')], { type: 'text/calendar' });
+    const blob = new Blob([lines.join("\r\n")], { type: "text/calendar" });
     const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
+    const a = document.createElement("a");
     a.href = url;
-    a.download = 'fecha-parto.ics';
+    a.download = "fecha-parto.ics";
     a.click();
     URL.revokeObjectURL(url);
   }
@@ -437,38 +533,1083 @@ const { ui } = Astro.props;
   const initialState = getState();
   if (initialState.result) onStateChange(initialState);
 
-  dpDay.addEventListener('change', onDateChange);
-  dpMonth.addEventListener('change', onDateChange);
-  dpYear.addEventListener('change', onDateChange);
+  dpDay.addEventListener("change", onDateChange);
+  dpMonth.addEventListener("change", onDateChange);
+  dpYear.addEventListener("change", onDateChange);
 
-  csSlider.addEventListener('input', () => {
+  csSlider.addEventListener("input", () => {
     const v = Number(csSlider.value);
     csValue.textContent = String(v);
     setState({ cycle: v });
   });
 
-  root.querySelectorAll('.pregnancy-calculator-method-btn').forEach((btn) => {
-    btn.addEventListener('click', () => {
-      const method = (btn as HTMLElement).dataset.method as 'fur' | 'conception';
+  root.querySelectorAll(".pregnancy-calculator-method-btn").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const method = (btn as HTMLElement).dataset.method as
+        | "fur"
+        | "conception";
       setState({ method });
     });
   });
 
-  root.querySelector('.pregnancy-calculator-partner-wrap')?.addEventListener('click', () => {
-    setState({ partner: !getState().partner });
-  });
+  root
+    .querySelector(".pregnancy-calculator-partner-wrap")
+    ?.addEventListener("click", () => {
+      setState({ partner: !getState().partner });
+    });
 
-  root.querySelectorAll('.pregnancy-calculator-at-btn').forEach((btn) => {
-    btn.addEventListener('click', () => {
-      const cat = (btn as HTMLElement).dataset.cat as 'fruits' | 'geek' | 'sweets';
+  root.querySelectorAll(".pregnancy-calculator-at-btn").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const cat = (btn as HTMLElement).dataset.cat as
+        | "fruits"
+        | "geek"
+        | "sweets";
       setState({ analogyCat: cat });
     });
   });
 
-  sdBtnCal.addEventListener('click', () => {
+  sdBtnCal.addEventListener("click", () => {
     const s = getState();
     if (s.result?.valid) downloadICS(s.result.edd);
   });
 
   subscribe(onStateChange);
 </script>
+
+<style>
+  .pregnancy-calculator {
+    --pc-tri-primary: #86efac;
+    --pc-tri-accent: #22c55e;
+    --pc-tri-glow: rgba(134, 239, 172, 0.18);
+    --pc-tri-text: #14532d;
+    --pc-tri-bg: #f0fdf4;
+    --pc-tri-badge: #dcfce7;
+    --pc-bg: #fff;
+    --pc-bg-muted: #f8fafc;
+    --pc-bg-dark: #1a2332;
+    --pc-text: #1e293b;
+    --pc-text-muted: #475569;
+    --pc-text-dim: #94a3b8;
+    --pc-border: #edf2f7;
+    --pc-border-inner: rgba(0, 0, 0, 0.04);
+    --pc-shadow: rgba(0, 0, 0, 0.07);
+    --pc-safe-bg: #f0fdf4;
+    --pc-safe-title: #16a34a;
+    --pc-alert-bg: #fff7ed;
+    --pc-alert-title: #ea580c;
+
+    position: relative;
+    width: 100%;
+    color: var(--pc-text);
+    background: var(--pc-bg);
+    border-radius: 32px;
+    overflow: hidden;
+    box-shadow:
+      0 0 0 1px rgba(0, 0, 0, 0.05),
+      0 8px 32px rgba(0, 0, 0, 0.07),
+      0 32px 64px rgba(0, 0, 0, 0.04);
+    transition: box-shadow 0.5s;
+  }
+
+  .pregnancy-calculator::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 auto;
+    height: 3px;
+    background: linear-gradient(
+      90deg,
+      var(--pc-tri-primary),
+      var(--pc-tri-accent)
+    );
+    transition: background 0.6s ease;
+    z-index: 1;
+  }
+
+  .pregnancy-calculator.pregnancy-calculator-t1 {
+    --pc-tri-primary: #86efac;
+    --pc-tri-accent: #22c55e;
+    --pc-tri-glow: rgba(134, 239, 172, 0.18);
+    --pc-tri-text: #14532d;
+    --pc-tri-bg: #f0fdf4;
+    --pc-tri-badge: #dcfce7;
+  }
+
+  .pregnancy-calculator.pregnancy-calculator-t2 {
+    --pc-tri-primary: #fcd34d;
+    --pc-tri-accent: #f59e0b;
+    --pc-tri-glow: rgba(252, 211, 77, 0.2);
+    --pc-tri-text: #78350f;
+    --pc-tri-bg: #fffbeb;
+    --pc-tri-badge: #fef3c7;
+  }
+
+  .pregnancy-calculator.pregnancy-calculator-t3 {
+    --pc-tri-primary: #d8b4fe;
+    --pc-tri-accent: #a855f7;
+    --pc-tri-glow: rgba(216, 180, 254, 0.2);
+    --pc-tri-text: #4c1d95;
+    --pc-tri-bg: #faf5ff;
+    --pc-tri-badge: #ede9fe;
+  }
+
+  :global(.theme-dark) .pregnancy-calculator {
+    --pc-bg: #111827;
+    --pc-bg-muted: #0f1923;
+    --pc-bg-dark: #0f1923;
+    --pc-text: #f1f5f9;
+    --pc-text-muted: #94a3b8;
+    --pc-text-dim: #64748b;
+    --pc-border: rgba(255, 255, 255, 0.04);
+    --pc-border-inner: rgba(255, 255, 255, 0.04);
+    --pc-shadow: rgba(0, 0, 0, 0.4);
+    --pc-safe-bg: rgba(16, 185, 129, 0.08);
+    --pc-safe-title: #16a34a;
+    --pc-alert-bg: rgba(249, 115, 22, 0.08);
+    --pc-alert-title: #ea580c;
+    background: #111827;
+    box-shadow:
+      0 0 0 1px rgba(255, 255, 255, 0.06),
+      0 8px 32px rgba(0, 0, 0, 0.4);
+  }
+
+  .pregnancy-calculator-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px 32px 20px;
+    border-bottom: 1px solid var(--pc-border);
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .pregnancy-calculator-method-group {
+    display: flex;
+    gap: 0;
+    background: #f1f5f9;
+    padding: 4px;
+    border-radius: 16px;
+  }
+
+  :global(.theme-dark) .pregnancy-calculator-method-group {
+    background: rgba(255, 255, 255, 0.06);
+  }
+
+  .pregnancy-calculator-method-btn {
+    padding: 9px 20px;
+    border-radius: 12px;
+    border: none;
+    background: transparent;
+    color: var(--pc-text-muted);
+    font-size: 0.78rem;
+    font-weight: 800;
+    cursor: pointer;
+    transition:
+      background 0.2s,
+      color 0.2s,
+      box-shadow 0.2s;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+  }
+
+  .pregnancy-calculator-method-btn-active {
+    background: var(--pc-bg);
+    color: var(--pc-tri-accent);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+  }
+
+  .pregnancy-calculator-partner-wrap {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .pregnancy-calculator-partner-label {
+    font-size: 0.8125rem;
+    color: var(--pc-text-muted);
+  }
+
+  .pregnancy-calculator-toggle-track {
+    width: 2.5rem;
+    height: 1.375rem;
+    border-radius: 0.6875rem;
+    background: var(--pc-border);
+    position: relative;
+    transition: background 0.2s;
+    border: 1px solid var(--pc-border-inner);
+  }
+
+  .pregnancy-calculator-toggle-track-on {
+    background: var(--pc-tri-accent);
+  }
+
+  .pregnancy-calculator-toggle-thumb {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    background: var(--pc-bg);
+    box-shadow: 0 1px 3px var(--pc-shadow);
+    transition: transform 0.2s;
+  }
+
+  .pregnancy-calculator-toggle-track-on .pregnancy-calculator-toggle-thumb {
+    transform: translateX(1.125rem);
+  }
+
+  .pregnancy-calculator-main {
+    display: grid;
+    grid-template-columns: 300px 1fr 220px;
+    min-height: 32rem;
+  }
+
+  .pregnancy-calculator-left {
+    padding: 28px 24px 36px;
+    border-right: 1px solid var(--pc-border);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background: #f8fafc;
+  }
+
+  :global(.theme-dark) .pregnancy-calculator-left {
+    background: #0f1923;
+    border-right-color: rgba(255, 255, 255, 0.04);
+  }
+
+  .pregnancy-calculator-center {
+    padding: 28px 28px 36px;
+    border-right: 1px solid var(--pc-border);
+    overflow-y: auto;
+    background: #fff;
+  }
+
+  :global(.theme-dark) .pregnancy-calculator-center {
+    background: #111827;
+  }
+
+  .pregnancy-calculator-right {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .pregnancy-calculator-tl-inner {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    background: var(--pc-bg-muted);
+    overflow: hidden;
+  }
+
+  :global(.theme-dark) .pregnancy-calculator-tl-inner {
+    background: #0f1923;
+  }
+
+  .pregnancy-calculator-dp-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .pregnancy-calculator-dp-label {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--pc-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .pregnancy-calculator-dp-selects {
+    display: flex;
+    align-items: center;
+    background: #fff;
+    border-radius: 18px;
+    padding: 6px 10px;
+    gap: 4px;
+    box-shadow:
+      0 2px 12px rgba(0, 0, 0, 0.06),
+      0 0 0 1px rgba(0, 0, 0, 0.04);
+    transition: box-shadow 0.2s;
+  }
+
+  .pregnancy-calculator-dp-selects:focus-within {
+    box-shadow:
+      0 4px 20px var(--pc-tri-glow),
+      0 0 0 2px var(--pc-tri-primary);
+  }
+
+  :global(.theme-dark) .pregnancy-calculator-dp-selects {
+    background: #1a2332;
+    box-shadow:
+      0 2px 12px rgba(0, 0, 0, 0.2),
+      0 0 0 1px rgba(255, 255, 255, 0.06);
+  }
+
+  .pregnancy-calculator-dp-select {
+    flex: 1;
+    padding: 8px 4px;
+    border: none;
+    background: transparent;
+    color: var(--pc-text);
+    font-size: 0.95rem;
+    font-weight: 700;
+    cursor: pointer;
+    appearance: none;
+    outline: none;
+    text-align: center;
+    min-width: 0;
+  }
+
+  .pregnancy-calculator-dp-sep {
+    color: #cbd5e1;
+    font-size: 1rem;
+    font-weight: 300;
+    flex-shrink: 0;
+    padding: 0 2px;
+  }
+
+  .pregnancy-calculator-cs-wrap {
+    background: #fff;
+    border-radius: 18px;
+    padding: 20px;
+    box-shadow:
+      0 2px 12px rgba(0, 0, 0, 0.06),
+      0 0 0 1px rgba(0, 0, 0, 0.04);
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    transition: opacity 0.3s;
+  }
+
+  :global(.theme-dark) .pregnancy-calculator-cs-wrap {
+    background: #1a2332;
+    box-shadow:
+      0 2px 12px rgba(0, 0, 0, 0.2),
+      0 0 0 1px rgba(255, 255, 255, 0.06);
+  }
+
+  .pregnancy-calculator-cs-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 16px;
+  }
+
+  .pregnancy-calculator-cs-label {
+    font-size: 0.7rem;
+    font-weight: 800;
+    color: var(--pc-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+  }
+
+  .pregnancy-calculator-cs-value-wrap {
+    display: flex;
+    align-items: baseline;
+    gap: 3px;
+  }
+
+  #pc-cs-value {
+    font-size: 2rem;
+    font-weight: 900;
+    letter-spacing: -0.04em;
+    color: var(--pc-tri-accent);
+    transition: color 0.5s;
+  }
+
+  .pregnancy-calculator-cs-unit {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--pc-text-dim);
+  }
+
+  .pregnancy-calculator-cs-slider {
+    width: 100%;
+    height: 4px;
+    border-radius: 2px;
+    background: linear-gradient(90deg, var(--pc-tri-primary) 0%, #e2e8f0 0%);
+    appearance: none;
+    cursor: pointer;
+    outline: none;
+    transition: background 0.4s;
+  }
+
+  .pregnancy-calculator-cs-slider::-webkit-slider-thumb {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #fff;
+    border: 3px solid var(--pc-tri-accent);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+    cursor: pointer;
+    transition:
+      transform 0.2s,
+      border-color 0.5s;
+  }
+
+  .pregnancy-calculator-cs-slider::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+  }
+
+  .pregnancy-calculator-cs-extremes {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 8px;
+    font-size: 0.65rem;
+    font-weight: 700;
+    color: #cbd5e1;
+  }
+
+  .pregnancy-calculator-sd-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 0.875rem;
+  }
+
+  .pregnancy-calculator-stats-row {
+    display: flex;
+    gap: 0.625rem;
+  }
+
+  .pregnancy-calculator-stat-chip {
+    flex: 1;
+    background: #f8fafc;
+    border-radius: 16px;
+    padding: 16px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  :global(.theme-dark) .pregnancy-calculator-stat-chip {
+    background: #1e2936;
+  }
+
+  .pregnancy-calculator-stat-key {
+    font-size: 0.65rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: #94a3b8;
+  }
+
+  .pregnancy-calculator-stat-value {
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: var(--pc-text);
+    line-height: 1;
+    letter-spacing: -0.02em;
+    transition: color 0.5s;
+  }
+
+  .pregnancy-calculator-accent {
+    color: var(--pc-tri-accent);
+  }
+
+  .pregnancy-calculator-edd-box {
+    border-radius: 18px;
+    padding: 20px;
+    background: var(--pc-tri-bg);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    transition: background 0.5s;
+  }
+
+  :global(.theme-dark) .pregnancy-calculator-edd-box {
+    background: rgba(255, 255, 255, 0.04);
+  }
+
+  .pregnancy-calculator-edd-label {
+    font-size: 0.65rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: #94a3b8;
+    margin-bottom: 6px;
+  }
+
+  .pregnancy-calculator-edd-date {
+    font-size: 1.15rem;
+    font-weight: 900;
+    color: var(--pc-tri-text);
+    letter-spacing: -0.02em;
+    transition: color 0.5s;
+  }
+
+  :global(.theme-dark) .pregnancy-calculator-edd-date {
+    color: var(--pc-tri-primary);
+  }
+
+  .pregnancy-calculator-edd-note {
+    font-size: 0.72rem;
+    color: #94a3b8;
+    margin-top: 5px;
+    font-style: italic;
+  }
+
+  .pregnancy-calculator-btn-cal {
+    width: 100%;
+    padding: 15px;
+    border-radius: 16px;
+    border: none;
+    background: var(--pc-tri-accent);
+    color: #fff;
+    font-size: 0.82rem;
+    font-weight: 800;
+    cursor: pointer;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    transition: all 0.25s;
+    box-shadow: 0 4px 16px var(--pc-tri-glow);
+  }
+
+  .pregnancy-calculator-btn-cal:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px var(--pc-tri-glow);
+  }
+
+  .pregnancy-calculator-btn-cal:disabled {
+    background: #e2e8f0;
+    color: #94a3b8;
+    box-shadow: none;
+    cursor: default;
+  }
+
+  :global(.theme-dark) .pregnancy-calculator-btn-cal:disabled {
+    background: #1e2936;
+  }
+
+  .pregnancy-calculator-mp-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    min-height: 18rem;
+    gap: 0.75rem;
+    text-align: center;
+  }
+
+  .pregnancy-calculator-mp-empty-dot {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    background: var(--pc-tri-bg);
+    border: 2px solid var(--pc-tri-primary);
+    box-shadow: 0 0 0 6px var(--pc-tri-glow);
+  }
+
+  .pregnancy-calculator-mp-empty-title {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--pc-text);
+  }
+
+  .pregnancy-calculator-mp-empty-body {
+    font-size: 0.875rem;
+    color: var(--pc-text-muted);
+    max-width: 22ch;
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  @keyframes pc-fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(6px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .pregnancy-calculator-mp-results {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .pregnancy-calculator-mp-enter {
+    animation: pc-fade-in 0.25s ease-out;
+  }
+
+  .pregnancy-calculator-mp-top-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  .pregnancy-calculator-mp-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.375rem 0.875rem;
+    border-radius: 2rem;
+    background: var(--pc-tri-badge);
+    color: var(--pc-tri-text);
+    font-size: 0.875rem;
+    font-weight: 700;
+    border: 1px solid var(--pc-tri-primary);
+  }
+
+  .pregnancy-calculator-analogy-tabs {
+    display: flex;
+    gap: 0.25rem;
+    background: var(--pc-bg-muted);
+    padding: 0.25rem;
+    border-radius: 0.5rem;
+    border: 1px solid var(--pc-border);
+  }
+
+  .pregnancy-calculator-at-btn {
+    padding: 0.25rem 0.625rem;
+    border-radius: 0.375rem;
+    border: none;
+    background: transparent;
+    color: var(--pc-text-muted);
+    font-size: 0.75rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition:
+      background 0.15s,
+      color 0.15s;
+  }
+
+  .pregnancy-calculator-at-btn-active {
+    background: var(--pc-bg);
+    color: var(--pc-tri-accent);
+    box-shadow: 0 1px 3px var(--pc-shadow);
+  }
+
+  .pregnancy-calculator-size-card {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    background: #f8fafc;
+    border-radius: 20px;
+    padding: 24px 28px;
+    gap: 12px;
+  }
+
+  :global(.theme-dark) .pregnancy-calculator-size-card {
+    background: #1a2332;
+  }
+
+  .pregnancy-calculator-size-name {
+    font-size: 1.6rem;
+    font-weight: 300;
+    font-style: italic;
+    color: var(--pc-text);
+    letter-spacing: -0.01em;
+  }
+
+  :global(.theme-dark) .pregnancy-calculator-size-name {
+    color: #f1f5f9;
+  }
+
+  .pregnancy-calculator-size-measure {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #94a3b8;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    white-space: nowrap;
+  }
+
+  .pregnancy-calculator-info-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .pregnancy-calculator-info-block {
+    background: #fff;
+    border-radius: 16px;
+    padding: 18px 20px;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.04);
+    display: flex;
+    flex-direction: column;
+  }
+
+  :global(.theme-dark) .pregnancy-calculator-info-block {
+    background: #1a2332;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.15);
+  }
+
+  .pregnancy-calculator-info-key {
+    font-size: 0.65rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--pc-tri-accent);
+    margin-bottom: 7px;
+    transition: color 0.5s;
+  }
+
+  .pregnancy-calculator-info-text {
+    font-size: 0.92rem;
+    color: var(--pc-text-muted);
+    line-height: 1.75;
+    margin: 0;
+    font-weight: 500;
+  }
+
+  .pregnancy-calculator-wonder-line {
+    font-size: 0.85rem;
+    font-style: italic;
+    font-weight: 600;
+    color: var(--pc-tri-text);
+    padding: 12px 16px;
+    border-left: 3px solid var(--pc-tri-primary);
+    background: var(--pc-tri-bg);
+    border-radius: 0 12px 12px 0;
+    line-height: 1.6;
+    transition:
+      background 0.5s,
+      color 0.5s,
+      border-color 0.5s;
+  }
+
+  .pregnancy-calculator-semaphore {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+  }
+
+  .pregnancy-calculator-sema {
+    border-radius: 0.625rem;
+    padding: 0.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .pregnancy-calculator-sema-safe {
+    background: var(--pc-safe-bg);
+    border: 1px solid rgba(22, 163, 74, 0.2);
+  }
+
+  .pregnancy-calculator-sema-alert {
+    background: var(--pc-alert-bg);
+    border: 1px solid rgba(234, 88, 12, 0.2);
+  }
+
+  .pregnancy-calculator-sema-title {
+    font-size: 0.6875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .pregnancy-calculator-sema-safe .pregnancy-calculator-sema-title {
+    color: var(--pc-safe-title);
+  }
+
+  .pregnancy-calculator-sema-alert .pregnancy-calculator-sema-title {
+    color: var(--pc-alert-title);
+  }
+
+  .pregnancy-calculator-sema-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .pregnancy-calculator-sema-list li {
+    font-size: 0.75rem;
+    color: var(--pc-text-muted);
+    padding-left: 1rem;
+    position: relative;
+    line-height: 1.4;
+  }
+
+  .pregnancy-calculator-sema-safe .pregnancy-calculator-sema-list li::before {
+    content: "v";
+    position: absolute;
+    left: 0;
+    color: #22c55e;
+    font-weight: 900;
+    font-size: 0.7rem;
+  }
+
+  .pregnancy-calculator-sema-alert .pregnancy-calculator-sema-list li::before {
+    content: "!";
+    position: absolute;
+    left: 0;
+    color: #f97316;
+    font-weight: 900;
+    font-size: 0.7rem;
+  }
+
+  .pregnancy-calculator-mp-egg {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    min-height: 18rem;
+    gap: 14px;
+    padding: 48px 32px;
+    text-align: center;
+    animation: pc-fade-in 0.4s ease-out;
+  }
+
+  .pregnancy-calculator-egg-dot {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 2px dashed #f87171;
+    background: #fef2f2;
+    animation: pc-egg-spin 6s linear infinite;
+  }
+
+  .pregnancy-calculator-egg-dot[data-reason="too-old"] {
+    border-color: #fb923c;
+    background: #fff7ed;
+  }
+
+  @keyframes pc-egg-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  .pregnancy-calculator-egg-title {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: var(--pc-text);
+    letter-spacing: -0.02em;
+  }
+
+  .pregnancy-calculator-egg-body {
+    font-size: 0.92rem;
+    color: var(--pc-text-muted);
+    max-width: 300px;
+    line-height: 1.7;
+    font-style: italic;
+    margin: 0;
+  }
+
+  .pregnancy-calculator-tl-header {
+    padding: 18px 18px 12px;
+    font-size: 0.65rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: #94a3b8;
+    border-bottom: 1px solid var(--pc-border);
+    flex-shrink: 0;
+  }
+
+  .pregnancy-calculator-tl-scroll {
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+    padding: 12px 14px 20px;
+    scrollbar-width: thin;
+    scrollbar-color: #e2e8f0 transparent;
+  }
+
+  .pregnancy-calculator-tl-scroll::-webkit-scrollbar {
+    width: 3px;
+  }
+
+  .pregnancy-calculator-tl-scroll::-webkit-scrollbar-thumb {
+    background: #e2e8f0;
+    border-radius: 2px;
+  }
+
+  .pregnancy-calculator-tl-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    padding: 0.25rem 0.75rem;
+    cursor: default;
+    transition: background 0.1s;
+  }
+
+  .pregnancy-calculator-tl-row-current {
+    background: var(--pc-tri-bg);
+  }
+
+  .pregnancy-calculator-tl-line-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+    width: 1rem;
+    padding-top: 0.2rem;
+  }
+
+  .pregnancy-calculator-tl-dot {
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    background: var(--pc-border);
+    flex-shrink: 0;
+    transition: background 0.15s;
+  }
+
+  .pregnancy-calculator-tl-row-past .pregnancy-calculator-tl-dot {
+    background: var(--pc-tri-accent);
+  }
+
+  .pregnancy-calculator-tl-row-current .pregnancy-calculator-tl-dot {
+    background: var(--pc-tri-accent);
+    box-shadow: 0 0 0 3px var(--pc-tri-glow);
+    width: 0.625rem;
+    height: 0.625rem;
+  }
+
+  .pregnancy-calculator-tl-line {
+    width: 2px;
+    flex: 1;
+    min-height: 1.25rem;
+    background: var(--pc-border);
+    margin-top: 2px;
+  }
+
+  .pregnancy-calculator-tl-row-past .pregnancy-calculator-tl-line {
+    background: var(--pc-tri-primary);
+  }
+
+  .pregnancy-calculator-tl-info {
+    display: flex;
+    align-items: baseline;
+    gap: 0.375rem;
+    min-width: 0;
+  }
+
+  .pregnancy-calculator-tl-num {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--pc-text-dim);
+    flex-shrink: 0;
+  }
+
+  .pregnancy-calculator-tl-row-past .pregnancy-calculator-tl-num {
+    color: var(--pc-tri-accent);
+  }
+
+  .pregnancy-calculator-tl-row-current .pregnancy-calculator-tl-num {
+    color: var(--pc-tri-accent);
+    font-size: 0.875rem;
+  }
+
+  .pregnancy-calculator-tl-label {
+    font-size: 0.6875rem;
+    color: var(--pc-text-dim);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .pregnancy-calculator-tl-row-current .pregnancy-calculator-tl-label {
+    color: var(--pc-tri-text);
+    font-weight: 600;
+    font-size: 0.75rem;
+  }
+
+  @media (max-width: 900px) {
+    .pregnancy-calculator-main {
+      grid-template-columns: 1fr;
+    }
+
+    .pregnancy-calculator-center {
+      border-right: none;
+      border-top: 1px solid var(--pc-border);
+    }
+
+    .pregnancy-calculator-right {
+      border-top: 1px solid var(--pc-border);
+      height: 16rem;
+    }
+
+    .pregnancy-calculator-tl-inner {
+      position: static;
+      height: 100%;
+    }
+
+    .pregnancy-calculator-tl-scroll {
+      display: flex;
+      flex-direction: row;
+      overflow-x: auto;
+      overflow-y: hidden;
+      padding: 0.5rem;
+      gap: 0.25rem;
+    }
+
+    .pregnancy-calculator-tl-row {
+      flex-direction: column;
+      align-items: center;
+      padding: 0.5rem 0.375rem;
+      min-width: 3rem;
+    }
+
+    .pregnancy-calculator-tl-line-col {
+      flex-direction: row;
+      width: auto;
+      padding-top: 0;
+    }
+
+    .pregnancy-calculator-tl-line {
+      width: 1.25rem;
+      height: 2px;
+      min-height: 0;
+      margin-top: 0;
+      margin-left: 2px;
+    }
+
+    .pregnancy-calculator-tl-info {
+      flex-direction: column;
+      align-items: center;
+      gap: 0.125rem;
+    }
+
+    .pregnancy-calculator-tl-label {
+      display: none;
+    }
+
+    .pregnancy-calculator-semaphore {
+      grid-template-columns: 1fr;
+    }
+
+    .pregnancy-calculator-left {
+      border-right: none;
+      border-bottom: 1px solid var(--pc-border);
+    }
+  }
+
+  @media (max-width: 600px) {
+    .pregnancy-calculator-header {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .pregnancy-calculator-method-group {
+      width: 100%;
+      justify-content: stretch;
+    }
+
+    .pregnancy-calculator-method-btn {
+      flex: 1;
+      text-align: center;
+    }
+  }
+</style>
