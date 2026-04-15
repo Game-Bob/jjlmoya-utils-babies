@@ -133,7 +133,7 @@ export const content: BabySizeConverterLocaleContent = {
         ],
       },
       {
-        title: 'Taillent ajusté (prendre une taille au-dessus)',
+        title: 'Taillent ajusté (prendre une taille au dessus)',
         description: "Ces marques utilisent des coupes plus cintrées ; prenez une taille de plus par rapport à l'habituel.",
         points: [
           "Carter's : coupe américaine cintrée",

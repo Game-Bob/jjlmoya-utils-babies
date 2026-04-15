@@ -10,8 +10,7 @@ describe('SEO Content Length Validation', () => {
     describe(`Tool: ${entry.id}`, () => {
       Object.keys(entry.i18n).forEach((locale) => {
         it(`${locale}: SEO section should exist`, async () => {
-          const loader = (entry.i18n as Record<string, (() => Promise<{ seo?: unknown[] }>) | undefined>)[locale];
-          if (!loader) return;
+          const loader = (entry.i18n as Record<string, () => Promise<{ seo?: unknown[] }>>)[locale];
           const content = await loader();
           if (!content.seo) return;
           expect(Array.isArray(content.seo)).toBe(true);
