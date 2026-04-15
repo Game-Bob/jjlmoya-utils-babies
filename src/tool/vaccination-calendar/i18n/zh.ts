@@ -1,7 +1,7 @@
 import type { VaccinationCalendarLocaleContent } from '../index';
 import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
 
-const slug = 'xibanya-yingers-yimiaojiezhong-rili';
+const slug = 'baby-vaccination-calendar-spain';
 const title = '西班牙儿童疫苗接种时间表';
 const description = '根据 AEP 2026 最新标准，精确计算您宝宝的疫苗接种日期。';
 const faq = [

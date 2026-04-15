@@ -1,7 +1,7 @@
 import type { VaccinationCalendarLocaleContent } from '../index';
 import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
 
-const slug = 'supein-yobo-sesshu-karenda-bebi';
+const slug = 'baby-vaccination-calendar-spain';
 const title = 'スペインの予防接種スケジュール計算';
 const description = 'AEP 2026スケジュールに基づき、お子様の予防接種日を正確に計算します。';
 const faq = [

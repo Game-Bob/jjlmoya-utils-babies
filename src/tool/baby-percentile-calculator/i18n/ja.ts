@@ -1,7 +1,7 @@
 import type { BabyPercentileCalculatorLocaleContent } from '../index';
 import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
 
-const slug = 'baby-growth-percentile-calculator';
+const slug = 'baby-weight-height-percentile';
 const title = 'WHO乳幼児成長曲線（パーセンタイル）計算機';
 const description = 'WHO（世界保健機関）の成長曲線（0〜5歳）に基づき、赤ちゃんの体重、身長、BMIのパーセンタイルを計算します。';
 const faq = [

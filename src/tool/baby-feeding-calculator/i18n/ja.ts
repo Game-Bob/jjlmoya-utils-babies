@@ -1,7 +1,7 @@
 import type { BabyFeedingCalculatorLocaleContent } from '../index';
 import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
 
-const slug = 'akachan-feeding-calculator';
+const slug = 'baby-feeding-calculator';
 const title = '赤ちゃんの授乳計算機';
 const description = '体重と月齢に基づいて、赤ちゃんがどれだけのミルクを必要としているかを計算します。推奨される授乳回数、1回あたりのミリリットル、空腹と満腹のサイン。';
 

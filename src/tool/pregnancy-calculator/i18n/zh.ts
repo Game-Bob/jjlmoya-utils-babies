@@ -1,7 +1,7 @@
 import type { PregnancyCalculatorLocaleContent } from '../index';
 import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
 
-const slug = 'huanyun-zhoushu-jisuanqi';
+const slug = 'pregnancy-weeks-calculator';
 const title = '怀孕周数计算器・预产期查询';
 const description = '精确计算您的当前怀孕周数、所处孕期（早期、中期或晚期）以及您的预产期。';
 const faq = [

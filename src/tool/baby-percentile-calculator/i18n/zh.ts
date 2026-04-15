@@ -1,7 +1,7 @@
 import type { BabyPercentileCalculatorLocaleContent } from '../index';
 import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
 
-const slug = 'baby-growth-percentile-calculator';
+const slug = 'baby-weight-height-percentile';
 const title = 'WHO婴儿成长曲线（百分位）计算器';
 const description = '根据世卫组织（WHO）成长标准（0-5岁）计算宝宝的体重、身长和BMI百分位数。';
 const faq = [

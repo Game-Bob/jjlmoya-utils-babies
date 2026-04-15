@@ -1,7 +1,7 @@
 import type { BabyFeedingCalculatorLocaleContent } from '../index';
 import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
 
-const slug = 'akachan-feeding-calculator';
+const slug = 'baby-feeding-calculator';
 const title = '婴儿喂养计算器';
 const description = '根据宝宝的体重和月龄计算其需要的奶量。推荐喂养次数、每餐毫升数以及饥饿和饱腹信号。';
 

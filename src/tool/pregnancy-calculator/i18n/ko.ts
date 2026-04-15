@@ -1,7 +1,7 @@
 import type { PregnancyCalculatorLocaleContent } from '../index';
 import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
 
-const slug = 'imsin-jusu-gyesangi';
+const slug = 'pregnancy-weeks-calculator';
 const title = '임신 주수 계산기 및 출산 예정일';
 const description = '현재 임신 몇 주차인지, 분기별 상태, 그리고 출산 예정일을 정확하게 계산해 보세요.';
 const faq = [

@@ -1,7 +1,7 @@
 import type { BabyFeedingCalculatorLocaleContent } from '../index';
 import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
 
-const slug = 'akachan-feeding-calculator';
+const slug = 'baby-feeding-calculator';
 const title = '아기 수유 계산기';
 const description = '몸무게와 월령에 따라 아기에게 필요한 수유량을 계산합니다. 권장 수유 횟수, 1회당 수유량(ml), 그리고 배고픔과 포만감의 신호.';
 

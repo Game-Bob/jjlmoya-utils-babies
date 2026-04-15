@@ -1,7 +1,7 @@
 import type { BabyPercentileCalculatorLocaleContent } from '../index';
 import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
 
-const slug = 'baby-growth-percentile-calculator';
+const slug = 'baby-weight-height-percentile';
 const title = 'WHO 영유아 성장도표(백분위) 계산기';
 const description = 'WHO(세계보건기구) 성장도표(0-5세)를 기준으로 아기의 체중, 신장, BMI 백분위를 계산합니다.';
 const faq = [

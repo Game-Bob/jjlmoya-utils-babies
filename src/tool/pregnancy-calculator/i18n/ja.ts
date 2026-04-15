@@ -1,7 +1,7 @@
 import type { PregnancyCalculatorLocaleContent } from '../index';
 import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
 
-const slug = 'ninshin-shusu-keisan';
+const slug = 'pregnancy-weeks-calculator';
 const title = '妊娠週数計算・出産予定日カレンダー';
 const description = '現在の妊娠週数、期（初期・中期・後期）、および出産予定日を正確に計算します。';
 const faq = [

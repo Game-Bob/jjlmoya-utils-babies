@@ -1,7 +1,7 @@
 import type { VaccinationCalendarLocaleContent } from '../index';
 import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
 
-const slug = 'supein-yebang-jeopjong-kallendeo-agi';
+const slug = 'baby-vaccination-calendar-spain';
 const title = '스페인 영유아 예방접종 일정표';
 const description = 'AEP 2026 일정에 따라 아기의 정확한 예방접종 날짜를 계산해 보세요.';
 const faq = [
