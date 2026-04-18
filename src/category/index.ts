@@ -1,10 +1,10 @@
 import type { BabiesCategoryEntry } from '../types';
-import { babyFeedingCalculator } from '../tool/baby-feeding-calculator';
-import { babySizeConverter } from '../tool/baby-size-converter';
-import { vaccinationCalendar } from '../tool/vaccination-calendar';
-import { fertileDaysEstimator } from '../tool/fertile-days-estimator';
-import { babyPercentileCalculator } from '../tool/baby-percentile-calculator';
-import { pregnancyCalculator } from '../tool/pregnancy-calculator';
+import { babyFeedingCalculator } from '../tool/baby-feeding-calculator/entry';
+import { babySizeConverter } from '../tool/baby-size-converter/entry';
+import { vaccinationCalendar } from '../tool/vaccination-calendar/entry';
+import { fertileDaysEstimator } from '../tool/fertile-days-estimator/entry';
+import { babyPercentileCalculator } from '../tool/baby-percentile-calculator/entry';
+import { pregnancyCalculator } from '../tool/pregnancy-calculator/entry';
 
 export const babiesCategory: BabiesCategoryEntry = {
   icon: 'mdi:baby-carriage',

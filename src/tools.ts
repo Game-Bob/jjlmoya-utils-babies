@@ -1,3 +1,4 @@
+export { ALL_ENTRIES } from './entries';
 import type { ToolDefinition } from './types';
 import { BABY_FEEDING_CALCULATOR_TOOL } from './tool/baby-feeding-calculator/index';
 import { BABY_SIZE_CONVERTER_TOOL } from './tool/baby-size-converter/index';
@@ -16,4 +17,3 @@ export const ALL_TOOLS: ToolDefinition[] = [
 ];
 
 
-export const ALL_ENTRIES = ALL_TOOLS.map(t => t.entry);
