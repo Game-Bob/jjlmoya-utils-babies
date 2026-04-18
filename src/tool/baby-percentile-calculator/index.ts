@@ -1,7 +1,4 @@
 import type { BabiesToolEntry, ToolDefinition, ToolLocaleContent } from '../../types';
-import BabyPercentileCalculatorComponent from './component.astro';
-import BabyPercentileCalculatorSEO from './seo.astro';
-import BabyPercentileCalculatorBibliography from './bibliography.astro';
 
 export interface BabyPercentileCalculatorUI {
   [key: string]: string;
@@ -57,11 +54,10 @@ export const babyPercentileCalculator: BabiesToolEntry<BabyPercentileCalculatorU
   },
 };
 
-export { BabyPercentileCalculatorComponent, BabyPercentileCalculatorSEO, BabyPercentileCalculatorBibliography };
 
 export const BABY_PERCENTILE_CALCULATOR_TOOL: ToolDefinition = {
   entry: babyPercentileCalculator,
-  Component: BabyPercentileCalculatorComponent,
-  SEOComponent: BabyPercentileCalculatorSEO,
-  BibliographyComponent: BabyPercentileCalculatorBibliography,
+  Component: () => import('./component.astro'),
+  SEOComponent: () => import('./seo.astro'),
+  BibliographyComponent: () => import('./bibliography.astro'),
 };

@@ -1,7 +1,4 @@
 import type { BabiesToolEntry, ToolDefinition, ToolLocaleContent } from '../../types';
-import BabySizeConverterComponent from './component.astro';
-import BabySizeConverterSEO from './seo.astro';
-import BabySizeConverterBibliography from './bibliography.astro';
 
 export interface BabySizeConverterUI {
   [key: string]: string;
@@ -55,11 +52,10 @@ export const babySizeConverter: BabiesToolEntry<BabySizeConverterUI> = {
   },
 };
 
-export { BabySizeConverterComponent, BabySizeConverterSEO, BabySizeConverterBibliography };
 
 export const BABY_SIZE_CONVERTER_TOOL: ToolDefinition = {
   entry: babySizeConverter,
-  Component: BabySizeConverterComponent,
-  SEOComponent: BabySizeConverterSEO,
-  BibliographyComponent: BabySizeConverterBibliography,
+  Component: () => import('./component.astro'),
+  SEOComponent: () => import('./seo.astro'),
+  BibliographyComponent: () => import('./bibliography.astro'),
 };

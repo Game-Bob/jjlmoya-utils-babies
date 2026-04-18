@@ -6,7 +6,7 @@ export * from './tool/baby-percentile-calculator';
 export * from './tool/fertile-days-estimator';
 export * from './tool/pregnancy-calculator';
 export * from './tool/vaccination-calendar';
-export { default as babiesCategorySEO } from './category/seo.astro';
+export const babiesCategorySEO = () => import('./category/seo.astro').then((m) => m.default);
 
 export type {
   KnownLocale,

@@ -1,7 +1,4 @@
 import type { BabiesToolEntry, ToolDefinition, ToolLocaleContent } from '../../types';
-import VaccinationCalendarComponent from './component.astro';
-import VaccinationCalendarSEO from './seo.astro';
-import VaccinationCalendarBibliography from './bibliography.astro';
 
 export interface VaccinationCalendarUI {
   [key: string]: string;
@@ -69,11 +66,10 @@ export const vaccinationCalendar: BabiesToolEntry<VaccinationCalendarUI> = {
   },
 };
 
-export { VaccinationCalendarComponent, VaccinationCalendarSEO, VaccinationCalendarBibliography };
 
 export const VACCINATION_CALENDAR_TOOL: ToolDefinition = {
   entry: vaccinationCalendar,
-  Component: VaccinationCalendarComponent,
-  SEOComponent: VaccinationCalendarSEO,
-  BibliographyComponent: VaccinationCalendarBibliography,
+  Component: () => import('./component.astro'),
+  SEOComponent: () => import('./seo.astro'),
+  BibliographyComponent: () => import('./bibliography.astro'),
 };

@@ -1,7 +1,4 @@
 import type { BabiesToolEntry, ToolDefinition, ToolLocaleContent } from '../../types';
-import FertileDaysEstimatorComponent from './component.astro';
-import FertileDaysEstimatorSEO from './seo.astro';
-import FertileDaysEstimatorBibliography from './bibliography.astro';
 
 export interface FertileDaysEstimatorUI {
   [key: string]: string;
@@ -49,11 +46,10 @@ export const fertileDaysEstimator: BabiesToolEntry<FertileDaysEstimatorUI> = {
   },
 };
 
-export { FertileDaysEstimatorComponent, FertileDaysEstimatorSEO, FertileDaysEstimatorBibliography };
 
 export const FERTILE_DAYS_ESTIMATOR_TOOL: ToolDefinition = {
   entry: fertileDaysEstimator,
-  Component: FertileDaysEstimatorComponent,
-  SEOComponent: FertileDaysEstimatorSEO,
-  BibliographyComponent: FertileDaysEstimatorBibliography,
+  Component: () => import('./component.astro'),
+  SEOComponent: () => import('./seo.astro'),
+  BibliographyComponent: () => import('./bibliography.astro'),
 };

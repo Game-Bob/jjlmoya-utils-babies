@@ -1,7 +1,4 @@
 import type { BabiesToolEntry, ToolDefinition, ToolLocaleContent } from '../../types';
-import PregnancyCalculatorComponent from './component.astro';
-import PregnancyCalculatorSEO from './seo.astro';
-import PregnancyCalculatorBibliography from './bibliography.astro';
 
 export interface MilestoneI18n {
   analogies: { fruits: string; geek: string; sweets: string };
@@ -89,11 +86,10 @@ export const pregnancyCalculator: BabiesToolEntry<PregnancyCalculatorUI> = {
   },
 };
 
-export { PregnancyCalculatorComponent, PregnancyCalculatorSEO, PregnancyCalculatorBibliography };
 
 export const PREGNANCY_CALCULATOR_TOOL: ToolDefinition = {
   entry: pregnancyCalculator,
-  Component: PregnancyCalculatorComponent,
-  SEOComponent: PregnancyCalculatorSEO,
-  BibliographyComponent: PregnancyCalculatorBibliography,
+  Component: () => import('./component.astro'),
+  SEOComponent: () => import('./seo.astro'),
+  BibliographyComponent: () => import('./bibliography.astro'),
 };

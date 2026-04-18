@@ -1,7 +1,4 @@
 import type { BabiesToolEntry, ToolDefinition, ToolLocaleContent } from '../../types';
-import BabyFeedingCalculatorComponent from './component.astro';
-import BabyFeedingCalculatorSEO from './seo.astro';
-import BabyFeedingCalculatorBibliography from './bibliography.astro';
 
 export interface BabyFeedingCalculatorUI {
   [key: string]: string;
@@ -49,11 +46,10 @@ export const babyFeedingCalculator: BabiesToolEntry<BabyFeedingCalculatorUI> = {
   },
 };
 
-export { BabyFeedingCalculatorComponent, BabyFeedingCalculatorSEO, BabyFeedingCalculatorBibliography };
 
 export const BABY_FEEDING_CALCULATOR_TOOL: ToolDefinition = {
   entry: babyFeedingCalculator,
-  Component: BabyFeedingCalculatorComponent,
-  SEOComponent: BabyFeedingCalculatorSEO,
-  BibliographyComponent: BabyFeedingCalculatorBibliography,
+  Component: () => import('./component.astro'),
+  SEOComponent: () => import('./seo.astro'),
+  BibliographyComponent: () => import('./bibliography.astro'),
 };
