@@ -1,3 +1,4 @@
+import { babyFeedingCalculator } from './entry';
 export * from './entry';
 export const BABY_FEEDING_CALCULATOR_TOOL: ToolDefinition = {
   entry: babyFeedingCalculator,

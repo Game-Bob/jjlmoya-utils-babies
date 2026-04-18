@@ -1,3 +1,4 @@
+import { vaccinationCalendar } from './entry';
 export * from './entry';
 export const VACCINATION_CALENDAR_TOOL: ToolDefinition = {
   entry: vaccinationCalendar,

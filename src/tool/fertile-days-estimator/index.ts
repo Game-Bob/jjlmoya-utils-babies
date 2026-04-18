@@ -1,3 +1,4 @@
+import { fertileDaysEstimator } from './entry';
 export * from './entry';
 export const FERTILE_DAYS_ESTIMATOR_TOOL: ToolDefinition = {
   entry: fertileDaysEstimator,

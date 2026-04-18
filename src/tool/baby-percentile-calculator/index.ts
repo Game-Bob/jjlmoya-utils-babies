@@ -1,3 +1,4 @@
+import { babyPercentileCalculator } from './entry';
 export * from './entry';
 export const BABY_PERCENTILE_CALCULATOR_TOOL: ToolDefinition = {
   entry: babyPercentileCalculator,

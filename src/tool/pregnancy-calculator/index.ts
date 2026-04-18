@@ -1,3 +1,4 @@
+import { pregnancyCalculator } from './entry';
 export * from './entry';
 export const PREGNANCY_CALCULATOR_TOOL: ToolDefinition = {
   entry: pregnancyCalculator,

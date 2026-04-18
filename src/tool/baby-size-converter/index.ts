@@ -1,3 +1,4 @@
+import { babySizeConverter } from './entry';
 export * from './entry';
 export const BABY_SIZE_CONVERTER_TOOL: ToolDefinition = {
   entry: babySizeConverter,
