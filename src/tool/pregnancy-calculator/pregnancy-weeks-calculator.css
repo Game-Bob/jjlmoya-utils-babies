@@ -73,7 +73,7 @@
     --pc-tri-badge: #ede9fe;
   }
 
-  :global(.theme-dark) .pregnancy-calculator {
+  .theme-dark .pregnancy-calculator {
     --pc-bg: #111827;
     --pc-bg-muted: #0f1923;
     --pc-bg-dark: #0f1923;
@@ -112,7 +112,7 @@
     border-radius: 16px;
   }
 
-  :global(.theme-dark) .pregnancy-calculator-method-group {
+  .theme-dark .pregnancy-calculator-method-group {
     background: rgba(255, 255, 255, 0.06);
   }
 
@@ -198,7 +198,7 @@
     background: #f8fafc;
   }
 
-  :global(.theme-dark) .pregnancy-calculator-left {
+  .theme-dark .pregnancy-calculator-left {
     background: #0f1923;
     border-right-color: rgba(255, 255, 255, 0.04);
   }
@@ -210,7 +210,7 @@
     background: #fff;
   }
 
-  :global(.theme-dark) .pregnancy-calculator-center {
+  .theme-dark .pregnancy-calculator-center {
     background: #111827;
   }
 
@@ -228,7 +228,7 @@
     overflow: hidden;
   }
 
-  :global(.theme-dark) .pregnancy-calculator-tl-inner {
+  .theme-dark .pregnancy-calculator-tl-inner {
     background: #0f1923;
   }
 
@@ -265,7 +265,7 @@
       0 0 0 2px var(--pc-tri-primary);
   }
 
-  :global(.theme-dark) .pregnancy-calculator-dp-selects {
+  .theme-dark .pregnancy-calculator-dp-selects {
     background: #1a2332;
     box-shadow:
       0 2px 12px rgba(0, 0, 0, 0.2),
@@ -287,7 +287,7 @@
     min-width: 0;
   }
 
-  :global(.theme-dark) .pregnancy-calculator-dp-select {
+  .theme-dark .pregnancy-calculator-dp-select {
     background-color: #0f1923;
     color: #f1f5f9;
   }
@@ -300,7 +300,7 @@
     padding: 0 2px;
   }
 
-  :global(.theme-dark) .pregnancy-calculator-dp-sep {
+  .theme-dark .pregnancy-calculator-dp-sep {
     color: #64748b;
   }
 
@@ -317,7 +317,7 @@
     transition: opacity 0.3s;
   }
 
-  :global(.theme-dark) .pregnancy-calculator-cs-wrap {
+  .theme-dark .pregnancy-calculator-cs-wrap {
     background: #1a2332;
     box-shadow:
       0 2px 12px rgba(0, 0, 0, 0.2),
@@ -418,7 +418,7 @@
     gap: 4px;
   }
 
-  :global(.theme-dark) .pregnancy-calculator-stat-chip {
+  .theme-dark .pregnancy-calculator-stat-chip {
     background: #1e2936;
   }
 
@@ -454,7 +454,7 @@
     transition: background 0.5s;
   }
 
-  :global(.theme-dark) .pregnancy-calculator-edd-box {
+  .theme-dark .pregnancy-calculator-edd-box {
     background: rgba(255, 255, 255, 0.04);
   }
 
@@ -475,7 +475,7 @@
     transition: color 0.5s;
   }
 
-  :global(.theme-dark) .pregnancy-calculator-edd-date {
+  .theme-dark .pregnancy-calculator-edd-date {
     color: var(--pc-tri-primary);
   }
 
@@ -514,7 +514,7 @@
     cursor: default;
   }
 
-  :global(.theme-dark) .pregnancy-calculator-btn-cal:disabled {
+  .theme-dark .pregnancy-calculator-btn-cal:disabled {
     background: #1e2936;
   }
 
@@ -632,7 +632,7 @@
     gap: 12px;
   }
 
-  :global(.theme-dark) .pregnancy-calculator-size-card {
+  .theme-dark .pregnancy-calculator-size-card {
     background: #1a2332;
   }
 
@@ -644,7 +644,7 @@
     letter-spacing: -0.01em;
   }
 
-  :global(.theme-dark) .pregnancy-calculator-size-name {
+  .theme-dark .pregnancy-calculator-size-name {
     color: #f1f5f9;
   }
 
@@ -672,7 +672,7 @@
     flex-direction: column;
   }
 
-  :global(.theme-dark) .pregnancy-calculator-info-block {
+  .theme-dark .pregnancy-calculator-info-block {
     background: #1a2332;
     box-shadow: 0 1px 6px rgba(0, 0, 0, 0.15);
   }
@@ -866,15 +866,15 @@
     border-radius: 2px;
   }
 
-  :global(.theme-dark) .pregnancy-calculator-tl-scroll {
+  .theme-dark .pregnancy-calculator-tl-scroll {
     scrollbar-color: #334155 transparent;
   }
 
-  :global(.theme-dark) .pregnancy-calculator-tl-scroll::-webkit-scrollbar-thumb {
+  .theme-dark .pregnancy-calculator-tl-scroll::-webkit-scrollbar-thumb {
     background: #334155;
   }
 
-  :global(.pregnancy-calculator-tl-row) {
+  .pregnancy-calculator-tl-row {
     display: flex;
     align-items: flex-start;
     gap: 0.5rem;
@@ -883,11 +883,11 @@
     transition: background 0.1s;
   }
 
-  :global(.pregnancy-calculator-tl-row-current) {
+  .pregnancy-calculator-tl-row-current {
     background: var(--pc-tri-bg);
   }
 
-  :global(.pregnancy-calculator-tl-line-col) {
+  .pregnancy-calculator-tl-line-col {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -896,7 +896,7 @@
     padding-top: 0.2rem;
   }
 
-  :global(.pregnancy-calculator-tl-dot) {
+  .pregnancy-calculator-tl-dot {
     width: 0.5rem;
     height: 0.5rem;
     border-radius: 50%;
@@ -905,18 +905,18 @@
     transition: background 0.15s;
   }
 
-  :global(.pregnancy-calculator-tl-row-past .pregnancy-calculator-tl-dot) {
+  .pregnancy-calculator-tl-row-past .pregnancy-calculator-tl-dot {
     background: var(--pc-tri-accent);
   }
 
-  :global(.pregnancy-calculator-tl-row-current .pregnancy-calculator-tl-dot) {
+  .pregnancy-calculator-tl-row-current .pregnancy-calculator-tl-dot {
     background: var(--pc-tri-accent);
     box-shadow: 0 0 0 3px var(--pc-tri-glow);
     width: 0.625rem;
     height: 0.625rem;
   }
 
-  :global(.pregnancy-calculator-tl-line) {
+  .pregnancy-calculator-tl-line {
     width: 2px;
     flex: 1;
     min-height: 1.25rem;
@@ -924,34 +924,34 @@
     margin-top: 2px;
   }
 
-  :global(.pregnancy-calculator-tl-row-past .pregnancy-calculator-tl-line) {
+  .pregnancy-calculator-tl-row-past .pregnancy-calculator-tl-line {
     background: var(--pc-tri-primary);
   }
 
-  :global(.pregnancy-calculator-tl-info) {
+  .pregnancy-calculator-tl-info {
     display: flex;
     align-items: baseline;
     gap: 0.375rem;
     min-width: 0;
   }
 
-  :global(.pregnancy-calculator-tl-num) {
+  .pregnancy-calculator-tl-num {
     font-size: 0.75rem;
     font-weight: 700;
     color: var(--pc-text-dim);
     flex-shrink: 0;
   }
 
-  :global(.pregnancy-calculator-tl-row-past .pregnancy-calculator-tl-num) {
+  .pregnancy-calculator-tl-row-past .pregnancy-calculator-tl-num {
     color: var(--pc-tri-accent);
   }
 
-  :global(.pregnancy-calculator-tl-row-current .pregnancy-calculator-tl-num) {
+  .pregnancy-calculator-tl-row-current .pregnancy-calculator-tl-num {
     color: var(--pc-tri-accent);
     font-size: 0.875rem;
   }
 
-  :global(.pregnancy-calculator-tl-label) {
+  .pregnancy-calculator-tl-label {
     font-size: 0.6875rem;
     color: var(--pc-text-dim);
     white-space: nowrap;
@@ -959,7 +959,7 @@
     text-overflow: ellipsis;
   }
 
-  :global(.pregnancy-calculator-tl-row-current .pregnancy-calculator-tl-label) {
+  .pregnancy-calculator-tl-row-current .pregnancy-calculator-tl-label {
     color: var(--pc-tri-text);
     font-weight: 600;
     font-size: 0.75rem;
@@ -994,20 +994,20 @@
       gap: 0.25rem;
     }
 
-    :global(.pregnancy-calculator-tl-row) {
+    .pregnancy-calculator-tl-row {
       flex-direction: column;
       align-items: center;
       padding: 0.5rem 0.375rem;
       min-width: 3rem;
     }
 
-    :global(.pregnancy-calculator-tl-line-col) {
+    .pregnancy-calculator-tl-line-col {
       flex-direction: row;
       width: auto;
       padding-top: 0;
     }
 
-    :global(.pregnancy-calculator-tl-line) {
+    .pregnancy-calculator-tl-line {
       width: 1.25rem;
       height: 2px;
       min-height: 0;
@@ -1015,13 +1015,13 @@
       margin-left: 2px;
     }
 
-    :global(.pregnancy-calculator-tl-info) {
+    .pregnancy-calculator-tl-info {
       flex-direction: column;
       align-items: center;
       gap: 0.125rem;
     }
 
-    :global(.pregnancy-calculator-tl-label) {
+    .pregnancy-calculator-tl-label {
       display: none;
     }
 

@@ -20,7 +20,7 @@
   transition: transform 0.3s ease;
 }
 
-:global(.theme-dark) .vc-card {
+.theme-dark .vc-card {
   --bg-card: #1e293b;
   --border: rgba(255, 255, 255, 0.1);
   --text-main: #f1f5f9;
@@ -84,7 +84,7 @@
   background: #fef2f2;
 }
 
-:global(.theme-dark) .vc-triple-input.has-error {
+.theme-dark .vc-triple-input.has-error {
   background: rgba(239, 68, 68, 0.05);
 }
 
@@ -198,7 +198,7 @@
   margin-bottom: 2rem;
 }
 
-:global(.vc-vac-item) {
+.vc-vac-item {
   display: flex;
   align-items: center;
   gap: 1rem;
@@ -210,7 +210,7 @@
   transition: 0.2s;
 }
 
-:global(.vc-vac-icon) {
+.vc-vac-icon {
   width: 48px;
   height: 48px;
   display: flex;
@@ -224,15 +224,15 @@
   flex-shrink: 0;
 }
 
-:global(.theme-dark) :global(.vc-vac-icon) {
+.theme-dark .vc-vac-icon {
   background: #0f172a;
 }
 
-:global(.vc-vac-info) {
+.vc-vac-info {
   flex: 1;
 }
 
-:global(.vc-vac-name) {
+.vc-vac-name {
   display: block;
   font-weight: 700;
   font-size: 1rem;
@@ -304,7 +304,7 @@
   gap: 0.5rem;
 }
 
-:global(.vc-timeline-row) {
+.vc-timeline-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -313,11 +313,11 @@
   font-size: 0.9rem;
 }
 
-:global(.vc-timeline-row:last-child) {
+.vc-timeline-row:last-child {
   border-bottom: none;
 }
 
-:global(.vc-timeline-age) {
+.vc-timeline-age {
   font-weight: 800;
   color: var(--primary);
   width: 6.5rem;
@@ -327,7 +327,7 @@
   letter-spacing: 0.02em;
 }
 
-:global(.vc-timeline-vac) {
+.vc-timeline-vac {
   flex: 1;
   font-weight: 600;
   color: var(--text-main);
@@ -337,7 +337,7 @@
   padding: 0 0.5rem;
 }
 
-:global(.vc-vac-pill) {
+.vc-vac-pill {
   padding: 0.15rem 0.5rem;
   background: var(--primary-soft);
   border-radius: 6px;
@@ -346,13 +346,13 @@
   border: 1px solid rgba(79, 70, 229, 0.1);
 }
 
-:global(.theme-dark) .vc-vac-pill {
+.theme-dark .vc-vac-pill {
   background: var(--primary-soft);
   color: var(--primary);
   border: 1px solid var(--primary-soft);
 }
 
-:global(.vc-timeline-status) {
+.vc-timeline-status {
   font-size: 0.65rem;
   font-weight: 900;
   text-transform: uppercase;
@@ -362,11 +362,11 @@
   letter-spacing: 0.05em;
 }
 
-:global(.vc-check) {
+.vc-check {
   color: var(--success);
 }
 
-:global(.vc-clock) {
+.vc-clock {
   color: var(--warning);
 }
 
