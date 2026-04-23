@@ -165,7 +165,8 @@ const { ui } = Astro.props;
       recurringList.innerHTML = '';
 
       state.items.forEach((item, index) => {
-        const price = item.userPrice !== undefined ? item.userPrice : item.basePrice[state.lifestyle];
+        const basePrice = item.basePrice[state.lifestyle] * ui.currencyMultiplier;
+        const price = item.userPrice !== undefined ? item.userPrice : basePrice;
         const finalPrice = (item.isSecondHand || item.isWishlist) ? 0 : price;
 
         const row = document.createElement('div');
@@ -228,21 +229,24 @@ const { ui } = Astro.props;
         let mTotal = 0;
         if (m === 0) {
           state.items.filter(i => i.category === 'before').forEach(i => {
-            if (!i.isSecondHand && !i.isWishlist) mTotal += (i.userPrice ?? i.basePrice[state.lifestyle]);
+          const basePrice = i.basePrice[state.lifestyle] * ui.currencyMultiplier;
+          if (!i.isSecondHand && !i.isWishlist) mTotal += (i.userPrice ?? basePrice);
           });
         }
         if (m === 6) {
           state.items.filter(i => i.category === 'milestones').forEach(i => {
-            if (!i.isSecondHand && !i.isWishlist) mTotal += (i.userPrice ?? i.basePrice[state.lifestyle]);
+          const basePrice = i.basePrice[state.lifestyle] * ui.currencyMultiplier;
+          if (!i.isSecondHand && !i.isWishlist) mTotal += (i.userPrice ?? basePrice);
           });
         }
         state.items.filter(i => i.category === 'monthly').forEach(i => {
           if (i.id === 'daycare' && state.childcare === 'home') return;
-          if (!i.isSecondHand && !i.isWishlist) mTotal += (i.userPrice ?? i.basePrice[state.lifestyle]);
+          const basePrice = i.basePrice[state.lifestyle] * ui.currencyMultiplier;
+          if (!i.isSecondHand && !i.isWishlist) mTotal += (i.userPrice ?? basePrice);
         });
         
-        if (state.feeding === 'formula') mTotal += (state.lifestyle === 'premium' ? 100 : 60);
-        if (state.feeding === 'mixed') mTotal += (state.lifestyle === 'premium' ? 50 : 30);
+        if (state.feeding === 'formula') mTotal += (state.lifestyle === 'premium' ? 100 : 60) * ui.currencyMultiplier;
+        if (state.feeding === 'mixed') mTotal += (state.lifestyle === 'premium' ? 50 : 30) * ui.currencyMultiplier;
         
         monthExpenses.push(mTotal);
         totalFirstYear += mTotal;
@@ -289,7 +293,7 @@ const { ui } = Astro.props;
       if (du > 0) {
         const cpu = (dp / du).toFixed(2);
         const monthly = (cpu * 200).toFixed(0);
-        document.getElementById('bbp-diaper-res').textContent = cpu + ' ' + ui.currencySymbol + '/u ~ ' + monthly + ' ' + ui.currencySymbol + '/month';
+        document.getElementById('bbp-diaper-res').textContent = cpu + ' ' + ui.currencySymbol + '/u ~ ' + monthly + ' ' + ui.currencySymbol + ui.perMonthLabel;
       }
     }
 
@@ -337,7 +341,7 @@ const { ui } = Astro.props;
         render();
       } else {
         btn.dataset.confirm = 'true';
-        btn.textContent = 'Are you sure?';
+        btn.textContent = ui.confirmReset;
         clearTimeout(resetTimeout);
         resetTimeout = setTimeout(() => {
           btn.textContent = ui.resetBtn;

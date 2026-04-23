@@ -176,5 +176,8 @@ export const content: ToolLocaleContent<BabyBudgetPlannerUI> = {
     currencySymbol: 'zł',
     monthPrefix: 'M',
     initialMonthLabel: 'Start',
+    perMonthLabel: '/miesiąc',
+    confirmReset: 'Czy na pewno?',
+    currencyMultiplier: 4.3,
   },
 };

@@ -176,5 +176,8 @@ export const content: ToolLocaleContent<BabyBudgetPlannerUI> = {
     currencySymbol: 'Rp',
     monthPrefix: 'B',
     initialMonthLabel: 'Mulai',
+    perMonthLabel: '/bulan',
+    confirmReset: 'Apakah Anda yakin?',
+    currencyMultiplier: 17000,
   },
 };

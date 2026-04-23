@@ -46,6 +46,9 @@ export interface BabyBudgetPlannerUI {
   currencySymbol: string;
   monthPrefix: string;
   initialMonthLabel: string;
+  perMonthLabel: string;
+  confirmReset: string;
+  currencyMultiplier: number;
 }
 
 export const babyBudgetPlanner = {

@@ -175,6 +175,9 @@ export const content: ToolLocaleContent<BabyBudgetPlannerUI> = {
     resetBtn: 'Planı Sıfırla',
     currencySymbol: '₺',
     monthPrefix: 'A',
-    initialMonthLabel: 'Başlangıç',
+    initialMonthLabel: 'Başlat',
+    perMonthLabel: '/ay',
+    confirmReset: 'Emin misiniz?',
+    currencyMultiplier: 35,
   },
 };

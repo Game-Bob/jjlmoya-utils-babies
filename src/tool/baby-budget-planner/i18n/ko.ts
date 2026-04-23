@@ -176,5 +176,8 @@ export const content: ToolLocaleContent<BabyBudgetPlannerUI> = {
     currencySymbol: '원',
     monthPrefix: 'M',
     initialMonthLabel: '시작',
+    perMonthLabel: '/월',
+    confirmReset: '확실합니까?',
+    currencyMultiplier: 1450,
   },
 };
