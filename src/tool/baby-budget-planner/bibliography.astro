@@ -1,13 +1,13 @@
 ---
 import { Bibliography as BibliographyUI } from "@jjlmoya/utils-shared";
-import { babyFeedingCalculator } from "./index";
+import { babyBudgetPlanner } from "./index";
 import type { KnownLocale } from "../../types";
 
 interface Props {
     locale?: KnownLocale;
 }
 const { locale = "es" } = Astro.props;
-const content = await babyFeedingCalculator.i18n[locale]?.();
+const content = await babyBudgetPlanner.i18n[locale]?.();
 if (!content) return null;
 ---
 

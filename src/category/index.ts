@@ -6,10 +6,13 @@ import { fertileDaysEstimator } from '../tool/fertile-days-estimator/entry';
 import { babyPercentileCalculator } from '../tool/baby-percentile-calculator/entry';
 import { pregnancyCalculator } from '../tool/pregnancy-calculator/entry';
 
+import { babyBudgetPlanner } from '../tool/baby-budget-planner/entry';
+
 export const babiesCategory: BabiesCategoryEntry = {
   icon: 'mdi:baby-carriage',
   tools: [
     babyFeedingCalculator,
+    babyBudgetPlanner,
     babySizeConverter,
     vaccinationCalendar,
     fertileDaysEstimator,

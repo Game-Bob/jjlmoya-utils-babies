@@ -1,6 +1,7 @@
 export { babiesCategory } from './category';
 
 export * from './tool/baby-feeding-calculator';
+export * from './tool/baby-budget-planner';
 export * from './tool/baby-size-converter';
 export * from './tool/baby-percentile-calculator';
 export * from './tool/fertile-days-estimator';

@@ -1,0 +1,402 @@
+---
+import type { BabyBudgetPlannerUI } from './entry';
+import { DEFAULT_ITEMS } from './logic';
+interface Props { ui: BabyBudgetPlannerUI; }
+const { ui } = Astro.props;
+---
+<div id="bbp-root" class="bbp-card" data-ui={JSON.stringify(ui)} data-defaults={JSON.stringify(DEFAULT_ITEMS)}>
+  <div class="bbp-main">
+    <div class="bbp-left">
+      <div id="bbp-onboarding-view">
+        <span class="bbp-section-marker">{ui.onboardingTitle}</span>
+        
+        <div class="bbp-group">
+          <label class="bbp-label">{ui.lifestyleLabel}</label>
+          <div class="bbp-options-grid" data-key="lifestyle">
+            <button class="bbp-choice-btn active" data-value="saving">{ui.lifestyleSaving}</button>
+            <button class="bbp-choice-btn" data-value="balanced">{ui.lifestyleBalanced}</button>
+            <button class="bbp-choice-btn" data-value="premium">{ui.lifestylePremium}</button>
+          </div>
+        </div>
+
+        <div class="bbp-group">
+          <label class="bbp-label">{ui.feedingLabel}</label>
+          <div class="bbp-options-grid" data-key="feeding">
+            <button class="bbp-choice-btn active" data-value="breast">{ui.feedingBreast}</button>
+            <button class="bbp-choice-btn" data-value="formula">{ui.feedingFormula}</button>
+            <button class="bbp-choice-btn" data-value="mixed">{ui.feedingMixed}</button>
+          </div>
+        </div>
+
+        <div class="bbp-group">
+          <label class="bbp-label">{ui.childcareLabel}</label>
+          <div class="bbp-options-grid" data-key="childcare">
+            <button class="bbp-choice-btn active" data-value="home">{ui.childcareHome}</button>
+            <button class="bbp-choice-btn" data-value="public">{ui.childcarePublic}</button>
+            <button class="bbp-choice-btn" data-value="private">{ui.childcarePrivate}</button>
+          </div>
+        </div>
+
+        <button id="bbp-start-btn" class="bbp-cta-btn">{ui.startBtn}</button>
+      </div>
+
+      <div id="bbp-dashboard-view" class="bbp-hidden">
+        <div class="bbp-dashboard-section">
+          <span class="bbp-section-marker">{ui.categoryBeforeBirth}</span>
+          <div id="bbp-items-startup"></div>
+        </div>
+        <div class="bbp-dashboard-section">
+          <span class="bbp-section-marker">{ui.categoryMonthByMonth}</span>
+          <div id="bbp-items-recurring"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bbp-right">
+      <div id="bbp-import-callout" class="bbp-import-promo">
+        <div class="bbp-promo-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+        </div>
+        <button id="bbp-import-cta" class="bbp-tool-btn primary-btn">{ui.importBtn}</button>
+      </div>
+
+      <div class="bbp-dashboard-only bbp-hidden bbp-right-col">
+        <div class="bbp-panel bbp-total-box">
+          <span class="bbp-stat-label">{ui.totalNeededLabel}</span>
+          <div class="bbp-total-val" id="bbp-total-needed">0 {ui.currencySymbol}</div>
+          <div class="bbp-progress-rail">
+            <div class="bbp-progress-thumb" id="bbp-progress-fill" style="width: 0%"></div>
+          </div>
+          <span class="bbp-stat-label" id="bbp-progress-text">0% {ui.savingsProgressLabel}</span>
+        </div>
+
+        <div class="bbp-panel">
+          <span class="bbp-section-marker">{ui.chartTitle}</span>
+          <div class="bbp-curve-wrapper">
+            <div class="bbp-curve-chart" id="bbp-curve-viz"></div>
+            <div class="bbp-curve-labels" id="bbp-curve-labels"></div>
+          </div>
+        </div>
+
+        <div class="bbp-panel bbp-ghost-list">
+          <span class="bbp-section-marker">{ui.ghostAlertsTitle}</span>
+          <div class="bbp-ghost-item">{ui.ghostInsurance}</div>
+          <div class="bbp-ghost-item">{ui.ghostHeating}</div>
+          <div class="bbp-ghost-item">{ui.ghostVaccines}</div>
+        </div>
+
+        <div class="bbp-panel bbp-diaper-tool">
+          <span class="bbp-section-marker">{ui.diaperCalcTitle}</span>
+          <div class="bbp-diaper-grid">
+            <div class="bbp-group">
+              <label class="bbp-label">{ui.diaperPriceLabel}</label>
+              <input type="number" id="bbp-diaper-price" class="bbp-input-fancy" />
+            </div>
+            <div class="bbp-group">
+              <label class="bbp-label">{ui.diaperUnitsLabel}</label>
+              <input type="number" id="bbp-diaper-units" class="bbp-input-fancy" />
+            </div>
+          </div>
+          <div id="bbp-diaper-res" class="bbp-diaper-result"></div>
+        </div>
+
+        <div class="bbp-action-grid">
+          <button id="bbp-export-btn" class="bbp-tool-btn">{ui.exportBtn}</button>
+          <button id="bbp-reset-btn" class="bbp-tool-btn">{ui.resetBtn}</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <input type="file" id="bbp-import-input" class="bbp-hidden" accept=".json" />
+</div>
+
+<script is:inline>
+  (function() {
+    const root = document.getElementById('bbp-root');
+    if (!root) return;
+    const ui = JSON.parse(root.dataset.ui);
+    const defaults = JSON.parse(root.dataset.defaults);
+
+    let state = {
+      lifestyle: 'saving',
+      feeding: 'breast',
+      childcare: 'home',
+      items: JSON.parse(JSON.stringify(defaults)),
+      diaperCalc: { price: 20, units: 80 },
+      isStarted: false
+    };
+
+    const storageKey = 'bbp_user_data';
+
+    function save() {
+      localStorage.setItem(storageKey, JSON.stringify(state));
+      render();
+    }
+
+    function load() {
+      const saved = localStorage.getItem(storageKey);
+      if (saved) {
+        state = JSON.parse(saved);
+        if (state.isStarted) {
+          root.classList.add('is-started');
+          document.getElementById('bbp-onboarding-view').classList.add('bbp-hidden');
+          document.getElementById('bbp-dashboard-view').classList.remove('bbp-hidden');
+          document.getElementById('bbp-import-callout').classList.add('bbp-hidden');
+          root.querySelectorAll('.bbp-dashboard-only').forEach(el => el.classList.remove('bbp-hidden'));
+          
+          root.querySelectorAll('.bbp-options-grid').forEach(group => {
+            const val = state[group.dataset.key];
+            group.querySelectorAll('.bbp-choice-btn').forEach(btn => {
+              btn.classList.toggle('active', btn.dataset.value === val);
+            });
+          });
+          document.getElementById('bbp-diaper-price').value = state.diaperCalc.price;
+          document.getElementById('bbp-diaper-units').value = state.diaperCalc.units;
+        }
+      }
+    }
+
+    function render() {
+      const startupList = document.getElementById('bbp-items-startup');
+      const recurringList = document.getElementById('bbp-items-recurring');
+      if (!startupList || !recurringList) return;
+      startupList.innerHTML = '';
+      recurringList.innerHTML = '';
+
+      state.items.forEach((item, index) => {
+        const price = item.userPrice !== undefined ? item.userPrice : item.basePrice[state.lifestyle];
+        const finalPrice = (item.isSecondHand || item.isWishlist) ? 0 : price;
+
+        const row = document.createElement('div');
+        row.className = 'bbp-item-row';
+        row.innerHTML = `
+          <div class="bbp-item-meta">
+            <span class="bbp-item-name">${ui[item.labelKey]}</span>
+            <div class="bbp-toggles">
+              <span class="bbp-toggle-pill sh ${item.isSecondHand ? 'checked' : ''}" data-idx="${index}" data-prop="isSecondHand">${ui.secondHandLabel}</span>
+              <span class="bbp-toggle-pill wl ${item.isWishlist ? 'checked' : ''}" data-idx="${index}" data-prop="isWishlist">${ui.wishlistLabel}</span>
+            </div>
+          </div>
+          <div class="bbp-price-area">
+            <span class="bbp-price-bubble ${finalPrice === 0 ? 'is-zero' : ''}" data-idx="${index}">${finalPrice} ${ui.currencySymbol}</span>
+            <input type="number" class="bbp-input-fancy bbp-hidden bbp-price-input" data-idx="${index}" value="${price}" />
+          </div>
+        `;
+        
+        const bubble = row.querySelector('.bbp-price-bubble');
+        const input = row.querySelector('.bbp-price-input');
+
+        bubble.addEventListener('click', () => {
+          bubble.classList.add('bbp-hidden');
+          input.classList.remove('bbp-hidden');
+          input.focus();
+        });
+
+        input.addEventListener('blur', () => {
+          const val = parseFloat(input.value);
+          if (!isNaN(val)) {
+            state.items[index].userPrice = val;
+            save();
+          }
+          bubble.classList.remove('bbp-hidden');
+          input.classList.add('bbp-hidden');
+        });
+
+        input.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter') input.blur();
+        });
+
+        row.querySelectorAll('.bbp-toggle-pill').forEach(pill => {
+          pill.addEventListener('click', () => {
+            const prop = pill.dataset.prop;
+            state.items[index][prop] = !state.items[index][prop];
+            save();
+          });
+        });
+
+        if (item.category === 'monthly') {
+          recurringList.appendChild(row);
+        } else {
+          startupList.appendChild(row);
+        }
+      });
+
+      let totalFirstYear = 0;
+      const monthExpenses = [];
+      for (let m = 0; m <= 12; m++) {
+        let mTotal = 0;
+        if (m === 0) {
+          state.items.filter(i => i.category === 'before').forEach(i => {
+            if (!i.isSecondHand && !i.isWishlist) mTotal += (i.userPrice ?? i.basePrice[state.lifestyle]);
+          });
+        }
+        if (m === 6) {
+          state.items.filter(i => i.category === 'milestones').forEach(i => {
+            if (!i.isSecondHand && !i.isWishlist) mTotal += (i.userPrice ?? i.basePrice[state.lifestyle]);
+          });
+        }
+        state.items.filter(i => i.category === 'monthly').forEach(i => {
+          if (i.id === 'daycare' && state.childcare === 'home') return;
+          if (!i.isSecondHand && !i.isWishlist) mTotal += (i.userPrice ?? i.basePrice[state.lifestyle]);
+        });
+        
+        if (state.feeding === 'formula') mTotal += (state.lifestyle === 'premium' ? 100 : 60);
+        if (state.feeding === 'mixed') mTotal += (state.lifestyle === 'premium' ? 50 : 30);
+        
+        monthExpenses.push(mTotal);
+        totalFirstYear += mTotal;
+      }
+
+      document.getElementById('bbp-total-needed').textContent = Math.round(totalFirstYear) + ' ' + ui.currencySymbol;
+      
+      const itemsHandled = state.items.filter(i => i.isSecondHand || i.isWishlist).length;
+      const progress = Math.round((itemsHandled / state.items.length) * 100);
+      document.getElementById('bbp-progress-fill').style.width = progress + '%';
+      document.getElementById('bbp-progress-text').textContent = progress + '% ' + ui.savingsProgressLabel;
+
+      const curveViz = document.getElementById('bbp-curve-viz');
+      const curveLabels = document.getElementById('bbp-curve-labels');
+      if (curveViz && curveLabels) {
+        curveViz.innerHTML = '';
+        curveLabels.innerHTML = '';
+        const maxExp = Math.max(...monthExpenses, 1);
+        monthExpenses.forEach((exp, i) => {
+          const barWrap = document.createElement('div');
+          barWrap.className = 'bbp-bar-wrap';
+          
+          const bar = document.createElement('div');
+          bar.className = 'bbp-bar';
+          bar.style.height = (exp / maxExp * 100) + '%';
+          
+          const val = document.createElement('span');
+          val.className = 'bbp-bar-val';
+          val.textContent = Math.round(exp);
+          
+          barWrap.appendChild(val);
+          barWrap.appendChild(bar);
+          curveViz.appendChild(barWrap);
+
+          const lbl = document.createElement('span');
+          lbl.className = 'bbp-bar-lbl';
+          lbl.textContent = i === 0 ? ui.initialMonthLabel : ui.monthPrefix + i;
+          curveLabels.appendChild(lbl);
+        });
+      }
+
+      const dp = state.diaperCalc.price;
+      const du = state.diaperCalc.units;
+      if (du > 0) {
+        const cpu = (dp / du).toFixed(2);
+        const monthly = (cpu * 200).toFixed(0);
+        document.getElementById('bbp-diaper-res').textContent = cpu + ' ' + ui.currencySymbol + '/u ~ ' + monthly + ' ' + ui.currencySymbol + '/month';
+      }
+    }
+
+    root.querySelectorAll('.bbp-choice-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const group = btn.closest('[data-key]');
+        state[group.dataset.key] = btn.dataset.value;
+        group.querySelectorAll('.bbp-choice-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        if (state.isStarted) save();
+      });
+    });
+
+    document.getElementById('bbp-start-btn').addEventListener('click', () => {
+      state.isStarted = true;
+      root.classList.add('is-started');
+      document.getElementById('bbp-onboarding-view').classList.add('bbp-hidden');
+      document.getElementById('bbp-dashboard-view').classList.remove('bbp-hidden');
+      document.getElementById('bbp-import-callout').classList.add('bbp-hidden');
+      root.querySelectorAll('.bbp-dashboard-only').forEach(el => el.classList.remove('bbp-hidden'));
+      save();
+    });
+
+    let resetTimeout;
+    document.getElementById('bbp-reset-btn').addEventListener('click', (e) => {
+      const btn = e.target;
+      if (btn.dataset.confirm === 'true') {
+        localStorage.removeItem(storageKey);
+        state = {
+          lifestyle: 'saving',
+          feeding: 'breast',
+          childcare: 'home',
+          items: JSON.parse(JSON.stringify(defaults)),
+          diaperCalc: { price: 20, units: 80 },
+          isStarted: false
+        };
+        root.classList.remove('is-started');
+        document.getElementById('bbp-dashboard-view').classList.add('bbp-hidden');
+        document.getElementById('bbp-onboarding-view').classList.remove('bbp-hidden');
+        document.getElementById('bbp-import-callout').classList.remove('bbp-hidden');
+        root.querySelectorAll('.bbp-dashboard-only').forEach(el => el.classList.add('bbp-hidden'));
+        
+        btn.textContent = ui.resetBtn;
+        delete btn.dataset.confirm;
+        render();
+      } else {
+        btn.dataset.confirm = 'true';
+        btn.textContent = 'Are you sure?';
+        clearTimeout(resetTimeout);
+        resetTimeout = setTimeout(() => {
+          btn.textContent = ui.resetBtn;
+          delete btn.dataset.confirm;
+        }, 3000);
+      }
+    });
+
+    document.getElementById('bbp-export-btn').addEventListener('click', () => {
+      const blob = new Blob([JSON.stringify(state)], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'budget.json';
+      a.click();
+    });
+
+    const triggerImport = () => document.getElementById('bbp-import-input').click();
+    document.getElementById('bbp-import-cta').addEventListener('click', triggerImport);
+
+    document.getElementById('bbp-import-input').addEventListener('change', (e) => {
+      const file = e.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = (event) => {
+        try {
+          state = JSON.parse(event.target.result);
+          save();
+          if (state.isStarted) {
+            root.classList.add('is-started');
+            document.getElementById('bbp-onboarding-view').classList.add('bbp-hidden');
+            document.getElementById('bbp-dashboard-view').classList.remove('bbp-hidden');
+            document.getElementById('bbp-import-callout').classList.add('bbp-hidden');
+            root.querySelectorAll('.bbp-dashboard-only').forEach(el => el.classList.remove('bbp-hidden'));
+          } else {
+            root.classList.remove('is-started');
+            document.getElementById('bbp-onboarding-view').classList.remove('bbp-hidden');
+            document.getElementById('bbp-dashboard-view').classList.add('bbp-hidden');
+            document.getElementById('bbp-import-callout').classList.remove('bbp-hidden');
+            root.querySelectorAll('.bbp-dashboard-only').forEach(el => el.classList.add('bbp-hidden'));
+          }
+          render();
+        } catch {
+          alert('Error');
+        }
+      };
+      reader.readAsText(file);
+    });
+
+    document.getElementById('bbp-diaper-price').addEventListener('input', (e) => {
+      state.diaperCalc.price = parseFloat(e.target.value) || 0;
+      save();
+    });
+    document.getElementById('bbp-diaper-units').addEventListener('input', (e) => {
+      state.diaperCalc.units = parseFloat(e.target.value) || 0;
+      save();
+    });
+
+    load();
+    if (state.isStarted) render();
+  })();
+</script>

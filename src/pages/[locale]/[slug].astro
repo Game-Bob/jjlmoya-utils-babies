@@ -16,47 +16,19 @@ export async function getStaticPaths() {
 
   for (const { entry, Component: lazyComp } of ALL_TOOLS) {
     const { default: Component } = await lazyComp();
-    const localeEntries = Object.entries(entry.i18n) as [
-      KnownLocale,
-      () => Promise<ToolLocaleContent>,
-    ][];
-    const localeContents = await Promise.all(
-      localeEntries.map(async ([locale, loader]) => ({
-        locale,
-        content: await loader(),
-      })),
-    );
-
-    const localeUrls = Object.fromEntries(
-      localeContents.map(({ locale, content }) => [
-        locale,
-        `/${locale}/${content.slug}`,
-      ]),
-    ) as Partial<Record<KnownLocale, string>>;
-
-    const firstLoader = entry.i18n.en ?? Object.values(entry.i18n)[0];
-    const englishSlug = firstLoader ? (await firstLoader()).slug : entry.id;
+    const localeEntries = Object.entries(entry.i18n) as [KnownLocale, () => Promise<ToolLocaleContent>][];
+    const localeContents = await Promise.all(localeEntries.map(async ([locale, loader]) => ({ locale, content: await loader() })));
+    const localeUrls = Object.fromEntries(localeContents.map(({ locale, content }) => [locale, `/${locale}/${content.slug}`])) as Partial<Record<KnownLocale, string>>;
+    const englishSlug = entry.i18n.en ? (await entry.i18n.en()).slug : entry.id;
 
     for (const { locale, content } of localeContents) {
-      const allToolsNav = (
-        await Promise.all(
-          ALL_TOOLS.map(async ({ entry: navEntry }) => {
-            const loader = navEntry.i18n[locale] ?? navEntry.i18n.en;
-            if (!loader) return null;
-            const navContent = await loader();
-            return {
-              id: navEntry.id,
-              title: navContent.title,
-              href: `/${locale}/${navContent.slug}`,
-              isActive: navEntry.id === entry.id,
-            };
-          }),
-        )
-      ).filter(Boolean) as NavItem[];
-      paths.push({
-        params: { locale, slug: content.slug },
-        props: { Component, locale, content, localeUrls, allToolsNav, englishSlug },
-      });
+      const allToolsNav = (await Promise.all(ALL_TOOLS.map(async ({ entry: n }) => {
+        const l = n.i18n[locale] ?? n.i18n.en;
+        if (!l) return null;
+        const c = await l();
+        return { id: n.id, title: c.title, href: `/${locale}/${c.slug}`, isActive: n.id === entry.id };
+      }))).filter(Boolean) as NavItem[];
+      paths.push({ params: { locale, slug: content.slug }, props: { Component, locale, content, localeUrls, allToolsNav, englishSlug } });
     }
   }
 
@@ -79,22 +51,17 @@ interface Props {
   englishSlug: string;
 }
 
-const { Component, locale, content, localeUrls, allToolsNav, englishSlug } = Astro.props;
+const { Component, locale, content, localeUrls, allToolsNav, englishSlug } =
+  Astro.props;
 
-let toolCss = "";
-try {
-  const globPattern = "../../tool/*/*.css";
-  const cssFiles = import.meta.glob(globPattern, { query: "?raw", import: "default" });
-  const cssKey = Object.keys(cssFiles).find((k) => k.endsWith(`/${englishSlug}.css`));
-  if (cssKey) {
-    const loader = cssFiles[cssKey];
-    if (typeof loader === 'function') {
-      toolCss = await loader() as string;
-    }
-  }
-} catch {
-  // CSS file not found, continue without it
-}
+const cssFiles = import.meta.glob("../" + "../tool/**" + "/*.css", {
+  query: "?raw",
+  import: "default",
+});
+const cssKey = Object.keys(cssFiles).find((k) =>
+  k.endsWith(`/${englishSlug}.css`),
+);
+const toolCss = cssKey ? ((await cssFiles[cssKey]()) as string) : "";
 
 const seoContent: UtilitySEOContent = { locale, sections: content.seo ?? [] };
 
@@ -109,15 +76,11 @@ const titleBase = words.slice(1).join(" ") || "";
   localeUrls={localeUrls}
   hasSidebar={true}
 >
-  <PreviewNavSidebar
-    slot="sidebar"
-    categoryTitle="Tools"
-    tools={allToolsNav}
-  />
+  <PreviewNavSidebar slot="sidebar" categoryTitle="Tools" tools={allToolsNav} />
   <Fragment slot="head">
-    {toolCss ? <style is:inline set:html={toolCss} /> : null}
+    {toolCss && <style set:html={toolCss} />}
     {
-      ( content.schemas ?? []).map((schema: unknown) => (
+      (content.schemas ?? []).map((schema) => (
         <script
           is:inline
           type="application/ld+json"
@@ -143,11 +106,11 @@ const titleBase = words.slice(1).join(" ") || "";
     </section>
 
     <section class="section-faq">
-      <FAQSection items={content.faq} title={content.ui['faqTitle'] ?? ''} inLanguage={locale} />
+      <FAQSection items={content.faq} inLanguage={locale} />
     </section>
 
     <section class="section-bibliography">
-      <Bibliography links={content.bibliography} title={content.ui['bibliographyTitle'] ?? ''} />
+      <Bibliography links={content.bibliography} />
     </section>
   </div>
 </PreviewLayout>
@@ -158,11 +121,13 @@ const titleBase = words.slice(1).join(" ") || "";
     flex-direction: column;
     gap: 2rem;
   }
+
   .section-tool {
     max-width: 1200px;
     margin: 0 auto;
     width: 100%;
   }
+
   .section-seo,
   .section-faq,
   .section-bibliography {
