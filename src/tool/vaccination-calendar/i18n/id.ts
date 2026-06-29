@@ -154,7 +154,7 @@ export const content: VaccinationCalendarLocaleContent = {
     { type: 'title', text: 'Efek samping umum', level: 3 },
     { type: 'list', items: [
       'Kemerahan atau bengkak di lokasi suntikan: hilang dalam 1-2 hari.',
-      'Demam ringan (37.5–38.5 °C): normal dalam 24-48 jam pertama.',
+      'Demam ringan (37.5-38.5 °C): normal dalam 24-48 jam pertama.',
       'Rewel atau menangis: sering terjadi pada bayi setelah dosis pertama.',
       'Mengantuk atau kurang nafsu makan sementara: tidak memerlukan perawatan khusus.',
       'Reaksi serius seperti anafilaksis sangat jarang terjadi (kurang dari 1 per sejuta dosis).',

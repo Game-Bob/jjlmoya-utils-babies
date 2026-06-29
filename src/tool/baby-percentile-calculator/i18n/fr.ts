@@ -7,7 +7,7 @@ const description = 'Calculez le percentile de poids, taille et IMC de votre bé
 const faq = [
   {
     question: 'Que signifie le 50e percentile ?',
-    answer: 'Le 50e percentile indique que le bébé se trouve exactement à la médiane : la moitié des bébés du même âge et sexe pèse ou mesure plus, et l\'autre moitié moins. Cela ne signifie pas que c\'est la valeur idéale, mais simplement la valeur centrale de la distribution.',
+    answer: 'Le 50e percentile indique que le bébé se trouve exactement à la médiane: la moitié des bébés du même âge et sexe pèse ou mesure plus, et l\'autre moitié moins. Cela ne signifie pas que c\'est la valeur idéale, mais simplement la valeur centrale de la distribution.',
   },
   {
     question: 'Un percentile bas est-il signe de problème ?',
@@ -113,14 +113,14 @@ export const content: BabyPercentileCalculatorLocaleContent = {
   seo: [
     {
       type: 'title',
-      text: "Calculateur de Percentiles OMS : Guide pour comprendre la croissance de votre bébé",
+      text: "Calculateur de Percentiles OMS: Guide pour comprendre la croissance de votre bébé",
       level: 2,
     },
     {
       type: 'summary',
       title: "5 points essentiels pour interpréter les percentiles de votre bébé",
       items: [
-        "Aucun percentile isolé ne définit la santé de votre bébé : c'est la tendance dans le temps qui compte.",
+        "Aucun percentile isolé ne définit la santé de votre bébé: c'est la tendance dans le temps qui compte.",
         "Les percentiles entre P3 et P97 sont considérés dans la plage de normalité statistique.",
         "L'IMC du nourrisson suit ses propres courbes et ne doit pas être comparé aux valeurs de référence adultes.",
         "Les courbes OMS sont basées sur des bébés élevés dans des conditions optimales, dont l'allaitement exclusif les premiers mois.",

@@ -314,9 +314,9 @@ export const content: PregnancyCalculatorLocaleContent = {
       type: 'table',
       headers: ['孕期', '周数', '主要里程碑', '母体状况'],
       rows: [
-        ['早期', '1 – 12', '器官形成', '恶心、疲劳、胚胎着床'],
-        ['中期', '13 – 26', '胎动开始、大排畸检查', '精力恢复、腹部明显'],
-        ['晚期', '27 – 40', '肺部发育呼吸、入盆', '盆腔压力、准备分娩'],
+        ['早期', '1 - 12', '器官形成', '恶心、疲劳、胚胎着床'],
+        ['中期', '13 - 26', '胎动开始、大排畸检查', '精力恢复、腹部明显'],
+        ['晚期', '27 - 40', '肺部发育呼吸、入盆', '盆腔压力、准备分娩'],
       ],
     },
     {
@@ -329,7 +329,7 @@ export const content: PregnancyCalculatorLocaleContent = {
       headers: ['周数', '大约大小', '生物学里程碑', '准妈妈的感觉'],
       rows: [
         ['4', '~1 mm', '在子宫内膜着床', '可能出现轻微见红'],
-        ['8', '~18 mm', '胎心每分钟150–170次', '恶心达到高峰'],
+        ['8', '~18 mm', '胎心每分钟150-170次', '恶心达到高峰'],
         ['12', '~55 mm', '主要器官已形成', '流产风险大幅下降'],
         ['20', '~25 cm', '能清晰听到声音', '大排畸B超检查'],
         ['28', '~37 cm', '形成睡眠觉醒周期', '孕晚期开始'],
@@ -347,7 +347,7 @@ export const content: PregnancyCalculatorLocaleContent = {
       columns: 2,
       items: [
         {
-          title: '孕早期 (1–12周)',
+          title: '孕早期 (1至12周)',
           description: '荷尔蒙变化最大的阶段。',
           points: [
             '恶心和呕吐，尤其是早晨',
@@ -358,7 +358,7 @@ export const content: PregnancyCalculatorLocaleContent = {
           ],
         },
         {
-          title: '孕中期 (13–26周)',
+          title: '孕中期 (13至26周)',
           description: '对大多数人来说最舒适的阶段。',
           points: [
             '恶心感消失',
@@ -369,7 +369,7 @@ export const content: PregnancyCalculatorLocaleContent = {
           ],
         },
         {
-          title: '孕晚期 (27–40周)',
+          title: '孕晚期 (27至40周)',
           description: '为分娩做准备。',
           points: [
             '盆腔压力和腰痛',
@@ -404,10 +404,10 @@ export const content: PregnancyCalculatorLocaleContent = {
     {
       type: 'list',
       items: [
-        '8–12周：第一次B超和孕早期血常规。',
+        '8-12周：第一次B超和孕早期血常规。',
         '12周：早期筛查（NT检查 + 生化）。',
-        '18–22周：大排畸B超（系统B超）。',
-        '24–28周：糖耐量测试（O\'Sullivan）。',
+        '18-22周：大排畸B超（系统B超）。',
+        '24-28周：糖耐量测试（O\'Sullivan）。',
         '36周：常规B超，B族链球菌筛查。',
       ],
     },
@@ -442,11 +442,11 @@ export const content: PregnancyCalculatorLocaleContent = {
   bibliographyTitle: '参考文献',
   bibliography: [
     {
-      name: 'WHO – 孕期护理',
+      name: 'WHO - 孕期护理',
       url: 'https://www.who.int/zh/news-room/fact-sheets/detail/maternal-mortality',
     },
     {
-      name: 'ACOG – 胎龄及预产期计算',
+      name: 'ACOG - 胎龄及预产期计算',
       url: 'https://www.acog.org/clinical/clinical-guidance/committee-opinion/articles/2017/05/methods-for-estimating-the-due-date',
     },
     {
@@ -454,11 +454,11 @@ export const content: PregnancyCalculatorLocaleContent = {
       url: 'https://www.china-obgyn.net',
     },
     {
-      name: 'Naegele\'s rule – Dugoff L. et al., Obstetrics & Gynecology',
+      name: 'Naegele\'s rule - Dugoff L. et al., Obstetrics & Gynecology',
       url: 'https://journals.lww.com/greenjournal/fulltext/2017/05000/methods_for_estimating_the_due_date.43.aspx',
     },
     {
-      name: 'UpToDate – 产前检查：初期评估',
+      name: 'UpToDate - 产前检查：初期评估',
       url: 'https://www.uptodate.com/contents/prenatal-care-initial-assessment',
     },
   ],

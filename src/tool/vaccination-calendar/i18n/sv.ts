@@ -154,7 +154,7 @@ export const content: VaccinationCalendarLocaleContent = {
     { type: 'title', text: 'Vanliga biverkningar', level: 3 },
     { type: 'list', items: [
       'Rodnad eller svullnad vid injektionsstället: försvinner oftast efter 1-2 dagar.',
-      'Lätt feber (37,5–38,5 °C): normalt under de första 24-48 timmarna.',
+      'Lätt feber (37,5-38,5 °C): normalt under de första 24-48 timmarna.',
       'Irritabilitet eller gråt: vanligt hos spädbarn efter de första doserna.',
       'Dåsighet eller tillfällig aptitlöshet: kräver oftast ingen behandling.',
       'Allvarliga reaktioner som anafylaxi är extremt sällsynta (färre än 1 på en miljon doser).',

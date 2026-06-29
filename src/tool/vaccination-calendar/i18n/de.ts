@@ -154,7 +154,7 @@ export const content: VaccinationCalendarLocaleContent = {
     { type: 'title', text: 'Häufige Nebenwirkungen', level: 3 },
     { type: 'list', items: [
       'Rötung oder Schwellung an der Einstichstelle: verschwindet meist nach 1-2 Tagen.',
-      'Leichtes Fieber (37,5–38,5 °C): normal in den ersten 24-48 Stunden.',
+      'Leichtes Fieber (37,5-38,5 °C): normal in den ersten 24-48 Stunden.',
       'Reizbarkeit oder Weinen: häufig bei Babys nach den ersten Dosen.',
       'Vorübergehende Schläfrigkeit oder Appetitlosigkeit: erfordert keine Behandlung.',
       'Schwere Reaktionen wie Anaphylaxie sind extrem selten (weniger als 1 von einer Million Dosen).',

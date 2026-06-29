@@ -8,15 +8,15 @@ const description = 'Hitung berapa banyak susu yang dibutuhkan bayi Anda berdasa
 const faq = [
   {
     question: 'Berapa banyak susu yang dibutuhkan bayi baru lahir?',
-    answer: 'Pada hari pertama kehidupan, lambung bayi berukuran sebesar buah ceri dan hanya membutuhkan antara 5 hingga 7 ml per sesi asupan. Sejak hari kelima, kapasitas tumbuh hingga 45–60 ml dan kebutuhan meningkat secara progresif.',
+    answer: 'Pada hari pertama kehidupan, lambung bayi berukuran sebesar buah ceri dan hanya membutuhkan antara 5 hingga 7 ml per sesi asupan. Sejak hari kelima, kapasitas tumbuh hingga 45-60 ml dan kebutuhan meningkat secara progresif.',
   },
   {
     question: 'Seberapa sering bayi harus makan?',
-    answer: 'Bayi baru lahir membutuhkan antara 8 hingga 12 sesi asupan per hari. Pada usia 3 bulan biasanya menjadi 7–8 sesi, dan pada usia 6 bulan menjadi sekitar 5 sesi harian.',
+    answer: 'Bayi baru lahir membutuhkan antara 8 hingga 12 sesi asupan per hari. Pada usia 3 bulan biasanya menjadi 7-8 sesi, dan pada usia 6 bulan menjadi sekitar 5 sesi harian.',
   },
   {
     question: 'Bagaimana saya tahu jika bayi saya cukup makan?',
-    answer: 'Indikator yang paling dapat diandalkan adalah: penambahan berat badan yang memadai, setidaknya 5–6 popok basah per hari, dan bayi menunjukkan sinyal kenyang setelah asupan.',
+    answer: 'Indikator yang paling dapat diandalkan adalah: penambahan berat badan yang memadai, setidaknya 5-6 popok basah per hari, dan bayi menunjukkan sinyal kenyang setelah asupan.',
   },
   {
     question: 'Apakah jumlah ASI dan susu formula sama?',
@@ -102,36 +102,36 @@ export const content: BabyFeedingCalculatorLocaleContent = {
   },
   seo: [
     { type: 'summary', title: 'Ringkasan: Asupan bayi', items: [
-      'Kapasitas lambung bayi baru lahir hanya sekitar 5–7 ml pada hari pertama.',
+      'Kapasitas lambung bayi baru lahir hanya sekitar 5-7 ml pada hari pertama.',
       'Referensi umum untuk formula adalah 150 ml per kg berat badan per hari.',
       'ASI diberikan sesuai permintaan tanpa volume tetap.',
-      'Frekuensi menurun seiring usia: dari 8–12 sesi ke 4–5 dalam 6 bulan.',
+      'Frekuensi menurun seiring usia: dari 8-12 sesi ke 4-5 dalam 6 bulan.',
     ]},
     { type: 'title', text: 'Berapa banyak susu yang dibutuhkan bayi saya menurut berat dan usianya?', level: 2 },
     { type: 'paragraph', html: 'Kebutuhan susu berubah dengan cepat di bulan-bulan pertama. Kalkulator memperkirakan jumlah berdasarkan berat saat ini dan usia bayi, mengikuti pedoman pediatrik WHO dan AAP.' },
     { type: 'stats', columns: 3, items: [
-      { value: '5–7 ml', label: 'Hari 1 (ukuran ceri)' },
+      { value: '5-7 ml', label: 'Hari 1 (ukuran ceri)' },
       { value: '150 ml/kg', label: 'Referensi harian formula' },
-      { value: '8–12', label: 'Sesi/hari bayi baru lahir' },
+      { value: '8-12', label: 'Sesi/hari bayi baru lahir' },
     ]},
     { type: 'title', text: 'Ukuran lambung berdasarkan usia', level: 3 },
     { type: 'table', headers: ['Usia', 'Ukuran ref.', 'Kapasitas', 'Sesi/hari'], rows: [
-      ['Hari 1', 'Ceri', '5–7 ml', '8–12'],
-      ['Hari 2–4', 'Kacang kenari', '22–27 ml', '8–12'],
-      ['Hari 5–30', 'Telur', '45–60 ml', '8–10'],
-      ['1–3 bulan', 'Maksimal', '90–120 ml', '7–8'],
-      ['3–6 bulan', 'Maksimal', '120–150 ml', '5–6'],
-      ['6+ bulan', 'Maksimal', '150–180 ml', '4–5'],
+      ['Hari 1', 'Ceri', '5-7 ml', '8-12'],
+      ['Hari 2-4', 'Kacang kenari', '22-27 ml', '8-12'],
+      ['Hari 5-30', 'Telur', '45-60 ml', '8-10'],
+      ['1-3 bulan', 'Maksimal', '90-120 ml', '7-8'],
+      ['3-6 bulan', 'Maksimal', '120-150 ml', '5-6'],
+      ['6+ bulan', 'Maksimal', '150-180 ml', '4-5'],
     ]},
     { type: 'tip', html: 'Indikator yang dapat diandalkan untuk asupan yang cukup adalah jumlah popok basah: antara 5 dan 6 popok per hari dari hari kelima menunjukkan hidrasi yang baik.' },
     { type: 'title', text: 'ASI vs susu formula', level: 3 },
     { type: 'comparative', columns: 2, items: [
       { title: 'ASI', description: 'Asupan alami sesuai permintaan.', points: ['Tanpa jadwal tetap', 'Antibodi aktif', 'Komposisi variabel', 'Sulit diukur volumenya'] },
-      { title: 'Susu formula', description: 'Asupan terjadwal dengan volume yang dapat dihitung.', points: ['Setiap 3–4 jam', 'Komposisi stabil', 'Mudah mengontrol asupan', 'Memerlukan persiapan steril'] },
+      { title: 'Susu formula', description: 'Asupan terjadwal dengan volume yang dapat dihitung.', points: ['Setiap 3-4 jam', 'Komposisi stabil', 'Mudah mengontrol asupan', 'Memerlukan persiapan steril'] },
     ]},
     { type: 'list', items: [
-      'Penambahan berat badan memadai: 150–200 g/minggu di bulan pertama',
-      'Setidaknya 5–6 popok basah per hari',
+      'Penambahan berat badan memadai: 150-200 g/minggu di bulan pertama',
+      'Setidaknya 5-6 popok basah per hari',
       'Bayi terlihat tenang setelah asupan',
       'Urin jernih atau kuning pucat',
     ]},

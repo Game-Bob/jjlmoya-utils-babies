@@ -177,7 +177,7 @@ export const content: FertileDaysEstimatorLocaleContent = {
       type: 'list',
       items: [
         'Servikal mukus değişiklikleri: Doğurgan günlerde yumurta akı gibi şeffaf ve esnek hale gelir.',
-        'Yumurtlamadan hemen sonra bazal vücut ısısında hafif artış (0,2–0,4 °C).',
+        'Yumurtlamadan hemen sonra bazal vücut ısısında hafif artış (0,2-0,4 °C).',
         'Yumurtlama sırasında aktif yumurtalık tarafında hafif ağrı veya rahatsızlık (Mittelschmerz).',
         'Hormonal değişikliklerin etkisiyle yumurtlama yakınında libidoda hafif artış.',
         'Doğurgan günlerde karında hafif şişkinlik veya dolgunluk hissi.',
@@ -231,7 +231,7 @@ export const content: FertileDaysEstimatorLocaleContent = {
         },
         {
           term: 'Bazal vücut ısısı',
-          definition: 'Herhangi bir aktiviteden önce, uyanır uyanmaz ölçülen dinlenme halindeki vücut ısısıdır. Yumurtlamadan sonra progesteron etkisiyle hafifçe artar (0,2–0,4 °C).',
+          definition: 'Herhangi bir aktiviteden önce, uyanır uyanmaz ölçülen dinlenme halindeki vücut ısısıdır. Yumurtlamadan sonra progesteron etkisiyle hafifçe artar (0,2-0,4 °C).',
         },
       ],
     },

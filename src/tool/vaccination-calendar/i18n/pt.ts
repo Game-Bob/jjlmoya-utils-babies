@@ -154,7 +154,7 @@ export const content: VaccinationCalendarLocaleContent = {
     { type: 'title', text: 'Efeitos secundários comuns', level: 3 },
     { type: 'list', items: [
       'Vermelhidão ou inchaço no local da injeção: desaparece em 1-2 dias.',
-      'Febre ligeira (37.5–38.5 °C): normal nas primeiras 24-48 horas.',
+      'Febre ligeira (37.5-38.5 °C): normal nas primeiras 24-48 horas.',
       'Irritabilidade ou choro: frequente em bebés após as primeiras doses.',
       'Sonolência ou falta de apetite transitória: não necessita de tratamento.',
       'Reações graves como anafilaxia são extremamente raras (menos de 1 por milhão de doses).',

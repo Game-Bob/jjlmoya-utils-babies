@@ -173,7 +173,7 @@ export const content: FertileDaysEstimatorLocaleContent = {
       type: 'list',
       items: [
         'Changes in cervical mucus: during fertile days it becomes clear and stretchy, similar to raw egg white.',
-        'Slight rise in basal body temperature (0.2–0.4 °C) immediately after ovulation.',
+        'Slight rise in basal body temperature (0.2-0.4 °C) immediately after ovulation.',
         'Mild pain or discomfort on the side of the active ovary (Mittelschmerz) during ovulation.',
         'Slight increase in libido near ovulation, driven by hormonal changes.',
         'Mild bloating or feeling of abdominal fullness during fertile days.',
@@ -227,7 +227,7 @@ export const content: FertileDaysEstimatorLocaleContent = {
         },
         {
           term: 'Basal body temperature',
-          definition: 'Body temperature at complete rest, measured upon waking before any activity. It rises slightly (0.2–0.4 °C) after ovulation due to the effect of progesterone.',
+          definition: 'Body temperature at complete rest, measured upon waking before any activity. It rises slightly (0.2-0.4 °C) after ovulation due to the effect of progesterone.',
         },
       ],
     },

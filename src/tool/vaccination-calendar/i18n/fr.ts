@@ -95,7 +95,7 @@ export const content: VaccinationCalendarLocaleContent = {
     labelFuture: 'Calendrier futur',
     labelStatusOk: 'OK',
     labelStatusPending: 'EN ATT.',
-    labelSource: 'Source : AEP 2026',
+    labelSource: 'Source: AEP 2026',
     labelShare: 'Partager ces dates',
     faqTitle: 'Questions fréquentes',
     bibliographyTitle: 'Références',
@@ -121,7 +121,7 @@ export const content: VaccinationCalendarLocaleContent = {
     vac_polio_booster: 'Polio (Rappel)',
   },
   seo: [
-    { type: 'title', text: 'Calculateur de Vaccins : Quand est le prochain pour mon enfant ?', level: 2 },
+    { type: 'title', text: 'Calculateur de Vaccins: Quand est le prochain pour mon enfant ?', level: 2 },
     { type: 'stats', columns: 4, items: [
       { value: '+95%', label: 'Efficacité' },
       { value: '14', label: 'Doses totales' },
@@ -131,11 +131,11 @@ export const content: VaccinationCalendarLocaleContent = {
     { type: 'tip', html: 'Le calendrier AEP 2026 inclut des nouveautés importantes comme l\'extension du vaccin contre le méningocoque B et la mise à jour des recommandations pour le HPV pour les deux sexes dès 12 ans.' },
     { type: 'title', text: 'Nouveautés du Calendrier AEP 2026', level: 3 },
     { type: 'list', items: [
-      'Méningocoque B (Bexsero) : schéma 2+1 consolidé avec des doses à 2, 4 et 12 mois.',
+      'Méningocoque B (Bexsero): schéma 2+1 consolidé avec des doses à 2, 4 et 12 mois.',
       'HPV étendu à tous les adolescents dès 12 ans, quel que soit le sexe.',
-      'Pneumocoque : recommandation mise à jour avec VCN15 ou VCN20 selon la disponibilité régionale.',
-      'Rotavirus : vaccin oral inclus dans le calendrier systématique dans toutes les communautés.',
-      'dTcaP : rappel recommandé à 6 et 12 ans pour maintenir l\'immunité contre la coqueluche.',
+      'Pneumocoque: recommandation mise à jour avec VCN15 ou VCN20 selon la disponibilité régionale.',
+      'Rotavirus: vaccin oral inclus dans le calendrier systématique dans toutes les communautés.',
+      'dTcaP: rappel recommandé à 6 et 12 ans pour maintenir l\'immunité contre la coqueluche.',
     ]},
     { type: 'title', text: 'Différences entre les communautés autonomes', level: 3 },
     { type: 'list', items: [
@@ -153,10 +153,10 @@ export const content: VaccinationCalendarLocaleContent = {
     ]},
     { type: 'title', text: 'Effets secondaires courants', level: 3 },
     { type: 'list', items: [
-      'Rougeur ou gonflement au point d\'injection : disparaît en 1-2 jours.',
-      'Fièvre légère (37,5–38,5 °C) : normale dans les premières 24-48 heures.',
-      'Irritabilité ou pleurs : fréquents chez les bébés après les premières doses.',
-      'Somnolence ou manque d\'appétit passager : ne nécessite pas de traitement.',
+      'Rougeur ou gonflement au point d\'injection: disparaît en 1-2 jours.',
+      'Fièvre légère (37,5-38,5 °C): normale dans les premières 24-48 heures.',
+      'Irritabilité ou pleurs: fréquents chez les bébés après les premières doses.',
+      'Somnolence ou manque d\'appétit passager: ne nécessite pas de traitement.',
       'Les réactions graves comme l\'anaphylaxie sont extrêmement rares (moins d\'une sur un million de doses).',
     ]},
     { type: 'tip', html: 'Amener le bébé bien nourri et avec des vêtements confortables facilite la visite. Après le vaccin, le contact peau à peau ou l\'allaitement maternel aident à calmer la douleur et l\'inflammation de manière naturelle.' },

@@ -186,7 +186,7 @@ export const content: PregnancyCalculatorLocaleContent = {
         partner: 'Le deuxième trimestre approche. Sa fatigue s\'améliorera bientôt.',
         symptoms: ['Réduction des nausées', 'Peau éclatante ou taches', 'Maux de tête'],
         alerts: ['Perte de liquide', 'Crampes fortes', 'Fièvre persistante'],
-        wonder: 'Ses réflexes fonctionnent déjà : si vous touchez la paume de sa main, il ferme le poing.',
+        wonder: 'Ses réflexes fonctionnent déjà: si vous touchez la paume de sa main, il ferme le poing.',
       },
       16: {
         analogies: { fruits: 'Avocat', geek: 'Manette PS5', sweets: 'Beignet au chocolat' },
@@ -266,7 +266,7 @@ export const content: PregnancyCalculatorLocaleContent = {
       title: "Points essentiels à retenir",
       items: [
         "Calculez votre semaine de grossesse à partir de la DDR ou de la date de conception.",
-        "La DPA est une estimation : seulement 3 à 5 % des bébés naissent exactement ce jour-là.",
+        "La DPA est une estimation: seulement 3 à 5 % des bébés naissent exactement ce jour-là.",
         "Chaque trimestre a ses propres jalons biologiques et inconforts caractéristiques.",
         "Consultez votre médecin ou sage-femme immédiatement si vous remarquez un signe d'alarme.",
         "Le mode partenaire vous montre comment soutenir votre compagne semaine par semaine.",
@@ -274,7 +274,7 @@ export const content: PregnancyCalculatorLocaleContent = {
     },
     {
       type: 'title',
-      text: "Calculatrice de Semaines de Grossesse : bien plus qu'une date d'accouchement",
+      text: "Calculatrice de Semaines de Grossesse: bien plus qu'une date d'accouchement",
       level: 2,
     },
     {
@@ -314,9 +314,9 @@ export const content: PregnancyCalculatorLocaleContent = {
       type: 'table',
       headers: ['Trimestre', 'Semaines', 'Jalon principal', 'Corps de la mère'],
       rows: [
-        ['1er', '1 – 12', 'Formation des organes', 'Nausées, fatigue, implantation'],
-        ['2e', '13 – 26', 'Mouvements foetaux, écho morphologique', 'Énergie retrouvée, ventre visible'],
-        ['3e', '27 – 40', 'Maturation pulmonaire, engagement', 'Pression pelvienne, préparation à l\'accouchement'],
+        ['1er', '1 - 12', 'Formation des organes', 'Nausées, fatigue, implantation'],
+        ['2e', '13 - 26', 'Mouvements foetaux, écho morphologique', 'Énergie retrouvée, ventre visible'],
+        ['3e', '27 - 40', 'Maturation pulmonaire, engagement', 'Pression pelvienne, préparation à l\'accouchement'],
       ],
     },
     {
@@ -329,12 +329,12 @@ export const content: PregnancyCalculatorLocaleContent = {
       headers: ['Semaine', 'Taille approx.', 'Jalon biologique', 'Ce que ressent la mère'],
       rows: [
         ['4', '~1 mm', "Implantation dans l'endomètre", 'Léger saignement possible'],
-        ['8', '~18 mm', 'Cœur bat 150–170 fois/min', 'Nausées à leur maximum'],
+        ['8', '~18 mm', 'Cœur bat 150-170 fois/min', 'Nausées à leur maximum'],
         ['12', '~55 mm', 'Organes principaux formados', 'Risque de fausse couche en forte baisse'],
         ['20', '~25 cm', 'Entend les voix clairement', 'Échographie morphologique'],
         ['28', '~37 cm', 'Cycles veille-sommeil', 'Début du troisième trimestre'],
         ['36', '~47 cm', 'Poumons presque matures', "Engagement dans le bassin"],
-        ['40', '~50 cm', 'Prêt à naître', "DPA : date prévue d'accouchement"],
+        ['40', '~50 cm', 'Prêt à naître', "DPA: date prévue d'accouchement"],
       ],
     },
     {
@@ -347,7 +347,7 @@ export const content: PregnancyCalculatorLocaleContent = {
       columns: 2,
       items: [
         {
-          title: '1er trimestre (sem. 1–12)',
+          title: '1er trimestre (sem. 1 à 12)',
           description: 'La phase de plus grands changements hormonaux.',
           points: [
             'Nausées et vomissements, surtout le matin',
@@ -358,25 +358,25 @@ export const content: PregnancyCalculatorLocaleContent = {
           ],
         },
         {
-          title: '2e trimestre (sem. 13–26)',
+          title: '2e trimestre (sem. 13 à 26)',
           description: "Le trimestre où la plupart des mères se sentent le mieux.",
           points: [
             'Disparition des nausées',
             'Niveau d\'énergie amélioré',
-            'Ventre visible à partir de la semaine 18–20',
-            'Premiers mouvements foetaux (sem. 18–22)',
+            'Ventre visible à partir de la semaine 18-20',
+            'Premiers mouvements foetaux (sem. 18-22)',
             'Brûlures d\'estomac croissantes',
           ],
         },
         {
-          title: '3e trimestre (sem. 27–40)',
+          title: '3e trimestre (sem. 27 à 40)',
           description: "Préparation à l'accouchement.",
           points: [
             'Pression pelvienne et douleurs dorsales',
             'Contractions de Braxton Hicks',
             'Pieds et chevilles enflés',
             'Difficultés à dormir',
-            'Engagement du bébé (sem. 36–38)',
+            'Engagement du bébé (sem. 36-38)',
           ],
         },
       ],
@@ -389,11 +389,11 @@ export const content: PregnancyCalculatorLocaleContent = {
     {
       type: 'list',
       items: [
-        "Saignement vaginal abondant à n'importe quelle semaine : consultez immédiatement.",
-        "Contractions régulières avant la semaine 37 : risque d'accouchement prématuré.",
-        "Perte de liquide amniotique : rupture de la poche des eaux, rendez-vous aux urgences.",
-        "Maux de tête intenses avec vision floue : possible pré-éclampsie.",
-        "Absence de mouvements foetaux après la semaine 20 : signe d'alarme urgent.",
+        "Saignement vaginal abondant à n'importe quelle semaine: consultez immédiatement.",
+        "Contractions régulières avant la semaine 37: risque d'accouchement prématuré.",
+        "Perte de liquide amniotique: rupture de la poche des eaux, rendez-vous aux urgences.",
+        "Maux de tête intenses avec vision floue: possible pré-éclampsie.",
+        "Absence de mouvements foetaux après la semaine 20: signe d'alarme urgent.",
       ],
     },
     {
@@ -404,11 +404,11 @@ export const content: PregnancyCalculatorLocaleContent = {
     {
       type: 'list',
       items: [
-        "Semaine 8–12 : première échographie et bilan sanguin du premier trimestre.",
-        "Semaine 12 : dépistage combiné du premier trimestre (clarté nucale + prise de sang).",
-        "Semaine 18–22 : échographie morphologique (écho du 2e trimestre).",
-        "Semaine 24–28 : test de dépistage du diabète gestationnel (test O'Sullivan).",
-        "Semaine 36 : échographie de contrôle et prélèvement streptocoque B.",
+        "Semaine 8-12: première échographie et bilan sanguin du premier trimestre.",
+        "Semaine 12: dépistage combiné du premier trimestre (clarté nucale + prise de sang).",
+        "Semaine 18-22: échographie morphologique (écho du 2e trimestre).",
+        "Semaine 24-28: test de dépistage du diabète gestationnel (test O'Sullivan).",
+        "Semaine 36: échographie de contrôle et prélèvement streptocoque B.",
       ],
     },
     {
@@ -442,19 +442,19 @@ export const content: PregnancyCalculatorLocaleContent = {
   bibliographyTitle: 'Références',
   bibliography: [
     {
-      name: 'OMS – Soins prénatals',
+      name: 'OMS - Soins prénatals',
       url: 'https://www.who.int/fr/news-room/fact-sheets/detail/maternal-mortality',
     },
     {
-      name: 'ACOG – Methods for Estimating the Due Date',
+      name: 'ACOG - Methods for Estimating the Due Date',
       url: 'https://www.acog.org/clinical/clinical-guidance/committee-opinion/articles/2017/05/methods-for-estimating-the-due-date',
     },
     {
-      name: 'Haute Autorité de Santé – Suivi et orientation des femmes enceintes',
+      name: 'Haute Autorité de Santé - Suivi et orientation des femmes enceintes',
       url: 'https://www.has-sante.fr/jcms/c_547976/fr/suivi-et-orientation-des-femmes-enceintes',
     },
     {
-      name: 'UpToDate – Prenatal care: Initial assessment',
+      name: 'UpToDate - Prenatal care: Initial assessment',
       url: 'https://www.uptodate.com/contents/prenatal-care-initial-assessment',
     },
   ],

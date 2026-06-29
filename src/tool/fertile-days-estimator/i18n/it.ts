@@ -177,7 +177,7 @@ export const content: FertileDaysEstimatorLocaleContent = {
       type: 'list',
       items: [
         'Cambiamenti nel muco cervicale: nei giorni fertili diventa trasparente ed elastico, simile all\'albume d\'uovo.',
-        'Lieve aumento della temperatura basale corporea (0,2–0,4 °C) subito dopo l\'ovulazione.',
+        'Lieve aumento della temperatura basale corporea (0,2-0,4 °C) subito dopo l\'ovulazione.',
         'Lieve dolore o fastidio sul lato dell\'ovaio attivo (Mittelschmerz) durante l\'ovulazione.',
         'Leggero aumento della libido in prossimità dell\'ovulazione, mediato dai cambiamenti ormonali.',
         'Sensazione di gonfiore o pienezza addominale durante i giorni fertili.',
@@ -231,7 +231,7 @@ export const content: FertileDaysEstimatorLocaleContent = {
         },
         {
           term: 'Temperatura basale',
-          definition: 'Temperatura corporea a riposo assoluto, misurata al risveglio prima di ogni attività. Aumenta leggermente (0,2–0,4 °C) dopo l\'ovulazione per effetto del progesterone.',
+          definition: 'Temperatura corporea a riposo assoluto, misurata al risveglio prima di ogni attività. Aumenta leggermente (0,2-0,4 °C) dopo l\'ovulazione per effetto del progesterone.',
         },
       ],
     },

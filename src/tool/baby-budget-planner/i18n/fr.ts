@@ -82,7 +82,7 @@ export const content: ToolLocaleContent<BabyBudgetPlannerUI> = {
   faqTitle: 'Foire aux Questions',
   bibliographyTitle: 'Bibliographie',
   seo: [
-    { type: 'summary', title: 'Résumé : Budget Bébé', items: [
+    { type: 'summary', title: 'Résumé: Budget Bébé', items: [
       'La première année peut coûter entre 5 000 € et 15 000 €.',
       'L\'investissement initial (chambre, poussette) est l\'obstacle le plus important.',
       'Le mode de garde peut représenter jusqu\'à 50 % du budget mensuel récurrent.',
@@ -95,7 +95,7 @@ export const content: ToolLocaleContent<BabyBudgetPlannerUI> = {
       { value: '100-150 €', label: 'Couches/Soins Mensuel' },
       { value: '40%+', label: 'Économies via Occasion' },
     ]},
-    { type: 'title', text: 'Répartition par Catégories : Où va l\'argent ?', level: 3 },
+    { type: 'title', text: 'Répartition par Catégories: Où va l\'argent ?', level: 3 },
     { type: 'table', headers: ['Catégorie', 'Articles Typiques', 'Fréquence', 'Impact Coût'], rows: [
       ['Équipement Initial', 'Lit, Poussette, Siège Auto', 'Ponctuel', 'Élevé'],
       ['Mensuel', 'Couches, Lait, Pharmacie', 'Chaque mois', 'Moyen'],

@@ -149,8 +149,8 @@ export const content: VaccinationCalendarLocaleContent = {
     ]},
     { type: 'title', text: 'Common side effects', level: 3 },
     { type: 'list', items: [
-      'Redness or swelling at the injection site: disappears within 1–2 days.',
-      'Mild fever (37.5–38.5 °C): normal in the first 24–48 hours.',
+      'Redness or swelling at the injection site: disappears within 1-2 days.',
+      'Mild fever (37.5-38.5 °C): normal in the first 24-48 hours.',
       'Irritability or crying: common in babies after the first doses.',
       'Temporary drowsiness or loss of appetite: no treatment needed.',
       'Serious reactions such as anaphylaxis are extremely rare (fewer than 1 per million doses).',
@@ -159,7 +159,7 @@ export const content: VaccinationCalendarLocaleContent = {
     { type: 'summary', title: 'What to remember', items: [
       'The AEP 2026 schedule includes 14 doses up to age 12 for complete protection.',
       'First-year vaccines protect against up to 9 serious diseases simultaneously.',
-      'Mild side effects are normal and disappear within 1–2 days.',
+      'Mild side effects are normal and disappear within 1-2 days.',
       'You can export all vaccination appointments to your phone calendar with a single click.',
       'Always consult your paediatrician if you have questions about your region\'s schedule.',
     ]},

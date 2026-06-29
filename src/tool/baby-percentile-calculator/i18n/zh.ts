@@ -210,7 +210,7 @@ export const content: BabyPercentileCalculatorLocaleContent = {
         },
         {
           term: '协调性 (Harmony)',
-          definition: '体重与身长之间的比例。即使宝宝的体重百分位较低，但如果身长也以同样的比例偏低，则可视为“协调”。',
+          definition: '体重与身长之间的比例。即使宝宝的体重百分位较低，但如果身长也以同样的比例偏低，则可视为"协调"。',
         },
         {
           term: '人体测量学 (Antropometry)',

@@ -23,7 +23,7 @@ const faq = [
   },
   {
     question: 'What is the EDD and how accurate is it?',
-    answer: 'The Estimated Due Date (EDD) is a statistical estimate. Only 3–5% of babies are born exactly on that day. Most babies are born between weeks 38 and 42.',
+    answer: 'The Estimated Due Date (EDD) is a statistical estimate. Only 3-5% of babies are born exactly on that day. Most babies are born between weeks 38 and 42.',
   },
 ];
 const howTo = [
@@ -96,7 +96,7 @@ export const content: PregnancyCalculatorLocaleContent = {
     labelTrimester: 'Trimester',
     labelEDD: 'Estimated Due Date',
     eddPlaceholder: 'Enter your date',
-    eddNote: 'Only 3–5% of babies are born on this exact day',
+    eddNote: 'Only 3-5% of babies are born on this exact day',
     btnCalendar: 'Save to Calendar',
     labelFruits: 'Fruits',
     labelGeek: 'Geek',
@@ -266,7 +266,7 @@ export const content: PregnancyCalculatorLocaleContent = {
       title: 'Key takeaways',
       items: [
         'Calculate your pregnancy week from your LMP or your conception date.',
-        'The EDD is an estimate — only 3–5% of babies are born on that exact day.',
+        'The EDD is an estimate - only 3-5% of babies are born on that exact day.',
         'Each trimester has its own biological milestones and typical discomforts.',
         'Contact your doctor or midwife immediately if you notice any warning signs.',
         'Partner mode shows how to support your partner week by week.',
@@ -314,9 +314,9 @@ export const content: PregnancyCalculatorLocaleContent = {
       type: 'table',
       headers: ['Trimester', 'Weeks', 'Key milestone', 'Mother\'s body'],
       rows: [
-        ['1st', '1 – 12', 'Organ formation', 'Nausea, fatigue, implantation'],
-        ['2nd', '13 – 26', 'Foetal movements, morphology scan', 'Energy restored, bump visible'],
-        ['3rd', '27 – 40', 'Lung maturation, engagement', 'Pelvic pressure, birth preparation'],
+        ['1st', '1 - 12', 'Organ formation', 'Nausea, fatigue, implantation'],
+        ['2nd', '13 - 26', 'Foetal movements, morphology scan', 'Energy restored, bump visible'],
+        ['3rd', '27 - 40', 'Lung maturation, engagement', 'Pelvic pressure, birth preparation'],
       ],
     },
     {
@@ -329,7 +329,7 @@ export const content: PregnancyCalculatorLocaleContent = {
       headers: ['Week', 'Approx. size', 'Biological milestone', 'What the mother feels'],
       rows: [
         ['4', '~1 mm', 'Implantation in the endometrium', 'Light spotting possible'],
-        ['8', '~18 mm', 'Heart beats 150–170 times/min', 'Nausea at its peak'],
+        ['8', '~18 mm', 'Heart beats 150-170 times/min', 'Nausea at its peak'],
         ['12', '~55 mm', 'Main organs formed', 'Miscarriage risk drops sharply'],
         ['20', '~25 cm', 'Baby can hear voices clearly', 'Morphology ultrasound'],
         ['28', '~37 cm', 'Sleep and wake cycles', 'Third trimester begins'],
@@ -347,7 +347,7 @@ export const content: PregnancyCalculatorLocaleContent = {
       columns: 2,
       items: [
         {
-          title: 'First trimester (wks 1–12)',
+          title: 'First trimester (wks 1 to 12)',
           description: 'The phase of greatest hormonal change.',
           points: [
             'Nausea and vomiting, especially in the mornings',
@@ -358,25 +358,25 @@ export const content: PregnancyCalculatorLocaleContent = {
           ],
         },
         {
-          title: 'Second trimester (wks 13–26)',
+          title: 'Second trimester (wks 13 to 26)',
           description: 'The trimester most mothers feel best in.',
           points: [
             'Nausea subsides',
             'Energy levels improve',
-            'Visible bump from around week 18–20',
-            'First foetal movements (wks 18–22)',
+            'Visible bump from around week 18-20',
+            'First foetal movements (wks 18-22)',
             'Increasing heartburn',
           ],
         },
         {
-          title: 'Third trimester (wks 27–40)',
+          title: 'Third trimester (wks 27 to 40)',
           description: 'Preparation for birth.',
           points: [
             'Pelvic pressure and back pain',
             'Braxton Hicks contractions',
             'Swollen feet and ankles',
             'Difficulty sleeping',
-            'Baby engagement (wks 36–38)',
+            'Baby engagement (wks 36-38)',
           ],
         },
       ],
@@ -391,7 +391,7 @@ export const content: PregnancyCalculatorLocaleContent = {
       items: [
         'Heavy vaginal bleeding at any week: seek medical attention immediately.',
         'Regular contractions before week 37: risk of preterm labour.',
-        'Loss of amniotic fluid: ruptured membranes — go to the emergency room.',
+        'Loss of amniotic fluid: ruptured membranes - go to the emergency room.',
         'Severe headache with blurred vision: possible pre-eclampsia.',
         'No foetal movements after week 20: an urgent warning sign.',
       ],
@@ -404,10 +404,10 @@ export const content: PregnancyCalculatorLocaleContent = {
     {
       type: 'list',
       items: [
-        'Week 8–12: first ultrasound and first-trimester blood tests.',
+        'Week 8-12: first ultrasound and first-trimester blood tests.',
         'Week 12: first-trimester combined screening (nuchal translucency + blood panel).',
-        'Week 18–22: morphology scan (20-week scan).',
-        'Week 24–28: glucose tolerance test (GCT / O\'Sullivan).',
+        'Week 18-22: morphology scan (20-week scan).',
+        'Week 24-28: glucose tolerance test (GCT / O\'Sullivan).',
         'Week 36: growth scan and Group B Streptococcus culture.',
       ],
     },
@@ -442,19 +442,19 @@ export const content: PregnancyCalculatorLocaleContent = {
   bibliographyTitle: "References",
   bibliography: [
     {
-      name: 'WHO – Antenatal care',
+      name: 'WHO - Antenatal care',
       url: 'https://www.who.int/news-room/fact-sheets/detail/maternal-mortality',
     },
     {
-      name: 'ACOG – Methods for Estimating the Due Date',
+      name: 'ACOG - Methods for Estimating the Due Date',
       url: 'https://www.acog.org/clinical/clinical-guidance/committee-opinion/articles/2017/05/methods-for-estimating-the-due-date',
     },
     {
-      name: 'UpToDate – Prenatal care: Initial assessment',
+      name: 'UpToDate - Prenatal care: Initial assessment',
       url: 'https://www.uptodate.com/contents/prenatal-care-initial-assessment',
     },
     {
-      name: 'Naegele\'s rule – Dugoff L. et al., Obstetrics & Gynecology',
+      name: 'Naegele\'s rule - Dugoff L. et al., Obstetrics & Gynecology',
       url: 'https://journals.lww.com/greenjournal/fulltext/2017/05000/methods_for_estimating_the_due_date.43.aspx',
     },
   ],

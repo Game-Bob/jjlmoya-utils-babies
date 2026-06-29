@@ -8,15 +8,15 @@ const description = 'Bereken hoeveel melk je baby nodig heeft op basis van gewic
 const faq = [
   {
     question: 'Hoeveel melk heeft een pasgeborene nodig?',
-    answer: 'Op de eerste levensdag is de maag van de baby zo groot als een kers en heeft hij slechts 5 tot 7 ml per voeding nodig. Vanaf de vijfde dag groeit de capaciteit tot 45–60 ml en de behoeften nemen progressief toe.',
+    answer: 'Op de eerste levensdag is de maag van de baby zo groot als een kers en heeft hij slechts 5 tot 7 ml per voeding nodig. Vanaf de vijfde dag groeit de capaciteit tot 45-60 ml en de behoeften nemen progressief toe.',
   },
   {
     question: 'Hoe vaak moet een baby eten?',
-    answer: 'Pasgeborenen hebben tussen de 8 en 12 voedingen per dag nodig. Bij 3 maanden zijn dat er meestal 7–8, en bij 6 maanden ongeveer 5 voedingen per dag.',
+    answer: 'Pasgeborenen hebben tussen de 8 en 12 voedingen per dag nodig. Bij 3 maanden zijn dat er meestal 7-8, en bij 6 maanden ongeveer 5 voedingen per dag.',
   },
   {
     question: 'Hoe weet ik of mijn baby genoeg eet?',
-    answer: 'De meest betrouwbare indicatoren zijn: adequate gewichtstoename, minstens 5–6 natte luiers per dag en een baby die verzadigingssignalen vertoont na de voedingen.',
+    answer: 'De meest betrouwbare indicatoren zijn: adequate gewichtstoename, minstens 5-6 natte luiers per dag en een baby die verzadigingssignalen vertoont na de voedingen.',
   },
   {
     question: 'Zijn de hoeveelheden bij borstvoeding en flesvoeding hetzelfde?',
@@ -102,36 +102,36 @@ export const content: BabyFeedingCalculatorLocaleContent = {
   },
   seo: [
     { type: 'summary', title: 'Samenvatting: Babyvoeding', items: [
-      'De maagcapaciteit van een pasgeborene is slechts 5–7 ml op de eerste dag.',
+      'De maagcapaciteit van een pasgeborene is slechts 5-7 ml op de eerste dag.',
       'De algemene richtlijn voor flesvoeding is 150 ml per kg gewicht per dag.',
       'Borstvoeding wordt op verzoek aangeboden zonder vaste volumes.',
-      'De frequentie neemt af met de leeftijd: van 8–12 voedingen naar 4–5 in 6 maanden.',
+      'De frequentie neemt af met de leeftijd: van 8-12 voedingen naar 4-5 in 6 maanden.',
     ]},
     { type: 'title', text: 'Hoeveel melk heeft mijn baby nodig op basis van gewicht en leeftijd?', level: 2 },
     { type: 'paragraph', html: 'De melkbehoefte verandert snel in de eerste maanden. De calculator schat de hoeveelheid op basis van het huidige gewicht en de leeftijd van de baby, volgens de pediatrische richtlijnen van de WHO en de AAP.' },
     { type: 'stats', columns: 3, items: [
-      { value: '5–7 ml', label: 'Dag 1 (kersgrootte)' },
+      { value: '5-7 ml', label: 'Dag 1 (kersgrootte)' },
       { value: '150 ml/kg', label: 'Referentie flesvoeding' },
-      { value: '8–12', label: 'Voedingen/dag pasgeb.' },
+      { value: '8-12', label: 'Voedingen/dag pasgeb.' },
     ]},
     { type: 'title', text: 'Maaggrootte per leeftijd', level: 3 },
     { type: 'table', headers: ['Leeftijd', 'Ref. grootte', 'Capaciteit', 'Voedingen/dag'], rows: [
-      ['Dag 1', 'Kers', '5–7 ml', '8–12'],
-      ['Dagen 2–4', 'Walnoot', '22–27 ml', '8–12'],
-      ['Dagen 5–30', 'Ei', '45–60 ml', '8–10'],
-      ['1–3 maanden', 'Maximaal', '90–120 ml', '7–8'],
-      ['3–6 maanden', 'Maximaal', '120–150 ml', '5–6'],
-      ['6+ maanden', 'Maximaal', '150–180 ml', '4–5'],
+      ['Dag 1', 'Kers', '5-7 ml', '8-12'],
+      ['Dagen 2-4', 'Walnoot', '22-27 ml', '8-12'],
+      ['Dagen 5-30', 'Ei', '45-60 ml', '8-10'],
+      ['1-3 maanden', 'Maximaal', '90-120 ml', '7-8'],
+      ['3-6 maanden', 'Maximaal', '120-150 ml', '5-6'],
+      ['6+ maanden', 'Maximaal', '150-180 ml', '4-5'],
     ]},
     { type: 'tip', html: 'Een betrouwbare indicator voor goede voeding is het aantal natte luiers: tussen 5 en 6 per dag vanaf de vijfde dag wijst op een goede hydratatie.' },
     { type: 'title', text: 'Borstvoeding vs. flesvoeding', level: 3 },
     { type: 'comparative', columns: 2, items: [
       { title: 'Borstvoeding', description: 'Natuurlijke voeding op verzoek.', points: ['Geen vast schema', 'Actieve antistoffen', 'Variabele samenstelling', 'Moeilijk te kwantificeren'] },
-      { title: 'Flesvoeding', description: 'Geplande voedingen met berekenbaar volume.', points: ['Elke 3–4 uur', 'Stabiele samenstelling', 'Makkelijk inname te controleren', 'Vereist steriele bereiding'] },
+      { title: 'Flesvoeding', description: 'Geplande voedingen met berekenbaar volume.', points: ['Elke 3-4 uur', 'Stabiele samenstelling', 'Makkelijk inname te controleren', 'Vereist steriele bereiding'] },
     ]},
     { type: 'list', items: [
-      'Adequate gewichtstoename: 150–200 g/week in de eerste maand',
-      'Minstens 5–6 natte luiers per dag',
+      'Adequate gewichtstoename: 150-200 g/week in de eerste maand',
+      'Minstens 5-6 natte luiers per dag',
       'De baby is rustig na de voedingen',
       'Heldere of zeer lichtgele urine',
     ]},

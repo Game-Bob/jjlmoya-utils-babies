@@ -154,7 +154,7 @@ export const content: VaccinationCalendarLocaleContent = {
     { type: 'title', text: 'Effetti collaterali comuni', level: 3 },
     { type: 'list', items: [
       'Arrossamento o gonfiore nel punto di iniezione: scompare in 1-2 giorni.',
-      'Febbre lieve (37.5–38.5 °C): normale nelle prime 24-48 ore.',
+      'Febbre lieve (37.5-38.5 °C): normale nelle prime 24-48 ore.',
       'Irritabilità o pianto: frequente nei neonati dopo le prime dosi.',
       'Sonnolenza o mancanza di appetito transitoria: non richiede trattamento.',
       'Reazioni gravi come l\'anafilassi sono estremamente rare (meno di 1 su un milione di dosi).',

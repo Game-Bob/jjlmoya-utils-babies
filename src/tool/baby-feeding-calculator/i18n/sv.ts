@@ -8,15 +8,15 @@ const description = 'Beräkna hur mycket mjölk din bebis behöver baserat på v
 const faq = [
   {
     question: 'Hur mycket mjölk behöver en nyfödd?',
-    answer: 'Under första levnadsdygnet är bebisens mage stor som ett körsbär och behöver bara mellan 5 och 7 ml per matning. Från femte dagen växer kapaciteten till 45–60 ml och behoven ökar progressivt.',
+    answer: 'Under första levnadsdygnet är bebisens mage stor som ett körsbär och behöver bara mellan 5 och 7 ml per matning. Från femte dagen växer kapaciteten till 45-60 ml och behoven ökar progressivt.',
   },
   {
     question: 'Hur ofta ska en bebis äta?',
-    answer: 'Nyfödda behöver mellan 8 och 12 matningar per dygn. Vid 3 månader brukar det glesas ut till 7–8 matningar, och vid 6 månader till cirka 5 matningar dagligen.',
+    answer: 'Nyfödda behöver mellan 8 och 12 matningar per dygn. Vid 3 månader brukar det glesas ut till 7-8 matningar, och vid 6 månader till cirka 5 matningar dagligen.',
   },
   {
     question: 'Hur vet jag om min bebis får tillräckligt med mat?',
-    answer: 'De mest pålitliga indikatorerna är: adekvat viktuppgång, minst 5–6 blöta blöjor per dygn och att bebisen visar mättnadssignaler efter matningen.',
+    answer: 'De mest pålitliga indikatorerna är: adekvat viktuppgång, minst 5-6 blöta blöjor per dygn och att bebisen visar mättnadssignaler efter matningen.',
   },
   {
     question: 'Är mängderna desamma för bröstmjölk och ersättning?',
@@ -102,36 +102,36 @@ export const content: BabyFeedingCalculatorLocaleContent = {
   },
   seo: [
     { type: 'summary', title: 'Sammanfattning: Bebismatning', items: [
-      'Nyföddas magkapacitet är bara 5–7 ml under första dygnet.',
+      'Nyföddas magkapacitet är bara 5-7 ml under första dygnet.',
       'Det allmänna riktmärket för ersättning är 150 ml per kg vikt per dygn.',
       'Amning sker efter behov utan fasta volymer.',
-      'Frekvensen minskar med åldern: från 8–12 matningar till 4–5 på 6 månader.',
+      'Frekvensen minskar med åldern: från 8-12 matningar till 4-5 på 6 månader.',
     ]},
     { type: 'title', text: 'Hur mycket mjölk behöver min bebis baserat på vikt och ålder?', level: 2 },
     { type: 'paragraph', html: 'Behovet av mjölk ändras snabbt under de första månaderna. Kalkylatorn uppskattar mängden baserat på bebisens aktuella vikt och ålder enligt pediatriska riktlinjer från WHO och AAP.' },
     { type: 'stats', columns: 3, items: [
-      { value: '5–7 ml', label: 'Dag 1 (körsbärsstorlek)' },
+      { value: '5-7 ml', label: 'Dag 1 (körsbärsstorlek)' },
       { value: '150 ml/kg', label: 'Dygns-riktmärke ersättn.' },
-      { value: '8–12', label: 'Matningar/dygn nyfödd' },
+      { value: '8-12', label: 'Matningar/dygn nyfödd' },
     ]},
     { type: 'title', text: 'Magens storlek efter ålder', level: 3 },
     { type: 'table', headers: ['Ålder', 'Ref. storlek', 'Kapacitet', 'Matningar/dygn'], rows: [
-      ['Dag 1', 'Körsbär', '5–7 ml', '8–12'],
-      ['Dag 2–4', 'Valnöt', '22–27 ml', '8–12'],
-      ['Dag 5–30', 'Ägg', '45–60 ml', '8–10'],
-      ['1–3 mån.', 'Maximal', '90–120 ml', '7–8'],
-      ['3–6 mån.', 'Maximal', '120–150 ml', '5–6'],
-      ['6+ mån.', 'Maximal', '150–180 ml', '4–5'],
+      ['Dag 1', 'Körsbär', '5-7 ml', '8-12'],
+      ['Dag 2-4', 'Valnöt', '22-27 ml', '8-12'],
+      ['Dag 5-30', 'Ägg', '45-60 ml', '8-10'],
+      ['1-3 mån.', 'Maximal', '90-120 ml', '7-8'],
+      ['3-6 mån.', 'Maximal', '120-150 ml', '5-6'],
+      ['6+ mån.', 'Maximal', '150-180 ml', '4-5'],
     ]},
     { type: 'tip', html: 'Ett pålitligt tecken på tillräcklig matning är antalet blöta blöjor: mellan 5 och 6 per dygn från femte dagen indikerar god vätskebalans.' },
     { type: 'title', text: 'Amning vs. ersättning', level: 3 },
     { type: 'comparative', columns: 2, items: [
       { title: 'Amning', description: 'Naturlig matning efter behov.', points: ['Inget fast schema', 'Aktiva antikroppar', 'Variabel sammansättning', 'Svårt att kvantifiera'] },
-      { title: 'Modersmjölksersättning', description: 'Planerade matningar med beräkningsbar volym.', points: ['Var 3–4 timme', 'Stabil sammansättning', 'Lätt att kontrollera intaget', 'Kräver steril tillberedning'] },
+      { title: 'Modersmjölksersättning', description: 'Planerade matningar med beräkningsbar volym.', points: ['Var 3-4 timme', 'Stabil sammansättning', 'Lätt att kontrollera intaget', 'Kräver steril tillberedning'] },
     ]},
     { type: 'list', items: [
-      'Adekvat viktuppgång: 150–200 g/vecka första månaden',
-      'Minst 5–6 blöta blöjor per dygn',
+      'Adekvat viktuppgång: 150-200 g/vecka första månaden',
+      'Minst 5-6 blöta blöjor per dygn',
       'Bebisen är nöjd efter matningen',
       'Ljus eller mycket ljusgul urin',
     ]},

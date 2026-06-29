@@ -314,9 +314,9 @@ export const content: PregnancyCalculatorLocaleContent = {
       type: 'table',
       headers: ['분기', '주수', '주요 특징', '산모의 상태'],
       rows: [
-        ['1분기', '1 – 12', '장기 형성', '입덧, 피로, 착상'],
-        ['2분기', '13 – 26', '태동 시작, 정밀 초음파', '에너지 회복, 배 나옴'],
-        ['3분기', '27 – 40', '폐 성숙, 머리 고정', '골반 압박, 출산 준비'],
+        ['1분기', '1 - 12', '장기 형성', '입덧, 피로, 착상'],
+        ['2분기', '13 - 26', '태동 시작, 정밀 초음파', '에너지 회복, 배 나옴'],
+        ['3분기', '27 - 40', '폐 성숙, 머리 고정', '골반 압박, 출산 준비'],
       ],
     },
     {
@@ -329,7 +329,7 @@ export const content: PregnancyCalculatorLocaleContent = {
       headers: ['주수', '대략적인 크기', '생물학적 특징', '산모가 느끼는 것'],
       rows: [
         ['4', '~1 mm', '자궁 내막 착상', '착상혈 가능성'],
-        ['8', '~18 mm', '심장 박동 150–170회/분', '입덧 절정'],
+        ['8', '~18 mm', '심장 박동 150-170회/분', '입덧 절정'],
         ['12', '~55 mm', '주요 장기 형성 완료', '유산 위험 감소'],
         ['20', '~25 cm', '목소리 뚜렷하게 들음', '정밀 초음파 검사'],
         ['28', '~37 cm', '수면 및 각성 주기 형성', '3분기 시작'],
@@ -442,11 +442,11 @@ export const content: PregnancyCalculatorLocaleContent = {
   bibliographyTitle: '참고 문헌',
   bibliography: [
     {
-      name: 'WHO – Care during pregnancy',
+      name: 'WHO - Care during pregnancy',
       url: 'https://www.who.int/news-room/fact-sheets/detail/maternal-mortality',
     },
     {
-      name: 'ACOG – 임신 주수 및 예정일 계산법',
+      name: 'ACOG - 임신 주수 및 예정일 계산법',
       url: 'https://www.acog.org/clinical/clinical-guidance/committee-opinion/articles/2017/05/methods-for-estimating-the-due-date',
     },
     {
@@ -454,11 +454,11 @@ export const content: PregnancyCalculatorLocaleContent = {
       url: 'http://www.ksog.org',
     },
     {
-      name: 'Naegele\'s rule – Dugoff L. et al., Obstetrics & Gynecology',
+      name: 'Naegele\'s rule - Dugoff L. et al., Obstetrics & Gynecology',
       url: 'https://journals.lww.com/greenjournal/fulltext/2017/05000/methods_for_estimating_the_due_date.43.aspx',
     },
     {
-      name: 'UpToDate – 산전 관리: 초기 평가',
+      name: 'UpToDate - 산전 관리: 초기 평가',
       url: 'https://www.uptodate.com/contents/prenatal-care-initial-assessment',
     },
   ],

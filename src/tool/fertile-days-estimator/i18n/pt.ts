@@ -177,7 +177,7 @@ export const content: FertileDaysEstimatorLocaleContent = {
       type: 'list',
       items: [
         'Alterações no muco cervical: nos dias férteis torna-se transparente e elástico, semelhante à clara de ovo.',
-        'Aumento ligeiro da temperatura basal corporal (0,2–0,4 °C) logo após a ovulação.',
+        'Aumento ligeiro da temperatura basal corporal (0,2-0,4 °C) logo após a ovulação.',
         'Dor ou desconforto ligeiro no lado do ovário activo (Mittelschmerz) durante a ovulação.',
         'Ligeiro aumento da libido perto da ovulação, mediado por alterações hormonais.',
         'Distensão ou sensação de plenitude abdominal ligeira durante os dias férteis.',
@@ -231,7 +231,7 @@ export const content: FertileDaysEstimatorLocaleContent = {
         },
         {
           term: 'Temperatura basal corporal',
-          definition: 'Temperatura corporal em repouso absoluto, medida ao acordar antes de qualquer actividade. Aumenta ligeiramente (0,2–0,4 °C) após a ovulação por efeito da progesterona.',
+          definition: 'Temperatura corporal em repouso absoluto, medida ao acordar antes de qualquer actividade. Aumenta ligeiramente (0,2-0,4 °C) após a ovulação por efeito da progesterona.',
         },
       ],
     },

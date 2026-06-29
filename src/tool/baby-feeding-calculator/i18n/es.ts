@@ -8,15 +8,15 @@ const description = 'Calcula cuánta leche necesita tu bebé según su peso y ed
 const faq = [
   {
     question: '¿Cuánta leche necesita un recién nacido?',
-    answer: 'En el primer día de vida, el estómago del bebé tiene el tamaño de una cereza y solo necesita entre 5 y 7 ml por toma. A partir del quinto día la capacidad crece hasta los 45–60 ml y las necesidades aumentan progresivamente.',
+    answer: 'En el primer día de vida, el estómago del bebé tiene el tamaño de una cereza y solo necesita entre 5 y 7 ml por toma. A partir del quinto día la capacidad crece hasta los 45-60 ml y las necesidades aumentan progresivamente.',
   },
   {
     question: '¿Con qué frecuencia debe comer un bebé?',
-    answer: 'Los recién nacidos necesitan entre 8 y 12 tomas al día. A los 3 meses suelen espaciarse a 7–8 tomas, y a los 6 meses a unas 5 tomas diarias.',
+    answer: 'Los recién nacidos necesitan entre 8 y 12 tomas al día. A los 3 meses suelen espaciarse a 7-8 tomas, y a los 6 meses a unas 5 tomas diarias.',
   },
   {
     question: '¿Cómo sé si mi bebé está comiendo suficiente?',
-    answer: 'Los indicadores más fiables son: ganancia de peso adecuada, al menos 5–6 pañales mojados al día y que el bebé muestre señales de saciedad tras las tomas.',
+    answer: 'Los indicadores más fiables son: ganancia de peso adecuada, al menos 5-6 pañales mojados al día y que el bebé muestre señales de saciedad tras las tomas.',
   },
   {
     question: '¿La lactancia materna y la fórmula tienen las mismas cantidades?',
@@ -102,36 +102,36 @@ export const content: BabyFeedingCalculatorLocaleContent = {
   },
   seo: [
     { type: 'summary', title: 'Resumen: Alimentación del bebé', items: [
-      'La capacidad gástrica del recién nacido es de apenas 5–7 ml en el primer día.',
+      'La capacidad gástrica del recién nacido es de apenas 5-7 ml en el primer día.',
       'La referencia general para fórmula es 150 ml por kg de peso al día.',
       'La lactancia materna se ofrece a libre demanda sin volúmenes fijos.',
-      'La frecuencia disminuye con la edad: de 8–12 tomas a 4–5 en 6 meses.',
+      'La frecuencia disminuye con la edad: de 8-12 tomas a 4-5 en 6 meses.',
     ]},
     { type: 'title', text: '¿Cuánta leche necesita mi bebé según su peso y edad?', level: 2 },
     { type: 'paragraph', html: 'Las necesidades de leche cambian rápidamente en los primeros meses. La calculadora estima la cantidad según el peso actual y la edad del bebé, siguiendo las pautas pediátricas de la OMS y la AAP.' },
     { type: 'stats', columns: 3, items: [
-      { value: '5–7 ml', label: 'Día 1 (tamaño cereza)' },
+      { value: '5-7 ml', label: 'Día 1 (tamaño cereza)' },
       { value: '150 ml/kg', label: 'Referencia diaria fórmula' },
-      { value: '8–12', label: 'Tomas/día recién nacido' },
+      { value: '8-12', label: 'Tomas/día recién nacido' },
     ]},
     { type: 'title', text: 'Tamaño del estómago por edad', level: 3 },
     { type: 'table', headers: ['Edad', 'Tamaño ref.', 'Capacidad', 'Tomas/día'], rows: [
-      ['Día 1', 'Cereza', '5–7 ml', '8–12'],
-      ['Días 2–4', 'Nuez', '22–27 ml', '8–12'],
-      ['Días 5–30', 'Huevo', '45–60 ml', '8–10'],
-      ['1–3 meses', 'Máxima', '90–120 ml', '7–8'],
-      ['3–6 meses', 'Máxima', '120–150 ml', '5–6'],
-      ['6+ meses', 'Máxima', '150–180 ml', '4–5'],
+      ['Día 1', 'Cereza', '5-7 ml', '8-12'],
+      ['Días 2-4', 'Nuez', '22-27 ml', '8-12'],
+      ['Días 5-30', 'Huevo', '45-60 ml', '8-10'],
+      ['1-3 meses', 'Máxima', '90-120 ml', '7-8'],
+      ['3-6 meses', 'Máxima', '120-150 ml', '5-6'],
+      ['6+ meses', 'Máxima', '150-180 ml', '4-5'],
     ]},
     { type: 'tip', html: 'Un indicador fiable de alimentación adecuada es el número de pañales mojados: entre 5 y 6 al día a partir del quinto día indican buena hidratación.' },
     { type: 'title', text: 'Lactancia materna vs fórmula', level: 3 },
     { type: 'comparative', columns: 2, items: [
       { title: 'Lactancia materna', description: 'Alimentación natural a libre demanda.', points: ['Sin horario fijo', 'Anticuerpos activos', 'Composición variable', 'Difícil cuantificar'] },
-      { title: 'Leche de fórmula', description: 'Tomas programadas con volumen calculable.', points: ['Cada 3–4 horas', 'Composición estable', 'Fácil controlar ingesta', 'Requiere preparación estéril'] },
+      { title: 'Leche de fórmula', description: 'Tomas programadas con volumen calculable.', points: ['Cada 3-4 horas', 'Composición estable', 'Fácil controlar ingesta', 'Requiere preparación estéril'] },
     ]},
     { type: 'list', items: [
-      'Ganancia de peso adecuada: 150–200 g/semana en el primer mes',
-      'Al menos 5–6 pañales mojados al día',
+      'Ganancia de peso adecuada: 150-200 g/semana en el primer mes',
+      'Al menos 5-6 pañales mojados al día',
       'El bebé se muestra tranquilo tras las tomas',
       'Orina clara o amarillo muy pálido',
     ]},

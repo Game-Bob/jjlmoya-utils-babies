@@ -103,22 +103,22 @@ export const content: BabySizeConverterLocaleContent = {
     bibliographyTitle: 'Références',
   },
   seo: [
-    { type: 'title', text: "Guide des tailles bébé : Zara, H&M, Primark et grandes marques", level: 2 },
+    { type: 'title', text: "Guide des tailles bébé: Zara, H&M, Primark et grandes marques", level: 2 },
     { type: 'stats', columns: 3, items: [
       { value: '2,5 cm', label: 'Croissance mensuelle' },
       { value: '3 mois', label: 'Durée par taille' },
       { value: '95 %', label: 'Fiabilité par taille' },
     ]},
-    { type: 'tip', html: "Utilisez toujours la taille comme référence principale pour choisir une pointure, pas l'âge. Deux bébés du même mois peuvent avoir jusqu'à 8–10 cm de différence, ce qui représente une taille complète." },
+    { type: 'tip', html: "Utilisez toujours la taille comme référence principale pour choisir une pointure, pas l'âge. Deux bébés du même mois peuvent avoir jusqu'à 8-10 cm de différence, ce qui représente une taille complète." },
     { type: 'title', text: 'Tailles par âge, taille et poids', level: 3 },
     { type: 'table', headers: ['Âge approx.', 'Taille (cm)', 'Poids (kg)', 'Taille habituelle', 'Utilisation estimée'], rows: [
-      ['Nouveau-né', '50–56', '3–4,5', '50 / NB', '4–6 semaines'],
-      ['1–3 mois', '56–62', '4,5–6', '56–62', '6–8 semaines'],
-      ['3–6 mois', '62–68', '6–8', '62–68', '6–8 semaines'],
-      ['6–9 mois', '68–74', '8–9,5', '68–74', '6–8 semaines'],
-      ['9–12 mois', '74–80', '9,5–11', '74–80', '6–8 semaines'],
-      ['12–18 mois', '80–86', '11–13', '80–86', '3–4 mois'],
-      ['18–24 mois', '86–92', '13–15', '86–92', '3–4 mois'],
+      ['Nouveau-né', '50-56', '3-4,5', '50 / NB', '4-6 semaines'],
+      ['1-3 mois', '56-62', '4,5-6', '56-62', '6-8 semaines'],
+      ['3-6 mois', '62-68', '6-8', '62-68', '6-8 semaines'],
+      ['6-9 mois', '68-74', '8-9,5', '68-74', '6-8 semaines'],
+      ['9-12 mois', '74-80', '9,5-11', '74-80', '6-8 semaines'],
+      ['12-18 mois', '80-86', '11-13', '80-86', '3-4 mois'],
+      ['18-24 mois', '86-92', '13-15', '86-92', '3-4 mois'],
     ]},
     { type: 'title', text: 'Marques qui taillent grand vs ajusté', level: 3 },
     { type: 'comparative', columns: 2, items: [
@@ -126,9 +126,9 @@ export const content: BabySizeConverterLocaleContent = {
         title: 'Taillent grand (prendre une taille en dessous)',
         description: "Ces marques utilisent des coupes plus amples ; prenez une taille en moins par rapport à l'habituel.",
         points: [
-          'H&M : taille généralement une taille de plus',
-          'Primark : coupe ample généralisée',
-          'Lupilu (Lidl) : coupe large',
+          'H&M: taille généralement une taille de plus',
+          'Primark: coupe ample généralisée',
+          'Lupilu (Lidl): coupe large',
           'Recommandé pour les bébés en percentile bas',
         ],
       },
@@ -136,9 +136,9 @@ export const content: BabySizeConverterLocaleContent = {
         title: 'Taillent ajusté (prendre une taille au dessus)',
         description: "Ces marques utilisent des coupes plus cintrées ; prenez une taille de plus par rapport à l'habituel.",
         points: [
-          "Carter's : coupe américaine cintrée",
-          'Mayoral : coupe européenne ajustée',
-          'Neck & Neck : tailles réduites',
+          "Carter's: coupe américaine cintrée",
+          'Mayoral: coupe européenne ajustée',
+          'Neck & Neck: tailles réduites',
           'Recommandé pour les bébés en percentile élevé',
         ],
       },
@@ -149,7 +149,7 @@ export const content: BabySizeConverterLocaleContent = {
       'Si le résultat se situe entre deux tailles, choisissez toujours la taille supérieure',
       'Tenez compte de la place pour la couche dans les bodies et combinaisons',
       'Les tailles européennes (50, 56, 62...) correspondent à la taille en cm',
-      "Lavez toujours avant utilisation : le coton peut rétrécir jusqu'à 5 %",
+      "Lavez toujours avant utilisation: le coton peut rétrécir jusqu'à 5 %",
     ]},
     { type: 'glossary', items: [
       {
@@ -158,7 +158,7 @@ export const content: BabySizeConverterLocaleContent = {
       },
       {
         term: 'Longueur entrejambe',
-        definition: "Distance de l'entrejambe à la taille. Fondamentale dans les bodies et combinaisons : une longueur courte limite les mouvements du bébé même si le reste du vêtement convient.",
+        definition: "Distance de l'entrejambe à la taille. Fondamentale dans les bodies et combinaisons: une longueur courte limite les mouvements du bébé même si le reste du vêtement convient.",
       },
       {
         term: 'Référence par poids',

@@ -314,9 +314,9 @@ export const content: PregnancyCalculatorLocaleContent = {
       type: 'table',
       headers: ['期間', '週数', '主な変化', 'ママの体'],
       rows: [
-        ['初期', '1 – 12週', '臓器の形成', 'つわり、倦怠感、着床'],
-        ['中期', '13 – 26週', '胎動、精密検査', '安定期、お腹が目立つ'],
-        ['後期', '27 – 40週', '肺の完成、骨盤への下降', '骨盤の圧迫、出産の準備'],
+        ['初期', '1 - 12週', '臓器の形成', 'つわり、倦怠感、着床'],
+        ['中期', '13 - 26週', '胎動、精密検査', '安定期、お腹が目立つ'],
+        ['後期', '27 - 40週', '肺の完成、骨盤への下降', '骨盤の圧迫、出産の準備'],
       ],
     },
     {
@@ -442,11 +442,11 @@ export const content: PregnancyCalculatorLocaleContent = {
   bibliographyTitle: '参考文献・出典',
   bibliography: [
     {
-      name: 'WHO – Care during pregnancy',
+      name: 'WHO - Care during pregnancy',
       url: 'https://www.who.int/news-room/fact-sheets/detail/maternal-mortality',
     },
     {
-      name: 'ACOG – 出産予定日の算定',
+      name: 'ACOG - 出産予定日の算定',
       url: 'https://www.acog.org/clinical/clinical-guidance/committee-opinion/articles/2017/05/methods-for-estimating-the-due-date',
     },
     {
@@ -454,11 +454,11 @@ export const content: PregnancyCalculatorLocaleContent = {
       url: 'https://www.jsog.or.jp',
     },
     {
-      name: 'Naegele\'s rule – Dugoff L. et al., Obstetrics & Gynecology',
+      name: 'Naegele\'s rule - Dugoff L. et al., Obstetrics & Gynecology',
       url: 'https://journals.lww.com/greenjournal/fulltext/2017/05000/methods_for_estimating_the_due_date.43.aspx',
     },
     {
-      name: 'UpToDate – 妊婦健診の評価',
+      name: 'UpToDate - 妊婦健診の評価',
       url: 'https://www.uptodate.com/contents/prenatal-care-initial-assessment',
     },
   ],

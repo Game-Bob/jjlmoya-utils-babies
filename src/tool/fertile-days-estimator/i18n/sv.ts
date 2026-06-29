@@ -177,7 +177,7 @@ export const content: FertileDaysEstimatorLocaleContent = {
       type: 'list',
       items: [
         'Förändringar i livmoderhalssekretet: under fertila dagar blir det genomskinligt och töjbart, likt äggvita.',
-        'En lätt höjning av den basala kroppstemperaturen (0,2–0,4 °C) precis efter ägglossningen.',
+        'En lätt höjning av den basala kroppstemperaturen (0,2-0,4 °C) precis efter ägglossningen.',
         'Lätt smärta eller obehag på den aktiva äggstockens sida (mittelsmerte) vid ägglossning.',
         'En svag ökning av sexlusten nära ägglossningen, styrd av hormonella förändringar.',
         'Känsla av svullnad eller fyllnad i underlivet under de fertila dagarna.',
@@ -231,7 +231,7 @@ export const content: FertileDaysEstimatorLocaleContent = {
         },
         {
           term: 'Basal kroppstemperatur',
-          definition: 'Kroppstemperaturen vid absolut vila, mätt direkt efter uppvaknandet före någon aktivitet. Stiger något (0,2–0,4 °C) efter ägglossningen på grund av progesteron.',
+          definition: 'Kroppstemperaturen vid absolut vila, mätt direkt efter uppvaknandet före någon aktivitet. Stiger något (0,2-0,4 °C) efter ägglossningen på grund av progesteron.',
         },
       ],
     },

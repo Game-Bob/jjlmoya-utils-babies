@@ -23,7 +23,7 @@ const faq = [
   },
   {
     question: 'Apa itu HPL dan seberapa akurat?',
-    answer: 'Hari Perkiraan Lahir (HPL) adalah estimasi statistik. Hanya 3–5% bayi yang lahir tepat pada hari itu. Kebanyakan lahir antara minggu ke-38 dan ke-42.',
+    answer: 'Hari Perkiraan Lahir (HPL) adalah estimasi statistik. Hanya 3-5% bayi yang lahir tepat pada hari itu. Kebanyakan lahir antara minggu ke-38 dan ke-42.',
   },
 ];
 const howTo = [
@@ -96,7 +96,7 @@ export const content: PregnancyCalculatorLocaleContent = {
     labelTrimester: 'Trimester',
     labelEDD: 'Hari Perkiraan Lahir',
     eddPlaceholder: 'Masukkan tanggal',
-    eddNote: 'Hanya 3–5% bayi yang lahir tepat pada hari itu',
+    eddNote: 'Hanya 3-5% bayi yang lahir tepat pada hari itu',
     btnCalendar: 'Simpan di Kalender',
     labelFruits: 'Buah',
     labelGeek: 'Geek',
@@ -266,7 +266,7 @@ export const content: PregnancyCalculatorLocaleContent = {
       title: 'Yang harus Anda ingat',
       items: [
         'Hitung minggu kehamilan Anda dari HPHT atau tanggal pembuahan.',
-        'HPL adalah estimasi: hanya 3–5% bayi yang lahir tepat di hari itu.',
+        'HPL adalah estimasi: hanya 3-5% bayi yang lahir tepat di hari itu.',
         'Setiap trimester memiliki tonggak biologis dan keluhan khasnya sendiri.',
         'Jika ada tanda bahaya, segera konsultasikan dengan dokter atau bidan Anda.',
         'Mode pasangan menunjukkan cara mendukung pasangan Anda minggu demi minggu.',
@@ -314,9 +314,9 @@ export const content: PregnancyCalculatorLocaleContent = {
       type: 'table',
       headers: ['Trimester', 'Minggu', 'Tonggak utama', 'Tubuh ibu'],
       rows: [
-        ['1', '1 – 12', 'Pembentukan organ', 'Mual, lelah, implantasi'],
-        ['2', '13 – 26', 'Gerakan janin, USG anatomi', 'Energi kembali, perut terlihat'],
-        ['3', '27 – 40', 'Pematangan paru, masuk panggul', 'Tekanan panggul, persiapan lahir'],
+        ['1', '1 - 12', 'Pembentukan organ', 'Mual, lelah, implantasi'],
+        ['2', '13 - 26', 'Gerakan janin, USG anatomi', 'Energi kembali, perut terlihat'],
+        ['3', '27 - 40', 'Pematangan paru, masuk panggul', 'Tekanan panggul, persiapan lahir'],
       ],
     },
     {
@@ -329,7 +329,7 @@ export const content: PregnancyCalculatorLocaleContent = {
       headers: ['Minggu', 'Ukuran kira-kira', 'Tonggak biologis', 'Yang dirasakan ibu'],
       rows: [
         ['4', '~1 mm', 'Implantasi di endometrium', 'Mungkin flek sedikit'],
-        ['8', '~18 mm', 'Jantung berdetak 150–170 x/mnt', 'Mual di titik puncak'],
+        ['8', '~18 mm', 'Jantung berdetak 150-170 x/mnt', 'Mual di titik puncak'],
         ['12', '~55 mm', 'Organ utama terbentuk', 'Risiko keguguran turun drastis'],
         ['20', '~25 cm', 'Mendengar suara dengan jelas', 'USG anatomi'],
         ['28', '~37 cm', 'Siklus tidur dan bangun', 'Awal trimester ketiga'],
@@ -347,7 +347,7 @@ export const content: PregnancyCalculatorLocaleContent = {
       columns: 2,
       items: [
         {
-          title: 'Trimester Pertama (mgg. 1–12)',
+          title: 'Trimester Pertama (mgg. 1 s.d. 12)',
           description: 'Fase perubahan hormonal terbesar.',
           points: [
             'Mual dan muntah, terutama di pagi hari',
@@ -358,25 +358,25 @@ export const content: PregnancyCalculatorLocaleContent = {
           ],
         },
         {
-          title: 'Trimester Kedua (mgg. 13–26)',
+          title: 'Trimester Kedua (mgg. 13 s.d. 26)',
           description: 'Trimester yang paling nyaman bagi kebanyakan orang.',
           points: [
             'Mual menghilang',
             'Energi kembali',
-            'Perut terlihat dari minggu ke-18–20',
-            'Gerakan janin pertama (mgg. 18–22)',
+            'Perut terlihat dari minggu ke-18-20',
+            'Gerakan janin pertama (mgg. 18-22)',
             'Nyeri ulu hati meningkat',
           ],
         },
         {
-          title: 'Trimester Ketiga (mgg. 27–40)',
+          title: 'Trimester Ketiga (mgg. 27 s.d. 40)',
           description: 'Persiapan persalinan.',
           points: [
             'Tekanan panggul dan nyeri punggung',
             'Kontraksi Braxton Hicks',
             'Kaki dan pergelangan kaki bengkak',
             'Sulit tidur',
-            'Bayi masuk panggul (mgg. 36–38)',
+            'Bayi masuk panggul (mgg. 36-38)',
           ],
         },
       ],
@@ -404,10 +404,10 @@ export const content: PregnancyCalculatorLocaleContent = {
     {
       type: 'list',
       items: [
-        'Minggu 8–12: USG pertama dan cek darah trimester pertama.',
+        'Minggu 8-12: USG pertama dan cek darah trimester pertama.',
         'Minggu 12: skrining kombinasi (nuchal translucency + lab).',
-        'Minggu 18–22: USG anatomi (minggu ke-20).',
-        'Minggu 24–28: tes toleransi glukosa (O\'Sullivan).',
+        'Minggu 18-22: USG anatomi (minggu ke-20).',
+        'Minggu 24-28: tes toleransi glukosa (O\'Sullivan).',
         'Minggu 36: USG kontrol, swab streptokokus grup B.',
       ],
     },
@@ -442,11 +442,11 @@ export const content: PregnancyCalculatorLocaleContent = {
   bibliographyTitle: 'Referensi',
   bibliography: [
     {
-      name: 'WHO – Perawatan selama hamil',
+      name: 'WHO - Perawatan selama hamil',
       url: 'https://www.who.int/news-room/fact-sheets/detail/maternal-mortality',
     },
     {
-      name: 'ACOG – Gestational Age and Due Date Calculation',
+      name: 'ACOG - Gestational Age and Due Date Calculation',
       url: 'https://www.acog.org/clinical/clinical-guidance/committee-opinion/articles/2017/05/methods-for-estimating-the-due-date',
     },
     {
@@ -454,11 +454,11 @@ export const content: PregnancyCalculatorLocaleContent = {
       url: 'https://www.idionline.org',
     },
     {
-      name: 'Naegele\'s rule – Dugoff L. et al., Obstetrics & Gynecology',
+      name: 'Naegele\'s rule - Dugoff L. et al., Obstetrics & Gynecology',
       url: 'https://journals.lww.com/greenjournal/fulltext/2017/05000/methods_for_estimating_the_due_date.43.aspx',
     },
     {
-      name: 'UpToDate – Prenatal care: Initial assessment',
+      name: 'UpToDate - Prenatal care: Initial assessment',
       url: 'https://www.uptodate.com/contents/prenatal-care-initial-assessment',
     },
   ],

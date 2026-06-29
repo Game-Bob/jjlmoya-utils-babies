@@ -8,15 +8,15 @@ const description = 'Bebeğinizin ağırlığına ve yaşına göre ne kadar sü
 const faq = [
   {
     question: 'Yeni doğan bir bebeğin ne kadar süte ihtiyacı vardır?',
-    answer: 'Yaşamın ilk gününde bebeğin midesi bir kiraz büyüklüğündedir ve her öğünde yalnızca 5 ila 7 ml süte ihtiyaç duyar. Beşinci günden itibaren kapasite 45–60 ml\'ye çıkar ve ihtiyaçlar kademeli olarak artar.',
+    answer: 'Yaşamın ilk gününde bebeğin midesi bir kiraz büyüklüğündedir ve her öğünde yalnızca 5 ila 7 ml süte ihtiyaç duyar. Beşinci günden itibaren kapasite 45-60 ml\'ye çıkar ve ihtiyaçlar kademeli olarak artar.',
   },
   {
     question: 'Bir bebek ne sıklıkla beslenmelidir?',
-    answer: 'Yeni doğanların günde 8 ila 12 kez beslenmesi gerekir. 3 aylıkken bu sayı genellikle 7–8 öğüne, 6 aylıkken ise günde yaklaşık 5 öğüne düşer.',
+    answer: 'Yeni doğanların günde 8 ila 12 kez beslenmesi gerekir. 3 aylıkken bu sayı genellikle 7-8 öğüne, 6 aylıkken ise günde yaklaşık 5 öğüne düşer.',
   },
   {
     question: 'Bebeğimin yeterince beslendiğini nasıl anlarım?',
-    answer: 'En güvenilir göstergeler şunlardır: uygun kilo alımı, günde en az 5–6 ıslak bez ve bebeğin beslenmeden sonra tokluk belirtileri göstermesi.',
+    answer: 'En güvenilir göstergeler şunlardır: uygun kilo alımı, günde en az 5-6 ıslak bez ve bebeğin beslenmeden sonra tokluk belirtileri göstermesi.',
   },
   {
     question: 'Anne sütü ile mama miktarları aynı mıdır?',
@@ -102,36 +102,36 @@ export const content: BabyFeedingCalculatorLocaleContent = {
   },
   seo: [
     { type: 'summary', title: 'Özet: Bebek beslenmesi', items: [
-      'Yeni doğan bir bebeğin mide kapasitesi ilk gün sadece 5–7 ml\'dir.',
+      'Yeni doğan bir bebeğin mide kapasitesi ilk gün sadece 5-7 ml\'dir.',
       'Mama için genel kıstas günlük vücut ağırlığı başına 150 ml\'dir.',
       'Emzirme, sabit hacimler olmadan bebeğin her isteğinde sunulur.',
-      'Sıklık yaşla birlikte azalır: 6 ayda 8–12 öğünden 4–5 öğüne.',
+      'Sıklık yaşla birlikte azalır: 6 ayda 8-12 öğünden 4-5 öğüne.',
     ]},
     { type: 'title', text: 'Bebeğimin ağırlığına ve yaşına göre ne kadar süte ihtiyacı var?', level: 2 },
     { type: 'paragraph', html: 'Süt ihtiyacı ilk aylarda hızla değişir. Hesaplayıcı; WHO ve AAP pediatrik yönergelerini izleyerek bebeğin güncel ağırlığına ve yaşına göre miktarı tahmin eder.' },
     { type: 'stats', columns: 3, items: [
-      { value: '5–7 ml', label: '1. Gün (kiraz boyutu)' },
+      { value: '5-7 ml', label: '1. Gün (kiraz boyutu)' },
       { value: '150 ml/kg', label: 'Günlük mama kıstası' },
-      { value: '8–12', label: 'Yeni doğan öğün sayısı' },
+      { value: '8-12', label: 'Yeni doğan öğün sayısı' },
     ]},
     { type: 'title', text: 'Yaşa göre mide boyutu', level: 3 },
     { type: 'table', headers: ['Yaş', 'Ref. boyutu', 'Kapasite', 'Öğün/gün'], rows: [
-      ['1. Gün', 'Kiraz', '5–7 ml', '8–12'],
-      ['2–4. Gün', 'Ceviz', '22–27 ml', '8–12'],
-      ['5–30. Gün', 'Yumurta', '45–60 ml', '8–10'],
-      ['1–3 Aylık', 'Maksimum', '90–120 ml', '7–8'],
-      ['3–6 Aylık', 'Maksimum', '120–150 ml', '5–6'],
-      ['6+ Aylık', 'Maksimum', '150–180 ml', '4–5'],
+      ['1. Gün', 'Kiraz', '5-7 ml', '8-12'],
+      ['2-4. Gün', 'Ceviz', '22-27 ml', '8-12'],
+      ['5-30. Gün', 'Yumurta', '45-60 ml', '8-10'],
+      ['1-3 Aylık', 'Maksimum', '90-120 ml', '7-8'],
+      ['3-6 Aylık', 'Maksimum', '120-150 ml', '5-6'],
+      ['6+ Aylık', 'Maksimum', '150-180 ml', '4-5'],
     ]},
     { type: 'tip', html: 'Yeterli beslenmenin güvenilir bir göstergesi günlük ıslak bez sayısıdır: 5. günden itibaren günde 5 ila 6 bez, iyi bir hidrasyona işaret eder.' },
     { type: 'title', text: 'Emzirme vs mama', level: 3 },
     { type: 'comparative', columns: 2, items: [
       { title: 'Emzirme', description: 'Bebeğin talebine göre doğal beslenme.', points: ['Sabit saat yok', 'Aktif antikorlar', 'Değişken bileşim', 'Miktarı ölçmek zor'] },
-      { title: 'Mama ile beslenme', description: 'Hesaplanabilir hacimle planlanmış öğünler.', points: ['Her 3–4 saatte bir', 'Stabil bileşim', 'Alımı kontrol etmek kolay', 'Steril hazırlık gerektirir'] },
+      { title: 'Mama ile beslenme', description: 'Hesaplanabilir hacimle planlanmış öğünler.', points: ['Her 3-4 saatte bir', 'Stabil bileşim', 'Alımı kontrol etmek kolay', 'Steril hazırlık gerektirir'] },
     ]},
     { type: 'list', items: [
-      'Uygun kilo alımı: ilk ayda haftalık 150–200 gr',
-      'Günde en az 5–6 ıslak bez',
+      'Uygun kilo alımı: ilk ayda haftalık 150-200 gr',
+      'Günde en az 5-6 ıslak bez',
       'Öğünlerden sonra bebek huzurludur',
       'Berrak veya çok açık sarı idrar',
     ]},

@@ -23,7 +23,7 @@ const faq = [
   },
   {
     question: 'Vad är BF och hur exakt är det?',
-    answer: 'Beräknat Förlossningsdatum (BF) är en statistisk uppskattning. Endast 3–5 % av barnen föds exakt den dagen. De flesta föds mellan vecka 38 och 42.',
+    answer: 'Beräknat Förlossningsdatum (BF) är en statistisk uppskattning. Endast 3-5 % av barnen föds exakt den dagen. De flesta föds mellan vecka 38 och 42.',
   },
 ];
 const howTo = [
@@ -96,7 +96,7 @@ export const content: PregnancyCalculatorLocaleContent = {
     labelTrimester: 'Trimester',
     labelEDD: 'Beräknat förlossningsdatum',
     eddPlaceholder: 'Ange ditt datum',
-    eddNote: 'Endast 3–5 % av barnen föds exakt den dagen',
+    eddNote: 'Endast 3-5 % av barnen föds exakt den dagen',
     btnCalendar: 'Spara i kalender',
     labelFruits: 'Frukter',
     labelGeek: 'Geek',
@@ -266,7 +266,7 @@ export const content: PregnancyCalculatorLocaleContent = {
       title: 'Vad du bör komma ihåg',
       items: [
         'Beräkna din graviditetsvecka från sista mensen eller befruktningsdatumet.',
-        'BF är en uppskattning: endast 3–5 % av barnen föds exakt den dagen.',
+        'BF är en uppskattning: endast 3-5 % av barnen föds exakt den dagen.',
         'Varje trimester har sina egna milstolpar och typiska besvär.',
         'Vid varningssignaler, kontakta din barnmorska eller läkare direkt.',
         'Partner-läget visar hur du kan stötta din partner vecka för vecka.',
@@ -314,9 +314,9 @@ export const content: PregnancyCalculatorLocaleContent = {
       type: 'table',
       headers: ['Trimester', 'Veckor', 'Huvudsaklig milstolpe', 'Mammans kropp'],
       rows: [
-        ['1:', '1 – 12', 'Organbildning', 'Illamående, trötthet, implantation'],
-        ['2:', '13 – 26', 'Fosterrörelser, rutinultraljud', 'Energi återvänder, magen synlig'],
-        ['3:', '27 – 40', 'Lungmognad, fixering', 'Bäckentryck, förberedelse för förlossning'],
+        ['1:', '1 - 12', 'Organbildning', 'Illamående, trötthet, implantation'],
+        ['2:', '13 - 26', 'Fosterrörelser, rutinultraljud', 'Energi återvänder, magen synlig'],
+        ['3:', '27 - 40', 'Lungmognad, fixering', 'Bäckentryck, förberedelse för förlossning'],
       ],
     },
     {
@@ -329,7 +329,7 @@ export const content: PregnancyCalculatorLocaleContent = {
       headers: ['Vecka', 'Ungefärlig storlek', 'Biologisk milstolpe', 'Vad mamman känner'],
       rows: [
         ['4', '~1 mm', 'Implantation i livmodern', 'Möjlig lätt blödning'],
-        ['8', '~18 mm', 'Hjärtat slår 150–170 slag/min', 'Illamående på topp'],
+        ['8', '~18 mm', 'Hjärtat slår 150-170 slag/min', 'Illamående på topp'],
         ['12', '~55 mm', 'Viktigaste organen formade', 'Missfallsrisken sjunker drastiskt'],
         ['20', '~25 cm', 'Hör röster tydligt', 'Rutinultraljud (RUL)'],
         ['28', '~37 cm', 'Sömn- och vakenhetscykler', 'Start för tredje trimestern'],
@@ -347,7 +347,7 @@ export const content: PregnancyCalculatorLocaleContent = {
       columns: 2,
       items: [
         {
-          title: 'Första trimestern (v. 1–12)',
+          title: 'Första trimestern (v. 1 till 12)',
           description: 'Fasen med störst hormonell omställning.',
           points: [
             'Illamående och kräkningar, särskilt på morgonen',
@@ -358,25 +358,25 @@ export const content: PregnancyCalculatorLocaleContent = {
           ],
         },
         {
-          title: 'Andra trimestern (v. 13–26)',
+          title: 'Andra trimestern (v. 13 till 26)',
           description: 'Spökveckorna - när många mår som bäst.',
           points: [
             'Illamåendet försvinner',
             'Energin återvänder',
-            'Magen syns från vecka 18–20',
-            'Första fosterrörelserna (v. 18–22)',
+            'Magen syns från vecka 18-20',
+            'Första fosterrörelserna (v. 18-22)',
             'Ökad halsbränna',
           ],
         },
         {
-          title: 'Tredje trimestern (v. 27–40)',
+          title: 'Tredje trimestern (v. 27 till 40)',
           description: 'Förberedelse inför förlossningen.',
           points: [
             'Bäckentryck och ryggvärk',
             'Förvärkar (Braxton Hicks)',
             'Svullna fötter och anklar',
             'Svårt att sova',
-            'Barnet fixeras (v. 36–38)',
+            'Barnet fixeras (v. 36-38)',
           ],
         },
       ],
@@ -404,10 +404,10 @@ export const content: PregnancyCalculatorLocaleContent = {
     {
       type: 'list',
       items: [
-        'Vecka 8–12: Inskrivning hos barnmorskan.',
-        'Vecka 11–14: KUB-test (ultraljud + blodprov).',
-        'Vecka 18–20: Rutinultraljud (RUL).',
-        'Vecka 24–28: Glukosbelastning vid behov.',
+        'Vecka 8-12: Inskrivning hos barnmorskan.',
+        'Vecka 11-14: KUB-test (ultraljud + blodprov).',
+        'Vecka 18-20: Rutinultraljud (RUL).',
+        'Vecka 24-28: Glukosbelastning vid behov.',
         'Vecka 36: Kontroll av barnets läge.',
       ],
     },
@@ -442,23 +442,23 @@ export const content: PregnancyCalculatorLocaleContent = {
   bibliographyTitle: 'Referenser',
   bibliography: [
     {
-      name: 'WHO – Care during pregnancy',
+      name: 'WHO - Care during pregnancy',
       url: 'https://www.who.int/news-room/fact-sheets/detail/maternal-mortality',
     },
     {
-      name: 'ACOG – Gestational Age and Due Date Calculation',
+      name: 'ACOG - Gestational Age and Due Date Calculation',
       url: 'https://www.acog.org/clinical/clinical-guidance/committee-opinion/articles/2017/05/methods-for-estimating-the-due-date',
     },
     {
-      name: 'SFOG – Svensk Förening för Obstetrik och Gynekologi',
+      name: 'SFOG - Svensk Förening för Obstetrik och Gynekologi',
       url: 'https://www.sfog.se',
     },
     {
-      name: 'Naegele\'s rule – Dugoff L. et al., Obstetrics & Gynecology',
+      name: 'Naegele\'s rule - Dugoff L. et al., Obstetrics & Gynecology',
       url: 'https://journals.lww.com/greenjournal/fulltext/2017/05000/methods_for_estimating_the_due_date.43.aspx',
     },
     {
-      name: 'UpToDate – Prenatal care: Initial assessment',
+      name: 'UpToDate - Prenatal care: Initial assessment',
       url: 'https://www.uptodate.com/contents/prenatal-care-initial-assessment',
     },
   ],

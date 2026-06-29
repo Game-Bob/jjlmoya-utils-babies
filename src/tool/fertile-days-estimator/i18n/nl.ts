@@ -177,7 +177,7 @@ export const content: FertileDaysEstimatorLocaleContent = {
       type: 'list',
       items: [
         'Veranderingen in het baarmoederhalsslijm: op vruchtbare dagen wordt het transparant en elastisch, vergelijkbaar met eiwit.',
-        'Lichte stijging van de basale lichaamstemperatuur (0,2–0,4 °C) net na de ovulatie.',
+        'Lichte stijging van de basale lichaamstemperatuur (0,2-0,4 °C) net na de ovulatie.',
         'Lichte pijn of ongemak aan de zijde van de actieve eierstok (Mittelschmerz) tijdens de ovulatie.',
         'Lichte toename van het libido rond de ovulatie, gestuurd door hormonale veranderingen.',
         'Een opgeblazen gevoel of een licht zwaar gevoel in de onderbuik tijdens de vruchtbare dagen.',
@@ -231,7 +231,7 @@ export const content: FertileDaysEstimatorLocaleContent = {
         },
         {
           term: 'Basale lichaamstemperatuur',
-          definition: 'Lichaamstemperatuur in absolute rust, gemeten direct na het ontwaken vóór enige activiteit. Stijgt licht (0,2–0,4 °C) na de ovulatie onder invloed van progesteron.',
+          definition: 'Lichaamstemperatuur in absolute rust, gemeten direct na het ontwaken vóór enige activiteit. Stijgt licht (0,2-0,4 °C) na de ovulatie onder invloed van progesteron.',
         },
       ],
     },

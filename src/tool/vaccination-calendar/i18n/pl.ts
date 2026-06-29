@@ -154,12 +154,12 @@ export const content: VaccinationCalendarLocaleContent = {
     { type: 'title', text: 'Typowe efekty uboczne', level: 3 },
     { type: 'list', items: [
       'Zaczerwienienie lub obrzęk w miejscu wstrzyknięcia: znika po 1-2 dniach.',
-      'Lekka gorączka (37.5–38.5 °C): normalna w ciągu pierwszych 24-48 godzin.',
+      'Lekka gorączka (37.5-38.5 °C): normalna w ciągu pierwszych 24-48 godzin.',
       'Drażliwość lub płacz: częste u niemowląt po pierwszych dawkach.',
       'Przejściowa senność lub brak apetytu: nie wymaga leczenia.',
       'Ciężkie reakcje, takie jak anafilaksja, są niezwykle rzadkie (mniej niż 1 na milion dawek).',
     ]},
-    { type: 'tip', html: 'Zabranie dziecka najedzonego i w wygodnym ubraniu ułatwia wizytę. Po szczepieniu kontakt „skóra do skóry” lub karmienie piersią pomagają w naturalny sposób złagodzić ból i stan zapalny.' },
+    { type: 'tip', html: 'Zabranie dziecka najedzonego i w wygodnym ubraniu ułatwia wizytę. Po szczepieniu kontakt "skóra do skóry" lub karmienie piersią pomagają w naturalny sposób złagodzić ból i stan zapalny.' },
     { type: 'summary', title: 'O czym należy pamiętać', items: [
       'Kalendarz AEP 2026 obejmuje 14 dawek do 12. roku życia dla pełnej ochrony.',
       'Szczepionki w pierwszym roku życia chronią jednocześnie przed nawet 9 groźnymi chorobami.',

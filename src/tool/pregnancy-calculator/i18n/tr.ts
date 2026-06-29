@@ -23,7 +23,7 @@ const faq = [
   },
   {
     question: 'TDT nedir ve ne kadar kesindir?',
-    answer: 'Tahmini Doğum Tarihi (TDT) istatistiksel bir tahmindir. Bebeklerin sadece %3–5\'i tam olarak o gün doğar. Çoğu 38. ile 42. haftalar arasında doğar.',
+    answer: 'Tahmini Doğum Tarihi (TDT) istatistiksel bir tahmindir. Bebeklerin sadece %3-5\'i tam olarak o gün doğar. Çoğu 38. ile 42. haftalar arasında doğar.',
   },
 ];
 const howTo = [
@@ -96,7 +96,7 @@ export const content: PregnancyCalculatorLocaleContent = {
     labelTrimester: 'Trimester',
     labelEDD: 'Tahmini Doğum Tarihi',
     eddPlaceholder: 'Tarihinizi girin',
-    eddNote: 'Bebeklerin sadece %3–5\'i tam olarak o gün doğar',
+    eddNote: 'Bebeklerin sadece %3-5\'i tam olarak o gün doğar',
     btnCalendar: 'Takvime Kaydet',
     labelFruits: 'Meyveler',
     labelGeek: 'Geek',
@@ -266,7 +266,7 @@ export const content: PregnancyCalculatorLocaleContent = {
       title: 'Unutmamanız gerekenler',
       items: [
         'Gebelik haftanızı SAT veya döllenme tarihine göre hesaplayın.',
-        'TDT bir tahmindir: Bebeklerin sadece %3–5\'i tam o gün doğar.',
+        'TDT bir tahmindir: Bebeklerin sadece %3-5\'i tam o gün doğar.',
         'Her trimesterin kendine has biyolojik dönüm noktaları ve şikayetleri vardır.',
         'Herhangi bir uyarı sinyalinde beklemeden doktorunuza veya ebenize danışın.',
         'Eş modu, partnerinizi hafta hafta nasıl destekleyeceğinizi gösterir.',
@@ -314,9 +314,9 @@ export const content: PregnancyCalculatorLocaleContent = {
       type: 'table',
       headers: ['Trimester', 'Haftalar', 'Ana dönüm noktası', 'Annenin vücudu'],
       rows: [
-        ['1.', '1 – 12', 'Organ oluşumu', 'Bulantı, yorgunluk, yerleşme'],
-        ['2.', '13 – 26', 'Bebek hareketleri, ayrıntılı ultrason', 'Enerjinin geri gelmesi, belirgin karın'],
-        ['3.', '27 – 40', 'Akciğer olgunlaşması, doğum kanalına giriş', 'Pelvik baskı, doğuma hazırlık'],
+        ['1.', '1 - 12', 'Organ oluşumu', 'Bulantı, yorgunluk, yerleşme'],
+        ['2.', '13 - 26', 'Bebek hareketleri, ayrıntılı ultrason', 'Enerjinin geri gelmesi, belirgin karın'],
+        ['3.', '27 - 40', 'Akciğer olgunlaşması, doğum kanalına giriş', 'Pelvik baskı, doğuma hazırlık'],
       ],
     },
     {
@@ -329,7 +329,7 @@ export const content: PregnancyCalculatorLocaleContent = {
       headers: ['Hafta', 'Yaklaşık boyut', 'Biyolojik dönüm noktası', 'Annenin hissettikleri'],
       rows: [
         ['4', '~1 mm', 'Endometriuma yerleşme', 'Olası hafif kanama'],
-        ['8', '~18 mm', 'Kalp dakikada 150–170 kez atar', 'Bulantı doruk noktasında'],
+        ['8', '~18 mm', 'Kalp dakikada 150-170 kez atar', 'Bulantı doruk noktasında'],
         ['12', '~55 mm', 'Ana organlar oluştu', 'Düşük riski önemli ölçüde azalır'],
         ['20', '~25 cm', 'Sesleri net duyar', 'Ayrıntılı ultrason'],
         ['28', '~37 cm', 'Uyku ve uyanıklık döngüleri', 'Üçüncü trimester başlangıcı'],
@@ -347,7 +347,7 @@ export const content: PregnancyCalculatorLocaleContent = {
       columns: 2,
       items: [
         {
-          title: 'İlk trimester (1–12. haftalar)',
+          title: 'İlk trimester (1 ila 12. haftalar)',
           description: 'En büyük hormonal değişim evresi.',
           points: [
             'Özellikle sabahları bulantı ve kusma',
@@ -358,7 +358,7 @@ export const content: PregnancyCalculatorLocaleContent = {
           ],
         },
         {
-          title: 'İkinci trimester (13–26. haftalar)',
+          title: 'İkinci trimester (13 ila 26. haftalar)',
           description: 'Çoğu kişi için en iyi hissedilen trimester.',
           points: [
             'Bulantıların kaybolması',
@@ -369,7 +369,7 @@ export const content: PregnancyCalculatorLocaleContent = {
           ],
         },
         {
-          title: 'Üçüncü trimester (27–40. haftalar)',
+          title: 'Üçüncü trimester (27 ila 40. haftalar)',
           description: 'Doğuma hazırlık.',
           points: [
             'Pelvik baskı ve bel ağrısı',
@@ -404,10 +404,10 @@ export const content: PregnancyCalculatorLocaleContent = {
     {
       type: 'list',
       items: [
-        '8–12. hafta: ilk trimester ultrasonu ve kan tahlili.',
+        '8-12. hafta: ilk trimester ultrasonu ve kan tahlili.',
         '12. hafta: ikili tarama testi (ense kalınlığı + tahlil).',
-        '18–22. hafta: ayrıntılı ultrason (20. hafta).',
-        '24–28. hafta: glikoz tolerans testi (şeker yüklemesi).',
+        '18-22. hafta: ayrıntılı ultrason (20. hafta).',
+        '24-28. hafta: glikoz tolerans testi (şeker yüklemesi).',
         '36. hafta: kontrol ultrasonu, B grubu streptokok taraması.',
       ],
     },
@@ -442,11 +442,11 @@ export const content: PregnancyCalculatorLocaleContent = {
   bibliographyTitle: 'Referanslar',
   bibliography: [
     {
-      name: 'DSÖ – Gebelikte bakım',
+      name: 'DSÖ - Gebelikte bakım',
       url: 'https://www.who.int/news-room/fact-sheets/detail/maternal-mortality',
     },
     {
-      name: 'ACOG – Gestational Age and Due Date Calculation',
+      name: 'ACOG - Gestational Age and Due Date Calculation',
       url: 'https://www.acog.org/clinical/clinical-guidance/committee-opinion/articles/2017/05/methods-for-estimating-the-due-date',
     },
     {
@@ -454,11 +454,11 @@ export const content: PregnancyCalculatorLocaleContent = {
       url: 'https://www.tjod.org',
     },
     {
-      name: 'Naegele\'s rule – Dugoff L. et al., Obstetrics & Gynecology',
+      name: 'Naegele\'s rule - Dugoff L. et al., Obstetrics & Gynecology',
       url: 'https://journals.lww.com/greenjournal/fulltext/2017/05000/methods_for_estimating_the_due_date.43.aspx',
     },
     {
-      name: 'UpToDate – Prenatal care: Initial assessment',
+      name: 'UpToDate - Prenatal care: Initial assessment',
       url: 'https://www.uptodate.com/contents/prenatal-care-initial-assessment',
     },
   ],

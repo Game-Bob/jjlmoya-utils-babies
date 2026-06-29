@@ -177,7 +177,7 @@ export const content: FertileDaysEstimatorLocaleContent = {
       type: 'list',
       items: [
         'Zmiany w śluzie szyjkowym: w dni płodne staje się przejrzysty i elastyczny, przypominający białko jaja.',
-        'Lekki wzrost podstawowej temperatury ciała (0,2–0,4 °C) tuż po owulacji.',
+        'Lekki wzrost podstawowej temperatury ciała (0,2-0,4 °C) tuż po owulacji.',
         'Lekki ból lub dyskomfort po stronie aktywnego jajnika (Mittelschmerz) podczas owulacji.',
         'Niewielki wzrost libido w okolicach owulacji, wywołany zmianami hormonalnymi.',
         'Wzdęcia lub uczucie lekkiego napięcia w podbrzuszu podczas dni płodnych.',
@@ -231,7 +231,7 @@ export const content: FertileDaysEstimatorLocaleContent = {
         },
         {
           term: 'Podstawowa temperatura ciała',
-          definition: 'Temperatura ciała w spoczynku, mierzona rano zaraz po przebudzeniu. Wzrasta nieznacznie (0,2–0,4 °C) po owulacji pod wpływem progesteronu.',
+          definition: 'Temperatura ciała w spoczynku, mierzona rano zaraz po przebudzeniu. Wzrasta nieznacznie (0,2-0,4 °C) po owulacji pod wpływem progesteronu.',
         },
       ],
     },

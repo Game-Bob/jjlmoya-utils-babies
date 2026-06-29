@@ -99,7 +99,7 @@ export const content: FertileDaysEstimatorLocaleContent = {
   seo: [
     {
       type: 'title',
-      text: "Calculatrice de Jours Fertiles : Guide Complet sur le Cycle et l'Ovulation",
+      text: "Calculatrice de Jours Fertiles: Guide Complet sur le Cycle et l'Ovulation",
       level: 2,
     },
     {
@@ -172,7 +172,7 @@ export const content: FertileDaysEstimatorLocaleContent = {
     {
       type: 'list',
       items: [
-        "Modifications de la glaire cervicale : pendant les jours fertiles, elle devient transparente et élastique, semblable au blanc d'œuf cru.",
+        "Modifications de la glaire cervicale: pendant les jours fertiles, elle devient transparente et élastique, semblable au blanc d'œuf cru.",
         "Légère hausse de la température basale (0,2-0,4 °C) juste après l'ovulation.",
         "Douleur ou gêne légère du côté de l'ovaire actif (Mittelschmerz) pendant l'ovulation.",
         "Légère augmentation de la libido proche de l'ovulation, due aux changements hormonaux.",
@@ -188,7 +188,7 @@ export const content: FertileDaysEstimatorLocaleContent = {
       type: 'list',
       items: [
         "Le stress chronique peut perturber l'ovulation et allonger ou raccourcir le cycle menstruel.",
-        "Le poids corporel a un impact direct : le sous-poids comme le surpoids peuvent affecter l'ovulation.",
+        "Le poids corporel a un impact direct: le sous-poids comme le surpoids peuvent affecter l'ovulation.",
         "L'exercice modéré favorise la régularité du cycle ; l'exercice intense peut le supprimer.",
         "Le tabac réduit la réserve ovarienne et avance la ménopause de plusieurs années.",
         "Une alimentation riche en acide folique, en fer et en antioxydants soutient la santé reproductive.",

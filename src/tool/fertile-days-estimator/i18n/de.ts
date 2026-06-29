@@ -177,7 +177,7 @@ export const content: FertileDaysEstimatorLocaleContent = {
       type: 'list',
       items: [
         'Veränderungen des Zervixschleims: An fruchtbaren Tagen wird er klar und dehnbar, ähnlich wie Eiklar.',
-        'Leichter Anstieg der Basalttemperatur (0,2–0,4 °C) unmittelbar nach dem Eisprung.',
+        'Leichter Anstieg der Basalttemperatur (0,2-0,4 °C) unmittelbar nach dem Eisprung.',
         'Leichte Schmerzen oder Beschwerden auf der Seite des aktiven Eierstocks (Mittelschmerz) während des Eisprungs.',
         'Leichte Steigerung der Libido kurz vor dem Eisprung, vermittelt durch hormonelle Veränderungen.',
         'Blähungen oder ein leichtes Völlegefühl im Bauch während der fruchtbaren Tage.',
@@ -231,7 +231,7 @@ export const content: FertileDaysEstimatorLocaleContent = {
         },
         {
           term: 'Basaltemperatur',
-          definition: 'Körpertemperatur in absoluter Ruhe, gemessen nach dem Aufwachen vor jeder Aktivität. Steigt nach dem Eisprung durch die Wirkung von Progesteron leicht an (0,2–0,4 °C).',
+          definition: 'Körpertemperatur in absoluter Ruhe, gemessen nach dem Aufwachen vor jeder Aktivität. Steigt nach dem Eisprung durch die Wirkung von Progesteron leicht an (0,2-0,4 °C).',
         },
       ],
     },

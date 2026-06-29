@@ -154,7 +154,7 @@ export const content: VaccinationCalendarLocaleContent = {
     { type: 'title', text: 'Veelvoorkomende bijwerkingen', level: 3 },
     { type: 'list', items: [
       'Roodheid of zwelling op de plaats van injectie: verdwijnt na 1-2 dagen.',
-      'Lichte koorts (37,5–38,5 °C): normaal in de eerste 24-48 uur.',
+      'Lichte koorts (37,5-38,5 °C): normaal in de eerste 24-48 uur.',
       'Prikkelbaarheid of huilen: komt vaak voor bij baby\'s na de eerste doses.',
       'Slaperigheid of tijdelijk gebrek aan eetlust: behoeft geen behandeling.',
       'Ernstige reacties zoals anafylaxie zijn uiterst zeldzaam (minder dan 1 per miljoen doses).',

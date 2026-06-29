@@ -23,7 +23,7 @@ const faq = [
   },
   {
     question: 'Was ist der ET und wie genau ist er?',
-    answer: 'Der voraussichtliche Entbindungstermin (ET) ist eine statistische Schätzung. Nur 3–5 % der Babys werden genau an diesem Tag geboren. Die meisten kommen zwischen der 38. und 42. Woche zur Welt.',
+    answer: 'Der voraussichtliche Entbindungstermin (ET) ist eine statistische Schätzung. Nur 3-5 % der Babys werden genau an diesem Tag geboren. Die meisten kommen zwischen der 38. und 42. Woche zur Welt.',
   },
 ];
 const howTo = [
@@ -96,7 +96,7 @@ export const content: PregnancyCalculatorLocaleContent = {
     labelTrimester: 'Trimester',
     labelEDD: 'Voraussichtlicher Geburtstermin',
     eddPlaceholder: 'Datum eingeben',
-    eddNote: 'Nur 3–5 % der Babys werden genau an diesem Tag geboren',
+    eddNote: 'Nur 3-5 % der Babys werden genau an diesem Tag geboren',
     btnCalendar: 'Im Kalender speichern',
     labelFruits: 'Früchte',
     labelGeek: 'Geek',
@@ -266,7 +266,7 @@ export const content: PregnancyCalculatorLocaleContent = {
       title: 'Was du beachten solltest',
       items: [
         'Berechne deine Schwangerschaftswoche ab der letzten Periode oder dem Empfängnisdatum.',
-        'Der ET ist eine Schätzung: Nur 3–5 % der Babys werden genau an diesem Tag geboren.',
+        'Der ET ist eine Schätzung: Nur 3-5 % der Babys werden genau an diesem Tag geboren.',
         'Jedes Trimester hat seine biologischen Meilensteine und typischen Beschwerden.',
         'Bei Warnsignalen konsultiere sofort deinen Arzt oder deine Hebamme.',
         'Der Partner-Modus zeigt dir, wie du deine Partnerin Woche für Woche unterstützen kannst.',
@@ -314,9 +314,9 @@ export const content: PregnancyCalculatorLocaleContent = {
       type: 'table',
       headers: ['Trimester', 'Wochen', 'Hauptmeilenstein', 'Körper der Mutter'],
       rows: [
-        ['1.', '1 – 12', 'Organbildung', 'Übelkeit, Müdigkeit, Einnistung'],
-        ['2.', '13 – 26', 'Kindsbewegungen, Feindiagnostik', 'Energie kehrt zurück, Bauch sichtbar'],
-        ['3.', '27 – 40', 'Lungenreifung, Senkung', 'Beckendruck, Geburtsvorbereitung'],
+        ['1.', '1 - 12', 'Organbildung', 'Übelkeit, Müdigkeit, Einnistung'],
+        ['2.', '13 - 26', 'Kindsbewegungen, Feindiagnostik', 'Energie kehrt zurück, Bauch sichtbar'],
+        ['3.', '27 - 40', 'Lungenreifung, Senkung', 'Beckendruck, Geburtsvorbereitung'],
       ],
     },
     {
@@ -329,7 +329,7 @@ export const content: PregnancyCalculatorLocaleContent = {
       headers: ['Woche', 'Ca. Größe', 'Biologischer Meilenstein', 'Was die Mutter fühlt'],
       rows: [
         ['4', '~1 mm', 'Einnistung im Endometrium', 'Mögliche leichte Blutung'],
-        ['8', '~18 mm', 'Herz schlägt 150–170 Mal/Min', 'Übelkeit am Höhepunkt'],
+        ['8', '~18 mm', 'Herz schlägt 150-170 Mal/Min', 'Übelkeit am Höhepunkt'],
         ['12', '~55 mm', 'Hauptorgane geformt', 'Fehlgeburtsrisiko sinkt drastisch'],
         ['20', '~25 cm', 'Hört Stimmen deutlich', 'Feindiagnostik-Ultraschall'],
         ['28', '~37 cm', 'Schlaf- und Wachzyklen', 'Beginn des dritten Trimesters'],
@@ -347,7 +347,7 @@ export const content: PregnancyCalculatorLocaleContent = {
       columns: 2,
       items: [
         {
-          title: 'Erstes Trimester (Wo. 1–12)',
+          title: 'Erstes Trimester (Wo. 1 bis 12)',
           description: 'Die Phase der größten hormonellen Umstellung.',
           points: [
             'Übelkeit und Erbrechen, besonders morgens',
@@ -358,25 +358,25 @@ export const content: PregnancyCalculatorLocaleContent = {
           ],
         },
         {
-          title: 'Zweites Trimester (Wo. 13–26)',
+          title: 'Zweites Trimester (Wo. 13 bis 26)',
           description: 'Das Trimester des Wohlbefindens für die meisten.',
           points: [
             'Verschwinden der Übelkeit',
             'Energie kehrt zurück',
-            'Bauch sichtbar ab Woche 18–20',
-            'Erste Kindsbewegungen (Wo. 18–22)',
+            'Bauch sichtbar ab Woche 18-20',
+            'Erste Kindsbewegungen (Wo. 18-22)',
             'Zunehmendes Sodbrennen',
           ],
         },
         {
-          title: 'Drittes Trimester (Wo. 27–40)',
+          title: 'Drittes Trimester (Wo. 27 bis 40)',
           description: 'Vorbereitung auf die Geburt.',
           points: [
             'Beckendruck und Rückenschmerzen',
             'Braxton-Hicks-Kontraktionen',
             'Schwellungen an Füßen und Knöcheln',
             'Schlafschwierigkeiten',
-            'Absenken des Babys (Wo. 36–38)',
+            'Absenken des Babys (Wo. 36-38)',
           ],
         },
       ],
@@ -404,10 +404,10 @@ export const content: PregnancyCalculatorLocaleContent = {
     {
       type: 'list',
       items: [
-        'Woche 8–12: Erster Ultraschall und Blutuntersuchung.',
+        'Woche 8-12: Erster Ultraschall und Blutuntersuchung.',
         'Woche 12: Ersttrimester-Screening (Nackentransparenz + Analytik).',
-        'Woche 18–22: Feindiagnostik-Ultraschall.',
-        'Woche 24–28: Glukosetoleranztest (O\'Sullivan).',
+        'Woche 18-22: Feindiagnostik-Ultraschall.',
+        'Woche 24-28: Glukosetoleranztest (O\'Sullivan).',
         'Woche 36: Kontroll-Ultraschall, B-Streptokokken-Test.',
       ],
     },
@@ -442,11 +442,11 @@ export const content: PregnancyCalculatorLocaleContent = {
   bibliographyTitle: 'Referenzen',
   bibliography: [
     {
-      name: 'WHO – Schwangerschaftsvorsorge',
+      name: 'WHO - Schwangerschaftsvorsorge',
       url: 'https://www.who.int/news-room/fact-sheets/detail/maternal-mortality',
     },
     {
-      name: 'ACOG – Gestational Age and Due Date Calculation',
+      name: 'ACOG - Gestational Age and Due Date Calculation',
       url: 'https://www.acog.org/clinical/clinical-guidance/committee-opinion/articles/2017/05/methods-for-estimating-the-due-date',
     },
     {
@@ -454,11 +454,11 @@ export const content: PregnancyCalculatorLocaleContent = {
       url: 'https://www.dggg.de',
     },
     {
-      name: 'Naegele\'s rule – Dugoff L. et al., Obstetrics & Gynecology',
+      name: 'Naegele\'s rule - Dugoff L. et al., Obstetrics & Gynecology',
       url: 'https://journals.lww.com/greenjournal/fulltext/2017/05000/methods_for_estimating_the_due_date.43.aspx',
     },
     {
-      name: 'UpToDate – Prenatal care: Initial assessment',
+      name: 'UpToDate - Prenatal care: Initial assessment',
       url: 'https://www.uptodate.com/contents/prenatal-care-initial-assessment',
     },
   ],

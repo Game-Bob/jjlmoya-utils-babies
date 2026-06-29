@@ -23,7 +23,7 @@ const faq = [
   },
   {
     question: 'O que é a DPP e qual a sua exatidão?',
-    answer: 'A Data Provável de Parto (DPP) é uma estimativa estatística. Apenas 3–5% dos bebés nascem exactamente nesse dia. A maioria nasce entre a semana 38 e a 42.',
+    answer: 'A Data Provável de Parto (DPP) é uma estimativa estatística. Apenas 3-5% dos bebés nascem exactamente nesse dia. A maioria nasce entre a semana 38 e a 42.',
   },
 ];
 const howTo = [
@@ -96,7 +96,7 @@ export const content: PregnancyCalculatorLocaleContent = {
     labelTrimester: 'Trimestre',
     labelEDD: 'Data Provável de Parto',
     eddPlaceholder: 'Introduza a sua data',
-    eddNote: 'Apenas 3–5% dos bebés nascem nesse dia exacto',
+    eddNote: 'Apenas 3-5% dos bebés nascem nesse dia exacto',
     btnCalendar: 'Guardar no Calendário',
     labelFruits: 'Frutas',
     labelGeek: 'Geek',
@@ -266,7 +266,7 @@ export const content: PregnancyCalculatorLocaleContent = {
       title: 'O que deve recordar',
       items: [
         'Calcule a sua semana de gravidez a partir da DUM ou da data de conceção.',
-        'A DPP é uma estimativa: apenas 3–5% dos bebés nascem exactamente nesse dia.',
+        'A DPP é uma estimativa: apenas 3-5% dos bebés nascem exactamente nesse dia.',
         'Cada trimestre tem os seus próprios marcos biológicos e desconfortos característicos.',
         'Perante qualquer sinal de alarme, consulte o seu médico ou parteira sem esperar.',
         'O modo parceiro mostra-lhe como apoiar a sua companheira semana a semana.',
@@ -314,9 +314,9 @@ export const content: PregnancyCalculatorLocaleContent = {
       type: 'table',
       headers: ['Trimestre', 'Semanas', 'Marco principal', 'Corpo da mãe'],
       rows: [
-        ['1º', '1 – 12', 'Formação de órgãos', 'Náuseas, cansaço, implantação'],
-        ['2º', '13 – 26', 'Movimentos fetais, eco morfológica', 'Energia recuperada, barriga visível'],
-        ['3º', '27 – 40', 'Maturação pulmonar, encaixe', 'Pressão pélvica, preparação para o parto'],
+        ['1º', '1 - 12', 'Formação de órgãos', 'Náuseas, cansaço, implantação'],
+        ['2º', '13 - 26', 'Movimentos fetais, eco morfológica', 'Energia recuperada, barriga visível'],
+        ['3º', '27 - 40', 'Maturação pulmonar, encaixe', 'Pressão pélvica, preparação para o parto'],
       ],
     },
     {
@@ -329,7 +329,7 @@ export const content: PregnancyCalculatorLocaleContent = {
       headers: ['Semana', 'Tamanho aprox.', 'Marco biológico', 'O que sente a mãe'],
       rows: [
         ['4', '~1 mm', 'Implantação no endométrio', 'Sangramento leve possível'],
-        ['8', '~18 mm', 'Coração bate 150–170 vezes/min', 'Náuseas no seu ponto alto'],
+        ['8', '~18 mm', 'Coração bate 150-170 vezes/min', 'Náuseas no seu ponto alto'],
         ['12', '~55 mm', 'Órgãos principais formados', 'Risco de aborto cai drasticamente'],
         ['20', '~25 cm', 'Ouve vozes com clareza', 'Ecografia morfológica'],
         ['28', '~37 cm', 'Ciclos de sono e vigília', 'Início do terceiro trimestre'],
@@ -347,7 +347,7 @@ export const content: PregnancyCalculatorLocaleContent = {
       columns: 2,
       items: [
         {
-          title: 'Primeiro trimestre (sem. 1–12)',
+          title: 'Primeiro trimestre (sem. 1 a 12)',
           description: 'A fase de maior mudança hormonal.',
           points: [
             'Náuseas e vómitos, especialmente de manhã',
@@ -358,25 +358,25 @@ export const content: PregnancyCalculatorLocaleContent = {
           ],
         },
         {
-          title: 'Segundo trimestre (sem. 13–26)',
+          title: 'Segundo trimestre (sem. 13 a 26)',
           description: 'O trimestre de maior bem-estar para a maioria.',
           points: [
             'Desaparecimento das náuseas',
             'Energia recuperada',
-            'Barriga visível desde a semana 18–20',
-            'Primeiros movimentos fetais (sem. 18–22)',
+            'Barriga visível desde a semana 18-20',
+            'Primeiros movimentos fetais (sem. 18-22)',
             'Azia crescente',
           ],
         },
         {
-          title: 'Tercero trimestre (sem. 27–40)',
+          title: 'Tercero trimestre (sem. 27 a 40)',
           description: 'Preparação para o parto.',
           points: [
             'Pressão pélvica e dor nas costas',
             'Contrações de Braxton Hicks',
             'Inchaço nos pés e tornozelos',
             'Dificuldade em dormir',
-            'Encaixe do bebé (sem. 36–38)',
+            'Encaixe do bebé (sem. 36-38)',
           ],
         },
       ],
@@ -404,10 +404,10 @@ export const content: PregnancyCalculatorLocaleContent = {
     {
       type: 'list',
       items: [
-        'Semana 8–12: primeira ecografia e análise de sangue do primeiro trimestre.',
+        'Semana 8-12: primeira ecografia e análise de sangue do primeiro trimestre.',
         'Semana 12: rastreio combinado de primeiro trimestre (translucência nucal + analítica).',
-        'Semana 18–22: ecografia morfológica ou da semana 20.',
-        'Semana 24–28: prova de tolerância à glicose (O\'Sullivan).',
+        'Semana 18-22: ecografia morfológica ou da semana 20.',
+        'Semana 24-28: prova de tolerância à glicose (O\'Sullivan).',
         'Semana 36: ecografia de controlo, cultura de estreptococo grupo B.',
       ],
     },
@@ -442,11 +442,11 @@ export const content: PregnancyCalculatorLocaleContent = {
   bibliographyTitle: 'Referências',
   bibliography: [
     {
-      name: 'OMS – Cuidados na gravidez',
+      name: 'OMS - Cuidados na gravidez',
       url: 'https://www.who.int/pt/news-room/fact-sheets/detail/maternal-mortality',
     },
     {
-      name: 'ACOG – Gestational Age and Due Date Calculation',
+      name: 'ACOG - Gestational Age and Due Date Calculation',
       url: 'https://www.acog.org/clinical/clinical-guidance/committee-opinion/articles/2017/05/methods-for-estimating-the-due-date',
     },
     {
@@ -454,11 +454,11 @@ export const content: PregnancyCalculatorLocaleContent = {
       url: 'https://www.spgo.pt',
     },
     {
-      name: 'Naegele\'s rule – Dugoff L. et al., Obstetrics & Gynecology',
+      name: 'Naegele\'s rule - Dugoff L. et al., Obstetrics & Gynecology',
       url: 'https://journals.lww.com/greenjournal/fulltext/2017/05000/methods_for_estimating_the_due_date.43.aspx',
     },
     {
-      name: 'UpToDate – Prenatal care: Initial assessment',
+      name: 'UpToDate - Prenatal care: Initial assessment',
       url: 'https://www.uptodate.com/contents/prenatal-care-initial-assessment',
     },
   ],

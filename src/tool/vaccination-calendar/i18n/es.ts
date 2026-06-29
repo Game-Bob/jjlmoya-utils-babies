@@ -154,7 +154,7 @@ export const content: VaccinationCalendarLocaleContent = {
     { type: 'title', text: 'Efectos secundarios habituales', level: 3 },
     { type: 'list', items: [
       'Rojez o hinchazón en el lugar de la inyección: desaparece en 1-2 días.',
-      'Fiebre leve (37.5–38.5 °C): normal en las primeras 24-48 horas.',
+      'Fiebre leve (37.5-38.5 °C): normal en las primeras 24-48 horas.',
       'Irritabilidad o llanto: frecuente en bebés tras las primeras dosis.',
       'Somnolencia o falta de apetito transitoria: no precisa tratamiento.',
       'Reacciones graves como anafilaxia son extremadamente raras (menos de 1 por millón de dosis).',

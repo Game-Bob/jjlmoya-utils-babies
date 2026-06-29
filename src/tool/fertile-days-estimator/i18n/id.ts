@@ -177,7 +177,7 @@ export const content: FertileDaysEstimatorLocaleContent = {
       type: 'list',
       items: [
         'Perubahan lendir serviks: pada hari subur menjadi bening dan elastis, mirip putih telur.',
-        'Sedikit peningkatan suhu basal tubuh (0,2–0,4 °C) tepat setelah ovulasi.',
+        'Sedikit peningkatan suhu basal tubuh (0,2-0,4 °C) tepat setelah ovulasi.',
         'Nyeri atau ketidaknyamanan ringan pada sisi ovarium yang aktif (Mittelschmerz) selama ovulasi.',
         'Sedikit peningkatan libido menjelang ovulasi, dipicu oleh perubahan hormonal.',
         'Perut terasa kembung atau sensasi penuh selama hari-hari subur.',
@@ -231,7 +231,7 @@ export const content: FertileDaysEstimatorLocaleContent = {
         },
         {
           term: 'Suhu basal tubuh',
-          definition: 'Suhu tubuh saat istirahat total, diukur saat bangun tidur sebelum aktivitas apa pun. Meningkat sedikit (0,2–0,4 °C) setelah ovulasi karena efek progesteron.',
+          definition: 'Suhu tubuh saat istirahat total, diukur saat bangun tidur sebelum aktivitas apa pun. Meningkat sedikit (0,2-0,4 °C) setelah ovulasi karena efek progesteron.',
         },
       ],
     },

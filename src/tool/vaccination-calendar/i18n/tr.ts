@@ -154,7 +154,7 @@ export const content: VaccinationCalendarLocaleContent = {
     { type: 'title', text: 'Yaygın yan etkiler', level: 3 },
     { type: 'list', items: [
       'Enjeksiyon yerinde kızarıklık veya şişlik: 1-2 gün içinde geçer.',
-      'Hafif ateş (37.5–38.5 °C): İlk 24-48 saatte normaldir.',
+      'Hafif ateş (37.5-38.5 °C): İlk 24-48 saatte normaldir.',
       'Huzursuzluk veya ağlama: İlk dozlardan sonra bebeklerde sıktır.',
       'Geçici uykululuk veya iştahsızlık: Tedavi gerektirmez.',
       'Anafilaksi gibi ciddi reaksiyonlar son derece nadirdir (milyon dozda 1\'den az).',

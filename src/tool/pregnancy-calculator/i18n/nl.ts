@@ -23,7 +23,7 @@ const faq = [
   },
   {
     question: 'Wat is de uitgerekende datum (EDD) en hoe nauwkeurig is deze?',
-    answer: 'De uitgerekende datum is een statistische schatting. Slechts 3–5% van de baby\'s wordt exact op die dag geboren. De meeste worden geboren tussen week 38 en week 42.',
+    answer: 'De uitgerekende datum is een statistische schatting. Slechts 3-5% van de baby\'s wordt exact op die dag geboren. De meeste worden geboren tussen week 38 en week 42.',
   },
 ];
 const howTo = [
@@ -96,7 +96,7 @@ export const content: PregnancyCalculatorLocaleContent = {
     labelTrimester: 'Trimester',
     labelEDD: 'Uitgerekende Datum',
     eddPlaceholder: 'Voer je datum in',
-    eddNote: 'Slechts 3–5% van de baby\'s wordt exact op die dag geboren',
+    eddNote: 'Slechts 3-5% van de baby\'s wordt exact op die dag geboren',
     btnCalendar: 'Opslaan in Kalender',
     labelFruits: 'Vruchten',
     labelGeek: 'Geek',
@@ -266,7 +266,7 @@ export const content: PregnancyCalculatorLocaleContent = {
       title: 'Wat je moet onthouden',
       items: [
         'Bereken je zwangerschapsweek vanaf de laatste menstruatie of de datum van bevruchting.',
-        'De uitgerekende datum is een schatting: slechts 3–5% van de baby\'s wordt exact op die dag geboren.',
+        'De uitgerekende datum is een schatting: slechts 3-5% van de baby\'s wordt exact op die dag geboren.',
         'Elk trimester heeft zijn eigen biologische mijlpalen en typische ongemakken.',
         'Raadpleeg bij elk alarmsignaal onmiddellijk je arts of verloskundige.',
         'De partnermodus laat je zien hoe je je partner week na week kunt steunen.',
@@ -314,9 +314,9 @@ export const content: PregnancyCalculatorLocaleContent = {
       type: 'table',
       headers: ['Trimester', 'Weken', 'Belangrijkste mijlpaal', 'Lichaam van de moeder'],
       rows: [
-        ['1e', '1 – 12', 'Vorming van organen', 'Misselijkheid, vermoeidheid, innesteling'],
-        ['2e', '13 – 26', 'Foetale bewegingen, 20-weken echo', 'Energie hersteld, buik zichtbaar'],
-        ['3e', '27 – 40', 'Longrijping, indaling', 'Bekkenpressure, voorbereiding op de bevalling'],
+        ['1e', '1 - 12', 'Vorming van organen', 'Misselijkheid, vermoeidheid, innesteling'],
+        ['2e', '13 - 26', 'Foetale bewegingen, 20-weken echo', 'Energie hersteld, buik zichtbaar'],
+        ['3e', '27 - 40', 'Longrijping, indaling', 'Bekkenpressure, voorbereiding op de bevalling'],
       ],
     },
     {
@@ -329,7 +329,7 @@ export const content: PregnancyCalculatorLocaleContent = {
       headers: ['Week', 'Ca. grootte', 'Biologische mijlpaal', 'Wat de moeder voelt'],
       rows: [
         ['4', '~1 mm', 'Innesteling in het baarmoederslijmvlies', 'Mogelijke lichte bloeding'],
-        ['8', '~18 mm', 'Hart klopt 150–170 keer/min', 'Misselijkheid op zijn hoogtepunt'],
+        ['8', '~18 mm', 'Hart klopt 150-170 keer/min', 'Misselijkheid op zijn hoogtepunt'],
         ['12', '~55 mm', 'Belangrijkste organen gevormd', 'Risico op miskraam daalt drastisch'],
         ['20', '~25 cm', 'Hoort stemmen duidelijk', '20-weken echo'],
         ['28', '~37 cm', 'Slaap- en waakcycli', 'Begin van het derde trimester'],
@@ -347,7 +347,7 @@ export const content: PregnancyCalculatorLocaleContent = {
       columns: 2,
       items: [
         {
-          title: 'Eerste trimester (wk. 1–12)',
+          title: 'Eerste trimester (wk. 1 tot 12)',
           description: 'De fase van de grootste hormonale verandering.',
           points: [
             'Misselijkheid en braken, vooral \'s ochtends',
@@ -358,25 +358,25 @@ export const content: PregnancyCalculatorLocaleContent = {
           ],
         },
         {
-          title: 'Tweede trimester (wk. 13–26)',
+          title: 'Tweede trimester (wk. 13 tot 26)',
           description: 'Het trimester van het grootste welzijn voor de meesten.',
           points: [
             'Verdwijnen van de misselijkheid',
             'Energie hersteld',
-            'Buik zichtbaar vanaf week 18–20',
-            'Eerste foetale bewegingen (wk. 18–22)',
+            'Buik zichtbaar vanaf week 18-20',
+            'Eerste foetale bewegingen (wk. 18-22)',
             'Toenemend brandend maagzuur',
           ],
         },
         {
-          title: 'Derde trimester (wk. 27–40)',
+          title: 'Derde trimester (wk. 27 tot 40)',
           description: 'Voorbereiding op de bevalling.',
           points: [
             'Bekkenpressure en rugpijn',
             'Braxton Hicks weeën',
             'Zwellen van voeten en enkels',
             'Moeite met slapen',
-            'Indalen van de baby (wk. 36–38)',
+            'Indalen van de baby (wk. 36-38)',
           ],
         },
       ],
@@ -404,10 +404,10 @@ export const content: PregnancyCalculatorLocaleContent = {
     {
       type: 'list',
       items: [
-        'Week 8–12: eerste echo en bloedonderzoek eerste trimester.',
+        'Week 8-12: eerste echo en bloedonderzoek eerste trimester.',
         'Week 12: combinatietest eerste trimester (nekplooimeting + bloedonderzoek).',
-        'Week 18–22: 20-weken echo.',
-        'Week 24–28: glucosetolerantietest (O\'Sullivan).',
+        'Week 18-22: 20-weken echo.',
+        'Week 24-28: glucosetolerantietest (O\'Sullivan).',
         'Week 36: controle-echo, kweek op groep B streptokokken.',
       ],
     },
@@ -442,23 +442,23 @@ export const content: PregnancyCalculatorLocaleContent = {
   bibliographyTitle: 'Referenties',
   bibliography: [
     {
-      name: 'WHO – Zorg tijdens de zwangerschap',
+      name: 'WHO - Zorg tijdens de zwangerschap',
       url: 'https://www.who.int/news-room/fact-sheets/detail/maternal-mortality',
     },
     {
-      name: 'ACOG – Gestational Age and Due Date Calculation',
+      name: 'ACOG - Gestational Age and Due Date Calculation',
       url: 'https://www.acog.org/clinical/clinical-guidance/committee-opinion/articles/2017/05/methods-for-estimating-the-due-date',
     },
     {
-      name: 'NVOG – Nederlandse Vereniging voor Obstetrie en Gynaecologie',
+      name: 'NVOG - Nederlandse Vereniging voor Obstetrie en Gynaecologie',
       url: 'https://www.nvog.nl',
     },
     {
-      name: 'Naegele\'s rule – Dugoff L. et al., Obstetrics & Gynecology',
+      name: 'Naegele\'s rule - Dugoff L. et al., Obstetrics & Gynecology',
       url: 'https://journals.lww.com/greenjournal/fulltext/2017/05000/methods_for_estimating_the_due_date.43.aspx',
     },
     {
-      name: 'UpToDate – Prenatal care: Initial assessment',
+      name: 'UpToDate - Prenatal care: Initial assessment',
       url: 'https://www.uptodate.com/contents/prenatal-care-initial-assessment',
     },
   ],

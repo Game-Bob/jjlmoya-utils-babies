@@ -23,7 +23,7 @@ const faq = [
   },
   {
     question: 'Co to jest PDP i jaką ma dokładność?',
-    answer: 'Przewidywana Data Porodu (PDP) jest szacunkiem statystycznym. Tylko 3–5% dzieci rodzi się dokładnie tego dnia. Większość rodzi się między 38. a 42. tygodniem.',
+    answer: 'Przewidywana Data Porodu (PDP) jest szacunkiem statystycznym. Tylko 3-5% dzieci rodzi się dokładnie tego dnia. Większość rodzi się między 38. a 42. tygodniem.',
   },
 ];
 const howTo = [
@@ -96,7 +96,7 @@ export const content: PregnancyCalculatorLocaleContent = {
     labelTrimester: 'Trymestr',
     labelEDD: 'Przewidywana Data Porodu',
     eddPlaceholder: 'Wprowadź datę',
-    eddNote: 'Tylko 3–5% dzieci rodzi się dokładnie tego dnia',
+    eddNote: 'Tylko 3-5% dzieci rodzi się dokładnie tego dnia',
     btnCalendar: 'Zapisz w Kalendarzu',
     labelFruits: 'Owoce',
     labelGeek: 'Geek',
@@ -266,7 +266,7 @@ export const content: PregnancyCalculatorLocaleContent = {
       title: 'O czym warto pamiętać',
       items: [
         'Oblicz tydzień ciąży na podstawie daty ostatniej miesiączki lub daty poczęcia.',
-        'PDP to tylko szacunek: tylko 3–5% dzieci rodzi się dokładnie tego dnia.',
+        'PDP to tylko szacunek: tylko 3-5% dzieci rodzi się dokładnie tego dnia.',
         'Każdy trymestr ma swoje własne kamienie milowe i typowe dolegliwości.',
         'W przypadku sygnałów alarmowych niezwłocznie skonsultuj się z lekarzem lub położną.',
         'Tryb partnera podpowie Ci, jak wspierać swoją partnerkę tydzień po tygodniu.',
@@ -314,9 +314,9 @@ export const content: PregnancyCalculatorLocaleContent = {
       type: 'table',
       headers: ['Trymestr', 'Tygodnie', 'Główny cel', 'Ciało matki'],
       rows: [
-        ['1.', '1 – 12', 'Formowanie narządów', 'Mdłości, zmęczenie, implantacja'],
-        ['2.', '13 – 26', 'Ruchy płodu, USG połówkowe', 'Powrót energii, widoczny brzuch'],
-        ['3.', '27 – 40', 'Dojrzewanie płuc, wstawianie się', 'Ucisk w miednicy, przygotowanie do porodu'],
+        ['1.', '1 - 12', 'Formowanie narządów', 'Mdłości, zmęczenie, implantacja'],
+        ['2.', '13 - 26', 'Ruchy płodu, USG połówkowe', 'Powrót energii, widoczny brzuch'],
+        ['3.', '27 - 40', 'Dojrzewanie płuc, wstawianie się', 'Ucisk w miednicy, przygotowanie do porodu'],
       ],
     },
     {
@@ -329,7 +329,7 @@ export const content: PregnancyCalculatorLocaleContent = {
       headers: ['Tydzień', 'Ok. wielkość', 'Kamień milowy', 'Co czuje matka'],
       rows: [
         ['4', '~1 mm', 'Zagnieżdżenie w endometrium', 'Możliwe lekkie plamienie'],
-        ['8', '~18 mm', 'Serce bije 150–170 razy/min', 'Mdłości w szczytowym punkcie'],
+        ['8', '~18 mm', 'Serce bije 150-170 razy/min', 'Mdłości w szczytowym punkcie'],
         ['12', '~55 mm', 'Główne narządy uformowane', 'Ryzyko poronienia drastycznie spada'],
         ['20', '~25 cm', 'Wyraźnie słyszy głosy', 'USG połówkowe'],
         ['28', '~37 cm', 'Cykle snu i czuwania', 'Początek trzeciego trymetru'],
@@ -347,7 +347,7 @@ export const content: PregnancyCalculatorLocaleContent = {
       columns: 2,
       items: [
         {
-          title: 'Pierwszy trymestr (tyg. 1–12)',
+          title: 'Pierwszy trymestr (tyg. 1 do 12)',
           description: 'Faza największych zmian hormonalnych.',
           points: [
             'Nudności i wymioty, zwłaszcza rano',
@@ -358,25 +358,25 @@ export const content: PregnancyCalculatorLocaleContent = {
           ],
         },
         {
-          title: 'Drugi trymestr (tyg. 13–26)',
+          title: 'Drugi trymestr (tyg. 13 do 26)',
           description: 'Dla większości kobiet czas najlepszego samopoczucia.',
           points: [
             'Ustąpienie mdłości',
             'Odzyskanie energii',
-            'Widoczny brzuch od ok. 18–20 tyg.',
-            'Pierwsze ruchy płodu (18–22 tyg.)',
+            'Widoczny brzuch od ok. 18-20 tyg.',
+            'Pierwsze ruchy płodu (18-22 tyg.)',
             'Narastająca zgaga',
           ],
         },
         {
-          title: 'Trzeci trymestr (tyg. 27–40)',
+          title: 'Trzeci trymestr (tyg. 27 do 40)',
           description: 'Przygotowanie do porodu.',
           points: [
             'Ucisk w miednicy i ból pleców',
             'Skurcze Braxtona-Hicksa',
             'Obrzęki stóp i kostek',
             'Trudności ze snem',
-            'Wstawianie się dziecka (36–38 tyg.)',
+            'Wstawianie się dziecka (36-38 tyg.)',
           ],
         },
       ],
@@ -404,10 +404,10 @@ export const content: PregnancyCalculatorLocaleContent = {
     {
       type: 'list',
       items: [
-        'Tydzień 8–12: pierwsze USG i badania krwi pierwszego trymetru.',
+        'Tydzień 8-12: pierwsze USG i badania krwi pierwszego trymetru.',
         'Tydzień 12: test PAPP-A i badanie przezierności karkowej.',
-        'Tydzień 18–22: USG połówkowe (genetyczne).',
-        'Tydzień 24–28: test obciążenia glukozą (krzywa cukrowa).',
+        'Tydzień 18-22: USG połówkowe (genetyczne).',
+        'Tydzień 24-28: test obciążenia glukozą (krzywa cukrowa).',
         'Tydzień 36: GBS (wymaz w kierunku paciorkowca), USG kontrolne.',
       ],
     },
@@ -442,11 +442,11 @@ export const content: PregnancyCalculatorLocaleContent = {
   bibliographyTitle: 'Źródła',
   bibliography: [
     {
-      name: 'WHO – Care during pregnancy',
+      name: 'WHO - Care during pregnancy',
       url: 'https://www.who.int/news-room/fact-sheets/detail/maternal-mortality',
     },
     {
-      name: 'ACOG – Gestational Age and Due Date Calculation',
+      name: 'ACOG - Gestational Age and Due Date Calculation',
       url: 'https://www.acog.org/clinical/clinical-guidance/committee-opinion/articles/2017/05/methods-for-estimating-the-due-date',
     },
     {
@@ -454,11 +454,11 @@ export const content: PregnancyCalculatorLocaleContent = {
       url: 'https://www.ptginp.pl',
     },
     {
-      name: 'Naegele\'s rule – Dugoff L. et al., Obstetrics & Gynecology',
+      name: 'Naegele\'s rule - Dugoff L. et al., Obstetrics & Gynecology',
       url: 'https://journals.lww.com/greenjournal/fulltext/2017/05000/methods_for_estimating_the_due_date.43.aspx',
     },
     {
-      name: 'UpToDate – Prenatal care: Initial assessment',
+      name: 'UpToDate - Prenatal care: Initial assessment',
       url: 'https://www.uptodate.com/contents/prenatal-care-initial-assessment',
     },
   ],
