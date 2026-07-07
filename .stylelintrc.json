@@ -25,6 +25,14 @@
                 "import-notation": null,
                 "block-no-empty": null
             }
+        },
+        {
+            "files": [
+                "src/layouts/**/*.astro"
+            ],
+            "rules": {
+                "property-disallowed-list": null
+            }
         }
     ],
     "plugins": [

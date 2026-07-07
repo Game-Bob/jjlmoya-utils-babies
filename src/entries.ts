@@ -10,6 +10,8 @@ export { fertileDaysEstimator } from './tool/fertile-days-estimator/entry';
 export type { FertileDaysEstimatorUI, FertileDaysEstimatorLocaleContent } from './tool/fertile-days-estimator/entry';
 export { pregnancyCalculator } from './tool/pregnancy-calculator/entry';
 export type { MilestoneI18n, PregnancyCalculatorUI, PregnancyCalculatorLocaleContent } from './tool/pregnancy-calculator/entry';
+export { pregnancyWeightGainCalculator } from './tool/pregnancy-weight-gain-calculator/entry';
+export type { PregnancyWeightGainCalculatorUI, PregnancyWeightGainCalculatorLocaleContent } from './tool/pregnancy-weight-gain-calculator/entry';
 export { vaccinationCalendar } from './tool/vaccination-calendar/entry';
 export type { VaccinationCalendarUI, VaccinationCalendarLocaleContent } from './tool/vaccination-calendar/entry';
 export { babiesCategory } from './category';
@@ -19,5 +21,6 @@ import { babyPercentileCalculator } from './tool/baby-percentile-calculator/entr
 import { babySizeConverter } from './tool/baby-size-converter/entry';
 import { fertileDaysEstimator } from './tool/fertile-days-estimator/entry';
 import { pregnancyCalculator } from './tool/pregnancy-calculator/entry';
+import { pregnancyWeightGainCalculator } from './tool/pregnancy-weight-gain-calculator/entry';
 import { vaccinationCalendar } from './tool/vaccination-calendar/entry';
-export const ALL_ENTRIES = [babyFeedingCalculator, babyBudgetPlanner, babyPercentileCalculator, babySizeConverter, fertileDaysEstimator, pregnancyCalculator, vaccinationCalendar];
+export const ALL_ENTRIES = [babyFeedingCalculator, babyBudgetPlanner, babyPercentileCalculator, babySizeConverter, fertileDaysEstimator, pregnancyCalculator, pregnancyWeightGainCalculator, vaccinationCalendar];

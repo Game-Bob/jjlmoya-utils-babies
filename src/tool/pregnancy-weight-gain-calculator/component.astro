@@ -1,0 +1,317 @@
+---
+import type { PregnancyWeightGainCalculatorUI } from './entry';
+import './pregnancy-weight-gain-calculator.css';
+
+interface Props { ui: PregnancyWeightGainCalculatorUI; }
+const { ui } = Astro.props;
+---
+
+<div id="pwg-root" class="pwg-shell" data-ui={JSON.stringify(ui)}>
+  <section class="pwg-workspace" aria-label={ui.title}>
+    <div class="pwg-controls">
+      <div class="pwg-warning">
+        <span>{ui.educationalWarningTitle}</span>
+        <p>{ui.educationalWarningBody}</p>
+      </div>
+
+      <div class="pwg-section-head">
+        <span>{ui.inputsTitle}</span>
+      </div>
+
+      <div class="pwg-field">
+        <label>{ui.unitsLabel}</label>
+        <div class="pwg-segment" data-control="units">
+          <button class="is-active" type="button" data-value="metric">{ui.metricLabel}</button>
+          <button type="button" data-value="imperial">{ui.imperialLabel}</button>
+        </div>
+      </div>
+
+      <div class="pwg-grid pwg-metric-fields">
+        <div class="pwg-field">
+          <label for="pwg-height-cm">{ui.heightCmLabel}</label>
+          <input id="pwg-height-cm" type="number" min="120" max="220" step="1" value="165" />
+        </div>
+        <div class="pwg-field">
+          <label for="pwg-pre-kg">{ui.preWeightKgLabel}</label>
+          <input id="pwg-pre-kg" type="number" min="35" max="180" step="0.1" value="62" />
+        </div>
+        <div class="pwg-field">
+          <label for="pwg-current-kg">{ui.currentWeightKgLabel}</label>
+          <input id="pwg-current-kg" type="number" min="35" max="220" step="0.1" value="70" />
+        </div>
+      </div>
+
+      <div class="pwg-grid pwg-imperial-fields" hidden>
+        <div class="pwg-field">
+          <label for="pwg-height-ft">{ui.heightFtLabel}</label>
+          <input id="pwg-height-ft" type="number" min="3" max="7" step="1" value="5" />
+        </div>
+        <div class="pwg-field">
+          <label for="pwg-height-in">{ui.heightInLabel}</label>
+          <input id="pwg-height-in" type="number" min="0" max="11" step="1" value="5" />
+        </div>
+        <div class="pwg-field">
+          <label for="pwg-pre-lb">{ui.preWeightLbLabel}</label>
+          <input id="pwg-pre-lb" type="number" min="80" max="400" step="1" value="137" />
+        </div>
+        <div class="pwg-field">
+          <label for="pwg-current-lb">{ui.currentWeightLbLabel}</label>
+          <input id="pwg-current-lb" type="number" min="80" max="500" step="1" value="154" />
+        </div>
+      </div>
+
+      <div class="pwg-field">
+        <div class="pwg-slider-row">
+          <label for="pwg-week">{ui.weekLabel}</label>
+          <output id="pwg-week-output">24 {ui.weekShortLabel}</output>
+        </div>
+        <input id="pwg-week" class="pwg-slider" type="range" min="0" max="40" step="1" value="24" />
+      </div>
+
+      <div class="pwg-field">
+        <label>{ui.pregnancyTypeLabel}</label>
+        <div class="pwg-segment" data-control="pregnancyType">
+          <button class="is-active" type="button" data-value="singleton">{ui.singletonLabel}</button>
+          <button type="button" data-value="twins">{ui.twinsLabel}</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pwg-results">
+      <div class="pwg-kpis">
+        <article class="pwg-card">
+          <span>{ui.bmiCardTitle}</span>
+          <strong id="pwg-bmi">22.8</strong>
+          <small id="pwg-category">{ui.categoryNormal}</small>
+        </article>
+        <article class="pwg-card">
+          <span>{ui.currentGainTitle}</span>
+          <strong id="pwg-gain">8.0 {ui.kgLabel}</strong>
+          <small id="pwg-status">{ui.statusWithin}</small>
+        </article>
+        <article class="pwg-card">
+          <span>{ui.recommendationTitle}</span>
+          <strong id="pwg-total-range">11.5-16 {ui.kgLabel}</strong>
+          <small>{ui.totalGainSuffix}</small>
+        </article>
+      </div>
+
+      <div class="pwg-chart-panel">
+        <div class="pwg-chart-head">
+          <span>{ui.chartTitle}</span>
+          <small id="pwg-week-range">4.4-7.5 {ui.kgLabel}</small>
+        </div>
+        <svg id="pwg-chart" class="pwg-chart" viewBox="0 0 720 360" role="img" aria-label={ui.chartTitle}>
+          <defs>
+            <linearGradient id="pwg-band-fill" x1="0" x2="0" y1="0" y2="1">
+              <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.34" />
+              <stop offset="100%" stop-color="#22c55e" stop-opacity="0.22" />
+            </linearGradient>
+          </defs>
+          <g class="pwg-grid-lines"></g>
+          <path id="pwg-band" class="pwg-band" d=""></path>
+          <path id="pwg-low-line" class="pwg-low-line" d=""></path>
+          <path id="pwg-high-line" class="pwg-high-line" d=""></path>
+          <line id="pwg-week-line" class="pwg-week-line" x1="0" x2="0" y1="48" y2="306"></line>
+          <circle id="pwg-current-point" class="pwg-current-point" cx="0" cy="0" r="8"></circle>
+          <g id="pwg-axis-labels"></g>
+        </svg>
+        <div class="pwg-legend">
+          <span><i class="pwg-swatch pwg-swatch-low"></i>{ui.chartLowLabel}</span>
+          <span><i class="pwg-swatch pwg-swatch-high"></i>{ui.chartHighLabel}</span>
+          <span><i class="pwg-swatch pwg-swatch-current"></i>{ui.chartCurrentLabel}</span>
+        </div>
+      </div>
+
+      <div id="pwg-status-card" class="pwg-status-card">
+        <strong>{ui.statusWithin}</strong>
+        <p>{ui.statusWithinBody}</p>
+      </div>
+
+      <div class="pwg-note-grid">
+        <div>
+          <span>{ui.firstTrimesterLabel}</span>
+        </div>
+        <div>
+          <span id="pwg-weekly-range">{ui.weeklyRangeLabel}</span>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<script is:inline>
+  (function() {
+    const root = document.getElementById('pwg-root');
+    if (!root) return;
+    const ui = JSON.parse(root.dataset.ui);
+    const state = { units: 'metric', pregnancyType: 'singleton' };
+    const singletonGuidelines = [
+      { category: 'underweight', bmiMin: 0, bmiMax: 18.49, totalMinKg: 12.5, totalMaxKg: 18, weeklyMinKg: 0.44, weeklyMaxKg: 0.58 },
+      { category: 'normal', bmiMin: 18.5, bmiMax: 24.99, totalMinKg: 11.5, totalMaxKg: 16, weeklyMinKg: 0.35, weeklyMaxKg: 0.5 },
+      { category: 'overweight', bmiMin: 25, bmiMax: 29.99, totalMinKg: 7, totalMaxKg: 11.5, weeklyMinKg: 0.23, weeklyMaxKg: 0.33 },
+      { category: 'obesity', bmiMin: 30, bmiMax: null, totalMinKg: 5, totalMaxKg: 9, weeklyMinKg: 0.17, weeklyMaxKg: 0.27 }
+    ];
+    const twinTotals = {
+      underweight: { totalMinKg: 12.5, totalMaxKg: 18 },
+      normal: { totalMinKg: 16.8, totalMaxKg: 24.5 },
+      overweight: { totalMinKg: 14.1, totalMaxKg: 22.7 },
+      obesity: { totalMinKg: 11.3, totalMaxKg: 19.1 }
+    };
+    const categoryLabels = {
+      underweight: ui.categoryUnderweight,
+      normal: ui.categoryNormal,
+      overweight: ui.categoryOverweight,
+      obesity: ui.categoryObesity
+    };
+
+    const el = (id) => document.getElementById(id);
+    const readNumber = (id) => parseFloat(el(id).value) || 0;
+    const kgToLb = (value) => value * 2.2046226218;
+    const lbToKg = (value) => value / 2.2046226218;
+    const fmt = (value, digits) => value.toFixed(digits).replace(/\.0$/, '');
+
+    function guidelineForBmi(bmi) {
+      const base = singletonGuidelines.find((item) => bmi >= item.bmiMin && (item.bmiMax === null || bmi <= item.bmiMax)) || singletonGuidelines[1];
+      if (state.pregnancyType === 'singleton') return base;
+      const twin = twinTotals[base.category];
+      return {
+        ...base,
+        totalMinKg: twin.totalMinKg,
+        totalMaxKg: twin.totalMaxKg,
+        weeklyMinKg: Math.max(0, (twin.totalMinKg - 2) / 27),
+        weeklyMaxKg: Math.max(0, (twin.totalMaxKg - 0.5) / 27)
+      };
+    }
+
+    function rangeAtWeek(guideline, week) {
+      const safeWeek = Math.min(Math.max(week, 0), 40);
+      if (safeWeek <= 13) {
+        return { minKg: (0.5 / 13) * safeWeek, maxKg: (2 / 13) * safeWeek };
+      }
+      const activeWeeks = safeWeek - 13;
+      return {
+        minKg: Math.min(guideline.totalMinKg, 0.5 + activeWeeks * guideline.weeklyMinKg),
+        maxKg: Math.min(guideline.totalMaxKg, 2 + activeWeeks * guideline.weeklyMaxKg)
+      };
+    }
+
+    function profile() {
+      if (state.units === 'imperial') {
+        const heightIn = readNumber('pwg-height-ft') * 12 + readNumber('pwg-height-in');
+        return {
+          heightCm: heightIn * 2.54,
+          preKg: lbToKg(readNumber('pwg-pre-lb')),
+          currentKg: lbToKg(readNumber('pwg-current-lb'))
+        };
+      }
+      return {
+        heightCm: readNumber('pwg-height-cm'),
+        preKg: readNumber('pwg-pre-kg'),
+        currentKg: readNumber('pwg-current-kg')
+      };
+    }
+
+    function drawChart(guideline, currentGainKg, week) {
+      const svg = el('pwg-chart');
+      const grid = svg.querySelector('.pwg-grid-lines');
+      const labels = el('pwg-axis-labels');
+      const maxY = Math.max(guideline.totalMaxKg + 2, currentGainKg + 3, 10);
+      const left = 58;
+      const right = 680;
+      const top = 44;
+      const bottom = 306;
+      const x = (w) => left + (w / 40) * (right - left);
+      const y = (kg) => bottom - (kg / maxY) * (bottom - top);
+      const low = [];
+      const high = [];
+      for (let w = 0; w <= 40; w += 1) {
+        const range = rangeAtWeek(guideline, w);
+        low.push([x(w), y(range.minKg)]);
+        high.push([x(w), y(range.maxKg)]);
+      }
+      const pathFrom = (pts) => pts.map((pt, i) => `${i === 0 ? 'M' : 'L'} ${pt[0].toFixed(1)} ${pt[1].toFixed(1)}`).join(' ');
+      const bandPath = `${pathFrom(high)} ${low.slice().reverse().map((pt) => `L ${pt[0].toFixed(1)} ${pt[1].toFixed(1)}`).join(' ')} Z`;
+      el('pwg-band').setAttribute('d', bandPath);
+      el('pwg-low-line').setAttribute('d', pathFrom(low));
+      el('pwg-high-line').setAttribute('d', pathFrom(high));
+      el('pwg-week-line').setAttribute('x1', x(week));
+      el('pwg-week-line').setAttribute('x2', x(week));
+      el('pwg-current-point').setAttribute('cx', x(week));
+      el('pwg-current-point').setAttribute('cy', y(Math.max(0, currentGainKg)));
+
+      grid.innerHTML = '';
+      labels.innerHTML = '';
+      [0, 10, 20, 30, 40].forEach((tick) => {
+        const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+        line.setAttribute('x1', x(tick));
+        line.setAttribute('x2', x(tick));
+        line.setAttribute('y1', top);
+        line.setAttribute('y2', bottom);
+        grid.appendChild(line);
+        const label = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+        label.setAttribute('x', x(tick));
+        label.setAttribute('y', 336);
+        label.textContent = tick + ' ' + ui.weekShortLabel;
+        labels.appendChild(label);
+      });
+      [0, Math.round(maxY / 2), Math.round(maxY)].forEach((tick) => {
+        const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+        line.setAttribute('x1', left);
+        line.setAttribute('x2', right);
+        line.setAttribute('y1', y(tick));
+        line.setAttribute('y2', y(tick));
+        grid.appendChild(line);
+        const label = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+        label.setAttribute('x', 18);
+        label.setAttribute('y', y(tick) + 4);
+        label.textContent = fmt(state.units === 'imperial' ? kgToLb(tick) : tick, 0);
+        labels.appendChild(label);
+      });
+    }
+
+    function render() {
+      const data = profile();
+      const week = parseInt(el('pwg-week').value, 10);
+      const heightM = data.heightCm / 100;
+      const bmi = heightM > 0 ? data.preKg / (heightM * heightM) : 0;
+      const guideline = guidelineForBmi(bmi);
+      const gainKg = data.currentKg - data.preKg;
+      const range = rangeAtWeek(guideline, week);
+      const unitLabel = state.units === 'imperial' ? ui.lbLabel : ui.kgLabel;
+      const convert = (kg) => state.units === 'imperial' ? kgToLb(kg) : kg;
+      let status = 'within';
+      if (gainKg < range.minKg) status = 'below';
+      if (gainKg > range.maxKg) status = 'above';
+
+      el('pwg-week-output').textContent = week + ' ' + ui.weekShortLabel;
+      el('pwg-bmi').textContent = fmt(bmi, 1);
+      el('pwg-category').textContent = categoryLabels[guideline.category];
+      el('pwg-gain').textContent = `${fmt(convert(gainKg), 1)} ${unitLabel}`;
+      el('pwg-total-range').textContent = `${fmt(convert(guideline.totalMinKg), 1)}-${fmt(convert(guideline.totalMaxKg), 1)} ${unitLabel}`;
+      el('pwg-week-range').textContent = `${fmt(convert(range.minKg), 1)}-${fmt(convert(range.maxKg), 1)} ${unitLabel}`;
+      el('pwg-weekly-range').textContent = `${ui.weeklyRangeLabel}: ${fmt(convert(guideline.weeklyMinKg), 2)}-${fmt(convert(guideline.weeklyMaxKg), 2)} ${unitLabel} ${ui.perWeekSuffix}`;
+      el('pwg-status').textContent = ui[`status${status.charAt(0).toUpperCase() + status.slice(1)}`];
+      const statusCard = el('pwg-status-card');
+      statusCard.className = `pwg-status-card is-${status}`;
+      statusCard.querySelector('strong').textContent = ui[`status${status.charAt(0).toUpperCase() + status.slice(1)}`];
+      statusCard.querySelector('p').textContent = ui[`status${status.charAt(0).toUpperCase() + status.slice(1)}Body`];
+      drawChart(guideline, gainKg, week);
+    }
+
+    root.querySelectorAll('.pwg-segment button').forEach((button) => {
+      button.addEventListener('click', () => {
+        const group = button.closest('.pwg-segment');
+        group.querySelectorAll('button').forEach((item) => item.classList.remove('is-active'));
+        button.classList.add('is-active');
+        state[group.dataset.control] = button.dataset.value;
+        root.querySelector('.pwg-metric-fields').hidden = state.units !== 'metric';
+        root.querySelector('.pwg-imperial-fields').hidden = state.units !== 'imperial';
+        render();
+      });
+    });
+
+    root.querySelectorAll('input').forEach((input) => input.addEventListener('input', render));
+    render();
+  })();
+</script>

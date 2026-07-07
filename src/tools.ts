@@ -7,6 +7,7 @@ import { VACCINATION_CALENDAR_TOOL } from './tool/vaccination-calendar/index';
 import { FERTILE_DAYS_ESTIMATOR_TOOL } from './tool/fertile-days-estimator/index';
 import { BABY_PERCENTILE_CALCULATOR_TOOL } from './tool/baby-percentile-calculator/index';
 import { PREGNANCY_CALCULATOR_TOOL } from './tool/pregnancy-calculator/index';
+import { PREGNANCY_WEIGHT_GAIN_CALCULATOR_TOOL } from './tool/pregnancy-weight-gain-calculator/index';
 
 export const ALL_TOOLS: ToolDefinition[] = [
   BABY_FEEDING_CALCULATOR_TOOL,
@@ -16,6 +17,6 @@ export const ALL_TOOLS: ToolDefinition[] = [
   FERTILE_DAYS_ESTIMATOR_TOOL,
   BABY_PERCENTILE_CALCULATOR_TOOL,
   PREGNANCY_CALCULATOR_TOOL,
+  PREGNANCY_WEIGHT_GAIN_CALCULATOR_TOOL,
 ];
-
 

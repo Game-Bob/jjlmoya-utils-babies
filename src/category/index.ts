@@ -5,6 +5,7 @@ import { vaccinationCalendar } from '../tool/vaccination-calendar/entry';
 import { fertileDaysEstimator } from '../tool/fertile-days-estimator/entry';
 import { babyPercentileCalculator } from '../tool/baby-percentile-calculator/entry';
 import { pregnancyCalculator } from '../tool/pregnancy-calculator/entry';
+import { pregnancyWeightGainCalculator } from '../tool/pregnancy-weight-gain-calculator/entry';
 
 import { babyBudgetPlanner } from '../tool/baby-budget-planner/entry';
 
@@ -18,6 +19,7 @@ export const babiesCategory: BabiesCategoryEntry = {
     fertileDaysEstimator,
     babyPercentileCalculator,
     pregnancyCalculator,
+    pregnancyWeightGainCalculator,
   ],
   i18n: {
     de: () => import('./i18n/de').then((m) => m.content),
