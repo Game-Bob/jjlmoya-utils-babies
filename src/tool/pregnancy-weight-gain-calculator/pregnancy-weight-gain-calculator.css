@@ -76,6 +76,7 @@
 .pwg-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
   gap: 14px;
 }
 
@@ -85,14 +86,25 @@
   gap: 9px;
 }
 
+.pwg-grid .pwg-field {
+  display: grid;
+  grid-template-rows: minmax(2.4em, auto) 44px;
+  gap: 9px;
+}
+
 .pwg-field label,
 .pwg-slider-row output {
   font-size: 0.86rem;
   font-weight: 750;
 }
 
+.pwg-field label {
+  line-height: 1.2;
+}
+
 .pwg-field input[type="number"] {
   width: 100%;
+  height: 44px;
   min-height: 44px;
   border: 1px solid var(--pwg-border);
   border-radius: 8px;
@@ -353,6 +365,10 @@
 
   .pwg-grid {
     grid-template-columns: 1fr;
+  }
+
+  .pwg-grid .pwg-field {
+    grid-template-rows: auto 44px;
   }
 
   .pwg-chart {

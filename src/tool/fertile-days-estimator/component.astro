@@ -54,7 +54,7 @@ const { ui } = Astro.props;
         </label>
         <div class="fde-range-control">
           <div class="fde-range-value" id="fde-cycle-value">28 <span>{ui.unitDays}</span></div>
-          <input type="range" id="fde-cycle-length" min="20" max="45" value="28" />
+          <input type="range" id="fde-cycle-length" min="20" max="45" value="28" aria-label={ui.labelCycleLength} />
         </div>
       </div>
 

@@ -89,11 +89,11 @@ const { ui } = Astro.props;
           <span class="bbp-section-marker">{ui.diaperCalcTitle}</span>
           <div class="bbp-diaper-grid">
             <div class="bbp-group">
-              <label class="bbp-label">{ui.diaperPriceLabel}</label>
+              <label class="bbp-label" for="bbp-diaper-price">{ui.diaperPriceLabel}</label>
               <input type="number" id="bbp-diaper-price" class="bbp-input-fancy" />
             </div>
             <div class="bbp-group">
-              <label class="bbp-label">{ui.diaperUnitsLabel}</label>
+              <label class="bbp-label" for="bbp-diaper-units">{ui.diaperUnitsLabel}</label>
               <input type="number" id="bbp-diaper-units" class="bbp-input-fancy" />
             </div>
           </div>
@@ -108,7 +108,7 @@ const { ui } = Astro.props;
     </div>
   </div>
 
-  <input type="file" id="bbp-import-input" class="bbp-hidden" accept=".json" />
+  <input type="file" id="bbp-import-input" class="bbp-hidden" accept=".json" aria-label={ui.importBtn} />
 </div>
 
 <script is:inline>
@@ -181,7 +181,7 @@ const { ui } = Astro.props;
           </div>
           <div class="bbp-price-area">
             <span class="bbp-price-bubble ${finalPrice === 0 ? 'is-zero' : ''}" data-idx="${index}">${finalPrice} ${ui.currencySymbol}</span>
-            <input type="number" class="bbp-input-fancy bbp-hidden bbp-price-input" data-idx="${index}" value="${price}" />
+            <input type="number" class="bbp-input-fancy bbp-hidden bbp-price-input" data-idx="${index}" value="${price}" aria-label="${ui.editLabel}" />
           </div>
         `;
         

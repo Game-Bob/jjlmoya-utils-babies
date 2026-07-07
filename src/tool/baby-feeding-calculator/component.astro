@@ -23,12 +23,12 @@ const { ui } = Astro.props;
           <button class="bfc-btn-step" data-action="inc" data-target="bfc-age-slider" aria-label="Aumentar edad">+</button>
         </div>
         <div class="bfc-slider-wrap">
-          <input type="range" id="bfc-age-slider" min="1" max="30" step="1" value="7" class="bfc-slider" />
+          <input type="range" id="bfc-age-slider" min="1" max="30" step="1" value="7" class="bfc-slider" aria-label="Baby age" />
         </div>
       </div>
 
       <div class="bfc-input-group">
-        <label class="bfc-input-label">{ui.labelWeight}</label>
+        <label class="bfc-input-label" for="bfc-weight-slider">{ui.labelWeight}</label>
         <div class="bfc-stepper-box">
           <button class="bfc-btn-step" data-action="dec" data-target="bfc-weight-slider" aria-label="Reducir peso">-</button>
           <div class="bfc-val-view">

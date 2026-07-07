@@ -26,37 +26,18 @@ const { ui } = Astro.props;
         </div>
       </div>
 
-      <div class="pwg-grid pwg-metric-fields">
+      <div class="pwg-grid">
         <div class="pwg-field">
-          <label for="pwg-height-cm">{ui.heightCmLabel}</label>
-          <input id="pwg-height-cm" type="number" min="120" max="220" step="1" value="165" />
+          <label id="pwg-height-label" for="pwg-height">{ui.heightCmLabel}</label>
+          <input id="pwg-height" type="number" min="120" max="220" step="1" value="165" />
         </div>
         <div class="pwg-field">
-          <label for="pwg-pre-kg">{ui.preWeightKgLabel}</label>
-          <input id="pwg-pre-kg" type="number" min="35" max="180" step="0.1" value="62" />
+          <label id="pwg-pre-weight-label" for="pwg-pre-weight">{ui.preWeightKgLabel}</label>
+          <input id="pwg-pre-weight" type="number" min="35" max="180" step="0.1" value="62" />
         </div>
         <div class="pwg-field">
-          <label for="pwg-current-kg">{ui.currentWeightKgLabel}</label>
-          <input id="pwg-current-kg" type="number" min="35" max="220" step="0.1" value="70" />
-        </div>
-      </div>
-
-      <div class="pwg-grid pwg-imperial-fields" hidden>
-        <div class="pwg-field">
-          <label for="pwg-height-ft">{ui.heightFtLabel}</label>
-          <input id="pwg-height-ft" type="number" min="3" max="7" step="1" value="5" />
-        </div>
-        <div class="pwg-field">
-          <label for="pwg-height-in">{ui.heightInLabel}</label>
-          <input id="pwg-height-in" type="number" min="0" max="11" step="1" value="5" />
-        </div>
-        <div class="pwg-field">
-          <label for="pwg-pre-lb">{ui.preWeightLbLabel}</label>
-          <input id="pwg-pre-lb" type="number" min="80" max="400" step="1" value="137" />
-        </div>
-        <div class="pwg-field">
-          <label for="pwg-current-lb">{ui.currentWeightLbLabel}</label>
-          <input id="pwg-current-lb" type="number" min="80" max="500" step="1" value="154" />
+          <label id="pwg-current-weight-label" for="pwg-current-weight">{ui.currentWeightKgLabel}</label>
+          <input id="pwg-current-weight" type="number" min="35" max="220" step="0.1" value="70" />
         </div>
       </div>
 
@@ -145,6 +126,7 @@ const { ui } = Astro.props;
     const root = document.getElementById('pwg-root');
     if (!root) return;
     const ui = JSON.parse(root.dataset.ui);
+    const storageKey = 'pwg:lastInteraction';
     const state = { units: 'metric', pregnancyType: 'singleton' };
     const singletonGuidelines = [
       { category: 'underweight', bmiMin: 0, bmiMax: 18.49, totalMinKg: 12.5, totalMaxKg: 18, weeklyMinKg: 0.44, weeklyMaxKg: 0.58 },
@@ -170,6 +152,110 @@ const { ui } = Astro.props;
     const kgToLb = (value) => value * 2.2046226218;
     const lbToKg = (value) => value / 2.2046226218;
     const fmt = (value, digits) => value.toFixed(digits).replace(/\.0$/, '');
+    const persistedInputIds = [
+      'pwg-height',
+      'pwg-pre-weight',
+      'pwg-current-weight',
+      'pwg-week'
+    ];
+
+    function setSegment(control, value) {
+      const group = root.querySelector(`.pwg-segment[data-control="${control}"]`);
+      if (!group) return;
+      group.querySelectorAll('button').forEach((button) => {
+        button.classList.toggle('is-active', button.dataset.value === value);
+      });
+    }
+
+    function cmToIn(value) {
+      return value / 2.54;
+    }
+
+    function applyUnitLabels() {
+      const isImperial = state.units === 'imperial';
+      el('pwg-height-label').textContent = isImperial ? ui.heightInLabel : ui.heightCmLabel;
+      el('pwg-pre-weight-label').textContent = isImperial ? ui.preWeightLbLabel : ui.preWeightKgLabel;
+      el('pwg-current-weight-label').textContent = isImperial ? ui.currentWeightLbLabel : ui.currentWeightKgLabel;
+
+      el('pwg-height').min = isImperial ? '48' : '120';
+      el('pwg-height').max = isImperial ? '86' : '220';
+      el('pwg-height').step = isImperial ? '0.5' : '1';
+      el('pwg-pre-weight').min = isImperial ? '80' : '35';
+      el('pwg-pre-weight').max = isImperial ? '400' : '180';
+      el('pwg-pre-weight').step = isImperial ? '1' : '0.1';
+      el('pwg-current-weight').min = isImperial ? '80' : '35';
+      el('pwg-current-weight').max = isImperial ? '500' : '220';
+      el('pwg-current-weight').step = isImperial ? '1' : '0.1';
+    }
+
+    function convertVisibleInputs(nextUnits) {
+      if (state.units === nextUnits) return;
+      const height = readNumber('pwg-height');
+      const preWeight = readNumber('pwg-pre-weight');
+      const currentWeight = readNumber('pwg-current-weight');
+      if (nextUnits === 'imperial') {
+        el('pwg-height').value = fmt(cmToIn(height), 1);
+        el('pwg-pre-weight').value = fmt(kgToLb(preWeight), 0);
+        el('pwg-current-weight').value = fmt(kgToLb(currentWeight), 0);
+      } else {
+        el('pwg-height').value = fmt(height * 2.54, 0);
+        el('pwg-pre-weight').value = fmt(lbToKg(preWeight), 1);
+        el('pwg-current-weight').value = fmt(lbToKg(currentWeight), 1);
+      }
+    }
+
+    function saveState() {
+      const inputs = {};
+      persistedInputIds.forEach((id) => {
+        const input = el(id);
+        if (input) inputs[id] = input.value;
+      });
+      localStorage.setItem(storageKey, JSON.stringify({
+        units: state.units,
+        pregnancyType: state.pregnancyType,
+        inputs
+      }));
+    }
+
+    function loadState() {
+      const saved = localStorage.getItem(storageKey);
+      if (!saved) return;
+      try {
+        const parsed = JSON.parse(saved);
+        if (parsed.units === 'metric' || parsed.units === 'imperial') {
+          state.units = parsed.units;
+        }
+        if (parsed.pregnancyType === 'singleton' || parsed.pregnancyType === 'twins') {
+          state.pregnancyType = parsed.pregnancyType;
+        }
+        if (parsed.inputs && typeof parsed.inputs === 'object') {
+          if (typeof parsed.inputs['pwg-height'] === 'string') {
+            persistedInputIds.forEach((id) => {
+              const input = el(id);
+              const value = parsed.inputs[id];
+              if (input && typeof value === 'string') input.value = value;
+            });
+          } else if (state.units === 'imperial') {
+            const feet = parseFloat(parsed.inputs['pwg-height-ft']) || 0;
+            const inches = parseFloat(parsed.inputs['pwg-height-in']) || 0;
+            el('pwg-height').value = fmt(feet * 12 + inches, 1);
+            if (typeof parsed.inputs['pwg-pre-lb'] === 'string') el('pwg-pre-weight').value = parsed.inputs['pwg-pre-lb'];
+            if (typeof parsed.inputs['pwg-current-lb'] === 'string') el('pwg-current-weight').value = parsed.inputs['pwg-current-lb'];
+            if (typeof parsed.inputs['pwg-week'] === 'string') el('pwg-week').value = parsed.inputs['pwg-week'];
+          } else {
+            if (typeof parsed.inputs['pwg-height-cm'] === 'string') el('pwg-height').value = parsed.inputs['pwg-height-cm'];
+            if (typeof parsed.inputs['pwg-pre-kg'] === 'string') el('pwg-pre-weight').value = parsed.inputs['pwg-pre-kg'];
+            if (typeof parsed.inputs['pwg-current-kg'] === 'string') el('pwg-current-weight').value = parsed.inputs['pwg-current-kg'];
+            if (typeof parsed.inputs['pwg-week'] === 'string') el('pwg-week').value = parsed.inputs['pwg-week'];
+          }
+        }
+      } catch {
+        localStorage.removeItem(storageKey);
+      }
+      setSegment('units', state.units);
+      setSegment('pregnancyType', state.pregnancyType);
+      applyUnitLabels();
+    }
 
     function guidelineForBmi(bmi) {
       const base = singletonGuidelines.find((item) => bmi >= item.bmiMin && (item.bmiMax === null || bmi <= item.bmiMax)) || singletonGuidelines[1];
@@ -198,17 +284,16 @@ const { ui } = Astro.props;
 
     function profile() {
       if (state.units === 'imperial') {
-        const heightIn = readNumber('pwg-height-ft') * 12 + readNumber('pwg-height-in');
         return {
-          heightCm: heightIn * 2.54,
-          preKg: lbToKg(readNumber('pwg-pre-lb')),
-          currentKg: lbToKg(readNumber('pwg-current-lb'))
+          heightCm: readNumber('pwg-height') * 2.54,
+          preKg: lbToKg(readNumber('pwg-pre-weight')),
+          currentKg: lbToKg(readNumber('pwg-current-weight'))
         };
       }
       return {
-        heightCm: readNumber('pwg-height-cm'),
-        preKg: readNumber('pwg-pre-kg'),
-        currentKg: readNumber('pwg-current-kg')
+        heightCm: readNumber('pwg-height'),
+        preKg: readNumber('pwg-pre-weight'),
+        currentKg: readNumber('pwg-current-weight')
       };
     }
 
@@ -304,14 +389,19 @@ const { ui } = Astro.props;
         const group = button.closest('.pwg-segment');
         group.querySelectorAll('button').forEach((item) => item.classList.remove('is-active'));
         button.classList.add('is-active');
+        if (group.dataset.control === 'units') convertVisibleInputs(button.dataset.value);
         state[group.dataset.control] = button.dataset.value;
-        root.querySelector('.pwg-metric-fields').hidden = state.units !== 'metric';
-        root.querySelector('.pwg-imperial-fields').hidden = state.units !== 'imperial';
+        applyUnitLabels();
+        saveState();
         render();
       });
     });
 
-    root.querySelectorAll('input').forEach((input) => input.addEventListener('input', render));
+    root.querySelectorAll('input').forEach((input) => input.addEventListener('input', () => {
+      saveState();
+      render();
+    }));
+    loadState();
     render();
   })();
 </script>
