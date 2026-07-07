@@ -6,6 +6,7 @@ export * from './tool/baby-size-converter';
 export * from './tool/baby-percentile-calculator';
 export * from './tool/fertile-days-estimator';
 export * from './tool/pregnancy-calculator';
+export * from './tool/labor-contraction-timer';
 export * from './tool/vaccination-calendar';
 export const babiesCategorySEO = () => import('./category/seo.astro').then((m) => m.default);
 
@@ -24,4 +25,3 @@ export type {
 } from './types';
 
 export { ALL_ENTRIES, ALL_TOOLS } from './tools';
-

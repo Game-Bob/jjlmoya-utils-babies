@@ -1,0 +1,15 @@
+---
+import { Bibliography as BibliographyUI } from '@jjlmoya/utils-shared';
+import { laborContractionTimer } from './index';
+import type { KnownLocale } from '../../types';
+
+interface Props {
+  locale?: KnownLocale;
+}
+
+const { locale = 'en' } = Astro.props;
+const content = await laborContractionTimer.i18n[locale]?.();
+if (!content) return null;
+---
+
+<BibliographyUI links={content.bibliography} />

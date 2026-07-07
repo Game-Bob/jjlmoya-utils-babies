@@ -1,0 +1,397 @@
+---
+import type { LaborContractionTimerUI } from './entry';
+import './labor-contraction-timer.css';
+
+interface Props { ui: LaborContractionTimerUI; }
+const { ui } = Astro.props;
+---
+
+<div id="labor-contraction-timer-root" class="labor-contraction-timer" data-ui={JSON.stringify(ui)}>
+  <section class="labor-contraction-timer-workspace" aria-label={ui.title}>
+    <div class="labor-contraction-timer-stage">
+      <div class="labor-contraction-timer-safety">
+        <strong>{ui.safetyTitle}</strong>
+        <p>{ui.safetyBody}</p>
+      </div>
+
+      <div id="labor-contraction-timer-alert" class="labor-contraction-timer-alert" hidden>
+        <strong>{ui.alertTitle}</strong>
+        <p>{ui.alertBody}</p>
+      </div>
+
+      <div id="labor-contraction-timer-status-card" class="labor-contraction-timer-status-card">
+        <span>{ui.patternStatusTitle}</span>
+        <strong id="labor-contraction-timer-pattern-title">{ui.patternStatusIdle}</strong>
+        <p id="labor-contraction-timer-pattern-body">{ui.patternBody}</p>
+      </div>
+
+      <div class="labor-contraction-timer-breathing" aria-live="polite">
+        <div id="labor-contraction-timer-orb" class="labor-contraction-timer-orb">
+          <span id="labor-contraction-timer-breath-label">{ui.breathingLabel}</span>
+        </div>
+      </div>
+
+      <button id="labor-contraction-timer-action" class="labor-contraction-timer-action" type="button" aria-pressed="false">
+        <span id="labor-contraction-timer-action-text">{ui.startButton}</span>
+        <small id="labor-contraction-timer-status">{ui.idleStatus}</small>
+      </button>
+
+      <div class="labor-contraction-timer-metrics" aria-live="polite">
+        <article>
+          <span>{ui.currentDurationLabel}</span>
+          <strong id="labor-contraction-timer-current">0 {ui.secondsSuffix}</strong>
+        </article>
+        <article>
+          <span>{ui.lastIntervalLabel}</span>
+          <strong id="labor-contraction-timer-interval">{ui.noInterval}</strong>
+        </article>
+        <article>
+          <span>{ui.contractionCountLabel}</span>
+          <strong id="labor-contraction-timer-count">0</strong>
+        </article>
+      </div>
+
+      <div class="labor-contraction-timer-insight-grid" aria-live="polite">
+        <article>
+          <span>{ui.averageLastThreeLabel}</span>
+          <strong id="labor-contraction-timer-average-three">{ui.noInterval}</strong>
+        </article>
+        <article>
+          <span>{ui.averageLastSixLabel}</span>
+          <strong id="labor-contraction-timer-average-six">{ui.noInterval}</strong>
+        </article>
+        <article>
+          <span>{ui.regularityLabel}</span>
+          <strong id="labor-contraction-timer-regularity">{ui.regularityNotEnough}</strong>
+        </article>
+      </div>
+
+      <div class="labor-contraction-timer-summary">
+        <strong>{ui.summaryTitle}</strong>
+        <p id="labor-contraction-timer-summary-text">{ui.summaryEmpty}</p>
+        <div class="labor-contraction-timer-actions">
+          <button id="labor-contraction-timer-copy" type="button">{ui.copySummaryButton}</button>
+          <button id="labor-contraction-timer-undo" type="button">{ui.undoButton}</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="labor-contraction-timer-history-panel">
+      <div class="labor-contraction-timer-session">
+        <span>{ui.sessionOverviewTitle}</span>
+        <strong id="labor-contraction-timer-session-title">{ui.patternStatusIdle}</strong>
+        <p id="labor-contraction-timer-session-body">{ui.sessionOverviewBody}</p>
+      </div>
+
+      <div class="labor-contraction-timer-history-stats" aria-live="polite">
+        <article>
+          <span>{ui.lastContractionLabel}</span>
+          <strong id="labor-contraction-timer-last-duration">{ui.noInterval}</strong>
+        </article>
+        <article>
+          <span>{ui.averageLastThreeLabel}</span>
+          <strong id="labor-contraction-timer-panel-average-three">{ui.noInterval}</strong>
+        </article>
+        <article>
+          <span>{ui.regularityLabel}</span>
+          <strong id="labor-contraction-timer-panel-regularity">{ui.regularityNotEnough}</strong>
+        </article>
+      </div>
+
+      <div class="labor-contraction-timer-history-head">
+        <h2>{ui.historyTitle}</h2>
+        <button id="labor-contraction-timer-reset" type="button">{ui.resetButton}</button>
+      </div>
+      <div class="labor-contraction-timer-table-wrap">
+        <table class="labor-contraction-timer-table">
+          <thead>
+            <tr>
+              <th>{ui.startTimeHeader}</th>
+              <th>{ui.durationHeader}</th>
+              <th>{ui.intervalHeader}</th>
+            </tr>
+          </thead>
+          <tbody id="labor-contraction-timer-history">
+            <tr>
+              <td colspan="3">{ui.emptyHistory}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+</div>
+
+<script is:inline>
+  (function() {
+    const root = document.getElementById('labor-contraction-timer-root');
+    if (!root) return;
+    const ui = JSON.parse(root.dataset.ui);
+    const storageKey = 'labor-contraction-timer:records';
+    const state = { activeStart: null, records: [] };
+    let tick = null;
+    let breathTick = null;
+
+    const el = (id) => document.getElementById(id);
+    const fmtSeconds = (seconds) => `${Math.max(0, Math.round(seconds))} ${ui.secondsSuffix}`;
+    const fmtMinutes = (minutes) => `${minutes.toFixed(1)} ${ui.minutesSuffix}`;
+    const fmtAverage = (duration, interval) => {
+      if (duration === null || interval === null) return ui.noInterval;
+      return `${fmtSeconds(duration)} / ${fmtMinutes(interval)}`;
+    };
+    const durationSeconds = (start, end) => Math.max(0, Math.round((end - start) / 1000));
+    const intervalMinutes = (current, previous) => previous ? Math.max(0, (current - previous) / 60000) : null;
+
+    function sortedRecords() {
+      return state.records.slice().sort((a, b) => b.startTime - a.startTime);
+    }
+
+    function saveRecords() {
+      localStorage.setItem(storageKey, JSON.stringify(state.records.slice(-40)));
+    }
+
+    function loadRecords() {
+      try {
+        const saved = JSON.parse(localStorage.getItem(storageKey) || '[]');
+        if (Array.isArray(saved)) {
+          state.records = saved.filter((item) => Number.isFinite(item.startTime) && Number.isFinite(item.endTime));
+        }
+      } catch {
+        localStorage.removeItem(storageKey);
+      }
+    }
+
+    function hasFiveOneOnePattern() {
+      const now = Date.now();
+      const recent = sortedRecords()
+        .map((record, index, records) => ({
+          duration: durationSeconds(record.startTime, record.endTime),
+          interval: intervalMinutes(record.startTime, records[index + 1]?.startTime),
+          startTime: record.startTime
+        }))
+        .filter((item) => now - item.startTime <= 60 * 60 * 1000 && item.interval !== null);
+      return recent.length >= 12 && recent.every((item) => item.duration >= 60 && item.interval <= 5);
+    }
+
+    function summaries() {
+      const records = sortedRecords();
+      return records.map((record, index) => {
+        const previous = records[index + 1];
+        return {
+          record,
+          duration: durationSeconds(record.startTime, record.endTime),
+          interval: intervalMinutes(record.startTime, previous?.startTime),
+          isShort: record.isShort === true
+        };
+      });
+    }
+
+    function average(items, key) {
+      const values = items.map((item) => item[key]).filter((value) => Number.isFinite(value));
+      if (values.length === 0) return null;
+      return values.reduce((sum, value) => sum + value, 0) / values.length;
+    }
+
+    function recentAverage(count) {
+      const items = summaries().filter((item) => item.interval !== null).slice(0, count);
+      if (items.length < Math.min(count, 3)) return { duration: null, interval: null };
+      return {
+        duration: average(items, 'duration'),
+        interval: average(items, 'interval')
+      };
+    }
+
+    function regularityLabel() {
+      const intervals = summaries().map((item) => item.interval).filter((value) => value !== null).slice(0, 6);
+      if (intervals.length < 3) return ui.regularityNotEnough;
+      const avg = intervals.reduce((sum, value) => sum + value, 0) / intervals.length;
+      const variance = intervals.reduce((sum, value) => sum + Math.abs(value - avg), 0) / intervals.length;
+      if (variance <= 0.6) return ui.regularityRegular;
+      if (variance <= 1.3) return ui.regularityVariable;
+      return ui.regularityIrregular;
+    }
+
+    function readableIntervalLabel(interval) {
+      if (interval === null) return ui.noInterval;
+      if (interval < 0.1) return ui.accidentalTapStatus;
+      return fmtMinutes(interval);
+    }
+
+    function lastDurationLabel(last, active) {
+      if (last) return fmtSeconds(durationSeconds(last.startTime, last.endTime));
+      if (active) return fmtSeconds(durationSeconds(state.activeStart, Date.now()));
+      return ui.noInterval;
+    }
+
+    function patternStatus() {
+      const avgSix = recentAverage(6);
+      const avgThree = recentAverage(3);
+      const count = sortedRecords().length;
+      if (hasFiveOneOnePattern()) {
+        return { className: 'is-call', title: ui.patternStatusCall, body: ui.patternStatusCallBody };
+      }
+      if (avgThree.duration !== null && avgThree.interval !== null && avgThree.duration >= 45 && avgThree.interval <= 7) {
+        return { className: 'is-building', title: ui.patternStatusBuilding, body: ui.patternStatusBuildingBody };
+      }
+      if (count > 0 || state.activeStart !== null || avgSix.duration !== null) {
+        return { className: 'is-tracking', title: ui.patternStatusTracking, body: ui.patternStatusActiveBody };
+      }
+      return { className: 'is-idle', title: ui.patternStatusIdle, body: ui.patternBody };
+    }
+
+    function summaryText() {
+      const records = sortedRecords();
+      const avgThree = recentAverage(3);
+      const avgSix = recentAverage(6);
+      if (records.length === 0) return ui.summaryEmpty;
+      const last = summaries()[0];
+      const parts = [
+        `${records.length} ${ui.contractionCountLabel.toLowerCase()}`,
+        `${ui.durationHeader.toLowerCase()}: ${fmtSeconds(last.duration)}`
+      ];
+      if (last.interval !== null) parts.push(`${ui.intervalHeader.toLowerCase()}: ${fmtMinutes(last.interval)}`);
+      if (avgThree.duration !== null && avgThree.interval !== null) {
+        parts.push(`${ui.averageLastThreeLabel.toLowerCase()}: ${fmtSeconds(avgThree.duration)} / ${fmtMinutes(avgThree.interval)}`);
+      }
+      if (avgSix.duration !== null && avgSix.interval !== null) {
+        parts.push(`${ui.averageLastSixLabel.toLowerCase()}: ${fmtSeconds(avgSix.duration)} / ${fmtMinutes(avgSix.interval)}`);
+      }
+      parts.push(`${ui.regularityLabel.toLowerCase()}: ${regularityLabel().toLowerCase()}`);
+      return parts.join('. ') + '.';
+    }
+
+    function renderHistory() {
+      const tbody = el('labor-contraction-timer-history');
+      const records = sortedRecords();
+      const active = state.activeStart !== null;
+      if (records.length === 0) {
+        if (active) {
+          const started = new Intl.DateTimeFormat(undefined, { hour: '2-digit', minute: '2-digit', second: '2-digit' }).format(new Date(state.activeStart));
+          tbody.innerHTML = `<tr class="is-active-row"><td>${started}<small>${ui.activeRowLabel}</small></td><td>${fmtSeconds(durationSeconds(state.activeStart, Date.now()))}</td><td>${ui.noInterval}</td></tr>`;
+          return;
+        }
+        tbody.innerHTML = `<tr><td colspan="3">${ui.emptyHistory}</td></tr>`;
+        return;
+      }
+      const activeRow = active
+        ? (() => {
+          const started = new Intl.DateTimeFormat(undefined, { hour: '2-digit', minute: '2-digit', second: '2-digit' }).format(new Date(state.activeStart));
+          return `<tr class="is-active-row"><td>${started}<small>${ui.activeRowLabel}</small></td><td>${fmtSeconds(durationSeconds(state.activeStart, Date.now()))}</td><td>${ui.noInterval}</td></tr>`;
+        })()
+        : '';
+      const rows = records.slice(0, 12).map((record, index) => {
+        const previous = records[index + 1];
+        const interval = intervalMinutes(record.startTime, previous?.startTime);
+        const time = new Intl.DateTimeFormat(undefined, { hour: '2-digit', minute: '2-digit', second: '2-digit' }).format(new Date(record.startTime));
+        const readableInterval = readableIntervalLabel(interval);
+        const duration = durationSeconds(record.startTime, record.endTime);
+        const note = record.isShort ? `<small>${ui.shortRecordLabel}</small>` : '';
+        return `<tr class="${record.isShort ? 'is-short-row' : ''}"><td>${time}${note}</td><td>${fmtSeconds(duration)}</td><td>${readableInterval}</td></tr>`;
+      }).join('');
+      tbody.innerHTML = activeRow + rows;
+    }
+
+    function render() {
+      const active = state.activeStart !== null;
+      const records = sortedRecords();
+      const last = records[0];
+      const previous = records[1];
+      const lastInterval = last ? intervalMinutes(last.startTime, previous?.startTime) : null;
+      const avgThree = recentAverage(3);
+      const avgSix = recentAverage(6);
+      const status = patternStatus();
+      root.classList.toggle('is-active', active);
+      el('labor-contraction-timer-action').setAttribute('aria-pressed', String(active));
+      el('labor-contraction-timer-action-text').textContent = active ? ui.stopButton : ui.startButton;
+      el('labor-contraction-timer-status').textContent = active ? ui.activeStatus : ui.idleStatus;
+      el('labor-contraction-timer-current').textContent = fmtSeconds(active ? durationSeconds(state.activeStart, Date.now()) : 0);
+      el('labor-contraction-timer-interval').textContent = readableIntervalLabel(lastInterval);
+      el('labor-contraction-timer-count').textContent = String(records.length);
+      el('labor-contraction-timer-average-three').textContent = fmtAverage(avgThree.duration, avgThree.interval);
+      el('labor-contraction-timer-average-six').textContent = fmtAverage(avgSix.duration, avgSix.interval);
+      el('labor-contraction-timer-regularity').textContent = regularityLabel();
+      el('labor-contraction-timer-status-card').className = `labor-contraction-timer-status-card ${status.className}`;
+      el('labor-contraction-timer-pattern-title').textContent = status.title;
+      el('labor-contraction-timer-pattern-body').textContent = status.body;
+      el('labor-contraction-timer-session-title').textContent = status.title;
+      el('labor-contraction-timer-session-body').textContent = summaryText();
+      el('labor-contraction-timer-last-duration').textContent = lastDurationLabel(last, active);
+      el('labor-contraction-timer-panel-average-three').textContent = fmtAverage(avgThree.duration, avgThree.interval);
+      el('labor-contraction-timer-panel-regularity').textContent = regularityLabel();
+      el('labor-contraction-timer-summary-text').textContent = summaryText();
+      el('labor-contraction-timer-undo').disabled = records.length === 0;
+      el('labor-contraction-timer-copy').disabled = records.length === 0;
+      el('labor-contraction-timer-alert').hidden = !hasFiveOneOnePattern();
+      renderHistory();
+    }
+
+    function updateBreathLabel() {
+      const label = el('labor-contraction-timer-breath-label');
+      label.textContent = root.classList.contains('is-breathe-out') ? ui.breatheIn : ui.breatheOut;
+      root.classList.toggle('is-breathe-out');
+    }
+
+    function startContraction() {
+      state.activeStart = Date.now();
+      tick = window.setInterval(render, 500);
+      breathTick = window.setInterval(updateBreathLabel, 4000);
+      render();
+    }
+
+    function stopContraction() {
+      if (state.activeStart === null) return;
+      const endTime = Date.now();
+      state.records.push({
+        id: String(endTime),
+        startTime: state.activeStart,
+        endTime,
+        isShort: durationSeconds(state.activeStart, endTime) < 8
+      });
+      state.activeStart = null;
+      window.clearInterval(tick);
+      window.clearInterval(breathTick);
+      root.classList.remove('is-breathe-out');
+      saveRecords();
+      render();
+    }
+
+    el('labor-contraction-timer-action').addEventListener('click', () => {
+      if (state.activeStart === null) startContraction();
+      else stopContraction();
+    });
+
+    el('labor-contraction-timer-reset').addEventListener('click', () => {
+      state.records = [];
+      state.activeStart = null;
+      window.clearInterval(tick);
+      window.clearInterval(breathTick);
+      saveRecords();
+      render();
+    });
+
+    el('labor-contraction-timer-undo').addEventListener('click', () => {
+      const records = sortedRecords();
+      const last = records[0];
+      if (!last) return;
+      state.records = state.records.filter((record) => record.id !== last.id);
+      saveRecords();
+      render();
+    });
+
+    el('labor-contraction-timer-copy').addEventListener('click', async () => {
+      const text = summaryText();
+      try {
+        await navigator.clipboard.writeText(text);
+        el('labor-contraction-timer-copy').textContent = ui.copiedSummaryButton;
+        window.setTimeout(() => {
+          el('labor-contraction-timer-copy').textContent = ui.copySummaryButton;
+        }, 1600);
+      } catch {
+        el('labor-contraction-timer-summary-text').textContent = text;
+      }
+    });
+
+    loadRecords();
+    render();
+  })();
+</script>
