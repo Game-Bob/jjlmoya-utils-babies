@@ -1,5 +1,4 @@
 export { babiesCategory } from './category';
-export { ALL_TOOLS } from './tools';
 
 export type { BabyFeedingCalculatorUI } from './tool/baby-feeding-calculator';
 
