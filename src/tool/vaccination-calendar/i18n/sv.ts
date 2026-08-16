@@ -24,7 +24,7 @@ const faq = [
   {
     question: 'Är vaccinationer säkra för prematura barn?',
     answer: 'Prematura barn bör vaccineras enligt sin kronologiska ålder (från födseln), inte korrigerad ålder, om inte neonatologen anger något annat. De prioriteras då de är mer sårbara.',
-  },
+  }
 ];
 const howTo = [
   {

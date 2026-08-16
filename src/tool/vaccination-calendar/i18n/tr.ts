@@ -24,7 +24,7 @@ const faq = [
   {
     question: 'Aşılar prematüre bebekler için güvenli mi?',
     answer: 'Prematüre bebekler, neonatolog aksini belirtmedikçe, düzeltilmiş yaşa göre değil, kronolojik yaşlarına (doğumdan itibaren) göre aşılanmalıdır. Daha savunmasız oldukları için önceliklidirler.',
-  },
+  }
 ];
 const howTo = [
   {

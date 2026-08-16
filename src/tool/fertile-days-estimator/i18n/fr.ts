@@ -21,6 +21,10 @@ const faq = [
     question: "Combien de temps l'ovule survit-il après l'ovulation ?",
     answer: "L'ovule a une durée de vie de 12 à 24 heures. Cependant, les spermatozoïdes peuvent survivre jusqu'à 5 jours dans le tractus reproducteur féminin, ce qui explique que la fenêtre fertile réelle s'étend sur plusieurs jours avant l'ovulation.",
   },
+  {
+    question: "Ce calculateur peut-il être utilisé pour éviter une grossesse ?",
+    answer: "Il n'est pas recommandé d'utiliser ce calculateur comme méthode contraceptive. Les méthodes basées sur le calendrier présentent un taux d'échec significatif. Consultez votre médecin pour des méthodes adaptées.",
+  },
 ];
 const howTo = [
   {

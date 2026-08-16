@@ -22,8 +22,8 @@ const faq = [
     answer: 'Oui, il est courant et sûr d\'administrer plusieurs vaccins lors de la même visite. Les vaccins combinés comme l\'hexavalent protègent déjà contre six maladies en une seule injection.',
   },
   {
-    question: 'Les vaccins sont-ils sûrs pour les bébés prématurés ?',
-    answer: 'Les bébés prématurés doivent être vaccinés selon leur âge chronologique (depuis la naissance), et non selon leur âge corrigé, sauf indication spécifique du néonatalogiste. Ils ont la priorité car ils sont plus vulnérables.',
+    question: "Les vaccins sont-ils sûrs pour les bébés prématurés ?",
+    answer: "Les bébés prématurés doivent être vaccinés selon leur âge chronologique (depuis la naissance), et non selon leur âge corrigé, sauf indication spécifique du néonatalogiste. Ils ont la priorité car ils sont plus vulnérables.",
   },
 ];
 const howTo = [

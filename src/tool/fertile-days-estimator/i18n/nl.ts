@@ -24,7 +24,7 @@ const faq = [
   {
     question: 'Kan deze calculator gebruikt worden als anticonceptie?',
     answer: 'Het wordt niet aanbevolen om deze calculator te gebruiken als anticonceptiemethode. Op de kalender gebaseerde methoden hebben een aanzienlijk foutpercentage. Raadpleeg je arts of gynaecoloog voor veilige en voor jou geschikte anticonceptiemethoden.',
-  },
+  }
 ];
 const howTo = [
   {

@@ -24,7 +24,7 @@ const faq = [
   {
     question: 'Czy szczepionki są bezpieczne dla wcześniaków?',
     answer: 'Wcześniaki powinny być szczepione zgodnie z ich wiekiem chronologicznym (od urodzenia), a nie skorygowanym, chyba że neonatolog zaleci inaczej. Mają one priorytet ze względu na większą podatność na zachorowania.',
-  },
+  }
 ];
 const howTo = [
   {

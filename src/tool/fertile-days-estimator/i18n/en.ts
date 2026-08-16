@@ -21,6 +21,10 @@ const faq = [
     question: 'How long does the egg survive after ovulation?',
     answer: 'The egg has a lifespan of 12 to 24 hours. However, sperm can survive up to 5 days in the female reproductive tract, which is why the actual fertile window spans several days before ovulation.',
   },
+  {
+    question: 'Can this calculator be used to avoid pregnancy?',
+    answer: 'It is not recommended to use this calculator as a contraceptive method. Calendar-based methods have a significant failure rate. Consult your doctor or gynaecologist for safe contraceptive methods suitable for you.',
+  },
 ];
 const howTo = [
   {

@@ -24,7 +24,7 @@ const faq = [
   {
     question: 'Zijn vaccins veilig voor premature baby\'s?',
     answer: 'Premature baby\'s moeten worden gevaccineerd volgens hun chronologische leeftijd (vanaf de geboorte), niet de gecorrigeerde leeftijd, tenzij de neonatoloog anders aangeeft. Ze hebben prioriteit omdat ze kwetsbaarder zijn.',
-  },
+  }
 ];
 const howTo = [
   {

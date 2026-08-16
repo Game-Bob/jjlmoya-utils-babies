@@ -22,8 +22,8 @@ const faq = [
     answer: 'Sí, es habitual y seguro administrar varias vacunas en la misma visita. Las vacunas combinadas como la hexavalente ya protegen contra seis enfermedades en una sola inyección.',
   },
   {
-    question: '¿Son seguras las vacunas para los bebés prematuros?',
-    answer: 'Los bebés prematuros deben vacunarse según su edad cronológica (desde el nacimiento), no la edad corregida, salvo indicación específica del neonatólogo. Tienen prioridad por ser más vulnerables.',
+    question: "¿Son seguras las vacunas para los bebés prematuros?",
+    answer: "Los bebés prematuros deben vacunarse según su edad cronológica (desde el nacimiento), no la edad corregida, salvo indicación específica del neonatólogo. Tienen prioridad por ser más vulnerables.",
   },
 ];
 const howTo = [

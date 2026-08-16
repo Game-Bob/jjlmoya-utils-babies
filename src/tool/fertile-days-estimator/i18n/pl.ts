@@ -24,7 +24,7 @@ const faq = [
   {
     question: 'Czy można używać tego kalkulatora jako metody antykoncepcji?',
     answer: 'Nie zaleca się używania tego kalkulatora jako metody antykoncepcyjnej. Metody kalendarzowe mają znaczny wskaźnik niepowodzeń. Skonsultuj się z lekarzem lub ginekologiem w celu dobrania bezpiecznej i odpowiedniej dla Ciebie metody antykoncepcji.',
-  },
+  }
 ];
 const howTo = [
   {

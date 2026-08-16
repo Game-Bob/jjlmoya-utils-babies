@@ -24,7 +24,7 @@ const faq = [
   {
     question: 'Kan man använda denna kalkylator för att undvika graviditet?',
     answer: 'Det rekommenderas inte att använda denna kalkylator som en preventivmetod. Kalenderbaserade metoder har en betydande felmarginal. Kontakta din läkare eller gynekolog för säkra och lämpliga preventivmetoder för dig.',
-  },
+  }
 ];
 const howTo = [
   {

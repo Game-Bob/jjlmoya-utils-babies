@@ -21,6 +21,10 @@ const faq = [
     question: 'Can several vaccines be given on the same day?',
     answer: 'Yes, it is common and safe to administer several vaccines at the same visit. Combined vaccines such as the hexavalent already protect against six diseases in a single injection.',
   },
+  {
+    question: 'Are vaccines safe for premature babies?',
+    answer: 'Premature infants should be vaccinated according to their chronological age (from birth), not corrected age, unless specifically directed by a neonatologist. They are a high-priority group.',
+  },
 ];
 const howTo = [
   {

@@ -24,7 +24,7 @@ const faq = [
   {
     question: 'Bisakah kalkulator ini digunakan untuk mencegah kehamilan?',
     answer: 'Tidak disarankan menggunakan kalkulator ini sebagai metode kontrasepsi. Metode berbasis kalender memiliki tingkat kegagalan yang signifikan. Konsultasikan dengan dokter atau ginekolog Anda untuk metode kontrasepsi yang aman dan sesuai bagi Anda.',
-  },
+  }
 ];
 const howTo = [
   {
