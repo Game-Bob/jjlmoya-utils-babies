@@ -3,7 +3,7 @@ import type { CategoryLocaleContent } from '../../types';
 export const content: CategoryLocaleContent = {
   slug: 'babies',
   title: '婴儿计算器',
-  description: '用于宝宝护理和发育监测的工具及计算器。',
+  description: '用于宝宝护理、成长记录和发育监测的工具及计算器。',
   seo: [
     {
       type: 'summary',

@@ -33,7 +33,7 @@ export const content: CategoryLocaleContent = {
     },
     {
       type: 'paragraph',
-      html: 'La calculadora de alimentación estima la cantidad de leche materna o de fórmula que necesita tu bebé según su edad en días, semanas o meses y su peso actual. Los cálculos siguen las pautas pediátricas estándar para garantizar una nutrición adecuada.',
+      html: 'La calculadora de alimentación estima la cantidad de leche materna o de fórmula según la edad y el peso del bebé. Úsala como orientación y contrasta el resultado con las indicaciones de su pediatra.',
     },
     {
       type: 'title',
