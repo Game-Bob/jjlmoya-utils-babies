@@ -1,0 +1,606 @@
+{
+  "version": 1,
+  "generatedAt": "2026-09-03T22:07:28.586Z",
+  "pages": {
+    "https://www.gamebob.dev/de/werkzeuge/kategorien/babys/baby-budget-planer/": {
+      "hash": "621a56427653de2963600e4e8fe9a5a95904ddd3b4cce51b66f83f543689b874",
+      "route": "/de/werkzeuge/kategorien/babys/baby-budget-planer/"
+    },
+    "https://www.gamebob.dev/de/werkzeuge/kategorien/babys/baby-futter-rechner/": {
+      "hash": "1d9b56612ec1fc17b331341c6ea2c43817f944a81265d08ea6462b6437cff17b",
+      "route": "/de/werkzeuge/kategorien/babys/baby-futter-rechner/"
+    },
+    "https://www.gamebob.dev/de/werkzeuge/kategorien/babys/babygrossenrechner/": {
+      "hash": "d8261bf3abca7dccc111e6661b43d674e034b81f67c11592a3d42e1189a348ec",
+      "route": "/de/werkzeuge/kategorien/babys/babygrossenrechner/"
+    },
+    "https://www.gamebob.dev/de/werkzeuge/kategorien/babys/fruchtbare-tage-rechner/": {
+      "hash": "32a5a94337b3f469d83d1af7a7d6cea97456a086bb6b6d635d88b9131106323a",
+      "route": "/de/werkzeuge/kategorien/babys/fruchtbare-tage-rechner/"
+    },
+    "https://www.gamebob.dev/de/werkzeuge/kategorien/babys/gewichtszunahme-schwangerschaft-rechner/": {
+      "hash": "7751496784f9ef0f7ce6c2a4051c0b91685d563935e29cdf4cd001922277db76",
+      "route": "/de/werkzeuge/kategorien/babys/gewichtszunahme-schwangerschaft-rechner/"
+    },
+    "https://www.gamebob.dev/de/werkzeuge/kategorien/babys/impfkalender-spanien-babys/": {
+      "hash": "d7bf3c0f3bae6b2c293cb5c5fb4bccf13db4ccc811ae2eb68a62281c3f517e41",
+      "route": "/de/werkzeuge/kategorien/babys/impfkalender-spanien-babys/"
+    },
+    "https://www.gamebob.dev/de/werkzeuge/kategorien/babys/": {
+      "hash": "0bd755154287a2e2c3e6a344cf68b0acc767cc6f806ba9b29b1a0df486cc3c56",
+      "route": "/de/werkzeuge/kategorien/babys/"
+    },
+    "https://www.gamebob.dev/de/werkzeuge/kategorien/babys/perzentilrechner-baby/": {
+      "hash": "15fca1027c330a2e0ec8377c9950559aaad2423b7feeaffbcf501b752a662d4f",
+      "route": "/de/werkzeuge/kategorien/babys/perzentilrechner-baby/"
+    },
+    "https://www.gamebob.dev/de/werkzeuge/kategorien/babys/schwangerschaftswochenrechner/": {
+      "hash": "eee1b6991a8eed398a10ef1e7aa7d0f756c770e11ec03bfbfb2c4f1eaf3d008f",
+      "route": "/de/werkzeuge/kategorien/babys/schwangerschaftswochenrechner/"
+    },
+    "https://www.gamebob.dev/de/werkzeuge/kategorien/babys/wehentimer/": {
+      "hash": "e1ded963e252ae3669ca72cbc6a1bed464f5fe39a32e582b19cd3c3b2f4a761d",
+      "route": "/de/werkzeuge/kategorien/babys/wehentimer/"
+    },
+    "https://www.gamebob.dev/en/utilities/categories/babies/baby-budget-planner/": {
+      "hash": "f62217d8d47babde92c1753aec765d9f48421c7f4798db36981f5ee58c613f02",
+      "route": "/en/utilities/categories/babies/baby-budget-planner/"
+    },
+    "https://www.gamebob.dev/en/utilities/categories/babies/baby-feeding-calculator/": {
+      "hash": "c15e47771d78b5f4e9306f1a6c9dc4d4f878f4342d64a1405a0ed901c9f9c341",
+      "route": "/en/utilities/categories/babies/baby-feeding-calculator/"
+    },
+    "https://www.gamebob.dev/en/utilities/categories/babies/baby-size-converter/": {
+      "hash": "b2fb373607933c87d1d21c634ed3bf068725b22e824b1e24307e7721ad1ad6dd",
+      "route": "/en/utilities/categories/babies/baby-size-converter/"
+    },
+    "https://www.gamebob.dev/en/utilities/categories/babies/baby-vaccination-calendar-spain/": {
+      "hash": "5bb3b08cd61d22f4a4a92e49fdfa585d596850855c94526ac4473ca8f194f097",
+      "route": "/en/utilities/categories/babies/baby-vaccination-calendar-spain/"
+    },
+    "https://www.gamebob.dev/en/utilities/categories/babies/baby-weight-height-percentile/": {
+      "hash": "05a3f27b1670b1456cf6e8c473ba56e7518514bc1fb8f30742b935f44782b8bb",
+      "route": "/en/utilities/categories/babies/baby-weight-height-percentile/"
+    },
+    "https://www.gamebob.dev/en/utilities/categories/babies/fertile-days-calculator/": {
+      "hash": "758103b2ed47fec960dd1c75e98eabf62ba9a2831c9c09d6e27b08bfb4232f64",
+      "route": "/en/utilities/categories/babies/fertile-days-calculator/"
+    },
+    "https://www.gamebob.dev/en/utilities/categories/babies/": {
+      "hash": "ccd394308ea600cc936c2ceb51eab95a8d039208ca8bf69954503342ecae683a",
+      "route": "/en/utilities/categories/babies/"
+    },
+    "https://www.gamebob.dev/en/utilities/categories/babies/labor-contraction-timer/": {
+      "hash": "70b445ee4704c5755e7e84e4875e9b2eca894ab82212901d678e60298705cf2e",
+      "route": "/en/utilities/categories/babies/labor-contraction-timer/"
+    },
+    "https://www.gamebob.dev/en/utilities/categories/babies/pregnancy-weeks-calculator/": {
+      "hash": "672cf1b0edf500ea5021dd9357efbbc7d1274ff775d3a8c9feb4adcf577beb85",
+      "route": "/en/utilities/categories/babies/pregnancy-weeks-calculator/"
+    },
+    "https://www.gamebob.dev/en/utilities/categories/babies/pregnancy-weight-gain-calculator/": {
+      "hash": "f3195388ef381c8c8ea7b4845b0ba3d365bf9d7d9e068bb79ddaee85c1a5e872",
+      "route": "/en/utilities/categories/babies/pregnancy-weight-gain-calculator/"
+    },
+    "https://www.gamebob.dev/fr/utilitaires/categories/bebes/calculateur-biberons-bebe/": {
+      "hash": "e5969e3fd8073f737582aabec403aa3ac94591c45a7ba8a05bbd4cbe6e8bc7db",
+      "route": "/fr/utilitaires/categories/bebes/calculateur-biberons-bebe/"
+    },
+    "https://www.gamebob.dev/fr/utilitaires/categories/bebes/calculateur-prise-poids-grossesse/": {
+      "hash": "1eae80bdf401c0a25957484717c27b1cc7272c0d15f86eb1b21bc65f944eb529",
+      "route": "/fr/utilitaires/categories/bebes/calculateur-prise-poids-grossesse/"
+    },
+    "https://www.gamebob.dev/fr/utilitaires/categories/bebes/calculatrice-jours-fertiles/": {
+      "hash": "dea042a382c024492fac6048ad60c5a8784fb37d5e1b2e17ef6b1aec2a7879e3",
+      "route": "/fr/utilitaires/categories/bebes/calculatrice-jours-fertiles/"
+    },
+    "https://www.gamebob.dev/fr/utilitaires/categories/bebes/calculatrice-semaines-grossesse/": {
+      "hash": "8be917432ab24921d15bf189ec217262862b2e30443d632a3dbfdffbcdd4b050",
+      "route": "/fr/utilitaires/categories/bebes/calculatrice-semaines-grossesse/"
+    },
+    "https://www.gamebob.dev/fr/utilitaires/categories/bebes/calendrier-vaccination-espagne-bebes/": {
+      "hash": "16199c410d286d5d10fb871544c2abd921b0a5157adc1e8fdba8e94a0adde013",
+      "route": "/fr/utilitaires/categories/bebes/calendrier-vaccination-espagne-bebes/"
+    },
+    "https://www.gamebob.dev/fr/utilitaires/categories/bebes/chronometre-contractions/": {
+      "hash": "834dbf949b09ca01f40d43d763a8e4fd53cd17dae95c357d5a8a4ed7a6f2c1e5",
+      "route": "/fr/utilitaires/categories/bebes/chronometre-contractions/"
+    },
+    "https://www.gamebob.dev/fr/utilitaires/categories/bebes/convertisseur-tailles-bebe/": {
+      "hash": "206747844f7163561d69dea2fb29a4527d3d0a2c723300e3a4fc6309df336333",
+      "route": "/fr/utilitaires/categories/bebes/convertisseur-tailles-bebe/"
+    },
+    "https://www.gamebob.dev/fr/utilitaires/categories/bebes/": {
+      "hash": "2cc720071ecdb8b1d3765f178d5c5925affd4b1762a073ae3307823deb39a6cd",
+      "route": "/fr/utilitaires/categories/bebes/"
+    },
+    "https://www.gamebob.dev/fr/utilitaires/categories/bebes/percentile-poids-taille-bebe/": {
+      "hash": "6c3a906ee49d83debde20b66c6fda4843a21592915e25cab5062fccd41b15c4c",
+      "route": "/fr/utilitaires/categories/bebes/percentile-poids-taille-bebe/"
+    },
+    "https://www.gamebob.dev/fr/utilitaires/categories/bebes/planificateur-budget-bebe/": {
+      "hash": "41a9bb8875671a1c47f20fa6b5f49a8fa6e462c3c9de542c807e33e71f5d3145",
+      "route": "/fr/utilitaires/categories/bebes/planificateur-budget-bebe/"
+    },
+    "https://www.gamebob.dev/id/utilitas/kategori/bayi/": {
+      "hash": "911f77ae8f799fd2a2c724de9d5d6cc30e4917bd20f34367d60e8a2db48bcff1",
+      "route": "/id/utilitas/kategori/bayi/"
+    },
+    "https://www.gamebob.dev/id/utilitas/kategori/bayi/kalender-vaksinasi-spanyol-bayi/": {
+      "hash": "7f6d740a3df6fae1f912f27b9b6e63a7aeab76a53bc27406a7b6d1e56ca6b7f5",
+      "route": "/id/utilitas/kategori/bayi/kalender-vaksinasi-spanyol-bayi/"
+    },
+    "https://www.gamebob.dev/id/utilitas/kategori/bayi/kalkulator-asupan-bayi/": {
+      "hash": "d2570c1db53073434d95a2d9aacda2f2d6fc9360294c8ff622497c35951b5ea5",
+      "route": "/id/utilitas/kategori/bayi/kalkulator-asupan-bayi/"
+    },
+    "https://www.gamebob.dev/id/utilitas/kategori/bayi/kalkulator-kenaikan-berat-badan-hamil/": {
+      "hash": "fb1b2347830c9711f14601bd0a3e220631141e1d7ba6a305addc337ed48fba96",
+      "route": "/id/utilitas/kategori/bayi/kalkulator-kenaikan-berat-badan-hamil/"
+    },
+    "https://www.gamebob.dev/id/utilitas/kategori/bayi/kalkulator-masa-subur/": {
+      "hash": "62b46e39b6e5464700d057849c14ac0dadb7cf1dc1116ec60f3f25055c41fa19",
+      "route": "/id/utilitas/kategori/bayi/kalkulator-masa-subur/"
+    },
+    "https://www.gamebob.dev/id/utilitas/kategori/bayi/kalkulator-minggu-kehamilan/": {
+      "hash": "e305852cabb2027b4b0c9fd3324e2dc895a9d5951b0cec9dee584ddcfcca87d1",
+      "route": "/id/utilitas/kategori/bayi/kalkulator-minggu-kehamilan/"
+    },
+    "https://www.gamebob.dev/id/utilitas/kategori/bayi/kalkulator-persentil-bayi/": {
+      "hash": "8ad04688bf28343ab85457f7df6c007a3821ff2db93bff225e3c74f62844a750",
+      "route": "/id/utilitas/kategori/bayi/kalkulator-persentil-bayi/"
+    },
+    "https://www.gamebob.dev/id/utilitas/kategori/bayi/konverter-ukuran-baju-bayi/": {
+      "hash": "f86c31cbffb53cb505db835be4585cdb827bb5d0b624a835f6d486501e096ba2",
+      "route": "/id/utilitas/kategori/bayi/konverter-ukuran-baju-bayi/"
+    },
+    "https://www.gamebob.dev/id/utilitas/kategori/bayi/penghitung-kontraksi-persalinan/": {
+      "hash": "61ceb6167b2ea55f538b9d21c69e16863490bbc94a37adb5f75db3c957d2821e",
+      "route": "/id/utilitas/kategori/bayi/penghitung-kontraksi-persalinan/"
+    },
+    "https://www.gamebob.dev/id/utilitas/kategori/bayi/perencana-anggaran-bayi/": {
+      "hash": "70c43595b73857612f04bde793b9c49adbb7475c94d6e195fb6eb6154d211aa4",
+      "route": "/id/utilitas/kategori/bayi/perencana-anggaran-bayi/"
+    },
+    "https://www.gamebob.dev/it/utilita/categorie/neonati/calcolatore-aumento-peso-gravidanza/": {
+      "hash": "38b420565c7bd556d48762ceef1b21605a2aae0624cae86a8e4964017362790f",
+      "route": "/it/utilita/categorie/neonati/calcolatore-aumento-peso-gravidanza/"
+    },
+    "https://www.gamebob.dev/it/utilita/categorie/neonati/calcolatore-giorni-fertili/": {
+      "hash": "aeab5d819b099c0cf405745ec21f220ace7add33022f8681bbee3bf8d5e1fb39",
+      "route": "/it/utilita/categorie/neonati/calcolatore-giorni-fertili/"
+    },
+    "https://www.gamebob.dev/it/utilita/categorie/neonati/calcolatore-percentili-neonati/": {
+      "hash": "4dc3df10101d84944cf81e8119a6a6725599bd3487552efb2fc2712a61d3e716",
+      "route": "/it/utilita/categorie/neonati/calcolatore-percentili-neonati/"
+    },
+    "https://www.gamebob.dev/it/utilita/categorie/neonati/calcolatore-poppate-neonato/": {
+      "hash": "dde6c9842939b63944dfcca9722ac1f4a3b4d97599187db2d5f84694c9edda02",
+      "route": "/it/utilita/categorie/neonati/calcolatore-poppate-neonato/"
+    },
+    "https://www.gamebob.dev/it/utilita/categorie/neonati/calcolatore-settimane-gravidanza/": {
+      "hash": "2b7b303a6bb1b2479b5913a44bb24771e5d893e7d84fe2980b6da8e651d7a6ef",
+      "route": "/it/utilita/categorie/neonati/calcolatore-settimane-gravidanza/"
+    },
+    "https://www.gamebob.dev/it/utilita/categorie/neonati/calendario-vaccinazione-spagna-neonati/": {
+      "hash": "8fc522f4c5a462520f80d6d5b4a9c6326b78430702d9f0902207c3145c903378",
+      "route": "/it/utilita/categorie/neonati/calendario-vaccinazione-spagna-neonati/"
+    },
+    "https://www.gamebob.dev/it/utilita/categorie/neonati/convertitore-taglie-neonato/": {
+      "hash": "2fe8c028860b825fb71aad9ebc3042452b2cd435791b075bc17d229c4b86bfa7",
+      "route": "/it/utilita/categorie/neonati/convertitore-taglie-neonato/"
+    },
+    "https://www.gamebob.dev/it/utilita/categorie/neonati/": {
+      "hash": "be1166b7dd0dfbfbdfad872ec9b05fa9dce16553dcf0745779bc66936d3fa6e0",
+      "route": "/it/utilita/categorie/neonati/"
+    },
+    "https://www.gamebob.dev/it/utilita/categorie/neonati/pianificatore-budget-neonato/": {
+      "hash": "d2a9c5c87de1b3091fafdfc960981213c23b56e395bdd33f2134586fc83834a7",
+      "route": "/it/utilita/categorie/neonati/pianificatore-budget-neonato/"
+    },
+    "https://www.gamebob.dev/it/utilita/categorie/neonati/timer-contrazioni-parto/": {
+      "hash": "3d072172d57d1d7a390b30bcb782bf3d78160609ee7b48543ff008d68b3bf110",
+      "route": "/it/utilita/categorie/neonati/timer-contrazioni-parto/"
+    },
+    "https://www.gamebob.dev/ja/utilities/categories/babies/baby-budget-planner/": {
+      "hash": "d3057732ab480486619e2dc401e1c61fc74234dd9b0aeafb5dd0a4fc69ff3722",
+      "route": "/ja/utilities/categories/babies/baby-budget-planner/"
+    },
+    "https://www.gamebob.dev/ja/utilities/categories/babies/baby-feeding-calculator/": {
+      "hash": "fa0ffff665bcdd959746004fb5361cbfa43e7fc93dc99f9b2de07b89476f17b0",
+      "route": "/ja/utilities/categories/babies/baby-feeding-calculator/"
+    },
+    "https://www.gamebob.dev/ja/utilities/categories/babies/baby-size-converter/": {
+      "hash": "4927315e820d7d24fd54b56fce8d6184abefd3bd534e50ed63e6fe9bd91f5677",
+      "route": "/ja/utilities/categories/babies/baby-size-converter/"
+    },
+    "https://www.gamebob.dev/ja/utilities/categories/babies/baby-vaccination-calendar-spain/": {
+      "hash": "8ef9f33a63c24045ce9e616205fdab2f1a0e7f97d7446258ca860df7daea6e25",
+      "route": "/ja/utilities/categories/babies/baby-vaccination-calendar-spain/"
+    },
+    "https://www.gamebob.dev/ja/utilities/categories/babies/baby-weight-height-percentile/": {
+      "hash": "60841461fe55011613c9b4b7c45ee6d5b379aec475c9c87ec51d3fab94f69789",
+      "route": "/ja/utilities/categories/babies/baby-weight-height-percentile/"
+    },
+    "https://www.gamebob.dev/ja/utilities/categories/babies/fertile-days-calculator/": {
+      "hash": "975b1309e7ef9e3220ddb944acb09125cad293fe2f3cc5f8491d97e4320ecbd9",
+      "route": "/ja/utilities/categories/babies/fertile-days-calculator/"
+    },
+    "https://www.gamebob.dev/ja/utilities/categories/babies/": {
+      "hash": "e813137a1869cfbeb06c67cfeae1329a62da35d24148a02d480349b8f2abc2a1",
+      "route": "/ja/utilities/categories/babies/"
+    },
+    "https://www.gamebob.dev/ja/utilities/categories/babies/labor-contraction-timer/": {
+      "hash": "71a3fb8c0611fe20c45948ff5822624b59abcddd1fcd4fde404f9c3710c37615",
+      "route": "/ja/utilities/categories/babies/labor-contraction-timer/"
+    },
+    "https://www.gamebob.dev/ja/utilities/categories/babies/pregnancy-weeks-calculator/": {
+      "hash": "062d014a49297a6602cd70674f21e761791140b716905419ce5f6b0aa9e9624e",
+      "route": "/ja/utilities/categories/babies/pregnancy-weeks-calculator/"
+    },
+    "https://www.gamebob.dev/ja/utilities/categories/babies/pregnancy-weight-gain-calculator/": {
+      "hash": "b55fcbf78b00053564f244d09aa29ad43954316b629e5c553f49ccf2a1d9f05f",
+      "route": "/ja/utilities/categories/babies/pregnancy-weight-gain-calculator/"
+    },
+    "https://www.gamebob.dev/ko/utilities/categories/babies/baby-budget-planner/": {
+      "hash": "be670ee03c543780e732e0219e5a73075bc204d2ca5d04d5b6ec9e74890c9436",
+      "route": "/ko/utilities/categories/babies/baby-budget-planner/"
+    },
+    "https://www.gamebob.dev/ko/utilities/categories/babies/baby-feeding-calculator/": {
+      "hash": "44be661e164ab784363d902f839a63d974143875bd9febc3c7393c1905e87771",
+      "route": "/ko/utilities/categories/babies/baby-feeding-calculator/"
+    },
+    "https://www.gamebob.dev/ko/utilities/categories/babies/baby-size-converter/": {
+      "hash": "22b2fd9c1fe59b8803b63aa0b0aae9a59346b62d06dddba01b8c019df3807196",
+      "route": "/ko/utilities/categories/babies/baby-size-converter/"
+    },
+    "https://www.gamebob.dev/ko/utilities/categories/babies/baby-vaccination-calendar-spain/": {
+      "hash": "73b2dfdab497741668e459d3e4acad7a917bc18c417348eb6f41692323b04490",
+      "route": "/ko/utilities/categories/babies/baby-vaccination-calendar-spain/"
+    },
+    "https://www.gamebob.dev/ko/utilities/categories/babies/baby-weight-height-percentile/": {
+      "hash": "72644227fa7ff75358da6a17f0736fb712e400406b6ca1a8987fdc07c5af5f25",
+      "route": "/ko/utilities/categories/babies/baby-weight-height-percentile/"
+    },
+    "https://www.gamebob.dev/ko/utilities/categories/babies/fertile-days-calculator/": {
+      "hash": "5b8739a6e9dea296b8f790e589794b8003204073b848d80c17a73056a63fd16f",
+      "route": "/ko/utilities/categories/babies/fertile-days-calculator/"
+    },
+    "https://www.gamebob.dev/ko/utilities/categories/babies/": {
+      "hash": "d6b0daecb32181fa0604272ebe749322f41d5d401426ca0ac0cfc1a9d0a34e16",
+      "route": "/ko/utilities/categories/babies/"
+    },
+    "https://www.gamebob.dev/ko/utilities/categories/babies/labor-contraction-timer/": {
+      "hash": "521bc7f07df0256921ae4ff46a4c6c421c150e252e7f070dbdae0ccf06f0fb7a",
+      "route": "/ko/utilities/categories/babies/labor-contraction-timer/"
+    },
+    "https://www.gamebob.dev/ko/utilities/categories/babies/pregnancy-weeks-calculator/": {
+      "hash": "33260f157f34050dc4ef65b6274da4dc31a8e60837fb615c82a36cc309465c0c",
+      "route": "/ko/utilities/categories/babies/pregnancy-weeks-calculator/"
+    },
+    "https://www.gamebob.dev/ko/utilities/categories/babies/pregnancy-weight-gain-calculator/": {
+      "hash": "518846ff2675e899dbc379b173f9bfa01131abdbc5990ceef973346ded9958c8",
+      "route": "/ko/utilities/categories/babies/pregnancy-weight-gain-calculator/"
+    },
+    "https://www.gamebob.dev/nl/hulpmiddelen/categorieen/babys/baby-budget-planner-berekenen/": {
+      "hash": "dab3c6dcca3e05c54c9c2cb06480527f7fadc0dfdd6cb3c63851666d618fb9c9",
+      "route": "/nl/hulpmiddelen/categorieen/babys/baby-budget-planner-berekenen/"
+    },
+    "https://www.gamebob.dev/nl/hulpmiddelen/categorieen/babys/baby-maat-omzetter/": {
+      "hash": "9983185d485587f258cdbbdce27b87f1dbfdae5267df3fc5e12c68e5cd4a4d42",
+      "route": "/nl/hulpmiddelen/categorieen/babys/baby-maat-omzetter/"
+    },
+    "https://www.gamebob.dev/nl/hulpmiddelen/categorieen/babys/gewichtstoename-zwangerschap-calculator/": {
+      "hash": "780031f2cead5a7314834e102b20628b1def1e52b773f8ef78d6ac5cf7e0b7c8",
+      "route": "/nl/hulpmiddelen/categorieen/babys/gewichtstoename-zwangerschap-calculator/"
+    },
+    "https://www.gamebob.dev/nl/hulpmiddelen/categorieen/babys/": {
+      "hash": "2c58973919983233957bf08e25d677dc24cd4cd04da6273b77e4fcea1d6e2ced",
+      "route": "/nl/hulpmiddelen/categorieen/babys/"
+    },
+    "https://www.gamebob.dev/nl/hulpmiddelen/categorieen/babys/percentiel-calculator-baby/": {
+      "hash": "cd4b6847b5b05e08b4505f4a3edb03841a156afa3a8b96b2bf2d7e85a6fe4d41",
+      "route": "/nl/hulpmiddelen/categorieen/babys/percentiel-calculator-baby/"
+    },
+    "https://www.gamebob.dev/nl/hulpmiddelen/categorieen/babys/vaccinatieschema-spanje-babys/": {
+      "hash": "54c0edc894134a4334683ba14e129bd22b0745d5b76a81f560065ad97b68b63f",
+      "route": "/nl/hulpmiddelen/categorieen/babys/vaccinatieschema-spanje-babys/"
+    },
+    "https://www.gamebob.dev/nl/hulpmiddelen/categorieen/babys/voedingscalculator-baby/": {
+      "hash": "9cd8082cc9d98d6afaea9292e9eac7b8ca545f3f8333c20a433096fbe84e0288",
+      "route": "/nl/hulpmiddelen/categorieen/babys/voedingscalculator-baby/"
+    },
+    "https://www.gamebob.dev/nl/hulpmiddelen/categorieen/babys/vruchtbare-dagen-calculator/": {
+      "hash": "807a8e4c7bd86e8a58717f71088511dc14f84b3cab5741cea1b0f3a780719e1e",
+      "route": "/nl/hulpmiddelen/categorieen/babys/vruchtbare-dagen-calculator/"
+    },
+    "https://www.gamebob.dev/nl/hulpmiddelen/categorieen/babys/weeennmonitor/": {
+      "hash": "7932dba9e2f0f5bb7a20ecb79b2bf5162bb5be361407f9f33b756ff8841dfc73",
+      "route": "/nl/hulpmiddelen/categorieen/babys/weeennmonitor/"
+    },
+    "https://www.gamebob.dev/nl/hulpmiddelen/categorieen/babys/zwangerschap-week-calculator/": {
+      "hash": "c48a13028a0607aed023d8fde8fb269db195aae067ebfa24338cd43925ae81fe",
+      "route": "/nl/hulpmiddelen/categorieen/babys/zwangerschap-week-calculator/"
+    },
+    "https://www.gamebob.dev/pl/narzedzia/kategorie/niemowleta/": {
+      "hash": "3bae9bb39c85152b71523a3db3f2effb25996d155218e2e1ce8e710c2ca41061",
+      "route": "/pl/narzedzia/kategorie/niemowleta/"
+    },
+    "https://www.gamebob.dev/pl/narzedzia/kategorie/niemowleta/kalendarz-szczepien-hiszpania-niemowleta/": {
+      "hash": "0cf80d34a1881c6ac0bf560c5513d8536c85434938f69ac96aeca999360d8682",
+      "route": "/pl/narzedzia/kategorie/niemowleta/kalendarz-szczepien-hiszpania-niemowleta/"
+    },
+    "https://www.gamebob.dev/pl/narzedzia/kategorie/niemowleta/kalkulator-budzetu-dziecka/": {
+      "hash": "1892133f110c259033ef41daca43b6799138b07537e69d6ccc1d4ebf6a5d38af",
+      "route": "/pl/narzedzia/kategorie/niemowleta/kalkulator-budzetu-dziecka/"
+    },
+    "https://www.gamebob.dev/pl/narzedzia/kategorie/niemowleta/kalkulator-dni-plodnych/": {
+      "hash": "e589199beee6843f43055ce931a4f5fe5301c75a9bb0daaffdf3a10d9f28ecd7",
+      "route": "/pl/narzedzia/kategorie/niemowleta/kalkulator-dni-plodnych/"
+    },
+    "https://www.gamebob.dev/pl/narzedzia/kategorie/niemowleta/kalkulator-karmienia-niemowlecia/": {
+      "hash": "0e62591196bc400041368d01320e3af2609738a3c163287dd99d860a82a32260",
+      "route": "/pl/narzedzia/kategorie/niemowleta/kalkulator-karmienia-niemowlecia/"
+    },
+    "https://www.gamebob.dev/pl/narzedzia/kategorie/niemowleta/kalkulator-przyrostu-masy-ciazy/": {
+      "hash": "c3f9ebdb2e95087406987696e683d20c64fe9e18dd6f56f5fd400b0cb35174cc",
+      "route": "/pl/narzedzia/kategorie/niemowleta/kalkulator-przyrostu-masy-ciazy/"
+    },
+    "https://www.gamebob.dev/pl/narzedzia/kategorie/niemowleta/kalkulator-rozmiarow-niemowlecych/": {
+      "hash": "48c326cac7044ef46bc75232b9401bb3baf6d1eae27b35e70c9639d11a35285e",
+      "route": "/pl/narzedzia/kategorie/niemowleta/kalkulator-rozmiarow-niemowlecych/"
+    },
+    "https://www.gamebob.dev/pl/narzedzia/kategorie/niemowleta/kalkulator-siatek-centylowych-niemowlat/": {
+      "hash": "4edca5050947802a60cda90cac5804ec9f3cc04b3157a0426ff28acabc1d8eb6",
+      "route": "/pl/narzedzia/kategorie/niemowleta/kalkulator-siatek-centylowych-niemowlat/"
+    },
+    "https://www.gamebob.dev/pl/narzedzia/kategorie/niemowleta/kalkulator-tygodnia-ciazy/": {
+      "hash": "f61c8e8749dd6bba942289f7cfd169b754b73cb77f583b63cf544e34b84afafe",
+      "route": "/pl/narzedzia/kategorie/niemowleta/kalkulator-tygodnia-ciazy/"
+    },
+    "https://www.gamebob.dev/pl/narzedzia/kategorie/niemowleta/stoper-skurczy-porodowych/": {
+      "hash": "b04e5175ff591aa4b9c268177eea1d8dacd1ba0cb37c37b78b4ecaf089aec051",
+      "route": "/pl/narzedzia/kategorie/niemowleta/stoper-skurczy-porodowych/"
+    },
+    "https://www.gamebob.dev/pt/utilidades/categorias/bebes/calculadora-dias-ferteis/": {
+      "hash": "f476be9c5bb24af566d5090268b997f90c9e24f10e851db3a4a1e90e3795a625",
+      "route": "/pt/utilidades/categorias/bebes/calculadora-dias-ferteis/"
+    },
+    "https://www.gamebob.dev/pt/utilidades/categorias/bebes/calculadora-ganho-peso-gravidez/": {
+      "hash": "2b4113b0086cf7d83557fc737354bc0380917852ae07c288908d77b8e8129421",
+      "route": "/pt/utilidades/categorias/bebes/calculadora-ganho-peso-gravidez/"
+    },
+    "https://www.gamebob.dev/pt/utilidades/categorias/bebes/calculadora-mamadas-bebe/": {
+      "hash": "70e2304e52d7e0dcfb69efe2ae483d898c281a1b2be75ebf944a659d5a2e798e",
+      "route": "/pt/utilidades/categorias/bebes/calculadora-mamadas-bebe/"
+    },
+    "https://www.gamebob.dev/pt/utilidades/categorias/bebes/calculadora-percentil-bebe/": {
+      "hash": "da3221b88f9229e11d6cfe0e26d39abb92dfa47d295c7b327156c65b0f8219c1",
+      "route": "/pt/utilidades/categorias/bebes/calculadora-percentil-bebe/"
+    },
+    "https://www.gamebob.dev/pt/utilidades/categorias/bebes/calculadora-semanas-gravidez/": {
+      "hash": "cd88642cbca7e89ba26be14570a23644ff679072795802670be8c330e353131a",
+      "route": "/pt/utilidades/categorias/bebes/calculadora-semanas-gravidez/"
+    },
+    "https://www.gamebob.dev/pt/utilidades/categorias/bebes/calendario-vacinacao-espanha-bebes/": {
+      "hash": "79119bb07c37564c01b5ba79271013e3cf236346cafc84ee1d14b931b1557c37",
+      "route": "/pt/utilidades/categorias/bebes/calendario-vacinacao-espanha-bebes/"
+    },
+    "https://www.gamebob.dev/pt/utilidades/categorias/bebes/conversor-tamanhos-bebe/": {
+      "hash": "18a927341b057710f15d5e67920878ca6d89f4346aab79a5783894fcddcc3b35",
+      "route": "/pt/utilidades/categorias/bebes/conversor-tamanhos-bebe/"
+    },
+    "https://www.gamebob.dev/pt/utilidades/categorias/bebes/cronometro-contracoes-parto/": {
+      "hash": "f887d9448742b587a8aaef9b2ed4debde42b37f0cc260b4fc18e8f0a397e3388",
+      "route": "/pt/utilidades/categorias/bebes/cronometro-contracoes-parto/"
+    },
+    "https://www.gamebob.dev/pt/utilidades/categorias/bebes/": {
+      "hash": "ea5b2de5c708b537cc53ff99f49629dffc7655cc00f5897d16b6861abe825bcc",
+      "route": "/pt/utilidades/categorias/bebes/"
+    },
+    "https://www.gamebob.dev/pt/utilidades/categorias/bebes/planeador-orcamento-bebe/": {
+      "hash": "d9715c45fcf2cd2be40238b915a811467d3b53c6e46e19cc494c2e16032fb3c8",
+      "route": "/pt/utilidades/categorias/bebes/planeador-orcamento-bebe/"
+    },
+    "https://www.gamebob.dev/ru/instrumenty/kategorii/mladency/byudzhet-rebenka-pervyj-god/": {
+      "hash": "a7eddb43214e85918e95c9424fbc47e196327a1e8365f97c7f077d9d489eb1c8",
+      "route": "/ru/instrumenty/kategorii/mladency/byudzhet-rebenka-pervyj-god/"
+    },
+    "https://www.gamebob.dev/ru/instrumenty/kategorii/mladency/": {
+      "hash": "cbc65c8784e9d75e18e2d14ba60a610753e08e10bbbd82eb842d0256b9b15c2c",
+      "route": "/ru/instrumenty/kategorii/mladency/"
+    },
+    "https://www.gamebob.dev/ru/instrumenty/kategorii/mladency/kalendar-blagopriyatnyh-dney-dlya-zachatiya/": {
+      "hash": "20be47d501291a9106e9a1db099627129f64ec50aa7a3e37029e97fd8d00dd75",
+      "route": "/ru/instrumenty/kategorii/mladency/kalendar-blagopriyatnyh-dney-dlya-zachatiya/"
+    },
+    "https://www.gamebob.dev/ru/instrumenty/kategorii/mladency/kalendar-vakcinacii-v-ispanii-dlya-detej/": {
+      "hash": "b85fb262da36bfaa5884c6369c00dbdbad1de326cb3d888122922abff0f8477d",
+      "route": "/ru/instrumenty/kategorii/mladency/kalendar-vakcinacii-v-ispanii-dlya-detej/"
+    },
+    "https://www.gamebob.dev/ru/instrumenty/kategorii/mladency/kalkulyator-beremennosti-po-nedelyam/": {
+      "hash": "c79b4ac753cbd3f49bc6f9ea5c73e523918370feb801fe5537110d4abff74193",
+      "route": "/ru/instrumenty/kategorii/mladency/kalkulyator-beremennosti-po-nedelyam/"
+    },
+    "https://www.gamebob.dev/ru/instrumenty/kategorii/mladency/kalkulyator-kormleniya-rebenka/": {
+      "hash": "0391d1101a88d06acca48861244dd98dd453977ed60243d8ae6497ddb084bf1f",
+      "route": "/ru/instrumenty/kategorii/mladency/kalkulyator-kormleniya-rebenka/"
+    },
+    "https://www.gamebob.dev/ru/instrumenty/kategorii/mladency/kalkulyator-nabora-vesa-beremennost/": {
+      "hash": "bf9f6caeb0e6dc1b2988a8b398992d71c559b2de0f3893c18d5a72357e9ed79b",
+      "route": "/ru/instrumenty/kategorii/mladency/kalkulyator-nabora-vesa-beremennost/"
+    },
+    "https://www.gamebob.dev/ru/instrumenty/kategorii/mladency/kalkulyator-percentilej-rebenka/": {
+      "hash": "5db4e45166b3503a4e0cb258e0181b9449c1fcdb57018238955990d16d28bbf3",
+      "route": "/ru/instrumenty/kategorii/mladency/kalkulyator-percentilej-rebenka/"
+    },
+    "https://www.gamebob.dev/ru/instrumenty/kategorii/mladency/konverter-razmerov-odezhdy-dlya-novorozhdennyh/": {
+      "hash": "ae40aecb7db63b68715b560f55a7b5f85c77cac32f059235186dab5ac163d59b",
+      "route": "/ru/instrumenty/kategorii/mladency/konverter-razmerov-odezhdy-dlya-novorozhdennyh/"
+    },
+    "https://www.gamebob.dev/ru/instrumenty/kategorii/mladency/taimer-skhvatok/": {
+      "hash": "23d9631e10b8a4b643e305ec79a6c4a798595b55ba40426750069b3c271694d3",
+      "route": "/ru/instrumenty/kategorii/mladency/taimer-skhvatok/"
+    },
+    "https://www.gamebob.dev/sv/verktyg/kategorier/bebisar/budgetplanerare-bebis/": {
+      "hash": "71264ca63207e7bd1bdc2568e1205a3b996e3c49d892208861ff54ed637a565e",
+      "route": "/sv/verktyg/kategorier/bebisar/budgetplanerare-bebis/"
+    },
+    "https://www.gamebob.dev/sv/verktyg/kategorier/bebisar/forlossningstimer/": {
+      "hash": "8c6ef740591db66f3e2087c38163c3881505347689744679518a33e7bf7a5f83",
+      "route": "/sv/verktyg/kategorier/bebisar/forlossningstimer/"
+    },
+    "https://www.gamebob.dev/sv/verktyg/kategorier/bebisar/graviditetskalkylator-veckor/": {
+      "hash": "8ce3693c8e72711cabd67d829ea6d176c8f638afa43a1f044beea08a91220897",
+      "route": "/sv/verktyg/kategorier/bebisar/graviditetskalkylator-veckor/"
+    },
+    "https://www.gamebob.dev/sv/verktyg/kategorier/bebisar/": {
+      "hash": "bd0b22e28d4c0d87e063d2675e43e663bfbf41a23a92a7273b3930477b4c3378",
+      "route": "/sv/verktyg/kategorier/bebisar/"
+    },
+    "https://www.gamebob.dev/sv/verktyg/kategorier/bebisar/kalkulator-fertila-dagar/": {
+      "hash": "31b05aa577acf3c17f06b0c36034cbce7d22e4365f2d677ea9355aa6dc0333ab",
+      "route": "/sv/verktyg/kategorier/bebisar/kalkulator-fertila-dagar/"
+    },
+    "https://www.gamebob.dev/sv/verktyg/kategorier/bebisar/matningskalkylator-baby/": {
+      "hash": "ae02cbf89f9027e27ab3c0f7a0dfa0b433c670a3b4fa7ff03575f2b0345ee7fc",
+      "route": "/sv/verktyg/kategorier/bebisar/matningskalkylator-baby/"
+    },
+    "https://www.gamebob.dev/sv/verktyg/kategorier/bebisar/percentilberaknare-bebis/": {
+      "hash": "cad161d8e0d8893e42f909d49af0feb36c03a6af0782b01b54ee734406a053eb",
+      "route": "/sv/verktyg/kategorier/bebisar/percentilberaknare-bebis/"
+    },
+    "https://www.gamebob.dev/sv/verktyg/kategorier/bebisar/storleksguide-bebis/": {
+      "hash": "48267816c891b6d84407eccb976a88844a913d8b51666e8e202b44540330e3dc",
+      "route": "/sv/verktyg/kategorier/bebisar/storleksguide-bebis/"
+    },
+    "https://www.gamebob.dev/sv/verktyg/kategorier/bebisar/vaccinationsprogram-spanien-bebisar/": {
+      "hash": "3130af9b20b685f649d5b0717cf4ceda462255409514bf4c2a6073e98891cab7",
+      "route": "/sv/verktyg/kategorier/bebisar/vaccinationsprogram-spanien-bebisar/"
+    },
+    "https://www.gamebob.dev/sv/verktyg/kategorier/bebisar/viktokning-graviditet-kalkylator/": {
+      "hash": "144213ab85c4df4c8806a0a01561e7f513303abfdca4aed55b9e946c265dca6f",
+      "route": "/sv/verktyg/kategorier/bebisar/viktokning-graviditet-kalkylator/"
+    },
+    "https://www.gamebob.dev/tr/araclar/kategoriler/bebekler/bebek-beslenme-hesaplayici/": {
+      "hash": "2f0664ccb05ca7a218cabda3e997222745831e0b644de855e5c66942b5d6b844",
+      "route": "/tr/araclar/kategoriler/bebekler/bebek-beslenme-hesaplayici/"
+    },
+    "https://www.gamebob.dev/tr/araclar/kategoriler/bebekler/bebek-butce-planlayici/": {
+      "hash": "bd0ceb1a402060547ec97ceaef022c23815e815d56c5c8906b6588c1a47ed835",
+      "route": "/tr/araclar/kategoriler/bebekler/bebek-butce-planlayici/"
+    },
+    "https://www.gamebob.dev/tr/araclar/kategoriler/bebekler/bebek-kiyafet-beden-donusturucu/": {
+      "hash": "72340cb92194b5959bb507ae6576b1e7f2341fc6cab4f8a7a67822e4c7931f85",
+      "route": "/tr/araclar/kategoriler/bebekler/bebek-kiyafet-beden-donusturucu/"
+    },
+    "https://www.gamebob.dev/tr/araclar/kategoriler/bebekler/bebek-persentil-hesaplama/": {
+      "hash": "1004ecc42ce3932d42791df4b7338dbcb0b086e54e4b1ef6224f88772d6f6998",
+      "route": "/tr/araclar/kategoriler/bebekler/bebek-persentil-hesaplama/"
+    },
+    "https://www.gamebob.dev/tr/araclar/kategoriler/bebekler/dogum-kasilma-sayaci/": {
+      "hash": "27a637557351679b1ffa715037500393b8ca3216c7eeb5d7b44b26d3972ce584",
+      "route": "/tr/araclar/kategoriler/bebekler/dogum-kasilma-sayaci/"
+    },
+    "https://www.gamebob.dev/tr/araclar/kategoriler/bebekler/gebelik-haftasi-hesaplama/": {
+      "hash": "c349f29fcbc6479d27953372d0b62d92cecf873cf727da2871eb04e013b788e8",
+      "route": "/tr/araclar/kategoriler/bebekler/gebelik-haftasi-hesaplama/"
+    },
+    "https://www.gamebob.dev/tr/araclar/kategoriler/bebekler/gebelikte-kilo-alimi-hesaplayici/": {
+      "hash": "3acf8352b54c2084d77a447247bf1cfc78139a87632fb76bb4751bb2f878a500",
+      "route": "/tr/araclar/kategoriler/bebekler/gebelikte-kilo-alimi-hesaplayici/"
+    },
+    "https://www.gamebob.dev/tr/araclar/kategoriler/bebekler/": {
+      "hash": "55046062467d7844e3278658af463813240021805c01f607cec540ec73b90c3e",
+      "route": "/tr/araclar/kategoriler/bebekler/"
+    },
+    "https://www.gamebob.dev/tr/araclar/kategoriler/bebekler/ispanya-bebek-asi-takvimi/": {
+      "hash": "37b8b4a105fc5543153e84185abaef48f5caaadb3d84bd60deacd738e99014b3",
+      "route": "/tr/araclar/kategoriler/bebekler/ispanya-bebek-asi-takvimi/"
+    },
+    "https://www.gamebob.dev/tr/araclar/kategoriler/bebekler/yumurtlama-gunu-hesaplama/": {
+      "hash": "636d63c6ad03d8b1488292c2023d3bb23ed1da8e219941a38c94292159bc09c6",
+      "route": "/tr/araclar/kategoriler/bebekler/yumurtlama-gunu-hesaplama/"
+    },
+    "https://www.jjlmoya.es/utilidades/calculadora-dias-fertiles/": {
+      "hash": "e8241aaad24fb786ea937a2fd58703f9d5c719fd9efe628bba566f4587dbf9f8",
+      "route": "/utilidades/calculadora-dias-fertiles/"
+    },
+    "https://www.jjlmoya.es/utilidades/calculadora-ganancia-peso-embarazo/": {
+      "hash": "f88d086fce64281a9b324e3ab9f8a946ccec88ddfb45895cb059498dd91f3148",
+      "route": "/utilidades/calculadora-ganancia-peso-embarazo/"
+    },
+    "https://www.jjlmoya.es/utilidades/calculadora-semanas-embarazo/": {
+      "hash": "593404e5d93f45c449d8f0f1cc6634e09ece75cad7255d2f7f8447ec7d45bab8",
+      "route": "/utilidades/calculadora-semanas-embarazo/"
+    },
+    "https://www.jjlmoya.es/utilidades/calculadora-tomas-bebe/": {
+      "hash": "d3c83e3c70cdebeb3ebcc0d762f3eb8048081474a04de0c409cfa23add894906",
+      "route": "/utilidades/calculadora-tomas-bebe/"
+    },
+    "https://www.jjlmoya.es/utilidades/calendario-vacunacion-espana-bebes/": {
+      "hash": "f95ddafcd805924d247128502f4a9cd8febd5a35dcf38795dc401fd027da8b35",
+      "route": "/utilidades/calendario-vacunacion-espana-bebes/"
+    },
+    "https://www.jjlmoya.es/utilidades/categorias/bebes/": {
+      "hash": "d9915758891d7b967aaec7eb8a093abee22daff1a8f211e1a4c21b91a9b0d5e8",
+      "route": "/utilidades/categorias/bebes/"
+    },
+    "https://www.jjlmoya.es/utilidades/contador-contracciones-parto/": {
+      "hash": "ac1b90bed3e82d502729c27018af92511246f2cfa6befadadc7812ee36131075",
+      "route": "/utilidades/contador-contracciones-parto/"
+    },
+    "https://www.jjlmoya.es/utilidades/conversor-tallas-bebe/": {
+      "hash": "08dc5c24a3b4fd48af81c4bc4a8232d67ee31a693c17df4daf2276eccee18750",
+      "route": "/utilidades/conversor-tallas-bebe/"
+    },
+    "https://www.jjlmoya.es/utilidades/percentil-peso-talla-bebe/": {
+      "hash": "8babac2717e279d0b2e1bc9467833ba077c62b8e747655e066f387b21b263590",
+      "route": "/utilidades/percentil-peso-talla-bebe/"
+    },
+    "https://www.jjlmoya.es/utilidades/presupuesto-primer-ano-bebe/": {
+      "hash": "e30ae7230d7dc78b0940ad86753e3900145153e3f5718eb7327b3f9468e0c2fc",
+      "route": "/utilidades/presupuesto-primer-ano-bebe/"
+    },
+    "https://www.gamebob.dev/zh/utilities/categories/babies/baby-budget-planner/": {
+      "hash": "ed5a4d0961932c8f0d6c7df100a3e12887db64999c038eabe924fd62e470b91d",
+      "route": "/zh/utilities/categories/babies/baby-budget-planner/"
+    },
+    "https://www.gamebob.dev/zh/utilities/categories/babies/baby-feeding-calculator/": {
+      "hash": "8a3ef41632d852e68cb4c1533b806ce318842697c7f9e858b2db77a163b27815",
+      "route": "/zh/utilities/categories/babies/baby-feeding-calculator/"
+    },
+    "https://www.gamebob.dev/zh/utilities/categories/babies/baby-size-converter/": {
+      "hash": "0081c70f7598d4f793563fbe3db762ddd298dc1c612f3ae82ec2f663ef0f2b68",
+      "route": "/zh/utilities/categories/babies/baby-size-converter/"
+    },
+    "https://www.gamebob.dev/zh/utilities/categories/babies/baby-vaccination-calendar-spain/": {
+      "hash": "e7f43216cf6bf74d33e99f076fc83e60f8538d6dea18d52bb8dc4f16dbb9e90b",
+      "route": "/zh/utilities/categories/babies/baby-vaccination-calendar-spain/"
+    },
+    "https://www.gamebob.dev/zh/utilities/categories/babies/baby-weight-height-percentile/": {
+      "hash": "3c5cc537c0fda6bc46c57680e7b9cdbac8e008da3fa8739e37590c97520a89fe",
+      "route": "/zh/utilities/categories/babies/baby-weight-height-percentile/"
+    },
+    "https://www.gamebob.dev/zh/utilities/categories/babies/fertile-days-calculator/": {
+      "hash": "6148921632b28e8ca5ad794b5c19371f723716b16e0f4abf711774302e6bf191",
+      "route": "/zh/utilities/categories/babies/fertile-days-calculator/"
+    },
+    "https://www.gamebob.dev/zh/utilities/categories/babies/": {
+      "hash": "d75c38ea33eba3469e3e15b61b13012286f31c4cbf9a841dba0b87640087bb8b",
+      "route": "/zh/utilities/categories/babies/"
+    },
+    "https://www.gamebob.dev/zh/utilities/categories/babies/labor-contraction-timer/": {
+      "hash": "38e468674dbcf3e7812870fc93f23669801cd449e1aaaf64e6a29cd5f3dd769a",
+      "route": "/zh/utilities/categories/babies/labor-contraction-timer/"
+    },
+    "https://www.gamebob.dev/zh/utilities/categories/babies/pregnancy-weeks-calculator/": {
+      "hash": "02f65020a3bab314030eacf853c330979f750a5744cb75ce17b9cf7f0479f2b6",
+      "route": "/zh/utilities/categories/babies/pregnancy-weeks-calculator/"
+    },
+    "https://www.gamebob.dev/zh/utilities/categories/babies/pregnancy-weight-gain-calculator/": {
+      "hash": "b509db4d4d4fead9ebcea774484771a696bb72a8f69c401a15039cb7eb3684a8",
+      "route": "/zh/utilities/categories/babies/pregnancy-weight-gain-calculator/"
+    }
+  }
+}
