@@ -7,195 +7,99 @@
     "preview_urls": true,
     "routes": [
         {
-            "pattern": "www.jjlmoya.es/utilidades/categorias/bebes",
+            "pattern": "www.jjlmoya.es/utilidades/categorias/bebes*",
             "zone_name": "jjlmoya.es"
         },
         {
-            "pattern": "www.jjlmoya.es/utilidades/categorias/bebes/*",
+            "pattern": "www.jjlmoya.es/utilidades/presupuesto-primer-ano-bebe*",
             "zone_name": "jjlmoya.es"
         },
         {
-            "pattern": "www.jjlmoya.es/utilidades/presupuesto-primer-ano-bebe",
+            "pattern": "www.jjlmoya.es/utilidades/calculadora-tomas-bebe*",
             "zone_name": "jjlmoya.es"
         },
         {
-            "pattern": "www.jjlmoya.es/utilidades/presupuesto-primer-ano-bebe/*",
+            "pattern": "www.jjlmoya.es/utilidades/percentil-peso-talla-bebe*",
             "zone_name": "jjlmoya.es"
         },
         {
-            "pattern": "www.jjlmoya.es/utilidades/calculadora-tomas-bebe",
+            "pattern": "www.jjlmoya.es/utilidades/conversor-tallas-bebe*",
             "zone_name": "jjlmoya.es"
         },
         {
-            "pattern": "www.jjlmoya.es/utilidades/calculadora-tomas-bebe/*",
+            "pattern": "www.jjlmoya.es/utilidades/calculadora-dias-fertiles*",
             "zone_name": "jjlmoya.es"
         },
         {
-            "pattern": "www.jjlmoya.es/utilidades/percentil-peso-talla-bebe",
+            "pattern": "www.jjlmoya.es/utilidades/contador-contracciones-parto*",
             "zone_name": "jjlmoya.es"
         },
         {
-            "pattern": "www.jjlmoya.es/utilidades/percentil-peso-talla-bebe/*",
+            "pattern": "www.jjlmoya.es/utilidades/calculadora-semanas-embarazo*",
             "zone_name": "jjlmoya.es"
         },
         {
-            "pattern": "www.jjlmoya.es/utilidades/conversor-tallas-bebe",
+            "pattern": "www.jjlmoya.es/utilidades/calculadora-ganancia-peso-embarazo*",
             "zone_name": "jjlmoya.es"
         },
         {
-            "pattern": "www.jjlmoya.es/utilidades/conversor-tallas-bebe/*",
+            "pattern": "www.jjlmoya.es/utilidades/calendario-vacunacion-espana-bebes*",
             "zone_name": "jjlmoya.es"
         },
         {
-            "pattern": "www.jjlmoya.es/utilidades/calculadora-dias-fertiles",
-            "zone_name": "jjlmoya.es"
-        },
-        {
-            "pattern": "www.jjlmoya.es/utilidades/calculadora-dias-fertiles/*",
-            "zone_name": "jjlmoya.es"
-        },
-        {
-            "pattern": "www.jjlmoya.es/utilidades/contador-contracciones-parto",
-            "zone_name": "jjlmoya.es"
-        },
-        {
-            "pattern": "www.jjlmoya.es/utilidades/contador-contracciones-parto/*",
-            "zone_name": "jjlmoya.es"
-        },
-        {
-            "pattern": "www.jjlmoya.es/utilidades/calculadora-semanas-embarazo",
-            "zone_name": "jjlmoya.es"
-        },
-        {
-            "pattern": "www.jjlmoya.es/utilidades/calculadora-semanas-embarazo/*",
-            "zone_name": "jjlmoya.es"
-        },
-        {
-            "pattern": "www.jjlmoya.es/utilidades/calculadora-ganancia-peso-embarazo",
-            "zone_name": "jjlmoya.es"
-        },
-        {
-            "pattern": "www.jjlmoya.es/utilidades/calculadora-ganancia-peso-embarazo/*",
-            "zone_name": "jjlmoya.es"
-        },
-        {
-            "pattern": "www.jjlmoya.es/utilidades/calendario-vacunacion-espana-bebes",
-            "zone_name": "jjlmoya.es"
-        },
-        {
-            "pattern": "www.jjlmoya.es/utilidades/calendario-vacunacion-espana-bebes/*",
-            "zone_name": "jjlmoya.es"
-        },
-        {
-            "pattern": "www.gamebob.dev/en/utilities/categories/babies",
+            "pattern": "www.gamebob.dev/en/utilities/categories/babies*",
             "zone_name": "gamebob.dev"
         },
         {
-            "pattern": "www.gamebob.dev/en/utilities/categories/babies/*",
+            "pattern": "www.gamebob.dev/fr/utilitaires/categories/bebes*",
             "zone_name": "gamebob.dev"
         },
         {
-            "pattern": "www.gamebob.dev/fr/utilitaires/categories/bebes",
+            "pattern": "www.gamebob.dev/de/werkzeuge/kategorien/babys*",
             "zone_name": "gamebob.dev"
         },
         {
-            "pattern": "www.gamebob.dev/fr/utilitaires/categories/bebes/*",
+            "pattern": "www.gamebob.dev/it/utilita/categorie/neonati*",
             "zone_name": "gamebob.dev"
         },
         {
-            "pattern": "www.gamebob.dev/de/werkzeuge/kategorien/babys",
+            "pattern": "www.gamebob.dev/pt/utilidades/categorias/bebes*",
             "zone_name": "gamebob.dev"
         },
         {
-            "pattern": "www.gamebob.dev/de/werkzeuge/kategorien/babys/*",
+            "pattern": "www.gamebob.dev/nl/hulpmiddelen/categorieen/babys*",
             "zone_name": "gamebob.dev"
         },
         {
-            "pattern": "www.gamebob.dev/it/utilita/categorie/neonati",
+            "pattern": "www.gamebob.dev/sv/verktyg/kategorier/bebisar*",
             "zone_name": "gamebob.dev"
         },
         {
-            "pattern": "www.gamebob.dev/it/utilita/categorie/neonati/*",
+            "pattern": "www.gamebob.dev/pl/narzedzia/kategorie/niemowleta*",
             "zone_name": "gamebob.dev"
         },
         {
-            "pattern": "www.gamebob.dev/pt/utilidades/categorias/bebes",
+            "pattern": "www.gamebob.dev/id/utilitas/kategori/bayi*",
             "zone_name": "gamebob.dev"
         },
         {
-            "pattern": "www.gamebob.dev/pt/utilidades/categorias/bebes/*",
+            "pattern": "www.gamebob.dev/tr/araclar/kategoriler/bebekler*",
             "zone_name": "gamebob.dev"
         },
         {
-            "pattern": "www.gamebob.dev/nl/hulpmiddelen/categorieen/babys",
+            "pattern": "www.gamebob.dev/ru/instrumenty/kategorii/mladency*",
             "zone_name": "gamebob.dev"
         },
         {
-            "pattern": "www.gamebob.dev/nl/hulpmiddelen/categorieen/babys/*",
+            "pattern": "www.gamebob.dev/ja/utilities/categories/babies*",
             "zone_name": "gamebob.dev"
         },
         {
-            "pattern": "www.gamebob.dev/sv/verktyg/kategorier/bebisar",
+            "pattern": "www.gamebob.dev/ko/utilities/categories/babies*",
             "zone_name": "gamebob.dev"
         },
         {
-            "pattern": "www.gamebob.dev/sv/verktyg/kategorier/bebisar/*",
-            "zone_name": "gamebob.dev"
-        },
-        {
-            "pattern": "www.gamebob.dev/pl/narzedzia/kategorie/niemowleta",
-            "zone_name": "gamebob.dev"
-        },
-        {
-            "pattern": "www.gamebob.dev/pl/narzedzia/kategorie/niemowleta/*",
-            "zone_name": "gamebob.dev"
-        },
-        {
-            "pattern": "www.gamebob.dev/id/utilitas/kategori/bayi",
-            "zone_name": "gamebob.dev"
-        },
-        {
-            "pattern": "www.gamebob.dev/id/utilitas/kategori/bayi/*",
-            "zone_name": "gamebob.dev"
-        },
-        {
-            "pattern": "www.gamebob.dev/tr/araclar/kategoriler/bebekler",
-            "zone_name": "gamebob.dev"
-        },
-        {
-            "pattern": "www.gamebob.dev/tr/araclar/kategoriler/bebekler/*",
-            "zone_name": "gamebob.dev"
-        },
-        {
-            "pattern": "www.gamebob.dev/ru/instrumenty/kategorii/mladency",
-            "zone_name": "gamebob.dev"
-        },
-        {
-            "pattern": "www.gamebob.dev/ru/instrumenty/kategorii/mladency/*",
-            "zone_name": "gamebob.dev"
-        },
-        {
-            "pattern": "www.gamebob.dev/ja/utilities/categories/babies",
-            "zone_name": "gamebob.dev"
-        },
-        {
-            "pattern": "www.gamebob.dev/ja/utilities/categories/babies/*",
-            "zone_name": "gamebob.dev"
-        },
-        {
-            "pattern": "www.gamebob.dev/ko/utilities/categories/babies",
-            "zone_name": "gamebob.dev"
-        },
-        {
-            "pattern": "www.gamebob.dev/ko/utilities/categories/babies/*",
-            "zone_name": "gamebob.dev"
-        },
-        {
-            "pattern": "www.gamebob.dev/zh/utilities/categories/babies",
-            "zone_name": "gamebob.dev"
-        },
-        {
-            "pattern": "www.gamebob.dev/zh/utilities/categories/babies/*",
+            "pattern": "www.gamebob.dev/zh/utilities/categories/babies*",
             "zone_name": "gamebob.dev"
         },
         {
